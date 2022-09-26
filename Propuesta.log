@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.25)  25 SEP 2022 21:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.25)  25 SEP 2022 22:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -681,7 +681,7 @@ Package rerunfilecheck Info: File `Propuesta.out' has not changed.
 Here is how much of TeX's memory you used:
  15756 strings out of 477324
  278115 string characters out of 2828655
- 751988 words of memory out of 3000000
+ 752017 words of memory out of 3000000
  36676 multiletter control sequences out of 15000+600000
  480575 words of font info for 60 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
@@ -691,7 +691,7 @@ s/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></home/car
 los/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt12.pfb></home/car
 los/.miktex/texmfs/install/fonts/type1/urw/palatino/uplb8a.pfb></home/carlos/.m
 iktex/texmfs/install/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on Propuesta.pdf (1 page, 55600 bytes).
+Output written on Propuesta.pdf (1 page, 55041 bytes).
 PDF statistics:
  60 PDF objects out of 1000 (max. 8388607)
  8 named destinations out of 1000 (max. 500000)
