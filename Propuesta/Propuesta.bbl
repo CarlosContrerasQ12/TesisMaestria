@@ -1,23 +1,29 @@
 \begin{thebibliography}{10}
 
-\bibitem{cohen_neural_2022}
-S.~N. Cohen, D.~Jiang, and J.~Sirignano, ``Neural {Q}-learning for solving
-  elliptic {PDEs},'' p.~57, 2022.
-
-\bibitem{han_solving_2018}
-J.~Han, A.~Jentzen, and W.~E, ``Solving high-dimensional partial differential
-  equations using deep learning,'' {\em Proceedings of the National Academy of
-  Sciences}, vol.~115, pp.~8505--8510, Aug. 2018.
-
-\bibitem{blechschmidt_three_2021}
-J.~Blechschmidt and O.~G. Ernst, ``Three ways to solve partial differential
-  equations with neural networks — {A} review,'' {\em GAMM-Mitteilungen},
-  vol.~44, June 2021.
-
 \bibitem{higham_deep_2019}
 C.~F. Higham and D.~J. Higham, ``Deep {Learning}: {An} {Introduction} for
   {Applied} {Mathematicians},'' {\em SIAM Review}, vol.~61, pp.~860--891, Jan.
   2019.
+
+\bibitem{PINNs}
+M.~Raissi, P.~Perdikaris, and G.~E. Karniadakis, ``Physics informed deep
+  learning (part {I):} data-driven solutions of nonlinear partial differential
+  equations,'' {\em CoRR}, vol.~abs/1711.10561, 2017.
+
+\bibitem{PINNS2}
+S.~Markidis, ``The old and the new: Can physics-informed deep-learning replace
+  traditional linear solvers?,'' 2021.
+
+\bibitem{li_fourier_2021}
+Z.~Li, N.~Kovachki, K.~Azizzadenesheli, B.~Liu, K.~Bhattacharya, A.~Stuart, and
+  A.~Anandkumar, ``Fourier {Neural} {Operator} for {Parametric} {Partial}
+  {Differential} {Equations},'' May 2021.
+\newblock arXiv:2010.08895 [cs, math].
+
+\bibitem{sirignano_dgm_2018}
+J.~Sirignano and K.~Spiliopoulos, ``{DGM}: {A} deep learning algorithm for
+  solving partial differential equations,'' {\em Journal of Computational
+  Physics}, vol.~375, pp.~1339--1364, Dec. 2018.
 
 \bibitem{cuomo_scientific_2022}
 S.~Cuomo, V.~S. di~Cola, F.~Giampaolo, G.~Rozza, M.~Raissi, and F.~Piccialli,
@@ -25,27 +31,47 @@ S.~Cuomo, V.~S. di~Cola, F.~Giampaolo, G.~Rozza, M.~Raissi, and F.~Piccialli,
   {Networks}: {Where} we are and {What}'s next,'' June 2022.
 \newblock arXiv:2201.05624 [physics].
 
-\bibitem{pedro_solving_2019}
-J.~B. Pedro, J.~Maroñas, and R.~Paredes, ``Solving {Partial} {Differential}
-  {Equations} with {Neural} {Networks},'' Dec. 2019.
-\newblock arXiv:1912.04737 [physics].
+\bibitem{blechschmidt_three_2021}
+J.~Blechschmidt and O.~G. Ernst, ``Three ways to solve partial differential
+  equations with neural networks — {A} review,'' {\em GAMM-Mitteilungen},
+  vol.~44, June 2021.
+
+\bibitem{han_solving_2018}
+J.~Han, A.~Jentzen, and W.~E, ``Solving high-dimensional partial differential
+  equations using deep learning,'' {\em Proceedings of the National Academy of
+  Sciences}, vol.~115, pp.~8505--8510, Aug. 2018.
+
+\bibitem{Revuz1999}
+D.~Revuz and M.~Yor, {\em Continuous Martingales and Brownian Motion}.
+\newblock Springer Berlin Heidelberg, 1999.
+
+\bibitem{Jen1}
+W.~E, J.~Han, and A.~Jentzen, ``Deep learning-based numerical methods for
+  high-dimensional parabolic partial differential equations and backward
+  stochastic differential equations,'' {\em Communications in Mathematics and
+  Statistics}, vol.~5, pp.~349--380, nov 2017.
+
+\bibitem{Beck_2019}
+C.~Beck, W.~E, and A.~Jentzen, ``Machine learning approximation algorithms for
+  high-dimensional fully nonlinear partial differential equations and
+  second-order backward stochastic differential equations,'' {\em Journal of
+  Nonlinear Science}, vol.~29, pp.~1563--1619, jan 2019.
+
+\bibitem{Hutzenthaler2020}
+M.~Hutzenthaler, A.~Jentzen, T.~Kruse, and T.~A. Nguyen, ``A proof that
+  rectified deep neural networks overcome the curse of dimensionality in the
+  numerical approximation of semilinear heat equations,'' {\em {SN} Partial
+  Differential Equations and Applications}, vol.~1, Apr. 2020.
+
+\bibitem{cohen_neural_2022}
+S.~N. Cohen, D.~Jiang, and J.~Sirignano, ``Neural {Q}-learning for solving
+  elliptic {PDEs},'' p.~57, 2022.
 
 \bibitem{beck_overview_2021}
 C.~Beck, M.~Hutzenthaler, A.~Jentzen, and B.~Kuckuck, ``An overview on deep
   learning-based approximation methods for partial differential equations,''
   Mar. 2021.
 \newblock arXiv:2012.12348 [cs, math].
-
-\bibitem{mishra_machine_2018}
-S.~Mishra, ``A machine learning framework for data driven acceleration of
-  computations of differential equations,'' July 2018.
-\newblock arXiv:1807.09519 [cs, math].
-
-\bibitem{li_fourier_2021}
-Z.~Li, N.~Kovachki, K.~Azizzadenesheli, B.~Liu, K.~Bhattacharya, A.~Stuart, and
-  A.~Anandkumar, ``Fourier {Neural} {Operator} for {Parametric} {Partial}
-  {Differential} {Equations},'' May 2021.
-\newblock arXiv:2010.08895 [cs, math].
 
 \bibitem{lu_deeponet_2021}
 L.~Lu, P.~Jin, and G.~E. Karniadakis, ``{DeepONet}: {Learning} nonlinear
@@ -54,15 +80,20 @@ L.~Lu, P.~Jin, and G.~E. Karniadakis, ``{DeepONet}: {Learning} nonlinear
   vol.~3, pp.~218--229, Mar. 2021.
 \newblock arXiv:1910.03193 [cs, stat].
 
-\bibitem{sirignano_dgm_2018}
-J.~Sirignano and K.~Spiliopoulos, ``{DGM}: {A} deep learning algorithm for
-  solving partial differential equations,'' {\em Journal of Computational
-  Physics}, vol.~375, pp.~1339--1364, Dec. 2018.
+\bibitem{mishra_machine_2018}
+S.~Mishra, ``A machine learning framework for data driven acceleration of
+  computations of differential equations,'' July 2018.
+\newblock arXiv:1807.09519 [cs, math].
 
 \bibitem{beck_overview_2021-1}
 C.~Beck, M.~Hutzenthaler, A.~Jentzen, and B.~Kuckuck, ``An overview on deep
   learning-based approximation methods for partial differential equations,''
   Mar. 2021.
 \newblock arXiv:2012.12348 [cs, math].
+
+\bibitem{pedro_solving_2019}
+J.~B. Pedro, J.~Maroñas, and R.~Paredes, ``Solving {Partial} {Differential}
+  {Equations} with {Neural} {Networks},'' Dec. 2019.
+\newblock arXiv:1912.04737 [physics].
 
 \end{thebibliography}

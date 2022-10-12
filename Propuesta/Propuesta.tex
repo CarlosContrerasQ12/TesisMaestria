@@ -29,10 +29,10 @@
 
 
 \title{Propuesta de trabajo de maestría\\
-Machine learning methods to solve PDEs}
+	Machine learning methods to solve PDEs}
 \author{Estudiante: Carlos Daniel Contreras Quiroz\\	
-Asesor: Mauricio Junca}
-\date{Septiembre 2022}
+	Asesor: Mauricio Junca}
+\date{Octubre 2022}
 
 
 \begin{document}
@@ -42,87 +42,89 @@ Asesor: Mauricio Junca}
 	
 	%%%
 	%
-\section{Descripción}
-Las ecuaciones en derivadas parciales aparecen comúnmente como herramientas útiles para la modelación de sistemas en múltiples disciplinas. Se encuentran frecuentemente aplicaciones en ciencias naturales como la física y biología, en diseño en ingeniería , y también en áreas como la economía y finanzas. Sin embargo, las propiedades matemáticas de las ecuaciones que aparecen son tan diversas como las áreas en que se aplican, y aunque se pueden clasificar según algunas de sus características, no podría existir una teoría completa que describa nuestro conocimiento sobre estas.\\
-
-Por otro lado, las soluciones analíticas a estos modelos generalmente no están a nuestro alcance, por lo que es necesario recurrir a métodos numéricos para obtener aproximaciones. Para esto, usualmente se recurre a métodos clásicos como diferencias finitas, elementos finitos, volúmenes finitos o métodos espectrales, para los cuales existe una amplia teoría que soporta y justifica rigurosamente su funcionamiento.\\
-
-No obstante, la aplicación de estos métodos a problemas particulares a veces se restringe por propiedades especificas de la ecuación que se resuelve. Por ejemplo, los métodos mencionados sufren de la maldición de la dimensionalidad (\textit{"the curse of dimentionality"}), esto es, su complejidad computacional escala exponencialmente en la dimensión del problema, por lo que su uso se restringe a problemas de dimensión baja ($n=1,2,3,4$). Lo anterior dificulta su uso en aplicaciones como valoración en matemática financiera, donde la dimensión del problema esta determinada por el número de activos considerados . También su eficiencia computacional se reduce considerablemente conforme se aumenta la complejidad de los dominios en que se resuelven, o por las no-linealidades que aparecen, como es el caso de la ecuación de Navier-Stokes modelando flujos turbulentos.\\
-
-Otra área en donde estos inconvenientes aparecen es en el análisis de datos y aprendizaje de maquinas. Por ejemplo, la complejidad de algunos modelos de regresión no lineal crece exponencialmente con el tamaño de los datos subyacentes. Para este tipo de problemas se han desarrollado herramientas poderosas que permiten modelar problemas en altas dimensiones y con posibles no linealidades. Entre estas, las redes neuronales han demostrado ser de gran utilidad como modelo para representar funciones con estas complejidades.\\
-
-En consecuencia, intentando replicar el éxito obtenido con estas herramientas en aprendizaje de máquinas, recientemente han surgido nuevas perspectivas para aproximar soluciones de ecuaciones en derivadas parciales usando estas mismas herramientas. Entre estas se encuentran las PINNs (Physics Informed Neural Networks), FNO (Fourier Neural Operators), y DGM (Deep Garlekin Method). La evidencia práctica muestra que estos métodos pueden proporcionar soluciones en casos donde los clásicos no, a pesar de usualmente no competir con su eficiencia en las situaciones donde los últimos sí aplican. Además, se ha venido desarrollando un marco teórico riguroso que permite justificar su aplicación en situaciones específicas.  \\
-
-Como objetivo razonable de este trabajo se propone estudiar teóricamente e implementar computacionalmente dos de estos métodos, para establecer sus ventajas y alcances.\\
-
-El primero de estos se propone en , y se basa en explotar la conexión que existe entre las ecuaciones parabólicas (posiblemente no lineales) y las ecuaciones diferenciales estocásticas hacia atrás (BSDE Backward Stochastic Differential Equations). En este caso se considera ecuaciones parabólicas semilineales de la forma
-\begin{equation}
-	\label{eqn:parabolic}
-	\begin{gathered}
-		\frac{\partial u}{\partial t}(t, x)+\frac{1}{2} \operatorname{Tr}\left(\sigma \sigma^{\mathrm{T}}(t, x)\left(\operatorname{Hess}_x u\right)(t, x)\right)+\nabla u(t, x) \cdot \mu(t, x) \\
-		+f\left(t, x, u(t, x), \sigma^{\mathrm{T}}(t, x) \nabla u(t, x)\right)=0,
-	\end{gathered}
-\end{equation}
-con condición final $u(T,x)=g(x)$, donde $t$ representa el tiempo, $x$ la variable espacial d-dimensional, $\mu $ una función vectorial conocida, $\sigma$ una matriz $d\times d$ y $f$ una función no lineal. Similar al caso lineal, donde la solución a la ecuación diferencial parcial parabólica se le puede asignar una representación en términos del valor esperado de un proceso asociado a una ecuación diferencial estocástica a través de la formula de Feynman-Kac, se puede asignar una representación de la solución de la ecuación \ref{eqn:parabolic} en términos de la solución de una BSDE de la forma
-\begin{equation}
-	\label{eqn:BSDE}
-	\begin{aligned}
-		& u\left(t, X_t\right)-u\left(0, X_0\right) \\
-		=&-\int_0^t f\left(s, X_s, u\left(s, X_s\right), \sigma^{\mathrm{T}}\left(s, X_s\right) \nabla u\left(s, X_s\right)\right) d s \\
-		&+\int_0^t\left[\nabla u\left(s, X_s\right)\right]^{\mathrm{T}} \sigma\left(s, X_s\right) d W_s ,
-	\end{aligned}
-\end{equation}
-donde $X_t$ es la solución de la SDE
-\begin{equation}
-	\label{eqn:SDE}
-	X_t=\xi+\int_0^t \mu\left(s, X_s\right) d s+\int_0^t \sigma\left(s, X_s\right) d W_s.
-\end{equation}
-En cada paso de tiempo, la ecuacion \ref{eqn:SDE} se discretiza mediante el método Euler-Maruyama para obtener muestras de caminos $\{ X_n\}_{0\leq n \leq N}$, y para usar la representación de la solución $\ref{eqn:BSDE}$ se aproxima en cada paso la función $x\to \sigma^{T}(t,x)\nabla u(t,x)$ con una red neuronal que se entrena minimizando la función de costo
-\begin{equation}
-	l(\theta)=\mathbb{E}\left[\left|g\left(X_{t_N}\right)-\hat{u}\left(\left\{X_{t_n}\right\}_{0 \leq n \leq N},\left\{W_{t_n}\right\}_{0 \leq n \leq N}\right)\right|^2\right],
-\end{equation}	
-relacionada con el cumplimiento de las condiciones iniciales de la ecuación. Al final, el conjunto de redes neuronales optimizadas proporciona la aproximación de la solución requerida.\\
-
-En este artículo se presenta la aplicación de este método para resolver un modelo de Black-Scholes, una ecuación de HJB para un problema de control y una ecuación de Allen-Cahn, todas en dimensiones altas. A parte de estudiar la relación entre ecuaciones parabólicas no lineales y BSDEs y su uso en este modelo, se pretende implementar uno de los ejemplos dados y estudiar su efectividad.
-
-El segundo método que se quiere estudiar se propone en , y se basa en el algoritmo de $Q$-learning de reinforcement learning. En este caso se estudian problemas de la forma
-\begin{equation}
-	\begin{aligned}
-		\mathcal{L} u=0 & \text { en } \Omega \\
-		u=f & \text { en } \partial \Omega,
-	\end{aligned}
-\end{equation}
-donde $\mathcal{L}$ es un operador no lineal de segundo orden con ciertas condiciones de regularidad, y $\Omega$ es un dominio.  Aquí se quiere usar una red neuronal de una capa con $N$ neuronas de la forma
-\begin{equation}
-	S^N(x ; \theta)=\frac{1}{N^\beta} \sum_{i=1}^N c^i \sigma\left(w^i \cdot x+b^i\right),
-\end{equation}
-donde $w^i,b^i,c^i$ son los parámetros de la red y $\beta$ es un factor de escalamiento. Con esta se propone una aproximación de la función  
-\begin{equation}
-	Q^N(x ; \theta):=S^N(x ; \theta) \eta(x)+(1-\eta(x)) f(x) .
-\end{equation}
-que se entrenará en cada paso intentando minimizar la función de costo 
-\begin{equation}
-	\int_{\Omega}\left[\mathcal{L} Q^N(x)\right]^2 d \mu(x),
-\end{equation}
-que se puede estimar por métodos de Monte-Carlo. Al final $Q^N$ proporcionará una aproximación de la solución que cumple las condiciones de frontera impuestas.
+	\section{Descripción}
+	Las ecuaciones en derivadas parciales aparecen comúnmente como herramientas útiles para la modelación en múltiples disciplinas. Se encuentran frecuentemente aplicaciones en ciencias naturales como la física y biología, en diseño en ingeniería , y también en áreas como la economía y finanzas. Sin embargo, las propiedades matemáticas de las ecuaciones que aparecen son tan diversas como las áreas en que se aplican, y aunque se pueden clasificar parcialmente según algunas de sus características, no podría existir una teoría completa que describa nuestro conocimiento sobre estas.\\
+	
+	Por otro lado, las soluciones analíticas a estos modelos generalmente no están a nuestro alcance, por lo que es necesario recurrir a métodos numéricos para obtener aproximaciones. Para esto, usualmente se recurre a métodos clásicos como diferencias finitas, elementos finitos, volúmenes finitos o métodos espectrales, para los cuales existe una amplia teoría que soporta y justifica rigurosamente su funcionamiento.\\
+	
+	No obstante, la aplicación de estos métodos a problemas particulares a veces se restringe por propiedades especificas de la ecuación que se resuelve. Por ejemplo, los métodos mencionados sufren de la maldición de la dimensionalidad (\textit{"the curse of dimentionality"}), esto es, su complejidad computacional escala exponencialmente en la dimensión del problema, por lo que su uso se restringe a problemas de dimensión baja ($n=1,2,3,4$). Lo anterior dificulta su uso en aplicaciones como valoración en matemática financiera, donde la dimensión del problema esta determinada por el número de activos considerados . También, su eficiencia computacional se reduce considerablemente conforme se aumenta la complejidad de los dominios en que se resuelven, o por las no-linealidades que aparecen, como es el caso de la ecuación de Navier-Stokes modelando flujos turbulentos.\\
+	
+	Otra área en donde estos inconvenientes aparecen es en el análisis de datos y aprendizaje de maquinas. Por ejemplo, la complejidad de algunos modelos de regresión no lineal crece exponencialmente con el tamaño de los datos subyacentes. Para este tipo de problemas se han desarrollado herramientas poderosas que permiten modelar problemas en altas dimensiones y con posibles no linealidades. Entre estas, las redes neuronales han demostrado ser de gran utilidad como modelo para representar funciones con estas complejidades\cite{higham_deep_2019}.\\
+	
+	En consecuencia, intentando replicar el éxito obtenido con estas herramientas en aprendizaje de máquinas, recientemente han surgido nuevas perspectivas para aproximar soluciones de ecuaciones en derivadas parciales usando estas mismas herramientas. Entre estas se encuentran las PINNs (Physics Informed Neural Networks)\cite{PINNs,PINNS2}, FNO (Fourier Neural Operators)\cite{li_fourier_2021}, y DGM (Deep Garlekin Method)\cite{sirignano_dgm_2018}. La evidencia práctica muestra que estos métodos pueden proporcionar soluciones en casos donde los clásicos no\cite{cuomo_scientific_2022,blechschmidt_three_2021}, a pesar de usualmente no competir con su eficiencia en las situaciones donde los últimos sí aplican. Además, se ha venido desarrollando un marco teórico riguroso que permite justificar su aplicación en situaciones específicas.  \\
+	
+	Como objetivo razonable de este trabajo se propone estudiar teóricamente e implementar computacionalmente algunos de estos métodos, buscando establecer sus ventajas y alcances. La cantidad de métodos a estudiar dependerá de las dificultades encontradas y las restricciones de tiempo que se deben cumplir. A continuación se mencionan los métodos elegidos inicialmente.\\
+	
+	El primero de estos se propone en \cite{han_solving_2018}, y se basa en explotar la conexión que existe entre algunas ecuaciones parabólicas (posiblemente no lineales) y las ecuaciones diferenciales estocásticas hacia atrás (BSDE Backward Stochastic Differential Equations)\cite{Revuz1999}. En este caso se considera ecuaciones parabólicas semilineales de la forma
+	\begin{equation}
+		\label{eqn:parabolic}
+		\begin{gathered}
+			\frac{\partial u}{\partial t}(t, x)+\frac{1}{2} \operatorname{Tr}\left(\sigma \sigma^{\mathrm{T}}(t, x)\left(\operatorname{Hess}_x u\right)(t, x)\right)+\nabla u(t, x) \cdot \mu(t, x) \\
+			+f\left(t, x, u(t, x), \sigma^{\mathrm{T}}(t, x) \nabla u(t, x)\right)=0,
+		\end{gathered}
+	\end{equation}
+	con condición final $u(T,x)=g(x)$, donde $t$ representa el tiempo, $x$ la variable espacial d-dimensional, $\mu $ una función vectorial conocida, $\sigma$ una matriz $d\times d$ y $f$ una función no lineal. Similar al caso lineal, en donde a la solución a la ecuación diferencial parcial parabólica se le puede asignar una representación en términos del valor esperado de un proceso asociado a una ecuación diferencial estocástica a través de la formula de Feynman-Kac, se puede asignar una representación de la solución de la ecuación \ref{eqn:parabolic} en términos de la solución de una BSDE de la forma
+	\begin{equation}
+		\label{eqn:BSDE}
+		\begin{aligned}
+			& u\left(t, X_t\right)-u\left(0, X_0\right) \\
+			=&-\int_0^t f\left(s, X_s, u\left(s, X_s\right), \sigma^{\mathrm{T}}\left(s, X_s\right) \nabla u\left(s, X_s\right)\right) d s \\
+			&+\int_0^t\left[\nabla u\left(s, X_s\right)\right]^{\mathrm{T}} \sigma\left(s, X_s\right) d W_s ,
+		\end{aligned}
+	\end{equation}
+	donde $X_t$ es la solución de la SDE
+	\begin{equation}
+		\label{eqn:SDE}
+		X_t=\xi+\int_0^t \mu\left(s, X_s\right) d s+\int_0^t \sigma\left(s, X_s\right) d W_s.
+	\end{equation}
+	En cada paso de tiempo, la ecuación \ref{eqn:SDE} se discretiza mediante el método de Euler-Maruyama para obtener muestras de caminos $\{ X_n\}_{0\leq n \leq N}$, y para usar la representación de la solución $\ref{eqn:BSDE}$ se aproxima la función $x\to \sigma^{T}(t,x)\nabla u(t,x)$ con una red neuronal que se entrena minimizando la función de costo
+	\begin{equation}
+		l(\theta)=\mathbb{E}\left[\left|g\left(X_{t_N}\right)-\hat{u}\left(\left\{X_{t_n}\right\}_{0 \leq n \leq N},\left\{W_{t_n}\right\}_{0 \leq n \leq N}\right)\right|^2\right],
+	\end{equation}	
+	relacionada con el cumplimiento de las condiciones iniciales de la ecuación. Al final, el conjunto de redes neuronales optimizadas proporciona la aproximación de la solución requerida.\\
+	
+	En este artículo se presenta la aplicación de este método para resolver un modelo de Black-Scholes, una ecuación de HJB para un problema de control y una ecuación de Allen-Cahn, todas en dimensiones altas ($\geq 10$). A parte de estudiar la relación entre ecuaciones parabólicas no lineales y BSDEs y su uso en este métodos, se pretende revisar la literatura que justifica rigurosamente su uso\cite{Jen1,Beck_2019,Hutzenthaler2020} e implementar uno de los ejemplos dados para estudiar la eficiencia y propiedades prácticas de la solución.
+	
+	El segundo método que se quiere estudiar, en caso que el tiempo lo permita, se propone en \cite{cohen_neural_2022}, y se inspira en el algoritmo de $Q$-learning de reinforcement learning. En este caso se estudian problemas más generales de la forma
+	\begin{equation}
+		\begin{aligned}
+			\mathcal{L} u=0 & \text { en } \Omega \\
+			u=f & \text { en } \partial \Omega,
+		\end{aligned}
+	\end{equation}
+	donde $\mathcal{L}$ es un operador no lineal de segundo orden con ciertas condiciones de regularidad, y $\Omega$ es un dominio.  Aquí se quiere usar una red neuronal de una capa con $N$ neuronas de la forma
+	\begin{equation}
+		S^N(x ; \theta)=\frac{1}{N^\beta} \sum_{i=1}^N c^i \sigma\left(w^i \cdot x+b^i\right),
+	\end{equation}
+	donde $w^i,b^i,c^i$ son los parámetros de la red y $\beta$ es un factor de escalamiento. Con esta se propone una aproximación de la función  
+	\begin{equation}
+		Q^N(x ; \theta):=S^N(x ; \theta) \eta(x)+(1-\eta(x)) \bar{f}(x) ,
+	\end{equation}
+	donde $\eta(x)$ es una función suave con $0<\eta(x)<1$ en el interior de $\Omega$ y $\eta(x)=0$ en $\partial\Omega$ y $\bar{f}$ es tal que $T(\bar{f})=f$, con $T:\mathcal{H}^1\to L^2(\partial \Omega)$ el operador de traza sobre la frontera. Esta red se entrenará en cada paso intentando minimizar la función de costo 
+	\begin{equation}
+		\int_{\Omega}\left[\mathcal{L} Q^N(x)\right]^2 d \mu(x),
+	\end{equation}
+	la cual se puede estimar por métodos de Monte-Carlo. Al final $Q^N$ proporcionará una aproximación de la solución que cumple las condiciones de frontera impuestas.\\
+	
+	De la misma manera, se buscará entender el soporte teórico proporcionando una prueba de convergencia para este algoritmo y posteriormente implementarlo para evaluar su utilidad práctica.
 	%%%
 	%
-\section{Objetivos}
-\begin{itemize}
-	\item Estudiar la relación entre BSDE y ecuaciones parabólicas no lineales
-	\item Explotar esta relación para resolver una ecuación diferencial no parabólica usando métodos de Deep Learning
-	\item Estudiar el algoritmo Q-PDE, basado en Q-learning, para resolver ecuaciones diferenciales elípticas.
-	\item Implementar computacionalmente estos métodos. 
-\end{itemize}
+	\section{Objetivos}
+	\begin{itemize}
+		\item Estudiar la relación entre BSDE y ecuaciones parabólicas no lineales.
+		\item Explotar esta relación para resolver una ecuación diferencial no parabólica usando métodos de Deep Learning.
+		\item Estudiar el algoritmo Q-PDE, basado en Q-learning, para resolver ecuaciones diferenciales elípticas.
+		\item Implementar computacionalmente estos métodos para evaluar su utilidad práctica. 
+	\end{itemize}
 	\section{Cronograma tentativo}
-\begin{itemize}
-	\item Septiembre-Octubre 2022: Aprender a implementar redes neuronales como métodos de aproximación para funciones $Q$
-	\item Noviembre-Diciembre 2022: Estudiar la relación entre BSDE y ecuaciones diferenciales parabólicas no lineales.
-	\item Enero 202: Implementar método basado en BSDE.
-	\item Febrero-Marzo 2023: Estudiar e implementar el algoritmo Q-PDE 
-	\item Abril 2023: Terminar el documento
-\end{itemize}
-\nocite{*}
+	\begin{itemize}
+		\item Septiembre-Octubre 2022: Aprender a implementar redes neuronales como métodos de aproximación para funciones $Q$
+		\item Noviembre-Diciembre 2022: Estudiar la relación entre BSDE y ecuaciones diferenciales parabólicas no lineales.
+		\item Enero 202: Implementar método basado en BSDE.
+		\item Febrero-Marzo 2023: Estudiar e implementar el algoritmo Q-PDE 
+		\item Abril 2023: Terminar el documento
+	\end{itemize}
+	\nocite{*}
 	
 	\bibliographystyle{ieeetr}
 	\bibliography{references}
