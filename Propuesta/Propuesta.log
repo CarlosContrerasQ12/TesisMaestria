@@ -1,30 +1,30 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.11)  11 OCT 2022 23:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.12.12)  21 DEC 2022 13:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **./Propuesta.tex
 (Propuesta.tex
-LaTeX2e <2022-06-01> patch level 5
-L3 programming layer <2022-09-28>
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2022-11-02>
 (/home/carlos/.miktex/texmfs/install/tex/latex/koma-script/scrartcl.cls
-Document Class: scrartcl 2022/07/04 v3.37 KOMA-Script document class (article)
+Document Class: scrartcl 2022/10/12 v3.38 KOMA-Script document class (article)
 (/home/carlos/.miktex/texmfs/install/tex/latex/koma-script/scrkbase.sty
-Package: scrkbase 2022/07/04 v3.37 KOMA-Script package (KOMA-Script-dependent b
+Package: scrkbase 2022/10/12 v3.38 KOMA-Script package (KOMA-Script-dependent b
 asics and keyval usage)
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/koma-script/scrbase.sty
-Package: scrbase 2022/07/04 v3.37 KOMA-Script package (KOMA-Script-independent 
+Package: scrbase 2022/10/12 v3.38 KOMA-Script package (KOMA-Script-independent 
 basics and keyval usage)
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/koma-script/scrlfile.sty
-Package: scrlfile 2022/07/04 v3.37 KOMA-Script package (file load hooks)
+Package: scrlfile 2022/10/12 v3.38 KOMA-Script package (file load hooks)
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/koma-script/scrlfile-hook.sty
-Package: scrlfile-hook 2022/07/04 v3.37 KOMA-Script package (using LaTeX hooks)
+Package: scrlfile-hook 2022/10/12 v3.38 KOMA-Script package (using LaTeX hooks)
 
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/koma-script/scrlogo.sty
-Package: scrlogo 2022/07/04 v3.37 KOMA-Script package (logo)
+Package: scrlogo 2022/10/12 v3.38 KOMA-Script package (logo)
 )))
 (/home/carlos/.miktex/texmfs/install/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
@@ -35,12 +35,13 @@ Already applied: [0000/00/00] Usage of raw or classic option list on input line
  368.
 ))
 (/home/carlos/.miktex/texmfs/install/tex/latex/koma-script/tocbasic.sty
-Package: tocbasic 2022/07/04 v3.37 KOMA-Script package (handling toc-files)
-\scr@dte@tocline@numberwidth=\skip47
+Package: tocbasic 2022/10/12 v3.38 KOMA-Script package (handling toc-files)
+\scr@dte@tocline@numberwidth=\skip48
 \scr@dte@tocline@numbox=\box51
 )
-Package tocbasic Info: babel extension for `toc' omitted
-(tocbasic)             because of missing \bbl@set@language on input line 135.
+Package tocbasic Info: omitting babel extension for `toc'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `toc' on input line 135.
 Package scrartcl Info: You've used standard option `11pt'.
 (scrartcl)             This is correct!
 (scrartcl)             Internally I'm using `fontsize=11pt'.
@@ -48,15 +49,15 @@ Package scrartcl Info: You've used standard option `11pt'.
 (scrartcl)             you'd have to use `fontsize=11pt' there
 (scrartcl)             instead of `11pt', too.
 Class scrartcl Info: File `scrsize11pt.clo' used to setup font sizes on input l
-ine 2319.
+ine 2367.
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/koma-script/scrsize11pt.clo
-File: scrsize11pt.clo 2022/07/04 v3.37 KOMA-Script font size class option (11pt
+File: scrsize11pt.clo 2022/10/12 v3.38 KOMA-Script font size class option (11pt
 )
 )
 (/home/carlos/.miktex/texmfs/install/tex/latex/koma-script/typearea.sty
-Package: typearea 2022/07/04 v3.37 KOMA-Script package (type area)
-\ta@bcor=\skip48
+Package: typearea 2022/10/12 v3.38 KOMA-Script package (type area)
+\ta@bcor=\skip49
 \ta@div=\count185
 Package typearea Info: You've used standard option `a4paper'.
 (typearea)             This is correct!
@@ -64,10 +65,10 @@ Package typearea Info: You've used standard option `a4paper'.
 (typearea)             If you'd like to set the option with \KOMAoptions,
 (typearea)             you'd have to use `paper=a4' there
 (typearea)             instead of `a4paper', too.
-\ta@hblk=\skip49
-\ta@vblk=\skip50
-\ta@temp=\skip51
-\footheight=\skip52
+\ta@hblk=\skip50
+\ta@vblk=\skip51
+\ta@temp=\skip52
+\footheight=\skip53
 Package typearea Info: These are the values describing the layout:
 (typearea)             DIV  = 10
 (typearea)             BCOR = 0.0pt
@@ -84,7 +85,7 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 11.0pt
 (typearea)              \footskip       = 47.6pt
 (typearea)              \baselineskip   = 13.6pt
-(typearea)              on input line 1766.
+(typearea)              on input line 1767.
 )
 \c@part=\count186
 \c@section=\count187
@@ -92,49 +93,49 @@ Package typearea Info: These are the values describing the layout:
 \c@subsubsection=\count189
 \c@paragraph=\count190
 \c@subparagraph=\count191
-\scr@dte@section@maxnumwidth=\skip53
+\scr@dte@section@maxnumwidth=\skip54
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\section on input line 4897.
+(scrartcl)           for `\section on input line 4994.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\section on input line 4897.
-\scr@dte@part@maxnumwidth=\skip54
+(scrartcl)           for `\section on input line 4994.
+\scr@dte@part@maxnumwidth=\skip55
 Class scrartcl Info: using compatibility default `afterindent=false'
-(scrartcl)           for `\part on input line 4905.
-\scr@dte@subsection@maxnumwidth=\skip55
+(scrartcl)           for `\part on input line 5002.
+\scr@dte@subsection@maxnumwidth=\skip56
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\subsection on input line 4915.
+(scrartcl)           for `\subsection on input line 5012.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\subsection on input line 4915.
-\scr@dte@subsubsection@maxnumwidth=\skip56
+(scrartcl)           for `\subsection on input line 5012.
+\scr@dte@subsubsection@maxnumwidth=\skip57
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\subsubsection on input line 4925.
+(scrartcl)           for `\subsubsection on input line 5022.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\subsubsection on input line 4925.
-\scr@dte@paragraph@maxnumwidth=\skip57
+(scrartcl)           for `\subsubsection on input line 5022.
+\scr@dte@paragraph@maxnumwidth=\skip58
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\paragraph on input line 4936.
+(scrartcl)           for `\paragraph on input line 5033.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\paragraph on input line 4936.
-\scr@dte@subparagraph@maxnumwidth=\skip58
+(scrartcl)           for `\paragraph on input line 5033.
+\scr@dte@subparagraph@maxnumwidth=\skip59
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\subparagraph on input line 4946.
+(scrartcl)           for `\subparagraph on input line 5043.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\subparagraph on input line 4946.
-\abovecaptionskip=\skip59
-\belowcaptionskip=\skip60
+(scrartcl)           for `\subparagraph on input line 5043.
+\abovecaptionskip=\skip60
+\belowcaptionskip=\skip61
 \c@pti@nb@sid@b@x=\box52
-Package tocbasic Info: babel extension for `lof' omitted
-(tocbasic)             because of missing \bbl@set@language on input line 6102.
-
-\scr@dte@figure@maxnumwidth=\skip61
+Package tocbasic Info: omitting babel extension for `lof'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lof' on input line 6211.
+\scr@dte@figure@maxnumwidth=\skip62
 \c@figure=\count192
-Package tocbasic Info: babel extension for `lot' omitted
-(tocbasic)             because of missing \bbl@set@language on input line 6118.
-
-\scr@dte@table@maxnumwidth=\skip62
+Package tocbasic Info: omitting babel extension for `lot'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lot' on input line 6227.
+\scr@dte@table@maxnumwidth=\skip63
 \c@table=\count193
-Class scrartcl Info: Redefining `\numberline' on input line 6288.
-\bibindent=\dimen138
+Class scrartcl Info: Redefining `\numberline' on input line 6397.
+\bibindent=\dimen140
 )
 (/home/carlos/.miktex/texmfs/install/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
@@ -152,14 +153,12 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
-\stockwidth=\dimen139
-\stockheight=\dimen140
 ))
 \Gin@req@height=\dimen141
 \Gin@req@width=\dimen142
 )
 (/home/carlos/.miktex/texmfs/install/tex/generic/babel/babel.sty
-Package: babel 2022/10/04 3.81 The Babel package
+Package: babel 2022/11/30 3.83 The Babel package
 \babel@savecnt=\count194
 \U@D=\dimen143
 \l@unhyphenated=\language78
@@ -237,7 +236,7 @@ File: microtype-pdftex.def 2022/06/23 v3.0f Definitions specific to pdftex (RS)
 
 LaTeX Info: Redefining \lsstyle on input line 900.
 LaTeX Info: Redefining \lslig on input line 900.
-\MT@outer@space=\skip63
+\MT@outer@space=\skip64
 )
 Package microtype Info: Loading configuration file microtype.cfg.
 
@@ -246,7 +245,7 @@ File: microtype.cfg 2022/06/23 v3.0f microtype main configuration file (RS)
 ))
 (/home/carlos/.miktex/texmfs/install/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2022/04/08 v2.17n AMS math features
-\@mathmargin=\skip64
+\@mathmargin=\skip65
 
 For additional information on amsmath, use the `?' option.
 (/home/carlos/.miktex/texmfs/install/tex/latex/amsmath/amstext.sty
@@ -306,8 +305,8 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \totwidth@=\dimen152
 \lineht@=\dimen153
 \@envbody=\toks24
-\multlinegap=\skip65
-\multlinetaggap=\skip66
+\multlinegap=\skip66
+\multlinetaggap=\skip67
 \mathdisplay@stack=\toks25
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
@@ -330,17 +329,17 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@headfont=\toks28
 \thm@notefont=\toks29
 \thm@headpunct=\toks30
-\thm@preskip=\skip67
-\thm@postskip=\skip68
-\thm@headsep=\skip69
+\thm@preskip=\skip68
+\thm@postskip=\skip69
+\thm@headsep=\skip70
 \dth@everypar=\toks31
 )
 (/home/carlos/.miktex/texmfs/install/tex/latex/xpatch/xpatch.sty
 (/home/carlos/.miktex/texmfs/install/tex/latex/l3kernel/expl3.sty
-Package: expl3 2022-09-28 L3 programming layer (loader) 
+Package: expl3 2022-11-02 L3 programming layer (loader) 
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-09-28 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2022-10-26 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count278
 \l__pdf_internal_box=\box56
 ))
@@ -390,8 +389,8 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 \c@ALC@line=\count283
 \c@ALC@rem=\count284
 \c@ALC@depth=\count285
-\ALC@tlm=\skip70
-\algorithmicindent=\skip71
+\ALC@tlm=\skip71
+\algorithmicindent=\skip72
 )
 (/home/carlos/.miktex/texmfs/install/tex/latex/caption/subcaption.sty
 Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
@@ -446,7 +445,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisrulewidth=\dimen182
 )
 (/home/carlos/.miktex/texmfs/install/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2022-09-22 v7.00t Hypertext links for LaTeX
+Package: hyperref 2022-11-13 v7.00u Hypertext links for LaTeX
 
 (/home/carlos/.miktex/texmfs/install/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
@@ -489,7 +488,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 \Hy@linkcounter=\count295
 \Hy@pagecounter=\count296
  (/home/carlos/.miktex/texmfs/install/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2022-09-22 v7.00t Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2022-11-13 v7.00u Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
@@ -502,7 +501,7 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 \Hy@SavedSpaceFactor=\count297
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/hyperref/puenc.def
-File: puenc.def 2022-09-22 v7.00t Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2022-11-13 v7.00u Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
@@ -546,7 +545,7 @@ package with kernel methods
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2022-09-22 v7.00t Hyperref driver for pdfTeX
+File: hpdftex.def 2022-11-13 v7.00u Hyperref driver for pdfTeX
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
@@ -567,7 +566,7 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 85.
 )
-\Hy@SectionHShift=\skip72
+\Hy@SectionHShift=\skip73
 )
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 3
 8.
@@ -824,13 +823,13 @@ Package rerunfilecheck Info: File `Propuesta.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 18812 strings out of 475410
- 332035 string characters out of 2783769
- 863218 words of memory out of 3000000
- 39732 multiletter control sequences out of 15000+600000
- 498595 words of font info for 185 fonts, out of 8000000 for 9000
+ 18836 strings out of 475307
+ 332533 string characters out of 2780942
+ 867876 words of memory out of 3000000
+ 39865 multiletter control sequences out of 15000+600000
+ 498304 words of font info for 181 fonts, out of 8000000 for 9000
  1127 hyphenation exceptions out of 8191
- 108i,9n,106p,10627b,621s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 108i,9n,106p,10627b,623s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {/home/carlos/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}</home/carlo
 s/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/carlo
 s/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/carlo
@@ -842,7 +841,7 @@ os/.miktex/texmfs/install/fonts/type1/public/mathpazo/fplmbb.pfb></home/carlos/
 tex/texmfs/install/fonts/type1/public/mathpazo/fplmri.pfb></home/carlos/.miktex
 /texmfs/install/fonts/type1/urw/palatino/uplr8a.pfb></home/carlos/.miktex/texmf
 s/install/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Propuesta.pdf (5 pages, 139596 bytes).
+Output written on Propuesta.pdf (5 pages, 139610 bytes).
 PDF statistics:
  140 PDF objects out of 1000 (max. 8388607)
  36 named destinations out of 1000 (max. 500000)
