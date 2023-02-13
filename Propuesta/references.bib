@@ -1,0 +1,283 @@
+
+@misc{beck_overview_2021,
+	title = {An overview on deep learning-based approximation methods for partial differential equations},
+	url = {http://arxiv.org/abs/2012.12348},
+	abstract = {It is one of the most challenging problems in applied mathematics to approximatively solve high-dimensional partial differential equations (PDEs). Recently, several deep learning-based approximation algorithms for attacking this problem have been proposed and tested numerically on a number of examples of high-dimensional PDEs. This has given rise to a lively field of research in which deep learning-based methods and related Monte Carlo methods are applied to the approximation of high-dimensional PDEs. In this article we offer an introduction to this field of research, we review some of the main ideas of deep learning-based approximation methods for PDEs, we revisit one of the central mathematical results for deep neural network approximations for PDEs, and we provide an overview of the recent literature in this area of research.},
+	urldate = {2022-10-10},
+	publisher = {arXiv},
+	author = {Beck, Christian and Hutzenthaler, Martin and Jentzen, Arnulf and Kuckuck, Benno},
+	month = mar,
+	year = {2021},
+	note = {arXiv:2012.12348 [cs, math]},
+	keywords = {65M99 (Primary), 35-02, 65-02, 68T07 (Secondary), Computer Science - Machine Learning, Mathematics - Numerical Analysis},
+}
+
+@article{sirignano_dgm_2018,
+	title = {{DGM}: {A} deep learning algorithm for solving partial differential equations},
+	volume = {375},
+	issn = {00219991},
+	shorttitle = {{DGM}},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0021999118305527},
+	doi = {10.1016/j.jcp.2018.08.029},
+	abstract = {High-dimensional PDEs have been a longstanding computational challenge. We propose to solve highdimensional PDEs by approximating the solution with a deep neural network which is trained to satisfy the diﬀerential operator, initial condition, and boundary conditions. Our algorithm is meshfree, which is key since meshes become infeasible in higher dimensions. Instead of forming a mesh, the neural network is trained on batches of randomly sampled time and space points. The algorithm is tested on a class of high-dimensional free boundary PDEs, which we are able to accurately solve in up to 200 dimensions. The algorithm is also tested on a high-dimensional Hamilton-Jacobi-Bellman PDE and Burgers’ equation. The deep learning algorithm approximates the general solution to the Burgers’ equation for a continuum of diﬀerent boundary conditions and physical conditions (which can be viewed as a high-dimensional space). We call the algorithm a “Deep Galerkin Method (DGM)” since it is similar in spirit to Galerkin methods, with the solution approximated by a neural network instead of a linear combination of basis functions. In addition, we prove a theorem regarding the approximation power of neural networks for a class of quasilinear parabolic PDEs.},
+	language = {en},
+	urldate = {2022-10-10},
+	journal = {Journal of Computational Physics},
+	author = {Sirignano, Justin and Spiliopoulos, Konstantinos},
+	month = dec,
+	year = {2018},
+	pages = {1339--1364},
+}
+
+@article{lu_deeponet_2021,
+	title = {{DeepONet}: {Learning} nonlinear operators for identifying differential equations based on the universal approximation theorem of operators},
+	volume = {3},
+	issn = {2522-5839},
+	shorttitle = {{DeepONet}},
+	url = {http://arxiv.org/abs/1910.03193},
+	doi = {10.1038/s42256-021-00302-5},
+	abstract = {While it is widely known that neural networks are universal approximators of continuous functions, a less known and perhaps more powerful result is that a neural network with a single hidden layer can approximate accurately any nonlinear continuous operator. This universal approximation theorem is suggestive of the potential application of neural networks in learning nonlinear operators from data. However, the theorem guarantees only a small approximation error for a sufficient large network, and does not consider the important optimization and generalization errors. To realize this theorem in practice, we propose deep operator networks (DeepONets) to learn operators accurately and efficiently from a relatively small dataset. A DeepONet consists of two sub-networks, one for encoding the input function at a fixed number of sensors \$x\_i, i=1,{\textbackslash}dots,m\$ (branch net), and another for encoding the locations for the output functions (trunk net). We perform systematic simulations for identifying two types of operators, i.e., dynamic systems and partial differential equations, and demonstrate that DeepONet significantly reduces the generalization error compared to the fully-connected networks. We also derive theoretically the dependence of the approximation error in terms of the number of sensors (where the input function is defined) as well as the input function type, and we verify the theorem with computational results. More importantly, we observe high-order error convergence in our computational tests, namely polynomial rates (from half order to fourth order) and even exponential convergence with respect to the training dataset size.},
+	number = {3},
+	urldate = {2022-10-10},
+	journal = {Nature Machine Intelligence},
+	author = {Lu, Lu and Jin, Pengzhan and Karniadakis, George Em},
+	month = mar,
+	year = {2021},
+	note = {arXiv:1910.03193 [cs, stat]},
+	keywords = {Computer Science - Machine Learning, Statistics - Machine Learning},
+	pages = {218--229},
+}
+
+@misc{li_fourier_2021,
+	title = {Fourier {Neural} {Operator} for {Parametric} {Partial} {Differential} {Equations}},
+	url = {http://arxiv.org/abs/2010.08895},
+	abstract = {The classical development of neural networks has primarily focused on learning mappings between finite-dimensional Euclidean spaces. Recently, this has been generalized to neural operators that learn mappings between function spaces. For partial differential equations (PDEs), neural operators directly learn the mapping from any functional parametric dependence to the solution. Thus, they learn an entire family of PDEs, in contrast to classical methods which solve one instance of the equation. In this work, we formulate a new neural operator by parameterizing the integral kernel directly in Fourier space, allowing for an expressive and efficient architecture. We perform experiments on Burgers' equation, Darcy flow, and Navier-Stokes equation. The Fourier neural operator is the first ML-based method to successfully model turbulent flows with zero-shot super-resolution. It is up to three orders of magnitude faster compared to traditional PDE solvers. Additionally, it achieves superior accuracy compared to previous learning-based solvers under fixed resolution.},
+	urldate = {2022-10-10},
+	publisher = {arXiv},
+	author = {Li, Zongyi and Kovachki, Nikola and Azizzadenesheli, Kamyar and Liu, Burigede and Bhattacharya, Kaushik and Stuart, Andrew and Anandkumar, Anima},
+	month = may,
+	year = {2021},
+	note = {arXiv:2010.08895 [cs, math]},
+	keywords = {Computer Science - Machine Learning, Mathematics - Numerical Analysis},
+}
+
+@misc{mishra_machine_2018,
+	title = {A machine learning framework for data driven acceleration of computations of differential equations},
+	url = {http://arxiv.org/abs/1807.09519},
+	abstract = {We propose a machine learning framework to accelerate numerical computations of time-dependent ODEs and PDEs. Our method is based on recasting (generalizations of) existing numerical methods as artificial neural networks, with a set of trainable parameters. These parameters are determined in an offline training process by (approximately) minimizing suitable (possibly non-convex) loss functions by (stochastic) gradient descent methods. The proposed algorithm is designed to be always consistent with the underlying differential equation. Numerical experiments involving both linear and non-linear ODE and PDE model problems demonstrate a significant gain in computational efficiency over standard numerical methods.},
+	urldate = {2022-10-09},
+	publisher = {arXiv},
+	author = {Mishra, Siddhartha},
+	month = jul,
+	year = {2018},
+	note = {arXiv:1807.09519 [cs, math]},
+	keywords = {Computer Science - Machine Learning, Mathematics - Numerical Analysis},
+}
+
+@misc{beck_overview_2021-1,
+	title = {An overview on deep learning-based approximation methods for partial differential equations},
+	url = {http://arxiv.org/abs/2012.12348},
+	abstract = {It is one of the most challenging problems in applied mathematics to approximatively solve high-dimensional partial differential equations (PDEs). Recently, several deep learning-based approximation algorithms for attacking this problem have been proposed and tested numerically on a number of examples of high-dimensional PDEs. This has given rise to a lively field of research in which deep learning-based methods and related Monte Carlo methods are applied to the approximation of high-dimensional PDEs. In this article we offer an introduction to this field of research, we review some of the main ideas of deep learning-based approximation methods for PDEs, we revisit one of the central mathematical results for deep neural network approximations for PDEs, and we provide an overview of the recent literature in this area of research.},
+	urldate = {2022-10-09},
+	publisher = {arXiv},
+	author = {Beck, Christian and Hutzenthaler, Martin and Jentzen, Arnulf and Kuckuck, Benno},
+	month = mar,
+	year = {2021},
+	note = {arXiv:2012.12348 [cs, math]},
+	keywords = {65M99 (Primary), 35-02, 65-02, 68T07 (Secondary), Computer Science - Machine Learning, Mathematics - Numerical Analysis},
+}
+
+@misc{pedro_solving_2019,
+	title = {Solving {Partial} {Differential} {Equations} with {Neural} {Networks}},
+	url = {http://arxiv.org/abs/1912.04737},
+	abstract = {Many scientific and industrial applications require solving Partial Differential Equations (PDEs) to describe the physical phenomena of interest. Some examples can be found in the fields of aerodynamics, astrodynamics, combustion and many others. In some exceptional cases an analytical solution to the PDEs exists, but in the vast majority of the applications some kind of numerical approximation has to be computed. In this work, an alternative approach is proposed using neural networks (NNs) as the approximation function for the PDEs. Unlike traditional numerical methods, NNs have the property to be able to approximate any function given enough parameters. Moreover, these solutions are continuous and derivable over the entire domain removing the need for discretization. Another advantage that NNs as function approximations provide is the ability to include the free-parameters in the process of finding the solution. As a result, the solution can generalize to a range of situations instead of a particular case, avoiding the need of performing new calculations every time a parameter is changed dramatically decreasing the optimization time. We believe that the presented method has the potential to disrupt the physics simulation field enabling real-time physics simulation and geometry optimization without the need of big supercomputers to perform expensive and time consuming simulations},
+	urldate = {2022-10-05},
+	publisher = {arXiv},
+	author = {Pedro, Juan B. and Maroñas, Juan and Paredes, Roberto},
+	month = dec,
+	year = {2019},
+	note = {arXiv:1912.04737 [physics]},
+	keywords = {Physics - Computational Physics},
+}
+
+@misc{cuomo_scientific_2022,
+	title = {Scientific {Machine} {Learning} through {Physics}-{Informed} {Neural} {Networks}: {Where} we are and {What}'s next},
+	shorttitle = {Scientific {Machine} {Learning} through {Physics}-{Informed} {Neural} {Networks}},
+	url = {http://arxiv.org/abs/2201.05624},
+	abstract = {Physics-Informed Neural Networks (PINN) are neural networks (NNs) that encode model equations, like Partial Differential Equations (PDE), as a component of the neural network itself. PINNs are nowadays used to solve PDEs, fractional equations, integral-differential equations, and stochastic PDEs. This novel methodology has arisen as a multi-task learning framework in which a NN must fit observed data while reducing a PDE residual. This article provides a comprehensive review of the literature on PINNs: while the primary goal of the study was to characterize these networks and their related advantages and disadvantages. The review also attempts to incorporate publications on a broader range of collocation-based physics informed neural networks, which stars form the vanilla PINN, as well as many other variants, such as physics-constrained neural networks (PCNN), variational hp-VPINN, and conservative PINN (CPINN). The study indicates that most research has focused on customizing the PINN through different activation functions, gradient optimization techniques, neural network structures, and loss function structures. Despite the wide range of applications for which PINNs have been used, by demonstrating their ability to be more feasible in some contexts than classical numerical techniques like Finite Element Method (FEM), advancements are still possible, most notably theoretical issues that remain unresolved.},
+	urldate = {2022-10-05},
+	publisher = {arXiv},
+	author = {Cuomo, Salvatore and di Cola, Vincenzo Schiano and Giampaolo, Fabio and Rozza, Gianluigi and Raissi, Maziar and Piccialli, Francesco},
+	month = jun,
+	year = {2022},
+	note = {arXiv:2201.05624 [physics]},
+	keywords = {Computer Science - Artificial Intelligence, Computer Science - Machine Learning, Mathematics - Numerical Analysis, Physics - Data Analysis, Statistics and Probability},
+}
+
+@article{cohen_neural_2022,
+	title = {Neural {Q}-learning for solving elliptic {PDEs}},
+	abstract = {Solving high-dimensional partial diﬀerential equations (PDEs) is a major challenge in scientiﬁc computing. We develop a new numerical method for solving elliptic-type PDEs by adapting the Q-learning algorithm in reinforcement learning. Our “Q-PDE” algorithm is mesh-free and therefore has the potential to overcome the curse of dimensionality. Using a neural tangent kernel (NTK) approach, we prove that the neural network approximator for the PDE solution, trained with the Q-PDE algorithm, converges to the trajectory of an inﬁnite-dimensional ordinary diﬀerential equation (ODE) as the number of hidden units → ∞. For monotone PDE (i.e. those given by monotone operators, which may be nonlinear), despite the lack of a spectral gap in the NTK, we then prove that the limit neural network, which satisﬁes the inﬁnite-dimensional ODE, converges in L2 to the PDE solution as the training time → ∞. More generally, we can prove that any ﬁxed point of the wide-network limit for the Q-PDE algorithm is a solution of the PDE (not necessarily under the monotone condition). The numerical performance of the Q-PDE algorithm is studied for several elliptic PDEs.},
+	language = {en},
+	author = {Cohen, Samuel N and Jiang, Deqing and Sirignano, Justin},
+	year = {2022},
+	pages = {57},
+}
+
+@article{PINNs,
+  author    = {Maziar Raissi and
+               Paris Perdikaris and
+               George E. Karniadakis},
+  title     = {Physics Informed Deep Learning (Part {I):} Data-driven Solutions of
+               Nonlinear Partial Differential Equations},
+  journal   = {CoRR},
+  volume    = {abs/1711.10561},
+  year      = {2017},
+  url       = {http://arxiv.org/abs/1711.10561},
+  eprinttype = {arXiv},
+  eprint    = {1711.10561},
+  timestamp = {Mon, 13 Aug 2018 16:47:03 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-1711-10561.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@book{Revuz1999,
+  doi = {10.1007/978-3-662-06400-9},
+  url = {https://doi.org/10.1007/978-3-662-06400-9},
+  year = {1999},
+  publisher = {Springer Berlin Heidelberg},
+  author = {Daniel Revuz and Marc Yor},
+  title = {Continuous Martingales and Brownian Motion}
+}
+
+@article{Jen1,
+	doi = {10.1007/s40304-017-0117-6},
+  
+	url = {https://doi.org/10.1007%2Fs40304-017-0117-6},
+  
+	year = 2017,
+	month = {nov},
+  
+	publisher = {Springer Science and Business Media {LLC}
+},
+  
+	volume = {5},
+  
+	number = {4},
+  
+	pages = {349--380},
+  
+	author = {Weinan E and Jiequn Han and Arnulf Jentzen},
+  
+	title = {Deep Learning-Based Numerical Methods for High-Dimensional Parabolic Partial Differential Equations and Backward Stochastic Differential Equations},
+  
+	journal = {Communications in Mathematics and Statistics}
+}
+
+@article{Beck_2019,
+	doi = {10.1007/s00332-018-9525-3},
+  
+	url = {https://doi.org/10.1007%2Fs00332-018-9525-3},
+  
+	year = 2019,
+	month = {jan},
+  
+	publisher = {Springer Science and Business Media {LLC}
+},
+  
+	volume = {29},
+  
+	number = {4},
+  
+	pages = {1563--1619},
+  
+	author = {Christian Beck and Weinan E and Arnulf Jentzen},
+  
+	title = {Machine Learning Approximation Algorithms for High-Dimensional Fully Nonlinear Partial Differential Equations and Second-order Backward Stochastic Differential Equations},
+  
+	journal = {Journal of Nonlinear Science}
+}
+
+@article{Hutzenthaler2020,
+  doi = {10.1007/s42985-019-0006-9},
+  url = {https://doi.org/10.1007/s42985-019-0006-9},
+  year = {2020},
+  month = apr,
+  publisher = {Springer Science and Business Media {LLC}},
+  volume = {1},
+  number = {2},
+  author = {Martin Hutzenthaler and Arnulf Jentzen and Thomas Kruse and Tuan Anh Nguyen},
+  title = {A proof that rectified deep neural networks overcome the curse of dimensionality in the numerical approximation of semilinear heat equations},
+  journal = {{SN} Partial Differential Equations and Applications}
+}
+
+@misc{PINNS2,
+  doi = {10.48550/ARXIV.2103.09655},
+  
+  url = {https://arxiv.org/abs/2103.09655},
+  
+  author = {Markidis, Stefano},
+  
+  keywords = {Numerical Analysis (math.NA), Distributed, Parallel, and Cluster Computing (cs.DC), Computational Physics (physics.comp-ph), FOS: Mathematics, FOS: Mathematics, FOS: Computer and information sciences, FOS: Computer and information sciences, FOS: Physical sciences, FOS: Physical sciences},
+  
+  title = {The Old and the New: Can Physics-Informed Deep-Learning Replace Traditional Linear Solvers?},
+  
+  publisher = {arXiv},
+  
+  year = {2021},
+  
+  copyright = {arXiv.org perpetual, non-exclusive license}
+}
+
+@article{higham_deep_2019,
+	title = {Deep {Learning}: {An} {Introduction} for {Applied} {Mathematicians}},
+	volume = {61},
+	issn = {0036-1445, 1095-7200},
+	shorttitle = {Deep {Learning}},
+	url = {https://epubs.siam.org/doi/10.1137/18M1165748},
+	doi = {10.1137/18M1165748},
+	abstract = {Multilayered artiﬁcial neural networks are becoming a pervasive tool in a host of application ﬁelds. At the heart of this deep learning revolution are familiar concepts from applied and computational mathematics; notably, in calculus, approximation theory, optimization and linear algebra. This article provides a very brief introduction to the basic ideas that underlie deep learning from an applied mathematics perspective. Our target audience includes postgraduate and ﬁnal year undergraduate students in mathematics who are keen to learn about the area. The article may also be useful for instructors in mathematics who wish to enliven their classes with references to the application of deep learning techniques. We focus on three fundamental questions: what is a deep neural network? how is a network trained? what is the stochastic gradient method? We illustrate the ideas with a short MATLAB code that sets up and trains a network. We also show the use of state-of-the art software on a large scale image classiﬁcation problem. We ﬁnish with references to the current literature.},
+	language = {en},
+	number = {3},
+	urldate = {2022-09-26},
+	journal = {SIAM Review},
+	author = {Higham, Catherine F. and Higham, Desmond J.},
+	month = jan,
+	year = {2019},
+	pages = {860--891},
+}
+
+@article{blechschmidt_three_2021,
+	title = {Three ways to solve partial differential equations with neural networks — {A} review},
+	volume = {44},
+	issn = {0936-7195, 1522-2608},
+	url = {https://onlinelibrary.wiley.com/doi/10.1002/gamm.202100006},
+	doi = {10.1002/gamm.202100006},
+	abstract = {Neural networks are increasingly used to construct numerical solution methods for partial diﬀerential equations. In this expository review, we introduce and contrast three important recent approaches attractive in their simplicity and their suitability for high-dimensional problems: physics-informed neural networks, methods based on the Feynman-Kac formula and methods based on the solution of backward stochastic diﬀerential equations. The article is accompanied by a suite of expository software in the form of Jupyter notebooks in which each basic methodology is explained step by step, allowing for a quick assimilation and experimentation. An extensive bibliography summarizes the state of the art.},
+	language = {en},
+	number = {2},
+	urldate = {2022-09-26},
+	journal = {GAMM-Mitteilungen},
+	author = {Blechschmidt, Jan and Ernst, Oliver G.},
+	month = jun,
+	year = {2021},
+}
+
+@article{han_solving_2018,
+	title = {Solving high-dimensional partial differential equations using deep learning},
+	volume = {115},
+	issn = {0027-8424, 1091-6490},
+	url = {https://pnas.org/doi/full/10.1073/pnas.1718942115},
+	doi = {10.1073/pnas.1718942115},
+	abstract = {Significance
+            Partial differential equations (PDEs) are among the most ubiquitous tools used in modeling problems in nature. However, solving high-dimensional PDEs has been notoriously difficult due to the “curse of dimensionality.” This paper introduces a practical algorithm for solving nonlinear PDEs in very high (hundreds and potentially thousands of) dimensions. Numerical results suggest that the proposed algorithm is quite effective for a wide variety of problems, in terms of both accuracy and speed. We believe that this opens up a host of possibilities in economics, finance, operational research, and physics, by considering all participating agents, assets, resources, or particles together at the same time, instead of making ad hoc assumptions on their interrelationships.
+          , 
+            Developing algorithms for solving high-dimensional partial differential equations (PDEs) has been an exceedingly difficult task for a long time, due to the notoriously difficult problem known as the “curse of dimensionality.” This paper introduces a deep learning-based approach that can handle general high-dimensional parabolic PDEs. To this end, the PDEs are reformulated using backward stochastic differential equations and the gradient of the unknown solution is approximated by neural networks, very much in the spirit of deep reinforcement learning with the gradient acting as the policy function. Numerical results on examples including the nonlinear Black–Scholes equation, the Hamilton–Jacobi–Bellman equation, and the Allen–Cahn equation suggest that the proposed algorithm is quite effective in high dimensions, in terms of both accuracy and cost. This opens up possibilities in economics, finance, operational research, and physics, by considering all participating agents, assets, resources, or particles together at the same time, instead of making ad hoc assumptions on their interrelationships.},
+	language = {en},
+	number = {34},
+	urldate = {2022-09-26},
+	journal = {Proceedings of the National Academy of Sciences},
+	author = {Han, Jiequn and Jentzen, Arnulf and E, Weinan},
+	month = aug,
+	year = {2018},
+	pages = {8505--8510},
+}
