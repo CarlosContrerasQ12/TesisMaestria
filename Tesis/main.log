@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.12.12)  13 FEB 2023 13:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.12.12)  13 FEB 2023 23:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -526,15 +526,15 @@ Chapter 1.
 
 ] [2]
 Chapter 2.
-(chapters/chapter02.tex
-<images//graph_a.png, id=38, 464.73625pt x 445.665pt>
+(chapters/chapter02.tex [3
+
+]
+<images//graph_a.png, id=41, 464.73625pt x 445.665pt>
 File: images//graph_a.png Graphic file (type png)
 <use images//graph_a.png>
 Package pdftex.def Info: images//graph_a.png  used on input line 16.
 (pdftex.def)             Requested size: 232.36755pt x 222.83195pt.
- [3
-
-] [4 <./images//graph_a.png>] [5] [6]) [7]
+ [4 <./images//graph_a.png>] [5] [6]) [7]
 Chapter 3.
 (chapters/chapter03.tex
 <images//graph1.png, id=57, 256.96pt x 248.93pt>
@@ -568,25 +568,29 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [11] [12]) [13]
 Chapter 5.
+(chapters/chapter05.tex) [14
+
+]
+Chapter 6.
 (chapters/conclusion.tex
 
-LaTeX Warning: Citation 'latexcompanion' on page 14 undefined on input line 3.
+LaTeX Warning: Citation 'latexcompanion' on page 15 undefined on input line 3.
 
 
-LaTeX Warning: Citation 'knuthwebsite' on page 14 undefined on input line 5.
+LaTeX Warning: Citation 'knuthwebsite' on page 15 undefined on input line 5.
 
 
-LaTeX Warning: Citation 'einstein' on page 14 undefined on input line 7.
+LaTeX Warning: Citation 'einstein' on page 15 undefined on input line 7.
 
-) [14
+) [15
 
 ]
 Appendix A.
 (chapters/appendix.tex)
 
-LaTeX Warning: Empty bibliography on input line 73.
+LaTeX Warning: Empty bibliography on input line 76.
 
-[15
+[16
 
 ] (main.aux)
 
@@ -602,10 +606,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 11722 strings out of 475307
- 224898 string characters out of 2780942
- 987293 words of memory out of 3000000
- 33085 multiletter control sequences out of 15000+600000
+ 11728 strings out of 475307
+ 225084 string characters out of 2780942
+ 987347 words of memory out of 3000000
+ 33088 multiletter control sequences out of 15000+600000
  475334 words of font info for 48 fonts, out of 8000000 for 9000
  1127 hyphenation exceptions out of 8191
  60i,12n,68p,679b,1146s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -615,9 +619,9 @@ b></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pf
 b></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb
 ></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb>
 </home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on main.pdf (23 pages, 154578 bytes).
+Output written on main.pdf (24 pages, 155602 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
+ 118 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
