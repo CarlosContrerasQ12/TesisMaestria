@@ -1,14 +1,14 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.12.12)  13 FEB 2023 23:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.14)  14 FEB 2023 16:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **./main.tex
 (main.tex
 LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2022-11-02>
-(/home/carlos/.miktex/texmfs/install/tex/latex/base/report.cls
+L3 programming layer <2023-02-02>
+(/home/maestria/.miktex/texmfs/install/tex/latex/base/report.cls
 Document Class: report 2022/07/02 v1.4n Standard LaTeX document class
-(/home/carlos/.miktex/texmfs/install/tex/latex/base/size11.clo
+(/home/maestria/.miktex/texmfs/install/tex/latex/base/size11.clo
 File: size11.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
@@ -24,39 +24,39 @@ File: size11.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
 )
-(/home/carlos/.miktex/texmfs/install/tex/latex/base/inputenc.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks16
 \inpenc@posthook=\toks17
 )
-(/home/carlos/.miktex/texmfs/install/tex/latex/graphics/graphicx.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/graphics/keyval.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks18
 )
-(/home/carlos/.miktex/texmfs/install/tex/latex/graphics/graphics.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/graphics/graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/graphics/trig.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/graphics/trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 )
-(/home/carlos/.miktex/texmfs/install/tex/latex/graphics-cfg/graphics.cfg
+(/home/maestria/.miktex/texmfs/install/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/graphics-def/pdftex.def
+(/home/maestria/.miktex/texmfs/install/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen141
 \Gin@req@width=\dimen142
 )
-(/home/carlos/.miktex/texmfs/install/tex/latex/caption/caption.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/caption/caption.sty
 Package: caption 2022/03/01 v3.6b Customizing captions (AR)
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/caption/caption3.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/caption/caption3.sty
 Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
 \caption@tempdima=\dimen143
 \captionmargin=\dimen144
@@ -71,12 +71,12 @@ Package caption Info: Standard document class detected.
 \c@caption@flags=\count194
 \c@continuedfloat=\count195
 )
-(/home/carlos/.miktex/texmfs/install/tex/latex/caption/subcaption.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/caption/subcaption.sty
 Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
 \c@subfigure=\count196
 \c@subtable=\count197
 )
-(/home/carlos/.miktex/texmfs/install/tex/latex/float/float.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count198
 \float@exts=\toks19
@@ -84,13 +84,13 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks20
 \@floatcapt=\box52
 )
-(/home/carlos/.miktex/texmfs/install/tex/latex/geometry/geometry.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
-(/home/carlos/.miktex/texmfs/install/tex/generic/iftex/ifvtex.sty
+(/home/maestria/.miktex/texmfs/install/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
-(/home/carlos/.miktex/texmfs/install/tex/generic/iftex/iftex.sty
+(/home/maestria/.miktex/texmfs/install/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
 \Gm@cnth=\count199
@@ -106,8 +106,8 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@layoutvoffset=\dimen158
 \Gm@dimlist=\toks21
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/geometry/geometry.cfg))
-(/home/carlos/.miktex/texmfs/install/tex/latex/fancyhdr/fancyhdr.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/geometry/geometry.cfg))
+(/home/maestria/.miktex/texmfs/install/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 
 \f@nch@headwidth=\skip50
@@ -120,44 +120,44 @@ Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 \f@nch@O@olf=\skip57
 \f@nch@O@orf=\skip58
 )
-(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/biblatex.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2022/07/12 v3.18b programmable bibliographies (PK/MW)
 
-(/home/carlos/.miktex/texmfs/install/tex/generic/pdftexcmds/pdftexcmds.sty
+(/home/maestria/.miktex/texmfs/install/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-(/home/carlos/.miktex/texmfs/install/tex/generic/infwarerr/infwarerr.sty
+(/home/maestria/.miktex/texmfs/install/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
-(/home/carlos/.miktex/texmfs/install/tex/generic/ltxcmds/ltxcmds.sty
+(/home/maestria/.miktex/texmfs/install/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-(/home/carlos/.miktex/texmfs/install/tex/latex/etoolbox/etoolbox.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count268
 )
-(/home/carlos/.miktex/texmfs/install/tex/latex/kvoptions/kvoptions.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/kvsetkeys/kvsetkeys.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ))
-(/home/carlos/.miktex/texmfs/install/tex/latex/logreq/logreq.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
 \lrq@indent=\count269
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/logreq/logreq.def
+(/home/maestria/.miktex/texmfs/install/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-(/home/carlos/.miktex/texmfs/install/tex/latex/base/ifthen.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
-(/home/carlos/.miktex/texmfs/install/tex/latex/url/url.sty
+(/home/maestria/.miktex/texmfs/install/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -214,14 +214,14 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 \bibhang=\skip66
 \blx@bcfin=\read2
 \blx@bcfout=\write3
-\blx@langwohyphens=\language78
+\blx@langwohyphens=\language1
 \c@mincomprange=\count313
 \c@maxcomprange=\count314
 \c@mincompwidth=\count315
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/blx-dm.def
+(/home/maestria/.miktex/texmfs/install/tex/latex/biblatex/blx-dm.def
 File: blx-dm.def 2022/07/12 v3.18b biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
@@ -313,13 +313,13 @@ Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/blx-compat.def
+(/home/maestria/.miktex/texmfs/install/tex/latex/biblatex/blx-compat.def
 File: blx-compat.def 2022/07/12 v3.18b biblatex compatibility (PK/MW)
 )
 Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/biblatex.def
+(/home/maestria/.miktex/texmfs/install/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2022/07/12 v3.18b biblatex compatibility (PK/MW)
 \c@textcitecount=\count384
 \c@textcitetotal=\count385
@@ -338,12 +338,12 @@ File: biblatex.def 2022/07/12 v3.18b biblatex compatibility (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'authoryear'...
 Package biblatex Info: ... file 'authoryear.bbx' found.
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/bbx/authoryear.bbx
+(/home/maestria/.miktex/texmfs/install/tex/latex/biblatex/bbx/authoryear.bbx
 File: authoryear.bbx 2022/07/12 v3.18b biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/bbx/standard.bbx
+(/home/maestria/.miktex/texmfs/install/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2022/07/12 v3.18b biblatex bibliography style (PK/MW)
 \c@bbx:relatedcount=\count393
 \c@bbx:relatedtotal=\count394
@@ -351,7 +351,7 @@ File: standard.bbx 2022/07/12 v3.18b biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load citation style 'authoryear'...
 Package biblatex Info: ... file 'authoryear.cbx' found.
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/cbx/authoryear.cbx
+(/home/maestria/.miktex/texmfs/install/tex/latex/biblatex/cbx/authoryear.cbx
 File: authoryear.cbx 2022/07/12 v3.18b biblatex citation style (PK/MW)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
@@ -364,35 +364,34 @@ Package biblatex Info: Redefining '\textcites'.
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/biblatex.cfg
+(/home/maestria/.miktex/texmfs/install/tex/latex/biblatex/biblatex.cfg
 File: biblatex.cfg 
 )
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Document encoding is UTF8 ....
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/l3kernel/expl3.sty
-Package: expl3 2022-11-02 L3 programming layer (loader) 
+(/home/maestria/.miktex/texmfs/install/tex/latex/l3kernel/expl3.sty
+Package: expl3 2023-02-02 L3 programming layer (loader) 
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-10-26 L3 backend support: PDF output (pdfTeX)
+(/home/maestria/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count395
 \l__pdf_internal_box=\box53
 ))
 Package biblatex Info: ... and expl3
-(biblatex)             2022-11-02 L3 programming layer (loader) 
+(biblatex)             2023-02-02 L3 programming layer (loader) 
 (biblatex)             is new enough (at least 2020/04/06),
 (biblatex)             setting 'casechanger=expl3'.
-(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/blx-case-expl3.sty
-(/home/carlos/.miktex/texmfs/install/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2022-06-22 L3 Experimental document command parser
+ (/home/maestria/.miktex/texmfs/install/tex/latex/biblatex/blx-case-expl3.sty (
+/home/maestria/.miktex/texmfs/install/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2023-01-16 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2022/07/12 v3.18b expl3 case changing code for biblatex
 
 ))
 \@quotelevel=\count396
 \@quotereset=\count397
-
-(main.aux)
+ (main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -410,7 +409,7 @@ LaTeX Font Info:    ... okay on input line 23.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
 LaTeX Font Info:    ... okay on input line 23.
 
-(/home/carlos/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
+(/home/maestria/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count398
 \scratchdimen=\dimen159
@@ -423,11 +422,12 @@ LaTeX Font Info:    ... okay on input line 23.
 \MPnumerator=\count402
 \makeMPintoPDFobject=\count403
 \everyMPtoPDFconversion=\toks23
-) (/home/carlos/.miktex/texmfs/install/tex/latex/epstopdf-pkg/epstopdf-base.sty
+)
+(/home/maestria/.miktex/texmfs/install/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
-(/home/carlos/.miktex/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
+(/home/maestria/.miktex/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package caption Info: Begin \AtBeginDocument code.
@@ -471,7 +471,7 @@ Package caption Info: End \AtBeginDocument code.
 
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
-(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/lbx/english.lbx
+(/home/maestria/.miktex/texmfs/install/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2022/07/12 v3.18b biblatex localization (PK/MW)
 )
 Package biblatex Info: Input encoding 'utf8' detected.
@@ -487,8 +487,8 @@ Package biblatex Info: Reference section=0 on input line 23.
 Package biblatex Info: Reference segment=0 on input line 23.
  (titlepage.tex [1
 
-{/home/carlos/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}]) (abstract.tex)
- [1] [2
+{/home/maestria/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}]) (abstract.te
+x) [1] [2
 
 ] [3
 
@@ -511,10 +511,10 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [6
 
-]
-(main.lot)
+[6
+
+] (main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
@@ -529,15 +529,21 @@ Chapter 2.
 (chapters/chapter02.tex [3
 
 ]
-<images//graph_a.png, id=41, 464.73625pt x 445.665pt>
+<images//graph_a.png, id=46, 464.73625pt x 445.665pt>
 File: images//graph_a.png Graphic file (type png)
 <use images//graph_a.png>
 Package pdftex.def Info: images//graph_a.png  used on input line 16.
 (pdftex.def)             Requested size: 232.36755pt x 222.83195pt.
- [4 <./images//graph_a.png>] [5] [6]) [7]
+
+Overfull \hbox (3.13866pt too wide) in paragraph at lines 13--20
+\OT1/cmr/m/n/10.95 reprehenderit in voluptate velit esse cillum dolore eu fugia
+t nulla pariatur see 2.1[]. Excepteur
+ []
+
+[4 <./images//graph_a.png>] [5] [6]) [7]
 Chapter 3.
 (chapters/chapter03.tex
-<images//graph1.png, id=57, 256.96pt x 248.93pt>
+<images//graph1.png, id=62, 256.96pt x 248.93pt>
 File: images//graph1.png Graphic file (type png)
 <use images//graph1.png>
 Package pdftex.def Info: images//graph1.png  used on input line 8.
@@ -546,12 +552,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 9.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 9.
-<images//graph2.png, id=58, 258.9675pt x 248.93pt>
+<images//graph2.png, id=63, 258.9675pt x 248.93pt>
 File: images//graph2.png Graphic file (type png)
 <use images//graph2.png>
 Package pdftex.def Info: images//graph2.png  used on input line 15.
 (pdftex.def)             Requested size: 128.0387pt x 123.08208pt.
-<images//graph3.png, id=59, 255.95625pt x 245.91875pt>
+<images//graph3.png, id=64, 255.95625pt x 245.91875pt>
 File: images//graph3.png Graphic file (type png)
 <use images//graph3.png>
 Package pdftex.def Info: images//graph3.png  used on input line 22.
@@ -606,22 +612,29 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 11728 strings out of 475307
- 225084 string characters out of 2780942
- 987347 words of memory out of 3000000
- 33088 multiletter control sequences out of 15000+600000
- 475334 words of font info for 48 fonts, out of 8000000 for 9000
- 1127 hyphenation exceptions out of 8191
- 60i,12n,68p,679b,1146s stack positions out of 10000i,1000n,20000p,200000b,80000s
-</home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pf
-b></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pf
-b></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pf
-b></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb
-></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-</home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on main.pdf (24 pages, 155602 bytes).
+ 11728 strings out of 478309
+ 225286 string characters out of 5840359
+ 1864346 words of memory out of 5000000
+ 31759 multiletter control sequences out of 15000+600000
+ 518362 words of font info for 52 fonts, out of 8000000 for 9000
+ 0 hyphenation exceptions out of 8191
+ 63i,12n,68p,679b,1146s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi600/cmmi10.
+pk> </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi600/cmr10.
+pk> </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi1037/cmbx1
+2.pk> </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi657/cmbx
+10.pk> </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi600/cmb
+x12.pk> </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi600/cm
+r12.pk> </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi720/cm
+bx12.pk> </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi657/c
+mr10.pk> </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi720/c
+mr12.pk> </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi864/c
+mbx12.pk> </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi600/
+cmr17.pk> </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi1244
+/cmbx12.pk>
+Output written on main.pdf (24 pages, 170184 bytes).
 PDF statistics:
- 118 PDF objects out of 1000 (max. 8388607)
+ 419 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
