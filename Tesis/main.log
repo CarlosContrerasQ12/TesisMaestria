@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.14)  14 FEB 2023 16:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.14)  15 FEB 2023 11:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -526,16 +526,22 @@ Chapter 1.
 
 ] [2]
 Chapter 2.
-(chapters/chapter02.tex [3
+(chapters/chapter02.tex
+Overfull \hbox (3.01694pt too wide) in paragraph at lines 1--2
+\OT1/cmr/m/n/10.95 Pontryagin maximum principle. The former approach leads to a
+ partial differential equation
+ []
+
+[3
 
 ]
 <images//graph_a.png, id=46, 464.73625pt x 445.665pt>
 File: images//graph_a.png Graphic file (type png)
 <use images//graph_a.png>
-Package pdftex.def Info: images//graph_a.png  used on input line 16.
+Package pdftex.def Info: images//graph_a.png  used on input line 19.
 (pdftex.def)             Requested size: 232.36755pt x 222.83195pt.
 
-Overfull \hbox (3.13866pt too wide) in paragraph at lines 13--20
+Overfull \hbox (3.13866pt too wide) in paragraph at lines 16--23
 \OT1/cmr/m/n/10.95 reprehenderit in voluptate velit esse cillum dolore eu fugia
 t nulla pariatur see 2.1[]. Excepteur
  []
@@ -632,9 +638,9 @@ mr12.pk> </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi864/c
 mbx12.pk> </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi600/
 cmr17.pk> </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi1244
 /cmbx12.pk>
-Output written on main.pdf (24 pages, 170184 bytes).
+Output written on main.pdf (24 pages, 172318 bytes).
 PDF statistics:
- 419 PDF objects out of 1000 (max. 8388607)
+ 424 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

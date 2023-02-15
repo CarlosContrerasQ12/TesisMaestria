@@ -14,4 +14,4 @@
 \contentsline {section}{\numberline {4.3}Section Title}{11}{}%
 \contentsline {chapter}{\numberline {5}An application}{14}{}%
 \contentsline {chapter}{\numberline {6}Conclusion}{15}{}%
-\contentsline {chapter}{\numberline {A}Appendix Title}{16}{}%
+\contentsline {chapter}{\numberline {A}Neural Networks}{16}{}%
