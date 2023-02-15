@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.14)  15 FEB 2023 11:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.14)  15 FEB 2023 14:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -490,10 +490,6 @@ Package biblatex Info: Reference segment=0 on input line 23.
 {/home/maestria/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}]) (abstract.te
 x) [1] [2
 
-] [3
-
-] [4
-
 ] (main.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 3.
@@ -505,20 +501,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [5
-
-] (main.lof)
-\tf@lof=\write5
-\openout5 = `main.lof'.
-
-
-[6
-
-] (main.lot)
-\tf@lot=\write6
-\openout6 = `main.lot'.
-
- [7
+ [3
 
 ]
 Chapter 1.
@@ -535,13 +518,13 @@ Overfull \hbox (3.01694pt too wide) in paragraph at lines 1--2
 [3
 
 ]
-<images//graph_a.png, id=46, 464.73625pt x 445.665pt>
+<images//graph_a.png, id=34, 464.73625pt x 445.665pt>
 File: images//graph_a.png Graphic file (type png)
 <use images//graph_a.png>
-Package pdftex.def Info: images//graph_a.png  used on input line 19.
+Package pdftex.def Info: images//graph_a.png  used on input line 21.
 (pdftex.def)             Requested size: 232.36755pt x 222.83195pt.
 
-Overfull \hbox (3.13866pt too wide) in paragraph at lines 16--23
+Overfull \hbox (3.13866pt too wide) in paragraph at lines 18--25
 \OT1/cmr/m/n/10.95 reprehenderit in voluptate velit esse cillum dolore eu fugia
 t nulla pariatur see 2.1[]. Excepteur
  []
@@ -549,7 +532,7 @@ t nulla pariatur see 2.1[]. Excepteur
 [4 <./images//graph_a.png>] [5] [6]) [7]
 Chapter 3.
 (chapters/chapter03.tex
-<images//graph1.png, id=62, 256.96pt x 248.93pt>
+<images//graph1.png, id=49, 256.96pt x 248.93pt>
 File: images//graph1.png Graphic file (type png)
 <use images//graph1.png>
 Package pdftex.def Info: images//graph1.png  used on input line 8.
@@ -558,12 +541,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 9.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 9.
-<images//graph2.png, id=63, 258.9675pt x 248.93pt>
+<images//graph2.png, id=50, 258.9675pt x 248.93pt>
 File: images//graph2.png Graphic file (type png)
 <use images//graph2.png>
 Package pdftex.def Info: images//graph2.png  used on input line 15.
 (pdftex.def)             Requested size: 128.0387pt x 123.08208pt.
-<images//graph3.png, id=64, 255.95625pt x 245.91875pt>
+<images//graph3.png, id=51, 255.95625pt x 245.91875pt>
 File: images//graph3.png Graphic file (type png)
 <use images//graph3.png>
 Package pdftex.def Info: images//graph3.png  used on input line 22.
@@ -600,7 +583,7 @@ LaTeX Warning: Citation 'einstein' on page 15 undefined on input line 7.
 Appendix A.
 (chapters/appendix.tex)
 
-LaTeX Warning: Empty bibliography on input line 76.
+LaTeX Warning: Empty bibliography on input line 68.
 
 [16
 
@@ -618,10 +601,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 11728 strings out of 478309
- 225286 string characters out of 5840359
+ 11716 strings out of 478309
+ 225086 string characters out of 5840359
  1864346 words of memory out of 5000000
- 31759 multiletter control sequences out of 15000+600000
+ 31753 multiletter control sequences out of 15000+600000
  518362 words of font info for 52 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
  63i,12n,68p,679b,1146s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -638,9 +621,9 @@ mr12.pk> </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi864/c
 mbx12.pk> </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi600/
 cmr17.pk> </home/maestria/.miktex/texmfs/data/fonts/pk/ljfour/public/cm/dpi1244
 /cmbx12.pk>
-Output written on main.pdf (24 pages, 172318 bytes).
+Output written on main.pdf (20 pages, 169107 bytes).
 PDF statistics:
- 424 PDF objects out of 1000 (max. 8388607)
+ 409 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
