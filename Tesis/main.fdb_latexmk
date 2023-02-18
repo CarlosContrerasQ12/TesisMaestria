@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 1676651324 "main.bcf" "main.bbl" "main" 1676651327 0
-  "main.bcf" 1676651326 106638 251decd7fac9a827ce41f426d6d0a638 "pdflatex"
+["biber main"] 1676755190 "main.bcf" "main.bbl" "main" 1676755310 0
+  "main.bcf" 1676755310 106638 251decd7fac9a827ce41f426d6d0a638 "pdflatex"
   "references.bib" 1676329886 873 1beb53c0e2edfad9fd7e908a70af928a ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1676651326 "/home/carlos/Documentos/Trabajo de grado/Tesis/main.tex" "main.pdf" "main" 1676651327 0
-  "/home/carlos/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map" 1676650989 149608 5d4691e4c6488ebefc014445dd0b6e21 ""
+["pdflatex"] 1676755309 "/home/carlos/Documentos/Trabajo de grado/Tesis/main.tex" "main.pdf" "main" 1676755310 0
+  "/home/carlos/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map" 1676755186 149608 5d4691e4c6488ebefc014445dd0b6e21 ""
   "/home/carlos/.miktex/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt" 1670881502 10772972 1696f4a80ca61924408380afabd860c2 ""
   "/home/carlos/.miktex/texmfs/install/fonts/tfm/public/cm/cmbx10.tfm" 1664155525 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/home/carlos/.miktex/texmfs/install/fonts/tfm/public/cm/cmbx12.tfm" 1664155525 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -83,7 +83,7 @@
   "/home/carlos/Documentos/Trabajo de grado/Tesis/main.tex" 1676599299 1374 42e3a2ab384af05f51848dc88169ea12 ""
   "abstract.tex" 1676329886 1699 f0523af8587c66b6f6bffbf749730593 ""
   "chapters/appendix.tex" 1676329886 21 b2f89aa83faf554c89584db532ff04b2 ""
-  "chapters/chapter02.tex" 1676649750 11948 c11db9a5d0c9a2f1590f9490d9b06864 ""
+  "chapters/chapter02.tex" 1676755309 12062 11244f68ff9708b28318bc1626662afe ""
   "chapters/chapter03.tex" 1676329886 3013 5de7b53ff6500f0592f928d7313a0104 ""
   "chapters/chapter04.tex" 1676329886 9267 468009d7776ded0bbf64c291a7328c81 ""
   "chapters/chapter05.tex" 1676347987 4 f688ae26e9cfa3ba6235477831d5122e ""
@@ -93,11 +93,11 @@
   "images//graph2.png" 1676329886 11612 d3329a73fff3755bb7d6a97264e50714 ""
   "images//graph3.png" 1676329886 9544 92311b9fd1bba666cae77dc6e58a7b86 ""
   "images//graph_a.png" 1676329886 23034 2b4382d290a2713a3f5904543ccaf077 ""
-  "main.aux" 1676651326 4160 0c1b87be4b82b2613cc451fc58c499b7 "pdflatex"
-  "main.bbl" 1676651325 4620 08a97f089e83ed5183c769124fb162fe "biber main"
-  "main.run.xml" 1676651326 2311 e66a0e3ff336a5af941c7fe634558519 "pdflatex"
+  "main.aux" 1676755310 4160 0c1b87be4b82b2613cc451fc58c499b7 "pdflatex"
+  "main.bbl" 1676755194 4620 08a97f089e83ed5183c769124fb162fe "biber main"
+  "main.run.xml" 1676755310 2311 e66a0e3ff336a5af941c7fe634558519 "pdflatex"
   "main.tex" 1676599299 1374 42e3a2ab384af05f51848dc88169ea12 ""
-  "main.toc" 1676651326 1135 d9e4c610ae0cfa7e507c57c4779c8cc3 "pdflatex"
+  "main.toc" 1676755310 1135 d9e4c610ae0cfa7e507c57c4779c8cc3 "pdflatex"
   "titlepage.tex" 1676348332 791 4a693e62e0dfd083ee61accbf7d6b3c2 ""
   (generated)
   "main.aux"
