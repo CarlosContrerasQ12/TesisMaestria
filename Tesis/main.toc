@@ -1,17 +1,7 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{}%
-\contentsline {chapter}{\numberline {2}Backward stochastic differential equations and PDEs}{3}{}%
-\contentsline {section}{\numberline {2.1}Section Title}{3}{}%
-\contentsline {section}{\numberline {2.2}Section Title}{4}{}%
-\contentsline {section}{\numberline {2.3}Section Title}{6}{}%
-\contentsline {subsection}{\numberline {2.3.1}SubSection Title}{7}{}%
-\contentsline {subsection}{\numberline {2.3.2}SubSection Title}{7}{}%
-\contentsline {chapter}{\numberline {3}The Deep BSDE method}{8}{}%
-\contentsline {section}{\numberline {3.1}Section Title}{8}{}%
-\contentsline {subsection}{\numberline {3.1.1}SubSection Title}{9}{}%
-\contentsline {chapter}{\numberline {4}Mean field games and crowd motion}{10}{}%
-\contentsline {section}{\numberline {4.1}Section Title}{10}{}%
-\contentsline {section}{\numberline {4.2}Section Title}{11}{}%
-\contentsline {section}{\numberline {4.3}Section Title}{11}{}%
-\contentsline {chapter}{\numberline {5}An application}{14}{}%
-\contentsline {chapter}{\numberline {6}Conclusion}{15}{}%
-\contentsline {chapter}{\numberline {A}Neural Networks}{16}{}%
+\contentsline {chapter}{\numberline {2}Backward stochastic differential equations and PDEs}{2}{}%
+\contentsline {chapter}{\numberline {3}The Deep BSDE method}{3}{}%
+\contentsline {chapter}{\numberline {4}Mean field games and crowd motion}{4}{}%
+\contentsline {chapter}{\numberline {5}An application}{5}{}%
+\contentsline {chapter}{\numberline {6}Conclusion}{6}{}%
+\contentsline {chapter}{\numberline {A}Neural Networks}{7}{}%
