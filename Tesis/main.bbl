@@ -1,0 +1,304 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{bismut_conjugate_1973}{article}{}
+      \name{author}{1}{}{%
+        {{hash=eace1db2158ab018d2d2bb076c56909b}{%
+           family={Bismut},
+           familyi={B\bibinitperiod},
+           given={Jean-Michel},
+           giveni={J\bibinithyphendelim M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{eace1db2158ab018d2d2bb076c56909b}
+      \strng{fullhash}{eace1db2158ab018d2d2bb076c56909b}
+      \strng{bibnamehash}{eace1db2158ab018d2d2bb076c56909b}
+      \strng{authorbibnamehash}{eace1db2158ab018d2d2bb076c56909b}
+      \strng{authornamehash}{eace1db2158ab018d2d2bb076c56909b}
+      \strng{authorfullhash}{eace1db2158ab018d2d2bb076c56909b}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0022-247X}
+      \field{journaltitle}{Journal of Mathematical Analysis and Applications}
+      \field{month}{11}
+      \field{number}{2}
+      \field{title}{Conjugate convex functions in optimal stochastic control}
+      \field{urlday}{21}
+      \field{urlmonth}{2}
+      \field{urlyear}{2023}
+      \field{volume}{44}
+      \field{year}{1973}
+      \field{urldateera}{ce}
+      \field{pages}{384\bibrangedash 404}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1016/0022-247X(73)90066-8
+      \endverb
+      \verb{file}
+      \verb ScienceDirect Snapshot:/home/carlos/Zotero/storage/LPAD3QIB/0022247X73900668.html:text/html;Texto completo:/home/carlos/Zotero/storage/YYCCH67B/Bismut - 1973 - Conjugate convex functions in optimal stochastic c.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/0022247X73900668
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/0022247X73900668
+      \endverb
+    \endentry
+    \entry{pardoux_adapted_1990}{article}{}
+      \name{author}{2}{}{%
+        {{hash=beb50fd846984359b348be4d69121f20}{%
+           family={Pardoux},
+           familyi={P\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+        {{hash=ac7006e144f696982cf65b2368e9b59e}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={S.\bibnamedelimi G.},
+           giveni={S\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{ca377fe79cb834ca805a5a3cd77da393}
+      \strng{fullhash}{ca377fe79cb834ca805a5a3cd77da393}
+      \strng{bibnamehash}{ca377fe79cb834ca805a5a3cd77da393}
+      \strng{authorbibnamehash}{ca377fe79cb834ca805a5a3cd77da393}
+      \strng{authornamehash}{ca377fe79cb834ca805a5a3cd77da393}
+      \strng{authorfullhash}{ca377fe79cb834ca805a5a3cd77da393}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Let Wt; t ϵ [0, 1] be a standard k-dimensional Weiner process defined on a probability space (Ω, F, P), and let Ft denote its natural filtration. Given a F1 measurable d-dimensional random vector X, we look for an adapted pair of processes \{x(t), y(t); t ϵ [0, 1]\} with values in Rd and Rd×k respectively, which solves an equation of the form: x(t) + ∫t1f(s, x(s), y(s)) ds + ∫t1 [g(s, x(s)) + y(s)] dWs = X. A linearized version of that equation appears in stochastic control theory as the equation satisfied by the adjoint process. We also generalize our results to the following equation: x(t) + ∫t1f(s, x(s), y(s)) ds + ∫t1 g(s, x(s)) + y(s)) dWs = X under rather restrictive assumptions on g.}
+      \field{issn}{0167-6911}
+      \field{journaltitle}{Systems \& Control Letters}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{Adapted solution of a backward stochastic differential equation}
+      \field{urlday}{21}
+      \field{urlmonth}{2}
+      \field{urlyear}{2023}
+      \field{volume}{14}
+      \field{year}{1990}
+      \field{urldateera}{ce}
+      \field{pages}{55\bibrangedash 61}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1016/0167-6911(90)90082-6
+      \endverb
+      \verb{file}
+      \verb ScienceDirect Snapshot:/home/carlos/Zotero/storage/K7LSR34R/0167691190900826.html:text/html;Texto completo:/home/carlos/Zotero/storage/XQ5TYGKE/Pardoux y Peng - 1990 - Adapted solution of a backward stochastic differen.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/0167691190900826
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/0167691190900826
+      \endverb
+      \keyw{adapted process,Backward stochastic differential equation}
+    \endentry
+    \entry{zhang_backward_2017}{book}{}
+      \name{author}{1}{}{%
+        {{hash=17f34ccb8b943a37fda9e3c1e404f6d9}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Jianfeng},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {New York, NY}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{17f34ccb8b943a37fda9e3c1e404f6d9}
+      \strng{fullhash}{17f34ccb8b943a37fda9e3c1e404f6d9}
+      \strng{bibnamehash}{17f34ccb8b943a37fda9e3c1e404f6d9}
+      \strng{authorbibnamehash}{17f34ccb8b943a37fda9e3c1e404f6d9}
+      \strng{authornamehash}{17f34ccb8b943a37fda9e3c1e404f6d9}
+      \strng{authorfullhash}{17f34ccb8b943a37fda9e3c1e404f6d9}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1-4939-7254-8 978-1-4939-7256-2}
+      \field{series}{Probability {Theory} and {Stochastic} {Modelling}}
+      \field{title}{Backward {Stochastic} {Differential} {Equations}}
+      \field{urlday}{15}
+      \field{urlmonth}{2}
+      \field{urlyear}{2023}
+      \field{volume}{86}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1007/978-1-4939-7256-2
+      \endverb
+      \verb{file}
+      \verb Zhang - 2017 - Backward Stochastic Differential Equations.pdf:/home/carlos/Zotero/storage/F6YQFTJV/Zhang - 2017 - Backward Stochastic Differential Equations.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://link.springer.com/10.1007/978-1-4939-7256-2
+      \endverb
+      \verb{url}
+      \verb http://link.springer.com/10.1007/978-1-4939-7256-2
+      \endverb
+    \endentry
+    \entry{pardoux_stochastic_2014}{book}{}
+      \name{author}{2}{}{%
+        {{hash=2f28ac591a047725e4340ab36bd8955e}{%
+           family={Pardoux},
+           familyi={P\bibinitperiod},
+           given={Etienne},
+           giveni={E\bibinitperiod}}}%
+        {{hash=d420cdbe4cdc09cefe2b55d2d8b72ddb}{%
+           family={Rӑşcanu},
+           familyi={R\bibinitperiod},
+           given={Aurel},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{4765bb24c67ec2d8037bb9a5ed16432f}
+      \strng{fullhash}{4765bb24c67ec2d8037bb9a5ed16432f}
+      \strng{bibnamehash}{4765bb24c67ec2d8037bb9a5ed16432f}
+      \strng{authorbibnamehash}{4765bb24c67ec2d8037bb9a5ed16432f}
+      \strng{authornamehash}{4765bb24c67ec2d8037bb9a5ed16432f}
+      \strng{authorfullhash}{4765bb24c67ec2d8037bb9a5ed16432f}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-319-05713-2 978-3-319-05714-9}
+      \field{series}{Stochastic {Modelling} and {Applied} {Probability}}
+      \field{title}{Stochastic {Differential} {Equations}, {Backward} {SDEs}, {Partial} {Differential} {Equations}}
+      \field{urlday}{15}
+      \field{urlmonth}{2}
+      \field{urlyear}{2023}
+      \field{volume}{69}
+      \field{year}{2014}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1007/978-3-319-05714-9
+      \endverb
+      \verb{file}
+      \verb Pardoux y Rӑşcanu - 2014 - Stochastic Differential Equations, Backward SDEs, .pdf:/home/carlos/Zotero/storage/BDAF2XD5/Pardoux y Rӑşcanu - 2014 - Stochastic Differential Equations, Backward SDEs, .pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/10.1007/978-3-319-05714-9
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/10.1007/978-3-319-05714-9
+      \endverb
+    \endentry
+    \entry{romero_maestro_nodate}{article}{}
+      \name{author}{1}{}{%
+        {{hash=04b1ed251efdd057328781524789a201}{%
+           family={Romero},
+           familyi={R\bibinitperiod},
+           given={Ricardo\bibnamedelima Romo},
+           giveni={R\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {es}%
+      }
+      \strng{namehash}{04b1ed251efdd057328781524789a201}
+      \strng{fullhash}{04b1ed251efdd057328781524789a201}
+      \strng{bibnamehash}{04b1ed251efdd057328781524789a201}
+      \strng{authorbibnamehash}{04b1ed251efdd057328781524789a201}
+      \strng{authornamehash}{04b1ed251efdd057328781524789a201}
+      \strng{authorfullhash}{04b1ed251efdd057328781524789a201}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Maestro en ciencias con especialidad en probabilidad y estadística}
+      \verb{file}
+      \verb Romero - Maestro en ciencias con especialidad en probabilid.pdf:/home/carlos/Zotero/storage/42NT3R4Z/Romero - Maestro en ciencias con especialidad en probabilid.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{touzi_optimal_2013}{book}{}
+      \name{author}{1}{}{%
+        {{hash=701a2d95e8b3a75c89608e9b91902077}{%
+           family={Touzi},
+           familyi={T\bibinitperiod},
+           given={Nizar},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {New York, NY}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{701a2d95e8b3a75c89608e9b91902077}
+      \strng{fullhash}{701a2d95e8b3a75c89608e9b91902077}
+      \strng{bibnamehash}{701a2d95e8b3a75c89608e9b91902077}
+      \strng{authorbibnamehash}{701a2d95e8b3a75c89608e9b91902077}
+      \strng{authornamehash}{701a2d95e8b3a75c89608e9b91902077}
+      \strng{authorfullhash}{701a2d95e8b3a75c89608e9b91902077}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1-4614-4285-1 978-1-4614-4286-8}
+      \field{series}{Fields {Institute} {Monographs}}
+      \field{title}{Optimal {Stochastic} {Control}, {Stochastic} {Target} {Problems}, and {Backward} {SDE}}
+      \field{urlday}{15}
+      \field{urlmonth}{2}
+      \field{urlyear}{2023}
+      \field{volume}{29}
+      \field{year}{2013}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1007/978-1-4614-4286-8
+      \endverb
+      \verb{file}
+      \verb Touzi - 2013 - Optimal Stochastic Control, Stochastic Target Prob.pdf:/home/carlos/Zotero/storage/U27F2JS9/Touzi - 2013 - Optimal Stochastic Control, Stochastic Target Prob.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/10.1007/978-1-4614-4286-8
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/10.1007/978-1-4614-4286-8
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

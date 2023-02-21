@@ -1,6 +1,8 @@
 % !TeX spellcheck = en_US
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{graphicx}
 \graphicspath{ {images/} }
 \usepackage{caption}
@@ -14,7 +16,14 @@
 \renewcommand{\headrulewidth}{0pt}
 \setlength{\headheight}{14pt}
 
-\usepackage[style=authoryear,sorting=none]{biblatex}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\setlength{\parindent}{0cm}
+
+\usepackage[sorting=none]{biblatex}
 \addbibresource{references.bib}
 
 \title{Deep learning method for high dimensional PDE's}
@@ -64,6 +73,6 @@
 \chapter{Neural Networks}
 \input{chapters/appendix}
 
-\printbibliography
 
+\printbibliography
 \end{document}

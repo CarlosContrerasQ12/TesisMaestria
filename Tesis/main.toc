@@ -1,7 +1,9 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{}%
 \contentsline {chapter}{\numberline {2}Backward stochastic differential equations and PDEs}{2}{}%
-\contentsline {chapter}{\numberline {3}The Deep BSDE method}{3}{}%
-\contentsline {chapter}{\numberline {4}Mean field games and crowd motion}{4}{}%
-\contentsline {chapter}{\numberline {5}An application}{5}{}%
-\contentsline {chapter}{\numberline {6}Conclusion}{6}{}%
-\contentsline {chapter}{\numberline {A}Neural Networks}{7}{}%
+\contentsline {section}{\numberline {2.1}Backward stochastic differential equations}{2}{}%
+\contentsline {section}{\numberline {2.2}Nonlinear Feynman-Kac formula}{3}{}%
+\contentsline {chapter}{\numberline {3}The Deep BSDE method}{4}{}%
+\contentsline {chapter}{\numberline {4}Mean field games and crowd motion}{5}{}%
+\contentsline {chapter}{\numberline {5}An application}{6}{}%
+\contentsline {chapter}{\numberline {6}Conclusion}{7}{}%
+\contentsline {chapter}{\numberline {A}Neural Networks}{8}{}%
