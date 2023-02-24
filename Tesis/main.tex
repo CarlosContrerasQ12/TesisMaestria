@@ -9,6 +9,20 @@
 \usepackage{parskip}
 \usepackage{subcaption}
 \usepackage{float}
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true, %set true if you want colored links
+	linktoc=all,     %set to all if you want both sections and subsections linked
+	linkcolor=green,  %choose some color if you want links to stand out
+	bookmarksopen=true,
+}
+\hypersetup{linktocpage}
+\usepackage[open,openlevel=1]{bookmark}
+
+\usepackage[Lenny]{fncychap}
+
+
 \usepackage[width=150mm,top=35mm,bottom=25mm,bindingoffset=6mm]{geometry}
 \usepackage{fancyhdr}
 \pagestyle{fancyplain}% <- use fancyplain instead fancy
@@ -39,7 +53,7 @@
 \input{abstract}
 
 \chapter*{Acknowledgements}
-
+A mi perro
 
 
 \tableofcontents
