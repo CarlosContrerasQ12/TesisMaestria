@@ -1,0 +1,35 @@
+% !TeX spellcheck = es_ES
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\Hrule}{\rule{\linewidth}{0.3mm}}
+
+\makeatletter% since there's an at-sign (@) in the command name
+\renewcommand{\@maketitle}{%
+	\parindent=0pt% don't indent paragraphs in the title block
+	\centering
+	{\Large \bfseries\textsc{\@title}}
+	\HRule\par%
+	\textit{\@author \hfill \@date}
+	\par
+}
+\makeatother% resets the meaning of the at-sign (@)
+
+\title{Notas}
+\author{Carlos Daniel Contreras Quiroz}
+\begin{document}
+	\maketitle% prints the title block
+	\vspace{5mm}
+	\section*{Deep BSDE}
+	Vamos a intentar resolver ecuaciones del tipo 
+	\begin{equation}
+		\begin{gathered}
+			\frac{\partial u}{\partial t}(t, x)+\frac{1}{2} \operatorname{Tr}\left(\sigma \sigma^{\mathrm{T}}(t, x)\left(\operatorname{Hess}_x u\right)(t, x)\right)+\nabla u(t, x) \cdot \mu(t, x) \\
+			+f\left(t, x, u(t, x), \sigma^{\mathrm{T}}(t, x) \nabla u(t, x)\right)=0
+		\end{gathered}
+	\end{equation}
+\end{document}
