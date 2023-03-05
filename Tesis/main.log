@@ -1,28 +1,63 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (MiKTeX 22.8.28) (preloaded format=xelatex 2022.12.13)  24 FEB 2023 21:29
-entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
-**./main.tex
-(main.tex
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  4 MAR 2023 22:50
+ restricted system commands enabled.
+**main.tex
+(./main.tex
 LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2022-11-02>
+Lua module: luaotfload 2022-10-03 3.23 Lua based OpenType font support
+Lua module: lualibs 2022-10-04 2.75 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2022-10-04 2.75 ConTeXt Lua libraries -- extended c
+ollection.
+luaotfload | conf : Root cache directory is "/home/carlos/.miktex/texmfs/data/lu
+atex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2022-10-03.lua" from kpse-res
+olved path "/home/carlos/.miktex/texmfs/install/tex/luatex/luaotfload/fontloader
+-2022-10-03.lua".
+Lua-only attribute luaotfload@noligature = 1
+luaotfload | init : Context OpenType loader version 3.120
+Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' in `hpack_filter'.
+Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
+Inserting `luaotfload.define_font' in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 2
+luaotfload | conf : Root cache directory is "/home/carlos/.miktex/texmfs/data/lu
+atex-cache/generic/names".
+Inserting `luaotfload.harf.strip_prefix' in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' in `find_truetype_file'.
+Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
+Inserting `luaotfload.harf.glyphstream' in `glyph_stream_provider'.
+Inserting `luaotfload.harf.finalize_vlist' in `post_linebreak_filter'.
+Inserting `luaotfload.harf.finalize_hlist' in `hpack_filter'.
+Inserting `luaotfload.cleanup_files' in `wrapup_run'.
+Inserting `luaotfload.harf.finalize_unicode' in `finish_pdffile'.
+Inserting `luaotfload.glyphinfo' in `glyph_info'.
+Lua-only attribute luaotfload.letterspace_done = 3
+Inserting `luaotfload.aux.set_sscale_dimens' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_font_index' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.patch_cambria_domh' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
+Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'. L3 programm
+ing layer <2022-11-02>
+Inserting `tracingstacklevels' in `input_level_string'.
 (/home/carlos/.miktex/texmfs/install/tex/latex/base/report.cls
 Document Class: report 2022/07/02 v1.4n Standard LaTeX document class
 (/home/carlos/.miktex/texmfs/install/tex/latex/base/size11.clo
 File: size11.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
-)
-\c@part=\count181
-\c@chapter=\count182
-\c@section=\count183
-\c@subsection=\count184
-\c@subsubsection=\count185
-\c@paragraph=\count186
-\c@subparagraph=\count187
-\c@figure=\count188
-\c@table=\count189
+luaotfload | db : Font names database loaded from /home/carlos/.miktex/texmfs/da
+ta/luatex-cache/generic/names/luaotfload-names.luc.gz)
+\c@part=\count183
+\c@chapter=\count184
+\c@section=\count185
+\c@subsection=\count186
+\c@subsubsection=\count187
+\c@paragraph=\count188
+\c@subparagraph=\count189
+\c@figure=\count190
+\c@table=\count191
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
-\bibindent=\dimen140
+\bibindent=\dimen139
 )
 (/home/carlos/.miktex/texmfs/install/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
@@ -43,23 +78,23 @@ Package: amstext 2021/08/26 v2.01 AMS text
 (/home/carlos/.miktex/texmfs/install/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks18
-\ex@=\dimen141
+\ex@=\dimen140
 ))
 (/home/carlos/.miktex/texmfs/install/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen142
+\pmbraise@=\dimen141
 )
 (/home/carlos/.miktex/texmfs/install/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count190
-LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count191
-\leftroot@=\count192
+\inf@bad=\count192
+LaTeX Info: Redefining \frac on input line 236.
+\uproot@=\count193
+\leftroot@=\count194
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count193
-\DOTSCASE@=\count194
+\classnum@=\count195
+\DOTSCASE@=\count196
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -69,30 +104,30 @@ LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
 LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen143
+\big@size=\dimen142
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count195
+\macc@depth=\count197
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count196
+\c@MaxMatrixCols=\count198
 \dotsspace@=\muskip16
-\c@parentequation=\count197
-\dspbrk@lvl=\count198
+\c@parentequation=\count199
+\dspbrk@lvl=\count266
 \tag@help=\toks19
-\row@=\count199
-\column@=\count266
-\maxfields@=\count267
+\row@=\count267
+\column@=\count268
+\maxfields@=\count269
 \andhelp@=\toks20
-\eqnshift@=\dimen144
-\alignsep@=\dimen145
-\tagshift@=\dimen146
-\tagwidth@=\dimen147
-\totwidth@=\dimen148
-\lineht@=\dimen149
+\eqnshift@=\dimen143
+\alignsep@=\dimen144
+\tagshift@=\dimen145
+\tagwidth@=\dimen146
+\totwidth@=\dimen147
+\lineht@=\dimen148
 \@envbody=\toks21
 \multlinegap=\skip51
 \multlinetaggap=\skip52
@@ -127,31 +162,31 @@ Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 (/home/carlos/.miktex/texmfs/install/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: xetex.def on input line 107.
+Package graphics Info: Driver file: luatex.def on input line 107.
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/graphics-def/xetex.def
-File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
+(/home/carlos/.miktex/texmfs/install/tex/latex/graphics-def/luatex.def
+File: luatex.def 2022/09/22 v1.2d Graphics/color driver for luatex
 ))
-\Gin@req@height=\dimen150
-\Gin@req@width=\dimen151
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
 )
 (/home/carlos/.miktex/texmfs/install/tex/latex/caption/caption.sty
 Package: caption 2022/03/01 v3.6b Customizing captions (AR)
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/caption/caption3.sty
 Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
-\caption@tempdima=\dimen152
-\captionmargin=\dimen153
-\caption@leftmargin=\dimen154
-\caption@rightmargin=\dimen155
-\caption@width=\dimen156
-\caption@indent=\dimen157
-\caption@parindent=\dimen158
-\caption@hangindent=\dimen159
+\caption@tempdima=\dimen151
+\captionmargin=\dimen152
+\caption@leftmargin=\dimen153
+\caption@rightmargin=\dimen154
+\caption@width=\dimen155
+\caption@indent=\dimen156
+\caption@parindent=\dimen157
+\caption@hangindent=\dimen158
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count268
-\c@continuedfloat=\count269
+\c@caption@flags=\count270
+\c@continuedfloat=\count271
 )
 (/home/carlos/.miktex/texmfs/install/tex/latex/parskip/parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
@@ -167,16 +202,16 @@ Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ))
 (/home/carlos/.miktex/texmfs/install/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count270
+\etb@tempcnta=\count272
 ))
 (/home/carlos/.miktex/texmfs/install/tex/latex/caption/subcaption.sty
 Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
-\c@subfigure=\count271
-\c@subtable=\count272
+\c@subfigure=\count273
+\c@subtable=\count274
 )
 (/home/carlos/.miktex/texmfs/install/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count273
+\c@float@type=\count275
 \float@exts=\toks24
 \float@box=\box53
 \@float@everytoks=\toks25
@@ -188,7 +223,7 @@ Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
 (/home/carlos/.miktex/texmfs/install/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: xetex.def on input line 149.
+Package color Info: Driver file: luatex.def on input line 149.
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/graphics/mathcolor.ltx))
 (/home/carlos/.miktex/texmfs/install/tex/latex/hyperref/hyperref.sty
@@ -206,7 +241,8 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode not found.
+Package pdftexcmds Info: \pdfdraftmode found.
+\pdftexcmds@toks=\toks26
 )
 (/home/carlos/.miktex/texmfs/install/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
@@ -232,11 +268,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count274
+\c@section@level=\count276
 )
-\@linkdim=\dimen160
-\Hy@linkcounter=\count275
-\Hy@pagecounter=\count276
+\@linkdim=\dimen159
+\Hy@linkcounter=\count277
+\Hy@pagecounter=\count278
  (/home/carlos/.miktex/texmfs/install/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2022-11-13 v7.00u Hyperref: PDFDocEncoding definition (HO)
 )
@@ -246,7 +282,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (/home/carlos/.miktex/texmfs/install/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count277
+\Hy@SavedSpaceFactor=\count279
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/hyperref/puenc.def
 File: puenc.def 2022-11-13 v7.00u Hyperref: PDF Unicode definition (HO)
@@ -258,14 +294,14 @@ Package hyperref Info: Plain pages OFF on input line 4177.
 Package hyperref Info: Backreferencing OFF on input line 4182.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4410.
-\c@Hy@tempcnt=\count278
+\c@Hy@tempcnt=\count280
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4748.
-\XeTeXLinkMargin=\dimen161
+\XeTeXLinkMargin=\dimen160
 
 (/home/carlos/.miktex/texmfs/install/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -274,9 +310,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count279
-\Field@Width=\dimen162
-\Fld@charsize=\dimen163
+\Fld@menulength=\count281
+\Field@Width=\dimen161
+\Fld@charsize=\dimen162
 Package hyperref Info: Hyper figures OFF on input line 6027.
 Package hyperref Info: Link nesting OFF on input line 6032.
 Package hyperref Info: Hyper index ON on input line 6035.
@@ -289,33 +325,31 @@ Package hyperref Info: PDF/A mode OFF on input line 6057.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count280
-\c@Item=\count281
-\c@Hfootnote=\count282
+\Hy@abspage=\count282
+\c@Item=\count283
+\c@Hfootnote=\count284
 )
-Package hyperref Info: Driver (autodetected): hxetex.
+Package hyperref Info: Driver (autodetected): hluatex.
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/hyperref/hxetex.def
-File: hxetex.def 2022-11-13 v7.00u Hyperref driver for XeTeX
+(/home/carlos/.miktex/texmfs/install/tex/latex/hyperref/hluatex.def
+File: hluatex.def 2022-11-13 v7.00u Hyperref driver for luaTeX
 
 (/home/carlos/.miktex/texmfs/install/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\pdfm@box=\box55
-\c@Hy@AnnotLevel=\count283
-\HyField@AnnotCount=\count284
+(/home/carlos/.miktex/texmfs/install/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
 \Fld@listcount=\count285
 \c@bookmark@seq@number=\count286
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/rerunfilecheck/rerunfilecheck.st
 y
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
- (/home/carlos/.miktex/texmfs/install/tex/latex/base/atveryend-ltx.sty
-Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
-kage
-with kernel methods
-)
+
 (/home/carlos/.miktex/texmfs/install/tex/generic/uniquecounter/uniquecounter.st
 y
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
@@ -331,8 +365,8 @@ Package hyperref Info: Option `linktocpage' set `true' on input line 20.
  (/home/carlos/.miktex/texmfs/install/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/bookmark/bkm-dvipdfm.def
-File: bkm-dvipdfm.def 2020-11-06 v1.29 bookmark driver for dvipdfm (HO)
+(/home/carlos/.miktex/texmfs/install/tex/latex/bookmark/bkm-pdftex.def
+File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
 \BKM@id=\count287
 ))
 (/home/carlos/.miktex/texmfs/install/tex/latex/fncychap/fncychap.sty
@@ -354,15 +388,15 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@cnth=\count288
 \Gm@cntv=\count289
 \c@Gm@tempcnt=\count290
-\Gm@bindingoffset=\dimen164
-\Gm@wd@mp=\dimen165
-\Gm@odd@mp=\dimen166
-\Gm@even@mp=\dimen167
-\Gm@layoutwidth=\dimen168
-\Gm@layoutheight=\dimen169
-\Gm@layouthoffset=\dimen170
-\Gm@layoutvoffset=\dimen171
-\Gm@dimlist=\toks26
+\Gm@bindingoffset=\dimen163
+\Gm@wd@mp=\dimen164
+\Gm@odd@mp=\dimen165
+\Gm@even@mp=\dimen166
+\Gm@layoutwidth=\dimen167
+\Gm@layoutheight=\dimen168
+\Gm@layouthoffset=\dimen169
+\Gm@layoutvoffset=\dimen170
+\Gm@dimlist=\toks27
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/geometry/geometry.cfg))
 (/home/carlos/.miktex/texmfs/install/tex/latex/fancyhdr/fancyhdr.sty
@@ -448,7 +482,7 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 \bibhang=\skip77
 \blx@bcfin=\read2
 \blx@bcfout=\write3
-\blx@langwohyphens=\language78
+\blx@langwohyphens=\language2
 \c@mincomprange=\count338
 \c@maxcomprange=\count339
 \c@mincompwidth=\count340
@@ -607,26 +641,22 @@ Package biblatex Info: ... file 'biblatex.cfg' found.
 (/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/biblatex.cfg
 File: biblatex.cfg 
 )
-Package biblatex Info: XeTeX detected.
+Package biblatex Info: LuaTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Document encoding is UTF8 ....
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/l3kernel/expl3.sty
 Package: expl3 2022-11-02 L3 programming layer (loader) 
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/l3backend/l3backend-xetex.def
-File: l3backend-xetex.def 2022-10-26 L3 backend support: XeTeX
-\g__graphics_track_int=\count420
-\l__pdf_internal_box=\box56
-\g__pdf_backend_object_int=\count421
-\g__pdf_backend_annotation_int=\count422
-\g__pdf_backend_link_int=\count423
+(/home/carlos/.miktex/texmfs/install/tex/latex/l3backend/l3backend-luatex.def
+File: l3backend-luatex.def 2022-10-26 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count420
+\l__pdf_internal_box=\box55
 ))
 Package biblatex Info: ... and expl3
 (biblatex)             2022-11-02 L3 programming layer (loader) 
 (biblatex)             is new enough (at least 2020/04/06),
 (biblatex)             setting 'casechanger=expl3'.
-
 (/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/blx-case-expl3.sty
 (/home/carlos/.miktex/texmfs/install/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2022-06-22 L3 Experimental document command parser
@@ -634,11 +664,11 @@ Package: xparse 2022-06-22 L3 Experimental document command parser
 Package: blx-case-expl3 2022/07/12 v3.18b expl3 case changing code for biblatex
 
 ))
-\@quotelevel=\count424
-\@quotereset=\count425
+\@quotelevel=\count421
+\@quotereset=\count422
 
-(main.aux)
-\openout1 = `main.aux'.
+(./main.aux)
+\openout1 = main.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
 LaTeX Font Info:    ... okay on input line 48.
@@ -665,6 +695,27 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
 LaTeX Font Info:    ... okay on input line 48.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 48.
 LaTeX Font Info:    ... okay on input line 48.
+
+(/home/carlos/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count423
+\scratchdimen=\dimen171
+\scratchbox=\box56
+\nofMPsegments=\count424
+\nofMParguments=\count425
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count426
+\MPscratchDim=\dimen172
+\MPnumerator=\count427
+\makeMPintoPDFobject=\count428
+\everyMPtoPDFconversion=\toks29
+) (/home/carlos/.miktex/texmfs/install/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+(/home/carlos/.miktex/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -672,9 +723,9 @@ Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring ON on input line 48.
 
 *geometry* driver: auto-detecting
-*geometry* detected driver: xetex
+*geometry* detected driver: luatex
 *geometry* verbose mode - [ preamble ] result:
-* driver: xetex
+* driver: luatex
 * paper: <default>
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -711,23 +762,26 @@ Package biblatex Info: ... file 'english.lbx' found.
 (/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2022/07/12 v3.18b biblatex localization (PK/MW)
 )
-Package biblatex Info: XeTeX detected.
+Package biblatex Info: LuaTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout3 = `main.bcf'.
 
+\openout3 = main.bcf
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
 
-(main.bbl)
+(./main.bbl)
 Package biblatex Info: Reference section=0 on input line 48.
 Package biblatex Info: Reference segment=0 on input line 48.
- (titlepage.tex [1
+ (./titlepage.tex [1
 
-]) (abstract.tex) [1] [2
+{/home/carlos/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}]) (./abstract.te
+x)
+warning  (pdf backend): ignoring duplicate destination with the name 'page.i'
+[1] [2
 
-] (main.toc
+] (./main.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/amsfonts/umsa.fd
@@ -739,8 +793,8 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
 \tf@toc=\write4
-\openout4 = `main.toc'.
 
+\openout4 = main.toc
  [3
 
 ]
@@ -756,48 +810,72 @@ LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 6
 (/home/carlos/.miktex/texmfs/install/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-(chapters/introduction.tex) [1
+(./chapters/introduction.tex) [1
 
 ]
 Chapter 2.
-(chapters/chapter02.tex) [2
+(./chapters/chapter02.tex) [2
 
 ] [3]
 Chapter 3.
-(chapters/chapter03.tex) [4
+(./chapters/chapter03.tex) [4
 
 ]
 Chapter 4.
-(chapters/chapter04.tex) [5
+(./chapters/chapter04.tex) [5
 
 ]
 Chapter 5.
-(chapters/chapter05.tex) [6
+(./chapters/chapter05.tex) [6
 
 ]
 Chapter 6.
-(chapters/conclusion.tex) [7
+(./chapters/conclusion.tex) [7
 
 ]
+warning  (pdf backend): ignoring duplicate destination with the name 'chapter.1'
+
 Appendix A.
-(chapters/appendix.tex) [8
+(./chapters/appendix.tex) [8
 
-]
-Missing character: There is no ӑ in font [lmroman10-regular]:mapping=tex-text;!
-[9
+] [9
 
-] (main.aux)
+
+Missing character: There is no ӑ (U+04D1) in font [lmroman10-regular]:+tlig;!
+] (./main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
-\openout1 = `main.run.xml'.
 
- ) 
-Here is how much of TeX's memory you used:
- 19467 strings out of 410452
- 338346 string characters out of 2813620
- 1104193 words of memory out of 3000000
- 40516 multiletter control sequences out of 15000+600000
- 475484 words of font info for 62 fonts, out of 8000000 for 9000
- 1334 hyphenation exceptions out of 8191
- 60i,11n,68p,812b,4770s stack positions out of 10000i,1000n,20000p,200000b,80000s
+\openout1 = main.run.xml
+)
 
-Output written on main.pdf (13 pages).
+Here is how much of LuaTeX's memory you used:
+ 20624 strings out of 477240
+ 125086,1144653 words of node,token memory allocated
+ 609 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 11 attribute, 67 glue_spec
+, 11 attribute_list, 1 write, 5 pdf_action nodes
+   avail lists: 2:701,3:338,4:75,5:220,6:53,7:4636,8:72,9:188,10:13,11:465
+ 41127 multiletter control sequences out of 65536+600000
+ 49 fonts using 3694863 bytes
+ 60i,11n,65p,779b,1254s stack positions out of 10000i,1000n,20000p,200000b,80000s
+</home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmmono10-regular.o
+tf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmromancaps10-r
+egular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman
+10-italic.otf>{/home/carlos/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}<
+/home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman10-bold.otf>
+</home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman10-regular.
+otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman12-regu
+lar.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman17-
+regular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroma
+n12-bold.otf></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm
+/cmmi10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/
+cmr10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbol
+s/msbm10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8
+a.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
+Output written on main.pdf (13 pages, 114764 bytes).
+
+PDF statistics: 217 PDF objects out of 1000 (max. 8388607)
+ 28 named destinations out of 1000 (max. 131072)
+ 73 words of extra memory for PDF output out of 10000 (max. 100000000)
+
