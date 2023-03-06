@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  5 MAR 2023 17:07
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  6 MAR 2023 00:38
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -873,7 +873,7 @@ cmr10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cm
 sy10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8
 a.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (13 pages, 114764 bytes).
+Output written on main.pdf (13 pages, 114559 bytes).
 
 PDF statistics: 217 PDF objects out of 1000 (max. 8388607)
  28 named destinations out of 1000 (max. 131072)

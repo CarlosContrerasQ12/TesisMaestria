@@ -3,7 +3,28 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[margin=1in]{geometry}
+\usepackage[most]{tcolorbox}
 \usepackage{amsmath}
+\usepackage{amssymb}
+
+\setlength{\parindent}{0cm}
+
+\usepackage{xcolor,pifont}
+\newcommand*\colourcheck[1]{%
+	\expandafter\newcommand\csname #1check\endcsname{\textcolor{#1}{\ding{52}}}%
+}
+
+\newcommand*\colourwrong[1]{%
+	\expandafter\newcommand\csname #1wrong\endcsname{\textcolor{#1}{\ding{55}}}%
+}
+
+\newcommand{\dpartial}[2]{\frac{\partial #1}{\partial #2}}
+
+\colourcheck{blue}
+\colourcheck{green}
+\colourcheck{red}
+
+\colourwrong{red}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \newcommand{\Hrule}{\rule{\linewidth}{0.3mm}}
@@ -19,11 +40,81 @@
 }
 \makeatother% resets the meaning of the at-sign (@)
 
+\usepackage[sorting=none]{biblatex}
+\addbibresource{PDEsML.bib}
+
+\usepackage{listings}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\newenvironment{recordar}[1][Recordar]
+{\begin{tcolorbox}[colback=red!10!white,colframe=red!50!blue,title=Recordar: #1 ]
+	
+}{\end{tcolorbox}}
+
 \title{Notas}
 \author{Carlos Daniel Contreras Quiroz}
 \begin{document}
 	\maketitle% prints the title block
 	\vspace{5mm}
+	\section*{To do list}
+	\begin{enumerate}
+		\item Entender BSDE 
+		\item Escribir conexión PDE-BSDE
+		\item Programar reflexión en frontera
+		\item Deep Fictious Play
+		\item Escribir Crowd motion
+		\item Simular diferencias
+		\item Escribir simulaciones
+		\item Escribir apendice Neural Networks
+	\end{enumerate}
+    \HRule\par
+	\section*{Problemas}
+	\begin{enumerate}
+		\item El repositorio del review corre muy lento \bluecheck
+		\item Las condiciones de frontera no son iguales
+		\begin{itemize}
+			\item Reflejar los caminos puede funcionar \redwrong
+		\end{itemize}
+		\item Parece que DeepBSDE no funciona con dimensiones de más de 100
+		\begin{itemize}
+			\item Podría usarse el deep Backward de Pham \cite{hure_deep_2020}, se puede entrenar basado en modelos anteriores. No hay código
+			\item O tambien deep splitting de Beck \cite{beck_deep_2021}. Si hay código
+		\end{itemize}
+	\end{enumerate}
+    \HRule\par
+    \section*{Ideas}
+    \begin{itemize}
+    	\item Hacerlo en flux
+    	\item Hacerlo en equinox/jax
+    	\item Buscar un modelo de Cucker Smale abierto
+    \end{itemize}
+
+    \HRule\par
 	\section*{Deep BSDE}
 	Vamos a intentar resolver ecuaciones del tipo 
 	\begin{equation}
@@ -32,4 +123,99 @@
 			+f\left(t, x, u(t, x), \sigma^{\mathrm{T}}(t, x) \nabla u(t, x)\right)=0
 		\end{gathered}
 	\end{equation}
+con la condición final $u(T,x)=g(x)$.
+
+Vamos a realizar una aproximación con la fórmula de Feynman-Kac. Esto es, la solución de la ecuación anterior viene dada por 
+
+\begin{equation}
+	\begin{aligned}
+		& u\left(t, X_t\right)-u\left(0, X_0\right) \\
+		=&-\int_0^t f\left(s, X_s, u\left(s, X_s\right), \sigma^{\mathrm{T}}\left(s, X_s\right) \nabla u\left(s, X_s\right)\right) d s \\
+		&+\int_0^t\left[\nabla u\left(s, X_s\right)\right]^{\mathrm{T}} \sigma\left(s, X_s\right) d W_s .
+	\end{aligned}
+\end{equation}
+donde $X$ resuelve la ecuación diferencial estocástica
+\begin{equation}
+	X_t=\xi+\int_0^t \mu\left(s, X_s\right) d s+\int_0^t \sigma\left(s, X_s\right) d W_s
+\end{equation}
+Vamos a estudiar primero el caso de HJB del repositorio. Acá intentamos controlar el proceso 100-dimensional
+\begin{equation}
+	dX_t=2\sqrt{\lambda}m_t dt +\sqrt{2}dt \quad X(0)=x \quad t\in (0,T)
+\end{equation}
+a través del control $m_t$, con el funcional de costo
+\begin{equation}
+	J(m_t)=\mathbb{E}\left[\int_{0}^{T}||m_t||^2 dt +g(X_T)\right].
+\end{equation}
+\begin{recordar}[Hamilton-Jacobi-Bellman]
+	Para un proceso controlado
+	\begin{equation*}
+		\begin{split}
+			&dX_x=\mu(X,u)dt+\sigma(X,u)dW\\
+			&X(0)=x
+		\end{split}
+	\end{equation*}
+con función de costo
+\begin{equation*}
+	J(t,x,u)=\mathbb{E}\left[\int_{t}^{T}f(X_x,u) dt +g(X_x)\right].
+\end{equation*}
+la ecuación de HJB para la función de valor
+\begin{equation*}
+	V(t,x)=\sup_{u\in \mathcal{A}}J(t,x,u)
+\end{equation*}
+es
+\begin{equation*}
+	\dpartial{V}{t}+\sup_{u\in A}\{ \mathcal{L}^{u}(V)+f(x,u)\}=0
+\end{equation*}
+donde 
+\begin{equation*}
+	\mathcal{L}^{u}(V)(t,x)=\mu(x,u)\cdot \nabla V(t,x) +\frac{1}{2}Tr(\sigma(t,x)\sigma^{T}(t,x)\nabla^2 V(t,x))
+\end{equation*}
+con la condición final
+\begin{equation*}
+	u(T,x)=g(x)
+\end{equation*}
+Esto también puede escribirse con el Hamiltoniano
+	\begin{equation*}
+		H(t,x,p,M)=\sup{u\in \mathcal{A}}\{\mu(x,u)\cdot p+\frac{1}{2}Tr[\sigma(t,x)\sigma^{T}(t,x)M]+f(x,u)\}
+	\end{equation*}
+y asumiendo que el control no se aplica a la volatilidad se escribe
+\begin{equation*}
+	\dpartial{u}{t}+H(t,x,\nabla u)+\frac{1}{2}Tr[\sigma(t,x)\sigma^{T}(t,x)\nabla^2 u]=0
+\end{equation*}
+
+\end{recordar}
+
+
+\begin{lstlisting}[language=Python]
+	import numpy as np
+	
+	def incmatrix(genl1,genl2):
+	m = len(genl1)
+	n = len(genl2)
+	M = None #to become the incidence matrix
+	VT = np.zeros((n*m,1), int)  #dummy variable
+	
+	#compute the bitwise xor matrix
+	M1 = bitxormatrix(genl1)
+	M2 = np.triu(bitxormatrix(genl2),1) 
+	
+	for i in range(m-1):
+	for j in range(i+1, m):
+	[r,c] = np.where(M2 == M1[i,j])
+	for k in range(len(r)):
+	VT[(i)*n + r[k]] = 1;
+	VT[(i)*n + c[k]] = 1;
+	VT[(j)*n + r[k]] = 1;
+	VT[(j)*n + c[k]] = 1;
+	
+	if M is None:
+	M = np.copy(VT)
+	else:
+	M = np.concatenate((M, VT), 1)
+	
+	VT = np.zeros((n*m,1), int)
+	
+	return M
+\end{lstlisting}
+\printbibliography
 \end{document}

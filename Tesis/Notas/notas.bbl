@@ -1,0 +1,152 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{hure_deep_2020}{article}{}
+      \name{author}{3}{}{%
+        {{hash=3b6075cd0ba05bc749910ae11cd359c0}{%
+           family={Huré},
+           familyi={H\bibinitperiod},
+           given={Côme},
+           giveni={C\bibinitperiod}}}%
+        {{hash=63008f832cd1b7bff2b7965308101cb3}{%
+           family={Pham},
+           familyi={P\bibinitperiod},
+           given={Huyên},
+           giveni={H\bibinitperiod}}}%
+        {{hash=ea3f10f25d882688b0162b224cc49e89}{%
+           family={Warin},
+           familyi={W\bibinitperiod},
+           given={Xavier},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{3a46552915079364d2429ce9381a76a9}
+      \strng{fullhash}{3a46552915079364d2429ce9381a76a9}
+      \strng{bibnamehash}{3a46552915079364d2429ce9381a76a9}
+      \strng{authorbibnamehash}{3a46552915079364d2429ce9381a76a9}
+      \strng{authornamehash}{3a46552915079364d2429ce9381a76a9}
+      \strng{authorfullhash}{3a46552915079364d2429ce9381a76a9}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We propose new machine learning schemes for solving high dimensional nonlinear partial diﬀerential equations ({PDEs}). Relying on the classical backward stochastic diﬀerential equation ({BSDE}) representation of {PDEs}, our algorithms estimate simultaneously the solution and its gradient by deep neural networks. These approximations are performed at each time step from the minimization of loss functions deﬁned recursively by backward induction. The methodology is extended to variational inequalities arising in optimal stopping problems. We analyze the convergence of the deep learning schemes and provide error estimates in terms of the universal approximation of neural networks. Numerical results show that our algorithms give very good results till dimension 50 (and certainly above), for both {PDEs} and variational inequalities problems. For the {PDEs} resolution, our results are very similar to those obtained by the recent method in [{EHJ}17] when the latter converges to the right solution or does not diverge. Numerical tests indicate that the proposed methods are not stuck in poor local minima as it can be the case with the algorithm designed in [{EHJ}17], and no divergence is experienced. The only limitation seems to be due to the inability of the considered deep neural networks to represent a solution with a too complex structure in high dimension.}
+      \field{day}{31}
+      \field{issn}{0025-5718, 1088-6842}
+      \field{journaltitle}{Mathematics of Computation}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{number}{324}
+      \field{shortjournal}{Math. Comp.}
+      \field{title}{Deep backward schemes for high-dimensional nonlinear {PDEs}}
+      \field{urlday}{28}
+      \field{urlmonth}{2}
+      \field{urlyear}{2023}
+      \field{volume}{89}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1547\bibrangedash 1579}
+      \range{pages}{33}
+      \verb{doi}
+      \verb 10.1090/mcom/3514
+      \endverb
+      \verb{file}
+      \verb Huré et al. - 2020 - Deep backward schemes for high-dimensional nonline.pdf:/home/carlos/Zotero/storage/F337CQZ3/Huré et al. - 2020 - Deep backward schemes for high-dimensional nonline.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.ams.org/mcom/2020-89-324/S0025-5718-2020-03514-5/
+      \endverb
+      \verb{url}
+      \verb https://www.ams.org/mcom/2020-89-324/S0025-5718-2020-03514-5/
+      \endverb
+    \endentry
+    \entry{beck_deep_2021}{article}{}
+      \name{author}{5}{}{%
+        {{hash=53a777055b139b74439193de18ada60c}{%
+           family={Beck},
+           familyi={B\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=42221c1d7e7442dcb3b6377e84f8beb0}{%
+           family={Becker},
+           familyi={B\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=5531821a92d7ecfb88b66d25352cf2a9}{%
+           family={Cheridito},
+           familyi={C\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+        {{hash=31ce46557e2d08499e8b06d041f40bf2}{%
+           family={Jentzen},
+           familyi={J\bibinitperiod},
+           given={Arnulf},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4bae2e73c7672c94e7d5db6f3708770e}{%
+           family={Neufeld},
+           familyi={N\bibinitperiod},
+           given={Ariel},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{94757eff89f0cf1a427c5a3fe6a0baae}
+      \strng{fullhash}{dd1319e0f0691fdfb6e219f43cc3caac}
+      \strng{bibnamehash}{94757eff89f0cf1a427c5a3fe6a0baae}
+      \strng{authorbibnamehash}{94757eff89f0cf1a427c5a3fe6a0baae}
+      \strng{authornamehash}{94757eff89f0cf1a427c5a3fe6a0baae}
+      \strng{authorfullhash}{dd1319e0f0691fdfb6e219f43cc3caac}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper we introduce a numerical method for nonlinear parabolic {PDEs} that combines operator splitting with deep learning. It divides the {PDE} approximation problem into a sequence of separate learning problems. Since the computational graph for each of the subproblems is comparatively small, the approach can handle extremely highdimensional {PDEs}. We test the method on diﬀerent examples from physics, stochastic control and mathematical ﬁnance. In all cases, it yields very good results in up to 10,000 dimensions with short run times.}
+      \field{issn}{1064-8275, 1095-7197}
+      \field{journaltitle}{{SIAM} Journal on Scientific Computing}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{number}{5}
+      \field{shortjournal}{{SIAM} J. Sci. Comput.}
+      \field{title}{Deep Splitting Method for Parabolic {PDEs}}
+      \field{urlday}{14}
+      \field{urlmonth}{2}
+      \field{urlyear}{2023}
+      \field{volume}{43}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{A3135\bibrangedash A3154}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1137/19M1297919
+      \endverb
+      \verb{file}
+      \verb Beck et al. - 2021 - Deep Splitting Method for Parabolic PDEs.pdf:/home/carlos/Zotero/storage/LZVZGVTF/Beck et al. - 2021 - Deep Splitting Method for Parabolic PDEs.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://epubs.siam.org/doi/10.1137/19M1297919
+      \endverb
+      \verb{url}
+      \verb https://epubs.siam.org/doi/10.1137/19M1297919
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
