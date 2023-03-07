@@ -1,6 +1,6 @@
 [0] Config.pm:306> INFO - This is Biber 2.18
 [0] Config.pm:309> INFO - Logfile is 'notas.blg'
-[42] biber:340> INFO - === dom mar  5, 2023, 18:30:59
+[41] biber:340> INFO - === lun mar  6, 2023, 22:08:11
 [50] Biber.pm:418> INFO - Reading 'notas.bcf'
 [92] Biber.pm:978> INFO - Found 2 citekeys in bib section 0
 [100] Biber.pm:4401> INFO - Processing section 0

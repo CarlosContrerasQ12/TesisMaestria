@@ -6,6 +6,7 @@
 \usepackage[most]{tcolorbox}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{parskip}
 
 \setlength{\parindent}{0cm}
 
@@ -72,7 +73,7 @@
 \lstset{style=mystyle}
 
 \newenvironment{recordar}[1][Recordar]
-{\begin{tcolorbox}[colback=red!10!white,colframe=red!50!blue,title=Recordar: #1 ]
+{\begin{tcolorbox}[breakable,colback=red!10!white,colframe=red!50!blue,title=Recordar: #1 ,enhanced jigsaw]
 	
 }{\end{tcolorbox}}
 
@@ -113,8 +114,21 @@
     	\item Hacerlo en equinox/jax
     	\item Buscar un modelo de Cucker Smale abierto
     \end{itemize}
-
     \HRule\par
+    \section*{Preguntas}
+	\begin{enumerate}
+	\item ¿En que sentido converge a la solución?
+	\item ¿Qué pasaría si se cambia la discretización de Euler por una mejor?¿Afecta el modo de convergencia?
+	\end{enumerate}
+    \HRule\par
+    \section{Probabilidad}
+    \begin{recordar}[Filtración aumentada]
+    	A una filtración $\mathbb{F}=(\mathcal{F}_t)_t$ en un espacio de probabilidad $(\Omega,\mathcal{A},\mathbb{P})$ le corresponde una filtración continua a la derecha $\mathbb{F}^+=(\mathcal{F}_t)_t=\cap_{t<s}(\mathcal{F}_s)$. $\mathbb{F}$ se dice continua a la derecha si $\mathbb{F}^+=\mathbb{F}$.
+    	
+    	Sea $\mathcal{N}_P=\{A\subseteq \omega | A\subseteq B \text{ para algún } B\in \mathbb{F} \text{ con } P(B)=0\}$. $\mathbb{F}$ se dice completa si $\mathcal{F}_t$ contiene $\mathcal{N}_P$ para todo $t$.
+    	
+    	Una filtración continua a la derecha y completa se llama filtración aumentada.
+    \end{recordar}
 	\section*{Deep BSDE}
 	Vamos a intentar resolver ecuaciones del tipo 
 	\begin{equation}

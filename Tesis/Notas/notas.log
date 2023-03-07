@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  6 MAR 2023 00:37
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  6 MAR 2023 22:22
  restricted system commands enabled.
 **notas.tex
 (./notas.tex
@@ -650,6 +650,15 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
+(/home/carlos/.miktex/texmfs/install/tex/latex/parskip/parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)))
 (/home/carlos/.miktex/texmfs/install/tex/latex/psnfss/pifont.sty
 Package: pifont 2020/03/25 PSNFSS-v9.3 Pi font support (SPQR) 
 LaTeX Font Info:    Trying to load font information for U+pzd on input line 63.
@@ -667,12 +676,6 @@ File: upsy.fd 2001/06/04 font definitions for U/psy.
 (/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2022/07/12 v3.18b programmable bibliographies (PK/MW)
 
-(/home/carlos/.miktex/texmfs/install/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
-
-(/home/carlos/.miktex/texmfs/install/tex/latex/kvsetkeys/kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-))
 (/home/carlos/.miktex/texmfs/install/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
 \lrq@indent=\count311
@@ -928,27 +931,27 @@ Package: blx-case-expl3 2022/07/12 v3.18b expl3 case changing code for biblatex
 (./notas.aux)
 \openout1 = notas.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 82.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 8
-1.
+2.
  (/home/carlos/.miktex/texmfs/install/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1021,19 +1024,19 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'notas.bbl' found.
 
 (./notas.bbl)
-Package biblatex Info: Reference section=0 on input line 81.
-Package biblatex Info: Reference segment=0 on input line 81.
+Package biblatex Info: Reference section=0 on input line 82.
+Package biblatex Info: Reference segment=0 on input line 82.
 
 
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
-(Font)              using `T1/lmr/bx/n' instead on input line 82.
+(Font)              using `T1/lmr/bx/n' instead on input line 83.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 120
+LaTeX Font Info:    Trying to load font information for U+msa on input line 126
 .
 (/home/carlos/.miktex/texmfs/install/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 120
+LaTeX Font Info:    Trying to load font information for U+msb on input line 126
 .
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/amsfonts/umsb.fd
@@ -1044,8 +1047,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/home/carlos/.miktex/texmfs/install/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-89.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
+03.
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1060,16 +1063,16 @@ Package logreq Info: Writing requests to 'notas.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 29228 strings out of 477240
- 244480,1648299 words of node,token memory allocated
+ 29311 strings out of 477240
+ 244337,1648299 words of node,token memory allocated
  1413 words of node memory still in use:
    30 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 1 glyph, 97 attribute, 66 glue_sp
 ec, 97 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack nodes
-   avail lists: 1:2,2:3181,3:209,4:4348,5:4196,6:80,7:8191,8:62,9:12449,10:23,11
-:683
- 49482 multiletter control sequences out of 65536+600000
- 45 fonts using 2786783 bytes
- 99i,18n,98p,1448b,1280s stack positions out of 10000i,1000n,20000p,200000b,80000s
+   avail lists: 1:2,2:3501,3:576,4:4434,5:4269,6:77,7:9092,8:61,9:12577,10:24,11
+:731
+ 49556 multiletter control sequences out of 65536+600000
+ 46 fonts using 2869463 bytes
+ 99i,17n,98p,1448b,1280s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {/home/carlos/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-ec.enc}{/home/carlos/
 .miktex/texmfs/install/fonts/enc/dvips/lm/lm-ts1.enc}</home/carlos/.miktex/texmf
 s/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/carlos/.miktex/texmfs
@@ -1087,7 +1090,7 @@ os/.miktex/texmfs/install/fonts/type1/public/lm/lmtt10.pfb></home/carlos/.miktex
 /texmfs/install/fonts/type1/public/lm/lmtt8.pfb></home/carlos/.miktex/texmfs/ins
 tall/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/carlos/.miktex/texmfs
 /install/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on notas.pdf (4 pages, 270312 bytes).
+Output written on notas.pdf (4 pages, 276799 bytes).
 
 PDF statistics: 122 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
