@@ -1,15 +1,15 @@
 [0] Config.pm:306> INFO - This is Biber 2.18
 [0] Config.pm:309> INFO - Logfile is 'notas.blg'
-[43] biber:340> INFO - === dom mar 12, 2023, 18:15:14
-[52] Biber.pm:418> INFO - Reading 'notas.bcf'
-[96] Biber.pm:978> INFO - Found 2 citekeys in bib section 0
-[106] Biber.pm:4401> INFO - Processing section 0
-[112] Biber.pm:4592> INFO - Looking for bibtex file 'PDEsML.bib' for section 0
-[115] bibtex.pm:1713> INFO - LaTeX decoding ...
-[163] bibtex.pm:1518> INFO - Found BibTeX data source 'PDEsML.bib'
-[194] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[194] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[194] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[194] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
-[197] bbl.pm:654> INFO - Writing 'notas.bbl' with encoding 'UTF-8'
-[199] bbl.pm:757> INFO - Output to notas.bbl
+[102] biber:340> INFO - === dom mar 12, 2023, 23:51:20
+[123] Biber.pm:418> INFO - Reading 'notas.bcf'
+[244] Biber.pm:978> INFO - Found 2 citekeys in bib section 0
+[268] Biber.pm:4401> INFO - Processing section 0
+[283] Biber.pm:4592> INFO - Looking for bibtex file 'PDEsML.bib' for section 0
+[291] bibtex.pm:1713> INFO - LaTeX decoding ...
+[409] bibtex.pm:1518> INFO - Found BibTeX data source 'PDEsML.bib'
+[487] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[487] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[487] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[487] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
+[496] bbl.pm:654> INFO - Writing 'notas.bbl' with encoding 'UTF-8'
+[499] bbl.pm:757> INFO - Output to notas.bbl

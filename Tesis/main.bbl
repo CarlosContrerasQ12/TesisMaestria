@@ -19,6 +19,316 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
+    \entry{higham_deep_2019}{article}{}
+      \name{author}{2}{}{%
+        {{hash=794dc0781d5c862fe8d567e564bdbd1a}{%
+           family={Higham},
+           familyi={H\bibinitperiod},
+           given={Catherine\bibnamedelima F.},
+           giveni={C\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=595c1684f5fe70f9a29914bdda6d2e9e}{%
+           family={Higham},
+           familyi={H\bibinitperiod},
+           given={Desmond\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{e17027d1dfcef26462d04886515cd994}
+      \strng{fullhash}{e17027d1dfcef26462d04886515cd994}
+      \strng{bibnamehash}{e17027d1dfcef26462d04886515cd994}
+      \strng{authorbibnamehash}{e17027d1dfcef26462d04886515cd994}
+      \strng{authornamehash}{e17027d1dfcef26462d04886515cd994}
+      \strng{authorfullhash}{e17027d1dfcef26462d04886515cd994}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Multilayered artiﬁcial neural networks are becoming a pervasive tool in a host of application ﬁelds. At the heart of this deep learning revolution are familiar concepts from applied and computational mathematics; notably, in calculus, approximation theory, optimization and linear algebra. This article provides a very brief introduction to the basic ideas that underlie deep learning from an applied mathematics perspective. Our target audience includes postgraduate and ﬁnal year undergraduate students in mathematics who are keen to learn about the area. The article may also be useful for instructors in mathematics who wish to enliven their classes with references to the application of deep learning techniques. We focus on three fundamental questions: what is a deep neural network? how is a network trained? what is the stochastic gradient method? We illustrate the ideas with a short {MATLAB} code that sets up and trains a network. We also show the use of state-of-the art software on a large scale image classiﬁcation problem. We ﬁnish with references to the current literature.}
+      \field{issn}{0036-1445, 1095-7200}
+      \field{journaltitle}{{SIAM} Review}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{number}{3}
+      \field{shortjournal}{{SIAM} Rev.}
+      \field{shorttitle}{Deep Learning}
+      \field{title}{Deep Learning: An Introduction for Applied Mathematicians}
+      \field{urlday}{26}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{volume}{61}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{860\bibrangedash 891}
+      \range{pages}{32}
+      \verb{doi}
+      \verb 10.1137/18M1165748
+      \endverb
+      \verb{file}
+      \verb Higham y Higham - 2019 - Deep Learning An Introduction for Applied Mathema.pdf:/home/carlos/Zotero/storage/YTREYN46/Higham y Higham - 2019 - Deep Learning An Introduction for Applied Mathema.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://epubs.siam.org/doi/10.1137/18M1165748
+      \endverb
+      \verb{url}
+      \verb https://epubs.siam.org/doi/10.1137/18M1165748
+      \endverb
+    \endentry
+    \entry{li_fourier_2021}{misc}{}
+      \name{author}{7}{}{%
+        {{hash=009036050bf23abe561429f6eaa0b018}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Zongyi},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=d3715d69863d59245589f244c5866bd4}{%
+           family={Kovachki},
+           familyi={K\bibinitperiod},
+           given={Nikola},
+           giveni={N\bibinitperiod}}}%
+        {{hash=3648b51d63e1ae389e46f87296d4c89a}{%
+           family={Azizzadenesheli},
+           familyi={A\bibinitperiod},
+           given={Kamyar},
+           giveni={K\bibinitperiod}}}%
+        {{hash=9caea1a7b561311e5146f4c7f740496c}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Burigede},
+           giveni={B\bibinitperiod}}}%
+        {{hash=1e523aae18c868f77439b35add494ff9}{%
+           family={Bhattacharya},
+           familyi={B\bibinitperiod},
+           given={Kaushik},
+           giveni={K\bibinitperiod}}}%
+        {{hash=9fdd1b883dec513483f9ee5c99b7e251}{%
+           family={Stuart},
+           familyi={S\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+        {{hash=bd4a2be6ede169a3c794a1cd7e3fb9a2}{%
+           family={Anandkumar},
+           familyi={A\bibinitperiod},
+           given={Anima},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{edf93f47ab09a8c56b86e9ad2e628607}
+      \strng{fullhash}{3e58006f2c869702116637d04136c3b9}
+      \strng{bibnamehash}{edf93f47ab09a8c56b86e9ad2e628607}
+      \strng{authorbibnamehash}{edf93f47ab09a8c56b86e9ad2e628607}
+      \strng{authornamehash}{edf93f47ab09a8c56b86e9ad2e628607}
+      \strng{authorfullhash}{3e58006f2c869702116637d04136c3b9}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The classical development of neural networks has primarily focused on learning mappings between finite-dimensional Euclidean spaces. Recently, this has been generalized to neural operators that learn mappings between function spaces. For partial differential equations ({PDEs}), neural operators directly learn the mapping from any functional parametric dependence to the solution. Thus, they learn an entire family of {PDEs}, in contrast to classical methods which solve one instance of the equation. In this work, we formulate a new neural operator by parameterizing the integral kernel directly in Fourier space, allowing for an expressive and efficient architecture. We perform experiments on Burgers' equation, Darcy flow, and Navier-Stokes equation. The Fourier neural operator is the first {ML}-based method to successfully model turbulent flows with zero-shot super-resolution. It is up to three orders of magnitude faster compared to traditional {PDE} solvers. Additionally, it achieves superior accuracy compared to previous learning-based solvers under fixed resolution.}
+      \field{day}{16}
+      \field{eprinttype}{arxiv}
+      \field{month}{5}
+      \field{number}{{arXiv}:2010.08895}
+      \field{title}{Fourier Neural Operator for Parametric Partial Differential Equations}
+      \field{urlday}{10}
+      \field{urlmonth}{10}
+      \field{urlyear}{2022}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{eprint}
+      \verb 2010.08895 [cs, math]
+      \endverb
+      \verb{file}
+      \verb arXiv Fulltext PDF:/home/carlos/Zotero/storage/SBBEPWWE/Li et al. - 2021 - Fourier Neural Operator for Parametric Partial Dif.pdf:application/pdf;arXiv.org Snapshot:/home/carlos/Zotero/storage/NDLMSUIA/2010.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2010.08895
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2010.08895
+      \endverb
+      \keyw{Computer Science - Machine Learning,Mathematics - Numerical Analysis}
+    \endentry
+    \entry{sirignano_dgm_2018}{article}{}
+      \name{author}{2}{}{%
+        {{hash=63a950b98d85daffb2acb228fc44a30b}{%
+           family={Sirignano},
+           familyi={S\bibinitperiod},
+           given={Justin},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b3f57aca002dd1e7484cf81299998414}{%
+           family={Spiliopoulos},
+           familyi={S\bibinitperiod},
+           given={Konstantinos},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{fb5add8979e6ca053be0b10341d44fe1}
+      \strng{fullhash}{fb5add8979e6ca053be0b10341d44fe1}
+      \strng{bibnamehash}{fb5add8979e6ca053be0b10341d44fe1}
+      \strng{authorbibnamehash}{fb5add8979e6ca053be0b10341d44fe1}
+      \strng{authornamehash}{fb5add8979e6ca053be0b10341d44fe1}
+      \strng{authorfullhash}{fb5add8979e6ca053be0b10341d44fe1}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{High-dimensional {PDEs} have been a longstanding computational challenge. We propose to solve highdimensional {PDEs} by approximating the solution with a deep neural network which is trained to satisfy the diﬀerential operator, initial condition, and boundary conditions. Our algorithm is meshfree, which is key since meshes become infeasible in higher dimensions. Instead of forming a mesh, the neural network is trained on batches of randomly sampled time and space points. The algorithm is tested on a class of high-dimensional free boundary {PDEs}, which we are able to accurately solve in up to 200 dimensions. The algorithm is also tested on a high-dimensional Hamilton-Jacobi-Bellman {PDE} and Burgers’ equation. The deep learning algorithm approximates the general solution to the Burgers’ equation for a continuum of diﬀerent boundary conditions and physical conditions (which can be viewed as a high-dimensional space). We call the algorithm a “Deep Galerkin Method ({DGM})” since it is similar in spirit to Galerkin methods, with the solution approximated by a neural network instead of a linear combination of basis functions. In addition, we prove a theorem regarding the approximation power of neural networks for a class of quasilinear parabolic {PDEs}.}
+      \field{issn}{00219991}
+      \field{journaltitle}{Journal of Computational Physics}
+      \field{langid}{english}
+      \field{month}{12}
+      \field{shortjournal}{Journal of Computational Physics}
+      \field{shorttitle}{{DGM}}
+      \field{title}{{DGM}: A deep learning algorithm for solving partial differential equations}
+      \field{urlday}{10}
+      \field{urlmonth}{10}
+      \field{urlyear}{2022}
+      \field{volume}{375}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1339\bibrangedash 1364}
+      \range{pages}{26}
+      \verb{doi}
+      \verb 10.1016/j.jcp.2018.08.029
+      \endverb
+      \verb{file}
+      \verb Sirignano y Spiliopoulos - 2018 - DGM A deep learning algorithm for solving partial.pdf:/home/carlos/Zotero/storage/HSUX3UV9/Sirignano y Spiliopoulos - 2018 - DGM A deep learning algorithm for solving partial.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S0021999118305527
+      \endverb
+      \verb{url}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S0021999118305527
+      \endverb
+    \endentry
+    \entry{cuomo_scientific_2022}{misc}{}
+      \name{author}{6}{}{%
+        {{hash=a149dbc0c7d8c7b44289299d659521f4}{%
+           family={Cuomo},
+           familyi={C\bibinitperiod},
+           given={Salvatore},
+           giveni={S\bibinitperiod}}}%
+        {{hash=9bc9686a73763abee74c1103182e61b4}{%
+           family={Cola},
+           familyi={C\bibinitperiod},
+           given={Vincenzo\bibnamedelima Schiano},
+           giveni={V\bibinitperiod\bibinitdelim S\bibinitperiod},
+           prefix={di},
+           prefixi={d\bibinitperiod}}}%
+        {{hash=07970330b2a43b5c2e55ae13af5a7097}{%
+           family={Giampaolo},
+           familyi={G\bibinitperiod},
+           given={Fabio},
+           giveni={F\bibinitperiod}}}%
+        {{hash=2b969effc2e931cc3f6118c144824d3f}{%
+           family={Rozza},
+           familyi={R\bibinitperiod},
+           given={Gianluigi},
+           giveni={G\bibinitperiod}}}%
+        {{hash=95a17c39168b9e6b8812f207b4e036c1}{%
+           family={Raissi},
+           familyi={R\bibinitperiod},
+           given={Maziar},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5e071190ec9de33600de48969adb345b}{%
+           family={Piccialli},
+           familyi={P\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{ecacc4512ae1bd881356a9535bcb4121}
+      \strng{fullhash}{27f0bb500f48733ffa04338eaf617bf2}
+      \strng{bibnamehash}{ecacc4512ae1bd881356a9535bcb4121}
+      \strng{authorbibnamehash}{ecacc4512ae1bd881356a9535bcb4121}
+      \strng{authornamehash}{ecacc4512ae1bd881356a9535bcb4121}
+      \strng{authorfullhash}{27f0bb500f48733ffa04338eaf617bf2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Physics-Informed Neural Networks ({PINN}) are neural networks ({NNs}) that encode model equations, like Partial Differential Equations ({PDE}), as a component of the neural network itself. {PINNs} are nowadays used to solve {PDEs}, fractional equations, integral-differential equations, and stochastic {PDEs}. This novel methodology has arisen as a multi-task learning framework in which a {NN} must fit observed data while reducing a {PDE} residual. This article provides a comprehensive review of the literature on {PINNs}: while the primary goal of the study was to characterize these networks and their related advantages and disadvantages. The review also attempts to incorporate publications on a broader range of collocation-based physics informed neural networks, which stars form the vanilla {PINN}, as well as many other variants, such as physics-constrained neural networks ({PCNN}), variational hp-{VPINN}, and conservative {PINN} ({CPINN}). The study indicates that most research has focused on customizing the {PINN} through different activation functions, gradient optimization techniques, neural network structures, and loss function structures. Despite the wide range of applications for which {PINNs} have been used, by demonstrating their ability to be more feasible in some contexts than classical numerical techniques like Finite Element Method ({FEM}), advancements are still possible, most notably theoretical issues that remain unresolved.}
+      \field{day}{7}
+      \field{eprinttype}{arxiv}
+      \field{month}{6}
+      \field{number}{{arXiv}:2201.05624}
+      \field{shorttitle}{Scientific Machine Learning through Physics-Informed Neural Networks}
+      \field{title}{Scientific Machine Learning through Physics-Informed Neural Networks: Where we are and What's next}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2022}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{eprint}
+      \verb 2201.05624 [physics]
+      \endverb
+      \verb{file}
+      \verb arXiv Fulltext PDF:/home/carlos/Zotero/storage/H855KTYN/Cuomo et al. - 2022 - Scientific Machine Learning through Physics-Inform.pdf:application/pdf;arXiv.org Snapshot:/home/carlos/Zotero/storage/GDJA3DPU/2201.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2201.05624
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2201.05624
+      \endverb
+      \keyw{Computer Science - Machine Learning,Mathematics - Numerical Analysis,Computer Science - Artificial Intelligence,Physics - Data Analysis,Statistics and Probability}
+    \endentry
+    \entry{blechschmidt_three_2021}{article}{}
+      \name{author}{2}{}{%
+        {{hash=6213b438cffb8de57f89b006e11ed2c1}{%
+           family={Blechschmidt},
+           familyi={B\bibinitperiod},
+           given={Jan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=240a7f26b82eba0cbec8214e6287c703}{%
+           family={Ernst},
+           familyi={E\bibinitperiod},
+           given={Oliver\bibnamedelima G.},
+           giveni={O\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{1c18533cebbda08fb288ae5804f700a2}
+      \strng{fullhash}{1c18533cebbda08fb288ae5804f700a2}
+      \strng{bibnamehash}{1c18533cebbda08fb288ae5804f700a2}
+      \strng{authorbibnamehash}{1c18533cebbda08fb288ae5804f700a2}
+      \strng{authornamehash}{1c18533cebbda08fb288ae5804f700a2}
+      \strng{authorfullhash}{1c18533cebbda08fb288ae5804f700a2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Neural networks are increasingly used to construct numerical solution methods for partial diﬀerential equations. In this expository review, we introduce and contrast three important recent approaches attractive in their simplicity and their suitability for high-dimensional problems: physics-informed neural networks, methods based on the Feynman-Kac formula and methods based on the solution of backward stochastic diﬀerential equations. The article is accompanied by a suite of expository software in the form of Jupyter notebooks in which each basic methodology is explained step by step, allowing for a quick assimilation and experimentation. An extensive bibliography summarizes the state of the art.}
+      \field{issn}{0936-7195, 1522-2608}
+      \field{journaltitle}{{GAMM}-Mitteilungen}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{number}{2}
+      \field{shortjournal}{{GAMM}‐Mitteilungen}
+      \field{title}{Three ways to solve partial differential equations with neural networks — A review}
+      \field{urlday}{26}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{volume}{44}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1002/gamm.202100006
+      \endverb
+      \verb{file}
+      \verb Blechschmidt y Ernst - 2021 - Three ways to solve partial differential equations.pdf:/home/carlos/Zotero/storage/BSRAWXLL/Blechschmidt y Ernst - 2021 - Three ways to solve partial differential equations.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/10.1002/gamm.202100006
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/10.1002/gamm.202100006
+      \endverb
+    \endentry
     \entry{bismut_conjugate_1973}{article}{}
       \name{author}{1}{}{%
         {{hash=eace1db2158ab018d2d2bb076c56909b}{%
@@ -36,8 +346,8 @@
       \strng{authorbibnamehash}{eace1db2158ab018d2d2bb076c56909b}
       \strng{authornamehash}{eace1db2158ab018d2d2bb076c56909b}
       \strng{authorfullhash}{eace1db2158ab018d2d2bb076c56909b}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0022-247X}
@@ -88,8 +398,8 @@
       \strng{authorbibnamehash}{ca377fe79cb834ca805a5a3cd77da393}
       \strng{authornamehash}{ca377fe79cb834ca805a5a3cd77da393}
       \strng{authorfullhash}{ca377fe79cb834ca805a5a3cd77da393}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Let Wt; t ϵ [0, 1] be a standard k-dimensional Weiner process defined on a probability space (Ω, F, P), and let Ft denote its natural filtration. Given a F1 measurable d-dimensional random vector X, we look for an adapted pair of processes \{x(t), y(t); t ϵ [0, 1]\} with values in Rd and Rd×k respectively, which solves an equation of the form: x(t) + ∫t1f(s, x(s), y(s)) ds + ∫t1 [g(s, x(s)) + y(s)] dWs = X. A linearized version of that equation appears in stochastic control theory as the equation satisfied by the adjoint process. We also generalize our results to the following equation: x(t) + ∫t1f(s, x(s), y(s)) ds + ∫t1 g(s, x(s)) + y(s)) dWs = X under rather restrictive assumptions on g.}
@@ -143,8 +453,8 @@
       \strng{authorbibnamehash}{17f34ccb8b943a37fda9e3c1e404f6d9}
       \strng{authornamehash}{17f34ccb8b943a37fda9e3c1e404f6d9}
       \strng{authorfullhash}{17f34ccb8b943a37fda9e3c1e404f6d9}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-1-4939-7254-8 978-1-4939-7256-2}
@@ -197,8 +507,8 @@
       \strng{authorbibnamehash}{4765bb24c67ec2d8037bb9a5ed16432f}
       \strng{authornamehash}{4765bb24c67ec2d8037bb9a5ed16432f}
       \strng{authorfullhash}{4765bb24c67ec2d8037bb9a5ed16432f}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-3-319-05713-2 978-3-319-05714-9}
@@ -240,8 +550,8 @@
       \strng{authorbibnamehash}{04b1ed251efdd057328781524789a201}
       \strng{authornamehash}{04b1ed251efdd057328781524789a201}
       \strng{authorfullhash}{04b1ed251efdd057328781524789a201}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Maestro en ciencias con especialidad en probabilidad y estadística}
@@ -272,8 +582,8 @@
       \strng{authorbibnamehash}{701a2d95e8b3a75c89608e9b91902077}
       \strng{authornamehash}{701a2d95e8b3a75c89608e9b91902077}
       \strng{authorfullhash}{701a2d95e8b3a75c89608e9b91902077}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-1-4614-4285-1 978-1-4614-4286-8}
@@ -318,8 +628,8 @@
       \strng{authorbibnamehash}{3b63fe742f76c1fafd56bf6fa698114e}
       \strng{authornamehash}{3b63fe742f76c1fafd56bf6fa698114e}
       \strng{authorfullhash}{3b63fe742f76c1fafd56bf6fa698114e}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2nd ed}
@@ -367,8 +677,8 @@
       \strng{authorbibnamehash}{3cc26ef31ed487cc0d1e401f969fc83a}
       \strng{authornamehash}{3cc26ef31ed487cc0d1e401f969fc83a}
       \strng{authorfullhash}{86dfdd9b393215828f78e1e7d3b76b9d}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Backward Stochastic Differential Equations ({BSDEs}) have been widely employed in various areas of social and natural sciences, such as the pricing and hedging of financial derivatives, stochastic optimal control problems, optimal stopping problems and gene expression. Most {BSDEs} cannot be solved analytically and thus numerical methods must be applied in order to approximate their solutions. There have been a variety of numerical methods proposed over the past few decades as well as many more currently being developed. For the most part, they exist in a complex and scattered manner with each requiring different and similar assumptions and conditions. The aim of the present work is thus to systematically survey various numerical methods for {BSDEs}, and in particular, compare and categorize them, for further developments and improvements. To achieve this goal, we focus primarily on the core features of each method on the basis of an exhaustive collection of 303 references: the main assumptions, the numerical algorithm itself, key convergence properties and advantages and disadvantages, in order to provide a full up-to-date coverage of numerical methods for {BSDEs}, with insightful summaries of each and a useful comparison and categorization.}
@@ -418,8 +728,8 @@
       \strng{authorbibnamehash}{63008f832cd1b7bff2b7965308101cb3}
       \strng{authornamehash}{63008f832cd1b7bff2b7965308101cb3}
       \strng{authorfullhash}{63008f832cd1b7bff2b7965308101cb3}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-3-540-89499-5 978-3-540-89500-8}
@@ -447,6 +757,8 @@
       \endverb
     \endentry
   \enddatalist
+  \missing{PINNS2}
+  \missing{PINNs}
 \endrefsection
 \endinput
 

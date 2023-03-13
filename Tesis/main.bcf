@@ -2352,16 +2352,26 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">ControlOptimizacion.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1" intorder="1">bismut_conjugate_1973</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">pardoux_adapted_1990</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">zhang_backward_2017</bcf:citekey>
-    <bcf:citekey order="3" intorder="2">pardoux_stochastic_2014</bcf:citekey>
-    <bcf:citekey order="3" intorder="3">romero_maestro_nodate</bcf:citekey>
-    <bcf:citekey order="3" intorder="4">touzi_optimal_2013</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">romero_maestro_nodate</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">mao_stochastic_2008</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">chessari_numerical_2022</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">pham_continuous-time_2009</bcf:citekey>
+    <bcf:citekey order="1" intorder="1">higham_deep_2019</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">PINNs</bcf:citekey>
+    <bcf:citekey order="2" intorder="2">PINNS2</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">li_fourier_2021</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">sirignano_dgm_2018</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">cuomo_scientific_2022</bcf:citekey>
+    <bcf:citekey order="5" intorder="2">blechschmidt_three_2021</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">bismut_conjugate_1973</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">pardoux_adapted_1990</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">zhang_backward_2017</bcf:citekey>
+    <bcf:citekey order="8" intorder="2">pardoux_stochastic_2014</bcf:citekey>
+    <bcf:citekey order="8" intorder="3">romero_maestro_nodate</bcf:citekey>
+    <bcf:citekey order="8" intorder="4">touzi_optimal_2013</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">romero_maestro_nodate</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">mao_stochastic_2008</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">chessari_numerical_2022</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">pham_continuous-time_2009</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">pham_continuous-time_2009</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">mao_stochastic_2008</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">mao_stochastic_2008</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

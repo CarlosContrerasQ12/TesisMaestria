@@ -2,12 +2,14 @@
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{graphicx}
 \graphicspath{ {images/} }
 \usepackage{caption}
 \usepackage{parskip}
 \usepackage{subcaption}
+\usepackage[shortlabels]{enumitem}
 \usepackage{float}
 \usepackage{color}   %May be necessary if you want to color links
 \usepackage{hyperref}
@@ -35,6 +37,9 @@
 \newtheorem{definition}{Definition}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
+
+\newcommand{\bbR}{\mathbb{R}}
+\renewcommand\qedsymbol{$\blacksquare$}
 
 \setlength{\parindent}{0cm}
 
