@@ -120,7 +120,8 @@ There exist a unique solution $(Y,Z)$ to the equation \eqref{eqn:BSDE}.
 \end{theorem}
 To give a demonstration we will need the following inequalities about SDEs, whose proofs will be omitted.
 \begin{theorem}[Doob's martingale inequality \cite{mao_stochastic_2008}]
-	Let $\{M_t\}_t\geq 0$ be a $\bbR^d$-valued martingale in $L^{p}(\Omega;\bbR^d)$. Let $[0,T]$ be a bounded interval with $T>0$ and let $p>0$. Then
+	\label{thm:Doobs}
+	Let $\{M_t\}_t\geq 0$ be a $\bbR^d$-valued martingale in $L^{p}(\Omega;\bbR^d)$. Let $[0,T]$ be a bounded interval with $T>0$ and let $p>1$. Then
 	\begin{equation}
 		\mathbb{E}\left[ \sup_{0\leq t\leq T}|M_t|^p\right]\leq \left(\frac{p}{p-1}\right)^p \mathbb{E}[|M_T|^p],
 	\end{equation}
@@ -129,18 +130,97 @@ To give a demonstration we will need the following inequalities about SDEs, whos
 		\mathbb{E}\left[ \sup_{0\leq t\leq T}|M_t|^2\right]\leq4 \mathbb{E}[|M_T|^2].
 	\end{equation}
 \end{theorem}
-\begin{theorem}[Burkholder-Davis-Gundy inequality \cite{mao_stochastic_2008}]
+\begin{theorem}[Burkholder-Davis-Gundy inequality
+ \cite{mao_stochastic_2008}]
+ \label{thm:BDGineq}
 	Let $g\in L^2(\bbR^+;\bbR^{d\times m})$. Define for $t\geq 0$
 	\begin{equation*}
-		x(t)=\int_{0}^{t}g(s)dW_s\quad \text{ and } A(t)=\int_{0}^{t}|g(s)|^2 ds
+		x(t)=\int_{0}^{t}g(s)dW_s\quad \text{ and }\quad  A(t)=\int_{0}^{t}|g(s)|^2 ds
 	\end{equation*}
 	then, for every $p>0$ there exist universal positive constants $c_p,C_p$, depending only on $p$, such that the following inequalities hold
 	\begin{equation}
-		c_p\mathbb{E}[|A(t)|^{\frac{p}{2}}]\leq \mathbb{E}\left[\sup_{0\leq s\leq t}|x(s)|^p\right]\leq C_p\mathbb{E}[|A(t)|^{\frac{p}{2}}]
+		c_p\mathbb{E}[|A(t)|^{\frac{p}{2}}]\leq \mathbb{E}\left[\sup_{0\leq s\leq t}|x(s)|^p\right]\leq C_p\mathbb{E}[|A(t)|^{\frac{p}{2}}],
 	\end{equation}
+in particular, if $p=1$, we can take $c_p=\frac{1}{2}$ and $C_p=4\sqrt{2}$
 \end{theorem}
 \begin{proof}[Proof of theorem \ref{thm:existence} ]
-Here we give a fixed point argument. 
+Here we give a fixed point argument. To do it, lets consider a pair of process $(U,V)\in\Sspa\times\Hspa$ and, as in the motivation example, consider the martingale
+\begin{equation}
+	M_t=\mathbb{E}\left[\xi +\int_{0}^{T}f(s,U_s,V_s)ds \Bigg| \mathcal{F}_t \right],
+\end{equation}
+which is square-integrable under the hypothesis on $(\xi,f)$. Using to the martingale representation theorem \ref{thm:MRT}, we deduce the existence and uniqueness of a process $Z_s\in \Hspa$ such that
+\begin{equation}
+	\label{eqn:Mdem}
+	M_t=M_0+\int_{0}^{t}Z_s \cdot dW_s.
+\end{equation}
+Now, define the process $Y_t$ for $0\leq t\leq T$ as
+\begin{equation}
+	\begin{split}
+	Y_t&=\mathbb{E}\left[\xi +\int_{t}^{T}f(s,U_s,V_s)ds \Bigg| \mathcal{F}_t \right]=\mathbb{E}\left[\xi +\int_{0}^{T}f(s,U_s,V_s)ds-\int_{0}^{t}f(s,U_s,V_s)ds  \Bigg| \mathcal{F}_t \right]\\
+	&=M_t-\int_{0}^{t}f(s,U_s,V_s)ds\\
+	\end{split}
+\end{equation}
+and note that from this and using \eqref{eqn:Mdem}, $Y_t$ satisfies 
+\begin{equation}
+	\label{eqn:SdeY}
+	\begin{split}
+		Y_t&=M_0+\int_{0}^{t}Z_s \cdot dW_s-\int_{0}^{t}f(s,U_s,V_s)ds\\
+		&=\xi+\int_{t}^{T}f(s,U_s,V_s)ds-\int_{t}^{T} Z_s\cdot dW_s.
+	\end{split}
+\end{equation}
+
+
+Thus, consider the function $\Phi:\Sspa\times\Hspa \to \Sspa\times\Hspa$ that maps the pair $(U,V)$ to the pair $(Y,Z)$ constructed as above, $\Phi(U,V)=(Y,Z)$. Note that it is well-defined as the $Z$ process is unique, and by Doob's martingale inequality \ref{thm:Doobs} we have
+\begin{equation}
+	\mathbb{E}\left[\sup_{0\leq t\leq T}\left|\int_{t}^{T}Z_s\cdot dW_s\right|^2\right]\leq 4\mathbb{E}\left[\int_{0}^{T}|Z_s|^2ds\right]<\infty,
+\end{equation}
+and therefore, by assumptions $I$, $II a)$ and $II b)$, $Y_t$ lies in $\Sspa$. Also note that a solution to the BSDE \eqref{eqn:BSDE} is a fixed point of $\Phi$. We will show that such fixed point exist by showing it is a contraction if we endow the $\Sspa\times\Hspa$ space with the metric 
+\begin{equation}
+	\lVert(Y,Z)\rVert_\beta=\left(\expect*{\int_{0}^{T}e^{\beta s}(  |Y_s|^2+|Z_s|^2)ds}\right)^{\frac{1}{2}},
+\end{equation}
+where $\beta>0$ is a parameter to be chosen later.
+
+To show that $\Phi$ is a contraction, let $(U,V),(U',V')\in \Sspa\times \Hspa$ and $(Y,Z)=\Phi(U,V)$, $(Y',Z')=\Phi(U',V')$. We denote $(\bar{U},\bar{V})=(U-U',V-V')$,  $(\bar{Y},\bar{Z})=(Y-Y',Z-Z')$ and $\bar{f_t}=f(t,U_t,V_t)-f(t,U_t',V_t')$. 
+
+Using equation \eqref{eqn:SdeY}, we know that $\bar{Y_s}$ satisfies 
+\begin{equation}
+	\bar{Y_s}=-\int_{0}^{t}\bar{f_s}ds+\int_{0}^{t}\bar{Z_s}\cdot dW_s
+\end{equation} 
+
+So let's apply Ito's formula to the process $e^{\beta s}|\bar{Y_s}|^2$ between $0$ and $T$ to obtain
+\begin{equation}
+	\label{eqn:itoProof}
+	\begin{split}
+	e^{\beta T}|\bar{Y_T}|^2=|\bar{Y_0}|^2&+\int_{0}^{T}(\beta e^{\beta s}|\bar{Y_s}|^2-2e^{\beta s}\bar{Y_s}\cdot \bar{f_s}+e^{\beta s}|\bar{Z_s}|^2)ds\\
+	&+\int_{0}^{T}2e^{\beta s}\bar{Y_s} \bar{Z_s}\cdot dW_s.
+	\end{split}
+\end{equation}
+Observe that we can apply the Burkholder-Davis-Gundy inequality \ref{thm:BDGineq} with $p=1$ to the following expectation of the supremum associated with the last term
+\begin{equation}
+	\begin{split}
+	\expect*{\sup_{0\leq t \leq T}\left|\int_{0}^{t}2e^{\beta s}\bar{Y_s} \bar{Z_s}\cdot dW_s\right|}&\leq 4\sqrt{2} \expect*{\left(\int_{0}^{T}4e^{2\beta s}|\bar{Y_s}|^2 |\bar{Z_s}|^2 ds\right)^{\frac{1}{2}}} \\
+	& \leq 4\sqrt{2}e^{\beta T} \expect*{\sup_{0\leq t\leq T}|Y_t|^2+\int_{0}^{T}|\bar{Z_s}|^2 ds}\\
+	&<\infty,
+	\end{split}
+\end{equation}
+which shows that the local martingale $\int_{0}^{t}2e^{\beta s}\bar{Y_s} \bar{Z_s}\cdot dW_s$ is actually a uniformly integrable martingale and therefore its expected value remains constant zero. Also, note that $\bar{Y}_T=Y_T-Y_T'=\xi-\xi=0$.
+
+Using these facts, take the expected value to \eqref{eqn:itoProof} and reorder terms to obtain 
+\begin{equation}
+	\begin{aligned}
+		& \mathbb{E}\left|\bar{Y}_0\right|^2+\mathbb{E}\left[\int_0^T e^{\beta s}\left(\beta\left|\bar{Y}_s\right|^2+\left|\bar{Z}_s\right|^2\right) d s\right]=2 \mathbb{E}\left[\int_0^T e^{\beta s} \bar{Y}_s \cdot \bar{f}_s d s\right] \\
+		\leq & 2 C_f \mathbb{E}\left[\int_0^T e^{\beta s}\left|\bar{Y}_s\right|\left(\left|\bar{U}_s\right|+\left|\bar{V}_s\right|\right) d s\right] \quad \text{(by condition $IIc$))}  \\
+		\leq & 4 C_f^2 \mathbb{E}\left[\int_0^T e^{\beta s}\left|\bar{Y}_s\right|^2 d s\right]+\frac{1}{2} \mathbb{E}\left[\int_0^T e^{\beta s}\left(\left|\bar{U}_s\right|^2+\left|\bar{V}_s\right|^2\right) d s\right],
+	\end{aligned}
+\end{equation}
+so if we choose $\beta=1+4C_f^2$ and ignore the $ \mathbb{E}\left|\bar{Y}_0\right|^2$ term, we obtain
+
+\begin{equation}
+	 \mathbb{E}\left[\int_0^T e^{\beta s}\left(\left|\bar{Y}_s\right|^2+\left|\bar{Z}_s\right|^2\right) d s\right] \leq \frac{1}{2}  \mathbb{E}\left[\int_0^T e^{\beta s}\left(\left|\bar{U}_s\right|^2+\left|\bar{V}_s\right|^2\right) d s\right],
+\end{equation}
+
+which is $\lVert(\Phi(U,V))\rVert_\beta \leq \frac{1}{2}\lVert(U,V)\rVert_\beta$, that means $\Phi$ is a contraction in a Banach space, as $\Sspa \times \Hspa$ is the product of Banach spaces, and therefore has a unique fixed point.
+
 \end{proof}
 \subsection{Forward-Backward stochastic differential equations}
 \section{The Feynman-Kac formulas}

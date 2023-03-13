@@ -43,6 +43,27 @@
 
 \setlength{\parindent}{0cm}
 
+\usepackage{mathtools}
+
+\NewDocumentCommand{\expect}{ e{^} s o >{\SplitArgument{1}{||}}m }{%
+	\operatorname{\mathbb{E}}%     the expectation operator
+	\IfValueT{#1}{{\!}^{#1}}% the measure of the expectation
+	\IfBooleanTF{#2}{% *-variant
+		\expectarg*{\expectvar#4}%
+	}{% no *-variant
+		\IfNoValueTF{#3}{% no optional argument
+			\expectarg{\expectvar#4}%
+		}{% optional argument
+			\expectarg[#3]{\expectvar#4}%
+		}%
+	}%
+}
+\NewDocumentCommand{\expectvar}{mm}{%
+	#1\IfValueT{#2}{\nonscript\;\delimsize\vert\nonscript\;#2}%
+}
+\DeclarePairedDelimiterX{\expectarg}[1]{[}{]}{#1}
+
+
 \usepackage[sorting=none]{biblatex}
 \addbibresource{references.bib}
 \addbibresource{Probabilidad.bib}
