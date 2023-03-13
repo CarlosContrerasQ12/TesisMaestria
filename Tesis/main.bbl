@@ -318,8 +318,8 @@
       \strng{authorbibnamehash}{3b63fe742f76c1fafd56bf6fa698114e}
       \strng{authornamehash}{3b63fe742f76c1fafd56bf6fa698114e}
       \strng{authorfullhash}{3b63fe742f76c1fafd56bf6fa698114e}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2nd ed}
@@ -334,6 +334,117 @@
       \verb Mao - 2008 - Stochastic differential equations and applications.pdf:/home/carlos/Zotero/storage/ZXFKXEYC/Mao - 2008 - Stochastic differential equations and applications.pdf:application/pdf
       \endverb
       \keyw{Stochastic differential equations}
+    \endentry
+    \entry{chessari_numerical_2022}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=c1d0f307f0c2d7d48bb314367196e0e9}{%
+           family={Chessari},
+           familyi={C\bibinitperiod},
+           given={Jared},
+           giveni={J\bibinitperiod}}}%
+        {{hash=fd042e1f6aa8f34fe4594b6276a466d5}{%
+           family={Kawai},
+           familyi={K\bibinitperiod},
+           given={Reiichiro},
+           giveni={R\bibinitperiod}}}%
+        {{hash=460bb8d894ff160172b3e3d0e376ea7b}{%
+           family={Shinozaki},
+           familyi={S\bibinitperiod},
+           given={Yuji},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=cb66cb34e25f56f889d7b1053e4c0823}{%
+           family={Yamada},
+           familyi={Y\bibinitperiod},
+           given={Toshihiro},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{3cc26ef31ed487cc0d1e401f969fc83a}
+      \strng{fullhash}{86dfdd9b393215828f78e1e7d3b76b9d}
+      \strng{bibnamehash}{3cc26ef31ed487cc0d1e401f969fc83a}
+      \strng{authorbibnamehash}{3cc26ef31ed487cc0d1e401f969fc83a}
+      \strng{authornamehash}{3cc26ef31ed487cc0d1e401f969fc83a}
+      \strng{authorfullhash}{86dfdd9b393215828f78e1e7d3b76b9d}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Backward Stochastic Differential Equations ({BSDEs}) have been widely employed in various areas of social and natural sciences, such as the pricing and hedging of financial derivatives, stochastic optimal control problems, optimal stopping problems and gene expression. Most {BSDEs} cannot be solved analytically and thus numerical methods must be applied in order to approximate their solutions. There have been a variety of numerical methods proposed over the past few decades as well as many more currently being developed. For the most part, they exist in a complex and scattered manner with each requiring different and similar assumptions and conditions. The aim of the present work is thus to systematically survey various numerical methods for {BSDEs}, and in particular, compare and categorize them, for further developments and improvements. To achieve this goal, we focus primarily on the core features of each method on the basis of an exhaustive collection of 303 references: the main assumptions, the numerical algorithm itself, key convergence properties and advantages and disadvantages, in order to provide a full up-to-date coverage of numerical methods for {BSDEs}, with insightful summaries of each and a useful comparison and categorization.}
+      \field{day}{10}
+      \field{eprinttype}{arxiv}
+      \field{month}{3}
+      \field{number}{{arXiv}:2101.08936}
+      \field{shorttitle}{Numerical Methods for Backward Stochastic Differential Equations}
+      \field{title}{Numerical Methods for Backward Stochastic Differential Equations: A Survey}
+      \field{urlday}{24}
+      \field{urlmonth}{1}
+      \field{urlyear}{2023}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{eprint}
+      \verb 2101.08936 [cs, math]
+      \endverb
+      \verb{file}
+      \verb arXiv Fulltext PDF:/home/carlos/Zotero/storage/8NI933ZB/Chessari et al. - 2022 - Numerical Methods for Backward Stochastic Differen.pdf:application/pdf;arXiv.org Snapshot:/home/carlos/Zotero/storage/C62HB45E/2101.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2101.08936
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2101.08936
+      \endverb
+      \keyw{Mathematics - Numerical Analysis,65C30,65C05,93E24,49L20,60H07,Mathematics - Probability}
+    \endentry
+    \entry{pham_continuous-time_2009}{book}{}
+      \name{author}{1}{}{%
+        {{hash=63008f832cd1b7bff2b7965308101cb3}{%
+           family={Pham},
+           familyi={P\bibinitperiod},
+           given={Huyên},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{63008f832cd1b7bff2b7965308101cb3}
+      \strng{fullhash}{63008f832cd1b7bff2b7965308101cb3}
+      \strng{bibnamehash}{63008f832cd1b7bff2b7965308101cb3}
+      \strng{authorbibnamehash}{63008f832cd1b7bff2b7965308101cb3}
+      \strng{authornamehash}{63008f832cd1b7bff2b7965308101cb3}
+      \strng{authorfullhash}{63008f832cd1b7bff2b7965308101cb3}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-540-89499-5 978-3-540-89500-8}
+      \field{langid}{english}
+      \field{series}{Stochastic Modelling and Applied Probability}
+      \field{title}{Continuous-time Stochastic Control and Optimization with Financial Applications}
+      \field{urlday}{28}
+      \field{urlmonth}{2}
+      \field{urlyear}{2023}
+      \field{volume}{61}
+      \field{year}{2009}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1007/978-3-540-89500-8
+      \endverb
+      \verb{file}
+      \verb Pham - 2009 - Continuous-time Stochastic Control and Optimizatio.pdf:/home/carlos/Zotero/storage/XKHCZZK5/Pham - 2009 - Continuous-time Stochastic Control and Optimizatio.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/10.1007/978-3-540-89500-8
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/10.1007/978-3-540-89500-8
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

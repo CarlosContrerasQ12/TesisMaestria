@@ -82,6 +82,8 @@
     <requires type="editable">
       <file>references.bib</file>
       <file>Probabilidad.bib</file>
+      <file>PDEs ML.bib</file>
+      <file>ControlOptimizacion.bib</file>
     </requires>
   </external>
 </requests>
