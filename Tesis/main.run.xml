@@ -81,6 +81,7 @@
     </requires>
     <requires type="editable">
       <file>references.bib</file>
+      <file>Probabilidad.bib</file>
     </requires>
   </external>
 </requests>

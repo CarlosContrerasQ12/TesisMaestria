@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  6 MAR 2023 23:46
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  12 MAR 2023 20:15
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -670,31 +670,31 @@ Package: blx-case-expl3 2022/07/12 v3.18b expl3 case changing code for biblatex
 (./main.aux)
 \openout1 = main.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4
-8.
+9.
  (/home/carlos/.miktex/texmfs/install/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
 
 (/home/carlos/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -720,7 +720,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 48.
+Package hyperref Info: Link coloring ON on input line 49.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -772,8 +772,8 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
 
 (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 48.
-Package biblatex Info: Reference segment=0 on input line 48.
+Package biblatex Info: Reference section=0 on input line 49.
+Package biblatex Info: Reference segment=0 on input line 49.
  (./titlepage.tex [1
 
 {/home/carlos/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}]) (./abstract.te
@@ -800,12 +800,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ]
 Chapter 1.
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 6
-8.
+9.
 (/home/carlos/.miktex/texmfs/install/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 6
-8.
+9.
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -816,29 +816,32 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 Chapter 2.
 (./chapters/chapter02.tex [2
 
-]) [3]
+] [3]
+Missing character: There is no d (U+0064) in font msbm10!
+Missing character: There is no d (U+0064) in font msbm10!
+) [4]
 Chapter 3.
-(./chapters/chapter03.tex) [4
+(./chapters/chapter03.tex) [5
 
 ]
 Chapter 4.
-(./chapters/chapter04.tex) [5
+(./chapters/chapter04.tex) [6
 
 ]
 Chapter 5.
-(./chapters/chapter05.tex) [6
+(./chapters/chapter05.tex) [7
 
 ]
 Chapter 6.
-(./chapters/conclusion.tex) [7
+(./chapters/conclusion.tex) [8
 
 ]
 warning  (pdf backend): ignoring duplicate destination with the name 'chapter.1'
 
 Appendix A.
-(./chapters/appendix.tex) [8
+(./chapters/appendix.tex) [9
 
-] [9
+] [10
 
 
 Missing character: There is no ӑ (U+04D1) in font [lmroman10-regular]:+tlig;!
@@ -849,36 +852,38 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 20624 strings out of 477240
+ 20662 strings out of 477240
  125086,1144653 words of node,token memory allocated
- 609 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 11 attribute, 67 glue_spec
-, 11 attribute_list, 1 write, 5 pdf_action nodes
-   avail lists: 2:701,3:338,4:75,5:252,6:53,7:4834,8:72,9:195,10:13,11:500
- 41127 multiletter control sequences out of 65536+600000
- 49 fonts using 3694863 bytes
- 60i,11n,65p,779b,1254s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 670 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 25 attribute, 68 glue_spec
+, 25 attribute_list, 1 write, 5 pdf_action nodes
+   avail lists: 2:757,3:352,4:94,5:352,6:69,7:5546,8:72,9:569,10:13,11:519
+ 41149 multiletter control sequences out of 65536+600000
+ 54 fonts using 4353303 bytes
+ 60i,15n,65p,779b,1266s stack positions out of 10000i,1000n,20000p,200000b,80000s
 </home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmmono10-regular.o
 tf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmromancaps10-r
 egular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman
-10-italic.otf>{/home/carlos/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}<
-/home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman10-bold.otf>
-</home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman10-regular.
-otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman12-regu
-lar.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman17-
-regular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroma
-n12-bold.otf></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm
-/cmmi10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/
-cmmi8.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cm
-r10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8
-.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pf
-b></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm1
-0.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8a.pfb><
-/home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (13 pages, 140153 bytes).
+10-italic.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmro
+man10-bolditalic.otf>{/home/carlos/.miktex/texmfs/install/fonts/enc/dvips/base/8
+r.enc}</home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman10-bo
+ld.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman10-r
+egular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman
+12-regular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmr
+oman17-regular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm
+/lmroman12-bold.otf></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsf
+onts/cm/cmex10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfo
+nts/cm/cmmi10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfon
+ts/cm/cmmi8.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts
+/cm/cmr10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/c
+m/cmr8.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/c
+msy10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cm
+sy8.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols
+/msbm10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8a
+.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
+Output written on main.pdf (14 pages, 178442 bytes).
 
-PDF statistics: 229 PDF objects out of 1000 (max. 8388607)
- 28 named destinations out of 1000 (max. 131072)
- 73 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 291 PDF objects out of 1000 (max. 8388607)
+ 44 named destinations out of 1000 (max. 131072)
+ 113 words of extra memory for PDF output out of 10000 (max. 100000000)
 

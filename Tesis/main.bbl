@@ -298,6 +298,43 @@
       \verb https://link.springer.com/10.1007/978-1-4614-4286-8
       \endverb
     \endentry
+    \entry{mao_stochastic_2008}{book}{}
+      \name{author}{1}{}{%
+        {{hash=3b63fe742f76c1fafd56bf6fa698114e}{%
+           family={Mao},
+           familyi={M\bibinitperiod},
+           given={Xuerong},
+           giveni={X\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Chichester}%
+      }
+      \list{publisher}{1}{%
+        {Horwood Pub}%
+      }
+      \strng{namehash}{3b63fe742f76c1fafd56bf6fa698114e}
+      \strng{fullhash}{3b63fe742f76c1fafd56bf6fa698114e}
+      \strng{bibnamehash}{3b63fe742f76c1fafd56bf6fa698114e}
+      \strng{authorbibnamehash}{3b63fe742f76c1fafd56bf6fa698114e}
+      \strng{authornamehash}{3b63fe742f76c1fafd56bf6fa698114e}
+      \strng{authorfullhash}{3b63fe742f76c1fafd56bf6fa698114e}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd ed}
+      \field{isbn}{978-1-904275-34-3}
+      \field{langid}{english}
+      \field{note}{{OCLC}: ocn176925635}
+      \field{pagetotal}{422}
+      \field{title}{Stochastic differential equations and applications}
+      \field{year}{2008}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb Mao - 2008 - Stochastic differential equations and applications.pdf:/home/carlos/Zotero/storage/ZXFKXEYC/Mao - 2008 - Stochastic differential equations and applications.pdf:application/pdf
+      \endverb
+      \keyw{Stochastic differential equations}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
