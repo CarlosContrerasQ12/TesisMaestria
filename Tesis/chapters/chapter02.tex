@@ -223,6 +223,40 @@ which is $\lVert(\Phi(U,V))\rVert_\beta \leq \frac{1}{2}\lVert(U,V)\rVert_\beta$
 
 \end{proof}
 \subsection{Forward-Backward stochastic differential equations}
+Now we consider a special case of backward stochastic differential equations in which the randomness of the drift enters through a process satisfying a forward stochastic differential equation. In its more general form, the problem is stated as find three processes $(X_t,Y_t,Z_t)$ such that
+\begin{equation}
+	\begin{split}
+		&dX_t=\mu(t,X_t,Y_t,Z_t)dt+\sigma(t,X_t,Y_t,Z_t)dW_t\\
+		&X_0=x,
+	\end{split}
+\end{equation}
+and
+\begin{equation}
+	\begin{split}
+		&dY_t=-f(t,X_t,Y_t,Z_t)dt+Z_t dW_t\\
+		&Y_T=g(X_T),
+	\end{split}
+\end{equation}  
+where $\mu,\sigma$ and $g$ are known functions.
+
+This problem is rather difficult as the coupling between the processes may forbid a solution to exist. There are conditions on $\mu, \sigma,g$ where we can establish the existence and uniqueness of solutions to the former system, but their detailed proof is very technical and thus is not presented here, see \cite{zhang_backward_2017}.
+
+However, we can say something about the decoupled case   
+\begin{equation}
+	\label{eqn:forwardUncoupled}
+	\begin{split}
+		&dX_t=\mu(t,X_t)dt+\sigma(t,X_t)dW_t\\
+		&X_0=x,
+	\end{split}
+\end{equation}
+and
+\begin{equation}
+	\begin{split}
+		&dY_t=-f(t,X_t,Y_t,Z_t)dt+Z_t dW_t\\
+		&Y_T=g(X_T).
+	\end{split}
+\end{equation}  
+
 \section{The Feynman-Kac formulas}
 \subsection{The linear Feynman-Kac formula}
 \subsection{The non-linear Feynman-Kac formula}
