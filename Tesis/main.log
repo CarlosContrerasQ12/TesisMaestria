@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  20 MAR 2023 23:38
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  21 MAR 2023 11:54
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -722,31 +722,31 @@ Package: blx-case-expl3 2022/07/12 v3.18b expl3 case changing code for biblatex
 (./main.aux)
 \openout1 = main.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 77.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 7
-7.
+8.
  (/home/carlos/.miktex/texmfs/install/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
 
 (/home/carlos/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -772,7 +772,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 77.
+Package hyperref Info: Link coloring ON on input line 78.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -839,8 +839,8 @@ Package biblatex Warning: The following entry could not be found
 (biblatex)                LaTeX afterwards.
 
 )
-Package biblatex Info: Reference section=0 on input line 77.
-Package biblatex Info: Reference segment=0 on input line 77.
+Package biblatex Info: Reference section=0 on input line 78.
+Package biblatex Info: Reference segment=0 on input line 78.
  (./titlepage.tex [1
 
 {/home/carlos/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}]) (./abstract.te
@@ -867,12 +867,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ]
 Chapter 1.
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 9
-7.
+8.
 (/home/carlos/.miktex/texmfs/install/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 9
-7.
+8.
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -907,7 +907,7 @@ LaTeX Warning: Citation 'PINNs' on page 2 undefined on input line 9.
 LaTeX Warning: Citation 'PINNS2' on page 2 undefined on input line 9.
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 9--100
+Underfull \hbox (badness 10000) in paragraph at lines 9--101
 
  []
 
@@ -938,12 +938,12 @@ Appendix A.
 (./chapters/appendix.tex) [14
 
 ]
-Overfull \hbox (6.05995pt too wide) in paragraph at lines 122--122
+Overfull \hbox (6.05995pt too wide) in paragraph at lines 123--123
 \TU/lmr/m/it/10.95 Net-works: Where we are and What’s next\TU/lmr/m/n/10.95 . June 7, 2022. arXiv: [][]$\TU/lmtt/m/n/10.95 2201 . 05624[physics]$[][]\TU/lmr/m/n/10.95 .
  []
 
 
-Overfull \hbox (5.19708pt too wide) in paragraph at lines 122--122
+Overfull \hbox (5.19708pt too wide) in paragraph at lines 123--123
 \TU/lmtt/m/n/10.95 onlinelibrary . wiley . com / doi / 10 . 1002 / gamm . 202100
 006$[][] \TU/lmr/m/n/10.95 (vi-si-ted on 09/26/2022). 
  []
@@ -959,13 +959,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 21857 strings out of 477240
+ 21864 strings out of 477240
  125086,1373583 words of node,token memory allocated
  916 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 73 attribute, 74 glue_spec
 , 73 attribute_list, 1 write, 9 pdf_action nodes
-   avail lists: 2:932,3:415,4:118,5:445,6:95,7:5785,8:87,9:1435,10:18,11:733
- 42251 multiletter control sequences out of 65536+600000
+   avail lists: 2:932,3:415,4:118,5:426,6:95,7:5785,8:87,9:1438,10:18,11:733
+ 42257 multiletter control sequences out of 65536+600000
  59 fonts using 4593799 bytes
  60i,20n,65p,1531b,1327s stack positions out of 10000i,1000n,20000p,200000b,80000s
 </home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmmono10-regular.o
@@ -990,9 +990,9 @@ me/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 </home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.
 pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8a.pfb></h
 ome/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (20 pages, 256539 bytes).
+Output written on main.pdf (20 pages, 258381 bytes).
 
-PDF statistics: 426 PDF objects out of 1000 (max. 8388607)
- 92 named destinations out of 1000 (max. 131072)
+PDF statistics: 430 PDF objects out of 1000 (max. 8388607)
+ 93 named destinations out of 1000 (max. 131072)
  137 words of extra memory for PDF output out of 10000 (max. 100000000)
 
