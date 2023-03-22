@@ -267,7 +267,7 @@ We will show, as in the proof of theorem \ref{thm:existence}, that the stochasti
 \begin{equation}
 	\begin{split}
 		\expect*{\sup_{0\leq t \leq T}\left|\int_0^t \Gamma_s\left(Z_s+Y_s B_s\right) \cdot d W_s\right|}&\leq 4\sqrt{2} \expect*{\left(\int_{0}^{T}|\Gamma_s|^2 |Z_s+Y_s B_s|^2 ds\right)^{\frac{1}{2}}} \\
-		&\text{{\small (By BDG inequality \ref{thm:BDGineq})}}\\
+		&\text{{\footnotesize (By BDG inequality \ref{thm:BDGineq})}}\\
 		& \leq \frac{4\sqrt{2}}{2} E\left[\sup_{0\leq t \leq T}\left|\Gamma_t\right|^2+2 \int_0^T\left|Z_t\right|^2 d t+2 b_{\infty}^2 \int_0^T\left|Y_t\right|^2 d t\right]\\
 		&<\infty.
 	\end{split}
@@ -334,18 +334,13 @@ Note that $\Gamma_t$ is strictly positive. We conclude the stated result using t
 Now we consider a special case of backward stochastic differential equations in which the randomness of the drift enters through a process satisfying a forward stochastic differential equation. In its more general form, the problem is stated as find three processes $(X_t,Y_t,Z_t)\in\bbR^n\times\bbR^m\times\bbR^{m\times d}$ such that
 \begin{equation}
 	\begin{split}
-		&dX_t=\mu(t,X_t,Y_t,Z_t)dt+\sigma(t,X_t,Y_t,Z_t)dW_t\\
-		&X_0=x,
-	\end{split}
-\end{equation}
-and
-\begin{equation}
-	\begin{split}
-		&dY_t=-f(t,X_t,Y_t,Z_t)dt+Z_t dW_t\\
+		&dX_s=\mu(t,X_s,Y_s,Z_s)ds+\sigma(s,X_s,Y_s,Z_s)dW_s\\
+		&X_t=x\\
+		&dY_s=-f(s,X_s,Y_s,Z_s)ds+Z_s dW_s\\
 		&Y_T=g(X_T),
 	\end{split}
 \end{equation}  
-where $\mu,\sigma$ and $g$ are known functions.
+for all $t\leq s \leq T$, where $\mu,\sigma$ and $g$ are known functions, and $x$ is the initial condition at starting time $s$. This coupled system is called a forward-backward stochastic differential equation (FBSDE).
 
 This problem is rather difficult, as the coupling between the processes may forbid a solution to exist. There are conditions on $\mu, \sigma,g$ where we can establish the existence and uniqueness of solutions to the former system, but their detailed proof is very technical and thus is not presented here, see \cite{zhang_backward_2017}.
 
@@ -353,27 +348,36 @@ However, we can say something simpler about the decoupled case
 \begin{equation}
 	\label{eqn:Uncoupled}
 	\begin{split}
-		&dX_t=\mu(t,X_t)dt+\sigma(t,X_t)dW_t\\
-		&X_0=x,\\
-		&dY_t=-f(t,X_t,Y_t,Z_t)dt+Z_t dW_t\\
+		&dX_s=\mu(s,X_s)ds+\sigma(s,X_s)dW_s\\
+		&X_t=x,\\
+		&dY_s=-f(s,X_s,Y_s,Z_s)ds+Z_s dW_s\\
 		&Y_T=g(X_T).
 	\end{split}
-\end{equation}  
+\end{equation}
+for all $t\leq s\leq T$.  
 
-In this case, if $\mu$ and $\sigma$ satisfy enough regularity conditions to ensure that a solution to the forward SDE in \eqref{eqn:Uncoupled} exists, for example, if they are Lipschitz and bounded, then we can solve it for the process $X_t$ and insert the solution into the backward equation in \ref{eqn:Uncoupled} and solve the now standard BSDE for which we have proven a solution exist. Let's establish this assertion in the following theorem, whose proof can be found in \cite{zhang_backward_2017}.
+In this case, if $\mu$ and $\sigma$ satisfy enough regularity conditions to ensure that a solution to the forward SDE in \eqref{eqn:Uncoupled} exists, for example, if they are Lipschitz and bounded, then we can solve it for the process $X_t$ and insert the solution into the backward equation in \ref{eqn:Uncoupled} and solve for the backward process. However, the main property of FBSDEs is that the solution process $(Y,Z)$ of the BSDE can be written as a deterministic function of time and the state process, in this case the solution is said to be \textit{markovian}. 
+
+Let's establish this assertions in the following theorem. 
 
 
 \begin{assumptions}
 	\label{ass:FBSDEexistence}
-	Let $(\mu,\sigma,f,g)$ satisfy
+	Let $(\mu,\sigma,f,g)$. There exist a constant $C>0$ such that for all $x,y,t$
 	\begin{enumerate}[I.]
-		\item $\mu,\sigma,f,g$ are uniformly Lipschitz continuous in $x$
-		\item $\mu(\cdot,0)$,$\sigma(\cdot,0)$,$f(\cdot,0,0,0)$ and $g(0)$ are bounded 
+		\item $|\mu(t,x)-\mu(t,y)|+|\sigma(t,x)-\sigma(t,y)|\leq C(1+|x-y|)$
+		\item $|f(t,x,y_1,z_1)-f(t,x,y_2,z_2)|\leq C(|y_1-y_2|+|z_1-z_2|)$
+		\item $|\sigma(t,x)|+|\mu(t,x)|\leq C(1+|x|)$
+		\item $|f(t,x,y,z)|+|g(x)|\leq C(1+|x|^p)$ para $p\geq\frac{1}{2}$
 	\end{enumerate}
 \end{assumptions}
-\begin{theorem}
-	Under assumptions \ref{ass:FBSDEexistence}, the uncoupled forward backward stochastic equation \eqref{eqn:backwardUncoupled} \eqref{eqn:forwardUncoupled} has a unique markovian solution $(X,Y,Z)$.
+\newpage
+\begin{theorem}[Existence and markovianity of solutions of FBSDEs \cite{el_karoui_backward_1997}]
+	Under assumptions \ref{ass:FBSDEexistence}, the uncoupled forward-backward stochastic differential equation \eqref{eqn:Uncoupled} has a unique solution $(X_{s}^{t,x},Y_{s}^{t,x},Z_{s}^{t,x})$ starting from $x$ at time $t$. Moreover, $(Y_{s}^{t,x},Z_{s}^{t,x})$ is adapted to the future $\sigma$-algebra of $W$ after $t$, i.e, it is $\mathcal{F}_{s}^{t}$-adapted where for each $s\in[t,T]$ we define $\mathcal{F}_{s}^{t}=\sigma(W_u-W_t,t\leq u\leq s)$. In particular, $Y_{t}^{t,x}$ is deterministic and for $0\leq s\leq t$ we have $Y_{s}^{t,x}=Y_{t}^{t,x}$ and $Z_{s}^{t,x}=0$.
 \end{theorem}
+\begin{proof}
+	Im beautiful
+\end{proof}
 \section{The Feynman-Kac formulas}
 Now we shall establish the connection between stochastic differential equations with parabolic linear partial differential equations and its non-linear generalization based on backward stochastic differential equations. 
 \subsection{The linear Feynman-Kac formula}

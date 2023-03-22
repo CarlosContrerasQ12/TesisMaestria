@@ -337,9 +337,6 @@
            given={Jean-Michel},
            giveni={J\bibinithyphendelim M\bibinitperiod}}}%
       }
-      \list{language}{1}{%
-        {en}%
-      }
       \strng{namehash}{eace1db2158ab018d2d2bb076c56909b}
       \strng{fullhash}{eace1db2158ab018d2d2bb076c56909b}
       \strng{bibnamehash}{eace1db2158ab018d2d2bb076c56909b}
@@ -350,16 +347,20 @@
       \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{day}{1}
       \field{issn}{0022-247X}
       \field{journaltitle}{Journal of Mathematical Analysis and Applications}
+      \field{langid}{english}
       \field{month}{11}
       \field{number}{2}
+      \field{shortjournal}{Journal of Mathematical Analysis and Applications}
       \field{title}{Conjugate convex functions in optimal stochastic control}
       \field{urlday}{21}
       \field{urlmonth}{2}
       \field{urlyear}{2023}
       \field{volume}{44}
       \field{year}{1973}
+      \field{dateera}{ce}
       \field{urldateera}{ce}
       \field{pages}{384\bibrangedash 404}
       \range{pages}{21}
@@ -389,9 +390,6 @@
            given={S.\bibnamedelimi G.},
            giveni={S\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
       }
-      \list{language}{1}{%
-        {en}%
-      }
       \strng{namehash}{ca377fe79cb834ca805a5a3cd77da393}
       \strng{fullhash}{ca377fe79cb834ca805a5a3cd77da393}
       \strng{bibnamehash}{ca377fe79cb834ca805a5a3cd77da393}
@@ -402,17 +400,21 @@
       \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Let Wt; t ϵ [0, 1] be a standard k-dimensional Weiner process defined on a probability space (Ω, F, P), and let Ft denote its natural filtration. Given a F1 measurable d-dimensional random vector X, we look for an adapted pair of processes \{x(t), y(t); t ϵ [0, 1]\} with values in Rd and Rd×k respectively, which solves an equation of the form: x(t) + ∫t1f(s, x(s), y(s)) ds + ∫t1 [g(s, x(s)) + y(s)] dWs = X. A linearized version of that equation appears in stochastic control theory as the equation satisfied by the adjoint process. We also generalize our results to the following equation: x(t) + ∫t1f(s, x(s), y(s)) ds + ∫t1 g(s, x(s)) + y(s)) dWs = X under rather restrictive assumptions on g.}
+      \field{abstract}{Let Wt; t ϵ [0, 1] be a standard k-dimensional Weiner process defined on a probability space (Ω, F, P), and let Ft denote its natural filtration. Given a F1 measurable d-dimensional random vector X, we look for an adapted pair of processes \{x(t), y(t); t ϵ [0, 1]\} with values in Rd and Rd×k respectively, which solves an equation of the form: x(t) + ∫t1f(s, x(s), y(s)) ds + ∫t1 [g(s, x(s)) + y(s)] {dWs} = X. A linearized version of that equation appears in stochastic control theory as the equation satisfied by the adjoint process. We also generalize our results to the following equation: x(t) + ∫t1f(s, x(s), y(s)) ds + ∫t1 g(s, x(s)) + y(s)) {dWs} = X under rather restrictive assumptions on g.}
+      \field{day}{1}
       \field{issn}{0167-6911}
       \field{journaltitle}{Systems \& Control Letters}
+      \field{langid}{english}
       \field{month}{1}
       \field{number}{1}
+      \field{shortjournal}{Systems \& Control Letters}
       \field{title}{Adapted solution of a backward stochastic differential equation}
       \field{urlday}{21}
       \field{urlmonth}{2}
       \field{urlyear}{2023}
       \field{volume}{14}
       \field{year}{1990}
+      \field{dateera}{ce}
       \field{urldateera}{ce}
       \field{pages}{55\bibrangedash 61}
       \range{pages}{7}
@@ -438,11 +440,8 @@
            given={Jianfeng},
            giveni={J\bibinitperiod}}}%
       }
-      \list{language}{1}{%
-        {en}%
-      }
       \list{location}{1}{%
-        {New York, NY}%
+        {New York, {NY}}%
       }
       \list{publisher}{1}{%
         {Springer New York}%
@@ -458,13 +457,15 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-1-4939-7254-8 978-1-4939-7256-2}
-      \field{series}{Probability {Theory} and {Stochastic} {Modelling}}
-      \field{title}{Backward {Stochastic} {Differential} {Equations}}
+      \field{langid}{english}
+      \field{series}{Probability Theory and Stochastic Modelling}
+      \field{title}{Backward Stochastic Differential Equations}
       \field{urlday}{15}
       \field{urlmonth}{2}
       \field{urlyear}{2023}
       \field{volume}{86}
       \field{year}{2017}
+      \field{dateera}{ce}
       \field{urldateera}{ce}
       \verb{doi}
       \verb 10.1007/978-1-4939-7256-2
@@ -492,9 +493,6 @@
            given={Aurel},
            giveni={A\bibinitperiod}}}%
       }
-      \list{language}{1}{%
-        {en}%
-      }
       \list{location}{1}{%
         {Cham}%
       }
@@ -512,13 +510,15 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-3-319-05713-2 978-3-319-05714-9}
-      \field{series}{Stochastic {Modelling} and {Applied} {Probability}}
-      \field{title}{Stochastic {Differential} {Equations}, {Backward} {SDEs}, {Partial} {Differential} {Equations}}
+      \field{langid}{english}
+      \field{series}{Stochastic Modelling and Applied Probability}
+      \field{title}{Stochastic Differential Equations, Backward {SDEs}, Partial Differential Equations}
       \field{urlday}{15}
       \field{urlmonth}{2}
       \field{urlyear}{2023}
       \field{volume}{69}
       \field{year}{2014}
+      \field{dateera}{ce}
       \field{urldateera}{ce}
       \verb{doi}
       \verb 10.1007/978-3-319-05714-9
@@ -541,9 +541,6 @@
            given={Ricardo\bibnamedelima Romo},
            giveni={R\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
       }
-      \list{language}{1}{%
-        {es}%
-      }
       \strng{namehash}{04b1ed251efdd057328781524789a201}
       \strng{fullhash}{04b1ed251efdd057328781524789a201}
       \strng{bibnamehash}{04b1ed251efdd057328781524789a201}
@@ -554,6 +551,7 @@
       \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{langid}{spanish}
       \field{title}{Maestro en ciencias con especialidad en probabilidad y estadística}
       \verb{file}
       \verb Romero - Maestro en ciencias con especialidad en probabilid.pdf:/home/carlos/Zotero/storage/42NT3R4Z/Romero - Maestro en ciencias con especialidad en probabilid.pdf:application/pdf
@@ -567,11 +565,8 @@
            given={Nizar},
            giveni={N\bibinitperiod}}}%
       }
-      \list{language}{1}{%
-        {en}%
-      }
       \list{location}{1}{%
-        {New York, NY}%
+        {New York, {NY}}%
       }
       \list{publisher}{1}{%
         {Springer New York}%
@@ -587,13 +582,15 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-1-4614-4285-1 978-1-4614-4286-8}
-      \field{series}{Fields {Institute} {Monographs}}
-      \field{title}{Optimal {Stochastic} {Control}, {Stochastic} {Target} {Problems}, and {Backward} {SDE}}
+      \field{langid}{english}
+      \field{series}{Fields Institute Monographs}
+      \field{title}{Optimal Stochastic Control, Stochastic Target Problems, and Backward {SDE}}
       \field{urlday}{15}
       \field{urlmonth}{2}
       \field{urlyear}{2023}
       \field{volume}{29}
       \field{year}{2013}
+      \field{dateera}{ce}
       \field{urldateera}{ce}
       \verb{doi}
       \verb 10.1007/978-1-4614-4286-8
@@ -755,6 +752,64 @@
       \verb{url}
       \verb https://link.springer.com/10.1007/978-3-540-89500-8
       \endverb
+    \endentry
+    \entry{el_karoui_backward_1997}{article}{}
+      \name{author}{3}{}{%
+        {{hash=ff2bb8c1d58b07a9a92b7d53737af7f5}{%
+           family={El\bibnamedelima Karoui},
+           familyi={E\bibinitperiod\bibinitdelim K\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=4a6ecdbb82702190711310c3bb7a7ee0}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3525040aff8e5e5ef0c9c437dcb534cf}{%
+           family={Quenez},
+           familyi={Q\bibinitperiod},
+           given={M.\bibnamedelimi C.},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{bbe43688d649da783741badb0ca7daf5}
+      \strng{fullhash}{bbe43688d649da783741badb0ca7daf5}
+      \strng{bibnamehash}{bbe43688d649da783741badb0ca7daf5}
+      \strng{authorbibnamehash}{bbe43688d649da783741badb0ca7daf5}
+      \strng{authornamehash}{bbe43688d649da783741badb0ca7daf5}
+      \strng{authorfullhash}{bbe43688d649da783741badb0ca7daf5}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We are concerned with different properties of backward stochastic differential equations and their applications to finance. These equations, first introduced by Pardoux and Peng (1990), are useful for the theory of contingent claim valuation, especially cases with constraints and for the theory of recursive utilities, introduced by Duffie and Epstein (1992a, 1992b).}
+      \field{issn}{1467-9965}
+      \field{journaltitle}{Mathematical Finance}
+      \field{langid}{english}
+      \field{note}{\_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1111/1467-9965.00022}
+      \field{number}{1}
+      \field{title}{Backward Stochastic Differential Equations in Finance}
+      \field{urlday}{27}
+      \field{urlmonth}{2}
+      \field{urlyear}{2023}
+      \field{volume}{7}
+      \field{year}{1997}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 71}
+      \range{pages}{71}
+      \verb{doi}
+      \verb 10.1111/1467-9965.00022
+      \endverb
+      \verb{file}
+      \verb Snapshot:/home/carlos/Zotero/storage/B5QFU6J9/1467-9965.html:text/html;Texto completo:/home/carlos/Zotero/storage/A6PFJXXE/El Karoui et al. - 1997 - Backward Stochastic Differential Equations in Fina.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1111/1467-9965.00022
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1111/1467-9965.00022
+      \endverb
+      \keyw{backward stochastic equation,constrained portfolio,hedging portfolios,incomplete market,Malliavin derivative,mathematical finance,pricing,recursive utility,stochastic control,viscosity solution of {PDE}}
     \endentry
   \enddatalist
   \missing{PINNS2}

@@ -4,7 +4,7 @@
 \contentsline {subsection}{\numberline {2.1.1}Motivation}{3}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}Some useful theorems}{5}{subsection.2.1.2}%
 \contentsline {subsection}{\numberline {2.1.3}Forward-Backward stochastic differential equations}{11}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}The Feynman-Kac formulas}{11}{section.2.2}%
+\contentsline {section}{\numberline {2.2}The Feynman-Kac formulas}{12}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}The linear Feynman-Kac formula}{12}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}The non-linear Feynman-Kac formula}{12}{subsection.2.2.2}%
 \contentsline {chapter}{\numberline {3}Deep Learning Methods for PDEs}{13}{chapter.3}%

@@ -80,10 +80,10 @@
       <file>main.bcf</file>
     </requires>
     <requires type="editable">
-      <file>references.bib</file>
       <file>Probabilidad.bib</file>
       <file>PDEs ML.bib</file>
       <file>ControlOptimizacion.bib</file>
+      <file>BSDEs.bib</file>
     </requires>
   </external>
 </requests>
