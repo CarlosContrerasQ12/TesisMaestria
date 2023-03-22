@@ -2376,6 +2376,7 @@
     <bcf:citekey order="17" intorder="1">pham_continuous-time_2009</bcf:citekey>
     <bcf:citekey order="18" intorder="1">zhang_backward_2017</bcf:citekey>
     <bcf:citekey order="19" intorder="1">el_karoui_backward_1997</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">mao_stochastic_2008</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

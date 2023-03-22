@@ -376,8 +376,31 @@ Let's establish this assertions in the following theorem.
 	Under assumptions \ref{ass:FBSDEexistence}, the uncoupled forward-backward stochastic differential equation \eqref{eqn:Uncoupled} has a unique solution $(X_{s}^{t,x},Y_{s}^{t,x},Z_{s}^{t,x})$ starting from $x$ at time $t$. Moreover, $(Y_{s}^{t,x},Z_{s}^{t,x})$ is adapted to the future $\sigma$-algebra of $W$ after $t$, i.e, it is $\mathcal{F}_{s}^{t}$-adapted where for each $s\in[t,T]$ we define $\mathcal{F}_{s}^{t}=\sigma(W_u-W_t,t\leq u\leq s)$. In particular, $Y_{t}^{t,x}$ is deterministic and for $0\leq s\leq t$ we have $Y_{s}^{t,x}=Y_{t}^{t,x}$ and $Z_{s}^{t,x}=0$.
 \end{theorem}
 \begin{proof}
-	Im beautiful
+	The first part about existence and uniqueness of solution to the FBSDE follows from the fact that in assumptions \ref{ass:FBSDEexistence}, $I$ and $III$ are the standard Lipschitz and linear growth conditions that guarantee the existence of a solution for the forward process \cite{mao_stochastic_2008}, and that $II$ and $IV$ are sufficient conditions to ensure the existence of the solution to the backward process from theorem \ref{thm:existence}.
+	
+	For the second part, consider the translated Brownian motion $W'$ and its associated filtration given by $W_s'=W_{t+s}-W_t$ for $0\leq s\leq T-t$ and $\mathcal{F}_s':=\mathcal{F}_{t+s}^t$ or $0\leq s\leq T-t$. Let $X_s'^{0,x}$ be the adapted solution to the SDE
+	\begin{equation}
+		\begin{split}
+			&dX_s'=\mu(s,X_s')dt+\sigma(s,X_s')dW_s\\
+			&X_0'=x.
+		\end{split}
+	\end{equation}
+	By the the uniqueness provided by the former theorems, we have $X_s^{t,x}=X_{s-t}'^{0,x}$ a.s for $s\in[0,T-t]$, hence $X_s^{t,x}$ is $\mathcal{F}_{s}^{t}$-adapted.
+	
+	Now consider the associated $\mathcal{F}'$-adapted solution $(Y_s',Z_s')$ with $s\in[0,T-t]$ to the BSDE
+	\begin{equation}
+		\begin{split}
+			&dY_s'=-f(s+t,X_s',Y_s',Z_s')ds+Z_s'\cdot dW_s\\
+			&Y_{T-t}'=g(X_{T-t}').
+		\end{split}
+	\end{equation}
+We have that $(Y_{s-t}',Z_{s-t}')$ with $s\in[t,T]$ is also a solution of the backward equation in \eqref{eqn:Uncoupled} in $[t,T]$. Hence, by the  uniqueness provided before we have that $(Y_{s-t}',Z_{s-t}')=(Y_{s}^{t,x},Z_{s}^{t,x})$ for $s\in[t,T]$, therefore $(Y_{s-t}',Z_{s-t}')$ is $\mathcal{F}_{s}^{t}$-adapted.
 \end{proof}
+From now on, we will denote by
+\begin{equation}
+	v(t,x):=Y_{t}^{t,x},
+\end{equation}
+the deterministic function of $t$ and $x$ provided by the last theorem. We notice that $Y_t=v(t,X_t)$ for $t\in[0,T]$. 
 \section{The Feynman-Kac formulas}
 Now we shall establish the connection between stochastic differential equations with parabolic linear partial differential equations and its non-linear generalization based on backward stochastic differential equations. 
 \subsection{The linear Feynman-Kac formula}

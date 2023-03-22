@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  22 MAR 2023 14:44
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  22 MAR 2023 15:41
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -970,12 +970,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 21906 strings out of 477240
+ 21909 strings out of 477240
  125086,1373583 words of node,token memory allocated
- 1017 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 sub_mlist, 1 glyph, 96 attribute,
- 74 glue_spec, 96 attribute_list, 1 write, 10 pdf_action nodes
-   avail lists: 2:1009,3:464,4:118,5:442,6:98,7:6382,8:87,9:1492,10:18,11:733
+ 1033 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 sub_mlist, 1 glyph, 100 attribute
+, 74 glue_spec, 100 attribute_list, 1 write, 10 pdf_action nodes
+   avail lists: 2:1009,3:464,4:118,5:442,6:99,7:6382,8:87,9:1492,10:18,11:733
  42274 multiletter control sequences out of 65536+600000
  60 fonts using 4725487 bytes
  60i,21n,65p,1531b,1327s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -1002,9 +1002,9 @@ b></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 fb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm
 10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8a.pfb>
 </home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (23 pages, 289354 bytes).
+Output written on main.pdf (23 pages, 294009 bytes).
 
-PDF statistics: 498 PDF objects out of 1000 (max. 8388607)
- 118 named destinations out of 1000 (max. 131072)
+PDF statistics: 505 PDF objects out of 1000 (max. 8388607)
+ 121 named destinations out of 1000 (max. 131072)
  137 words of extra memory for PDF output out of 10000 (max. 100000000)
 
