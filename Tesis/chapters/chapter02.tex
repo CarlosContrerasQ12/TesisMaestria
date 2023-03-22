@@ -72,7 +72,7 @@ that is inserted in \eqref{eqn:exampleBSDEintegral} to obtain
 	Y(t)=\xi-\int_{0}^{T}Z_sdW_s+\int_{0}^{t}Z_sdW_s=\xi -\int_{t}^{T}Z_sdW_s \quad \forall t\in[0,T],
 \end{equation}
 which is the standard way to write the BSDE in integral form.
-\subsection{An existence and uniqueness theorem}
+\subsection{Some useful theorems}
 Now that we have motivated the use of BSDEs, we follow \cite{pham_continuous-time_2009} to provide a formal definition and prove that under certain regularity conditions, we can ensure the existence of a solution for that kind of equation.
 
 Let be $(\Omega,\mathcal{F},\mathbb{P})$ a probability space and $T>0$ a fixed horizon time. We consider a $d$-dimensional Brownian motion $W=(W_t)_{t\in [0,T]}$ and let $\mathbb{F}=(\mathcal{F}_t)_{t\in[0,T]}$ be the corresponding natural augmented filtration (i.e with the completeness and right continuity conditions).
@@ -226,18 +226,110 @@ so if we choose $\beta=1+4C_f^2$ and ignore the $ \mathbb{E}\left|\bar{Y}_0\righ
 which is $\lVert(\Phi(U,V))\rVert_\beta \leq \frac{1}{2}\lVert(U,V)\rVert_\beta$, that means $\Phi$ is a contraction in a Banach space, as $\Sspa \times \Hspa$ is the product of Banach spaces, and therefore has a unique fixed point.
 \end{proof}
 
-Consider now the BSDE with linear generator
+As in the every differential equation, there are cases where we can provide an explicit solution. The next theorem provides one for the BSDE with linear generator
+\begin{theorem}[Linear BSDEs \cite{pham_continuous-time_2009}]
+	\label{thm:linearBSDE}
+	Let $A_t$,$B_t$ be bounded progressively measurable processes with values in $\bbR$ and $\bbR^d$, $C$ a process in $\mathbb{H}^2(0,T)$ and $\xi \in L^2(\omega,\mathcal{F}_T,\mathbb{P},\bbR)$. Then, the linear backward stochastic differential equation
+	\begin{equation}
+		\begin{split}
+			&dY_t=-(A_tY_t+Z_t\cdot B_t+C_t)dt+Z_t\cdot dW_t\\
+			&Y_T=\xi
+		\end{split}
+	\end{equation}
+	has a unique solution, and is given by the formula
+	\begin{equation}
+		\Gamma_t Y_t=E\left[\Gamma_T \xi+\int_t^T \Gamma_s C_s d s \mid \mathcal{F}_t\right],
+	\end{equation}
+	where $\Gamma_t$ is the solution to the adjoint process
+	\begin{equation}
+		\begin{split}
+			&d\Gamma_t=\Gamma_t(A_tdt+B_t\cdot dW_t)\\
+			&\Gamma_0=1
+		\end{split}
+	\end{equation}	
+\end{theorem}
+\begin{proof}
+	First apply Ito's formula to $\Gamma_t Y_t$ to obtain
+	\begin{equation}
+		\begin{split}
+			d(\Gamma_t Y_t)&=Y_t d\Gamma_t +\Gamma_t dY_t +d\Gamma_t dY_t\\
+			&=Y_t(\Gamma_t A_t dt +\Gamma_t B_t\cdot dW_t)+\Gamma_t(-(A_tY_t+Z_t\cdot B_t+C_t)dt+Z_t\cdot dW_t)\\
+			& \quad+\Gamma_t Z_t \cdot B_t dt\\
+			&=-\Gamma_t C_t dt+\Gamma_t (Z_t+Y_t B_t)\cdot dW_t,
+		\end{split}
+	\end{equation}
+that can be written in integral form as 
+\begin{equation}
+	\label{eqn:martAdj}
+	\Gamma_t Y_t+\int_0^t \Gamma_s C_s d s=Y_0+\int_0^t \Gamma_s\left(Z_s+Y_s B_s\right) \cdot d W_s.
+\end{equation}
+We will show, as in the proof of theorem \ref{thm:existence}, that the stochastic integral  in the last expression, which is a local martingale, is in fact a uniformly integrable martingale. We have $\expect*{\sup_{0\leq t \leq T}|\Gamma_t|^2}<\infty$ ,since $A_t$ and $B_t$ are bounded. Also, let's denote $b_\infty$ the upper bound on $B_t$, then the following inequalities hold 
 \begin{equation}
 	\begin{split}
-		&dY_t=-(A_tY_t+Z_t\cdot B_t+C_t)dt+Z_t\cdot dW_t\\
-		&Y_T=\xi
+		\expect*{\sup_{0\leq t \leq T}\left|\int_0^t \Gamma_s\left(Z_s+Y_s B_s\right) \cdot d W_s\right|}&\leq 4\sqrt{2} \expect*{\left(\int_{0}^{T}|\Gamma_s|^2 |Z_s+Y_s B_s|^2 ds\right)^{\frac{1}{2}}} \\
+		&\text{{\small (By BDG inequality \ref{thm:BDGineq})}}\\
+		& \leq \frac{4\sqrt{2}}{2} E\left[\sup_{0\leq t \leq T}\left|\Gamma_t\right|^2+2 \int_0^T\left|Z_t\right|^2 d t+2 b_{\infty}^2 \int_0^T\left|Y_t\right|^2 d t\right]\\
+		&<\infty.
 	\end{split}
 \end{equation}
+Consequently, the right-hand side of is a uniformly integrable martingale, and so, if we take expected values to the equality \eqref{eqn:martAdj}, we have
+\begin{equation}
+	\begin{split}
+		\Gamma_t Y_t+\int_0^t \Gamma_s C_s d s & =\expect*{\Gamma_T Y_T+\int_0^T \Gamma_s C_s d s \Bigg| \mathcal{F}_t} \\
+		& =\expect*{\Gamma_T \xi+\int_0^T \Gamma_s C_s d s \Bigg| \mathcal{F}_t}
+	\end{split}
+\end{equation} 
+and, as $\int_0^t \Gamma_s C_s d s$ is $\mathcal{F}_t$-measurable, we obtain
+\begin{equation}
+		\Gamma_t Y_t =\expect*{\Gamma_T \xi+\int_t^T \Gamma_s C_s d s \Bigg| \mathcal{F}_t},
+\end{equation}
+that is what we wanted to prove. The control solution $Z_t$ can be obtained by the martingale representation theorem \ref{thm:MRT} applied to this process.
+\end{proof}
 
-Finally, we state without proof a comparison principle for solution of BSDEs
-\begin{theorem}
-	Let $(\xi_1,f_1)$ and $(\xi_2,f_2)$ two pairs of terminal conditions and generators satisfying assumptions \ref{ass:BSDEexistence}
+
+Finally, we state the next comparison principle for solution of BSDEs
+\begin{theorem}[Comparison principle for BSDEs \cite{pham_continuous-time_2009}]
+	Let $(\xi_1,f_1)$ and $(\xi_2,f_2)$ two pairs of terminal conditions and generators satisfying assumptions \ref{ass:BSDEexistence},and let $(Y_{1,t},Z_{1,t})$ and $(Y_{2,t},Z_{2,t})$ the solutions to their corresponding BSDE. Suppose that
+	\begin{enumerate}
+		\item $\xi_1 \leq \xi_2$ a.s
+		\item $f_1(t,Y_{1,t},Z_{1,t})\leq f_2(t,Y_{1,t},Z_{1,t}) $ $dt\times d\mathbb{P}$-a.e 
+		\item $f_2(t,Y_{1,t},Z_{1,t}) \in \mathbb{H}^2(0,T) $
+	\end{enumerate} 
+Then $Y_{1,t}\leq Y_{2,t}$ for all $0\leq t \leq T$, a.s.
+Furthermore, if $Y_{2,0}\leq Y_{1,0}$, then $Y_{1,t}=Y_{2,t}$ for $t\in [0,T]$. In particular, if $\mathbb{P}(\xi_1<\xi_2)>0$ or $f_1(t,\cdot,\cdot)<f_2(t,\cdot,\cdot)$ on a set with strictly positive measure $dt\times d\mathbb{P}$ then $Y_{1,0}<Y_{2,0}$.
 \end{theorem}
+\begin{proof}
+	To simplify notation, we give a proof with $d=1$.
+	We denote $\bar{Y_t}=Y_{2,t}-Y_{1,t}$ and $\bar{Z_t}=Z_{2,t}-Z_{1,t}$. Then $(\bar{Y_t},\bar{Z_t})$ satisfy the BSDE
+\begin{equation}
+	\label{eqn:linearBSDE}
+	\begin{split}
+		&d \bar{Y_t}=-\left(\Delta_t^y \bar{Y_t}+\Delta_t^z \bar{Z_t}+\bar{f_t}\right) d t+\bar{Z}_t dW_t\\
+		&\bar{Y_T}=\xi_2-\xi_1,
+	\end{split}
+\end{equation}
+where 
+\begin{equation}
+	\begin{aligned}
+		\Delta_t^y & =\frac{f_2\left(t, Y_{2,t}, Z_{2,t}\right)-f_2\left(t, Y_{1,t}, Z_{2,t}\right)}{Y_{2,t}-Y_{1,t}} 1_{Y_{2,t}-Y_{1,t} \neq 0} \\
+		\Delta_t^z & =\frac{f_2\left(t, Y_{1,t}, Z_{2,t}\right)-f_2\left(t, Y_{1,t}, Z_{1,t}\right)}{Z_{2,t}-Z_{1,t}} 1_{Z_{2,t}-Z_{1,t} \neq 0} \\
+		\bar{f}_t & =f_2\left(t, Y_{1,t}, Z_{1,t}\right)-f_1\left(t, Y_{1,t}, Z_{1,t}\right) .
+	\end{aligned}
+\end{equation}
+By assumption, $f_2$ is Lipschitz in $y,z$, hence $\Delta_t^y$ and $\Delta_t^z$ are bounded. Moreover, $\bar{f_t}\in \mathbb{H}^2(0,T)$. Therefore, the solution to \eqref{eqn:linearBSDE} is given by theorem \ref{thm:linearBSDE} as
+\begin{equation}
+	\Gamma_t \bar{Y_t}=\expect*{\Gamma_T\left(\xi_2-\xi_1\right)+\int_t^T \Gamma_s \bar{f_s} d s \Bigg| \mathcal{F}_t},
+\end{equation} 
+where $\Gamma_t$ satisfies 
+\begin{equation}
+	\begin{split}
+		&d\Gamma_t=\Gamma_{t}(\Delta_t^y dt + \Delta_t^z dW_t )\\
+		&\Gamma_0=1.
+	\end{split}
+\end{equation}
+Note that $\Gamma_t$ is strictly positive. We conclude the stated result using that $\xi_2-\xi_2\geq 0$ by assumption $1)$, and $\bar{f}_t\geq 0$ by assumption $2)$.
+
+\end{proof}
 \subsection{Forward-Backward stochastic differential equations}
 Now we consider a special case of backward stochastic differential equations in which the randomness of the drift enters through a process satisfying a forward stochastic differential equation. In its more general form, the problem is stated as find three processes $(X_t,Y_t,Z_t)\in\bbR^n\times\bbR^m\times\bbR^{m\times d}$ such that
 \begin{equation}
