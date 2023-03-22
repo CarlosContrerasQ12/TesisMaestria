@@ -100,7 +100,7 @@ Here we consider the backward stochastic differential equation
 	Y_t=\xi+\int_t^T f\left(s, Y_s, Z_s\right) d s-\int_t^T Z_s \cdot d W_s, \quad 0 \leq t \leq T
 	\end{equation}
 \end{definition}
-Now we establish an existence and uniqueness theorem for $\bbR$-valued process, which can be extended to $\bbR^d$-valued processes
+Now we establish an existence and uniqueness theorem for $\bbR$-valued process, which can be extended to $\bbR^d$-valued processes. 
 \begin{assumptions}
 	\label{ass:BSDEexistence}
 	Let $(\xi,f)$ satisfy
@@ -120,7 +120,7 @@ Now we establish an existence and uniqueness theorem for $\bbR$-valued process, 
 \begin{theorem}[Existence and uniqueness of solutions to BSDEs \cite{pham_continuous-time_2009}]
 	\label{thm:existence}
 Given a pair $(\xi,f)$, called the terminal condition and the driver of the BSDE, that satisfy the assumptions \ref{ass:BSDEexistence}
-Then, there exist a unique solution $(Y,Z)$ to the backward stochastic differential equation \eqref{eqn:BSDE}.
+, there exist a unique solution $(Y,Z)$ to the backward stochastic differential equation \eqref{eqn:BSDE}.
 \end{theorem}
 To give a demonstration we will need the following inequalities about SDEs, whose proofs will be omitted.
 \begin{theorem}[Doob's martingale inequality \cite{mao_stochastic_2008}]
@@ -224,8 +224,20 @@ so if we choose $\beta=1+4C_f^2$ and ignore the $ \mathbb{E}\left|\bar{Y}_0\righ
 \end{equation}
 
 which is $\lVert(\Phi(U,V))\rVert_\beta \leq \frac{1}{2}\lVert(U,V)\rVert_\beta$, that means $\Phi$ is a contraction in a Banach space, as $\Sspa \times \Hspa$ is the product of Banach spaces, and therefore has a unique fixed point.
-
 \end{proof}
+
+Consider now the BSDE with linear generator
+\begin{equation}
+	\begin{split}
+		&dY_t=-(A_tY_t+Z_t\cdot B_t+C_t)dt+Z_t\cdot dW_t\\
+		&Y_T=\xi
+	\end{split}
+\end{equation}
+
+Finally, we state without proof a comparison principle for solution of BSDEs
+\begin{theorem}
+	Let $(\xi_1,f_1)$ and $(\xi_2,f_2)$ two pairs of terminal conditions and generators satisfying assumptions \ref{ass:BSDEexistence}
+\end{theorem}
 \subsection{Forward-Backward stochastic differential equations}
 Now we consider a special case of backward stochastic differential equations in which the randomness of the drift enters through a process satisfying a forward stochastic differential equation. In its more general form, the problem is stated as find three processes $(X_t,Y_t,Z_t)\in\bbR^n\times\bbR^m\times\bbR^{m\times d}$ such that
 \begin{equation}
@@ -247,24 +259,31 @@ This problem is rather difficult, as the coupling between the processes may forb
 
 However, we can say something simpler about the decoupled case   
 \begin{equation}
-	\label{eqn:forwardUncoupled}
+	\label{eqn:Uncoupled}
 	\begin{split}
 		&dX_t=\mu(t,X_t)dt+\sigma(t,X_t)dW_t\\
-		&X_0=x,
-	\end{split}
-\end{equation}
-and
-\begin{equation}
-	\label{eqn:backwardUncoupled}
-	\begin{split}
+		&X_0=x,\\
 		&dY_t=-f(t,X_t,Y_t,Z_t)dt+Z_t dW_t\\
 		&Y_T=g(X_T).
 	\end{split}
 \end{equation}  
 
-In this case, if $\mu$ and $\sigma$ satisfy enough regularity conditions to ensure that a solution to the forward SDE \eqref{eqn:forwardUncoupled} exists, for example, if they are Lipschitz and bounded, then we can solve it for the process $X_t$ and insert the solution into \ref{eqn:backwardUncoupled} and solve the now standard BSDE for which we have proved a solution exist.
+In this case, if $\mu$ and $\sigma$ satisfy enough regularity conditions to ensure that a solution to the forward SDE in \eqref{eqn:Uncoupled} exists, for example, if they are Lipschitz and bounded, then we can solve it for the process $X_t$ and insert the solution into the backward equation in \ref{eqn:Uncoupled} and solve the now standard BSDE for which we have proven a solution exist. Let's establish this assertion in the following theorem, whose proof can be found in \cite{zhang_backward_2017}.
 
+
+\begin{assumptions}
+	\label{ass:FBSDEexistence}
+	Let $(\mu,\sigma,f,g)$ satisfy
+	\begin{enumerate}[I.]
+		\item $\mu,\sigma,f,g$ are uniformly Lipschitz continuous in $x$
+		\item $\mu(\cdot,0)$,$\sigma(\cdot,0)$,$f(\cdot,0,0,0)$ and $g(0)$ are bounded 
+	\end{enumerate}
+\end{assumptions}
+\begin{theorem}
+	Under assumptions \ref{ass:FBSDEexistence}, the uncoupled forward backward stochastic equation \eqref{eqn:backwardUncoupled} \eqref{eqn:forwardUncoupled} has a unique markovian solution $(X,Y,Z)$.
+\end{theorem}
 \section{The Feynman-Kac formulas}
+Now we shall establish the connection between stochastic differential equations with parabolic linear partial differential equations and its non-linear generalization based on backward stochastic differential equations. 
 \subsection{The linear Feynman-Kac formula}
 \subsection{The non-linear Feynman-Kac formula}
 
