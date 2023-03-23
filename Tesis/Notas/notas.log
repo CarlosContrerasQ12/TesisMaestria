@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  22 MAR 2023 15:41
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  22 MAR 2023 21:49
  restricted system commands enabled.
 **notas.tex
 (./notas.tex
@@ -1070,7 +1070,7 @@ Here is how much of LuaTeX's memory you used:
  1413 words of node memory still in use:
    30 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 1 glyph, 97 attribute, 66 glue_sp
 ec, 97 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack nodes
-   avail lists: 1:2,2:2837,3:380,4:3154,5:3110,6:66,7:7057,8:62,9:9121,10:23,11:
+   avail lists: 1:2,2:2837,3:382,4:3154,5:3110,6:66,7:7057,8:61,9:9121,10:23,11:
 550
  49553 multiletter control sequences out of 65536+600000
  48 fonts using 3034887 bytes
@@ -1092,7 +1092,7 @@ os/.miktex/texmfs/install/fonts/type1/public/lm/lmtt10.pfb></home/carlos/.miktex
 /texmfs/install/fonts/type1/public/lm/lmtt8.pfb></home/carlos/.miktex/texmfs/ins
 tall/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/carlos/.miktex/texmfs
 /install/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on notas.pdf (4 pages, 278837 bytes).
+Output written on notas.pdf (4 pages, 278876 bytes).
 
 PDF statistics: 122 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
