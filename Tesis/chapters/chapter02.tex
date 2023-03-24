@@ -432,7 +432,7 @@ Now, for a fixed $T>0$, consider the following parabolic PDE with terminal condi
 where $f(x,t)$ and $g(x)$ are some $\bbR$-valued continuous functions, $k(x,t)$ is a non-negative $\bbR$-valued function, and $\mathcal{L}_t$ is the \textit{generator} of the process $X_s$, defined as
 \begin{equation}
 	\begin{split}
-		\mathcal{L}_tv&=\mu(t,x)\cdot D_x v(t,x)+\frac{1}{2}\Tr(\sigma(t,x)\sigma^{T}(t,x)D_x^2v(t,x))\\
+		\mathcal{L}_tv&=\mu(t,x)\cdot D_x v(t,x)+\frac{1}{2}\Tr(\sigma(t,x)\sigma^{T}(t,x)D_{xx}^2v(t,x))\\
 		&=\sum_{i=1}^{n}\mu_i(t,x)\dpartial{v}{x_i}(t,x)+\sum_{1,k=1}^{n}a_{i,k}(t,x)\frac{\partial^2 v}{\partial x_i\partial x_k}(t,x),
 	\end{split}
 \end{equation} 
@@ -489,7 +489,40 @@ and therefore, using that $X_t=x$, $v(T,X_t)=g(X_T)$ and solving for $v(x,t)$, w
 \end{equation}
 To obtain the desired formula, we take expectation to this expression, and observe that the stochastic integral is a square integrable martingale by assumption \ref{ass:FK} $III$ on $D_x v$, the non-negativity of $k$ and the linear growth condition on $\sigma$ and the estimation \ref{thm:estimationSDE}, therefore it's expected value is constant $0$.
 \end{proof}
-Note that we required that equation \eqref{eqn:FKequation} has a classical smooth solution, for which we need some regularity conditions on $\mu$, $\sigma$ and growth conditions on $f$ and $g$ to ensure the uniform ellipticity of $\mathcal{L}_t$. However, even if there is no smooth solution to this problem, the Feynman-Kac formula may provide a solution with other meaning, which will be named a viscosity solution and will be defined in what follows.  
-\subsection{The non-linear Feynman-Kac formula}
+Note that we required that equation \eqref{eqn:FKequation} has a classical smooth solution, for which we need some regularity conditions on $\mu$, $\sigma$ and growth conditions on $f$ and $g$ to ensure the uniform ellipticity of $\mathcal{L}_t$. However, even if there is no smooth solution to this problem, the Feynman-Kac formula may provide a solution with other meaning, which will be named a viscosity solution and will be defined in what follows.
 
+In addition, this formula is useful for approximating solutions $v(t,x)$ to PDEs of the form \eqref{eqn:FKequation}, even in high dimensions, where classical methods fails because of the \textit{curse of dimensionality}. This expected value can be approximating by Monte-Carlo simulation using sample paths, whose rate of convergence is independent on the dimension $n$ of the underlying process. However, its use is limited to linear equations that may not be useful for certain problems.
+\subsection{The non-linear Feynman-Kac formula}
+Now we deal with a more general PDE than \eqref{eqn:FKequation}. We consider, for some fixed $T>0$, the problem 
+\begin{equation}
+	\label{eqn:FKNolineal}
+	\begin{split}
+		&\dpartial{v}{t}(t,x)+\mathcal{L}_t v(t,x)+f(t,x,v(t,x),\sigma(t,x)\cdot D_x v(t,x))=0\\
+		&v(T,x)=g(x),
+	\end{split}
+\end{equation}
+for all $t\in[0,T]$ and $x\in\bbR^{n}$, and where $f:\bbR\times \bbR^n\times \bbR \times \bbR^d\to \bbR$ is a non-linear function.
+
+We will associate the solution to this problem with a forward-backward stochastic differential equation of the form \eqref{eqn:Uncoupled}. We have an easy association given by the following theorem
+
+\begin{theorem}[Verification theorem \cite{pham_continuous-time_2009}]
+	Let $v(t,x)$ be a classical solution to \ref{eqn:FKNolineal}, that is continuous on $[0,T]\times \bbR^n$, one time differentiable in $t$ and two times differentiable in $x$ and satisfy the linear growth condition $|v(t,x)|\leq L(1+|x|)$ for some $L>0$ and all $x\in\bbR^n$ $t\in[0,T]$. Also, let its first space derivative satisfy the growth condition $|D_x v(t,x)|\leq C(1+|x|^q)$ for some $C>0$, $q>0$ and all $x\in\bbR^n$ $t\in[0,T]$.Then, the pair $(Y,Z)$ defined by
+	\begin{equation}
+		Y_t=v(t,X_t) \quad Z_t=\sigma(t,X_t)' D_x v(t,X_t)
+	\end{equation}
+is the solution to the backward stochastic differential equation in \ref{eqn:Uncoupled}.
+\end{theorem}
+\begin{proof}
+	Apply Ito's formula to $Y_t=v(t,X_t)$ to obtain
+	\begin{equation}
+		\begin{split}
+		dY_t&=\left(\dpartial{v}{t}(t,X_t)+\mathcal{L}_t v(t,X_t)\right)dt+\sigma(t,X_t)' D_x v(t,X_t)\cdot dW_t\\
+		&=-f(t,X_t,v(t,X_t,D_x v(t,X_t)))dt+\sigma(t,X_t)' D_x v(t,X_t) \cdot dW_t\\
+		&=-f(t,X_t,Y_t,Z_t)dt+Z_t dW_t
+		\end{split}
+	\end{equation}
+and observing that $Y_T=v(T,X_T)=g(X_T)$, we have the first part, as this process is in $\Sspa\times \Hspa$ due to the growth condition of $v$ and $D_x v$.
+\end{proof}
+
+However, the reciprocal affirmation y somewhat more complicated. If we have a solution $(Y_t,Z_t)$ to the FBSDE \eqref{eqn:Uncoupled}, not necessarily $v(t,x)=Y_{t}^{t,x}$ will be a classical smooth solution to \eqref{eqn:FKNolineal} as it may not exist due to the non-linearity. Nevertheless, we can define a new weak notion of solution as follows 
  

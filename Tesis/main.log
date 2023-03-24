@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  23 MAR 2023 22:01
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  23 MAR 2023 23:53
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -934,27 +934,27 @@ Overfull \hbox (3.04167pt too wide) in alignment at lines 481--482
 [] []
  []
 
-) [14]
+[14]) [15]
 Chapter 3.
-(./chapters/chapter03.tex) [15
+(./chapters/chapter03.tex) [16
 
 ]
 Chapter 4.
-(./chapters/chapter04.tex) [16
+(./chapters/chapter04.tex) [17
 
 ]
 Chapter 5.
-(./chapters/chapter05.tex) [17
+(./chapters/chapter05.tex) [18
 
 ]
 Chapter 6.
-(./chapters/conclusion.tex) [18
+(./chapters/conclusion.tex) [19
 
 ]
 warning  (pdf backend): ignoring duplicate destination with the name 'chapter.1'
 
 Appendix A.
-(./chapters/appendix.tex) [19
+(./chapters/appendix.tex) [20
 
 ]
 Overfull \hbox (6.05995pt too wide) in paragraph at lines 127--127
@@ -973,9 +973,9 @@ Overfull \hbox (5.19708pt too wide) in paragraph at lines 127--127
 - 4939 - 7256 - 2$[][] \TU/lmr/m/n/10.95 (vi-si-ted on 02/15/2023). 
  []
 
-[20
+[21
 
-] [21
+] [22
 Missing character: There is no ӑ (U+04D1) in font [lmroman10-regular]:+tlig;!
 ] (./main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
@@ -984,13 +984,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 21993 strings out of 477240
+ 21999 strings out of 477240
  125086,1373583 words of node,token memory allocated
- 1087 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 sub_mlist, 1 glyph, 112 attribute
-, 74 glue_spec, 112 attribute_list, 1 write, 11 pdf_action nodes
-   avail lists: 2:1009,3:464,4:118,5:441,6:100,7:6383,8:98,9:1493,10:18,11:733
- 42333 multiletter control sequences out of 65536+600000
+ 1103 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 sub_mlist, 1 glyph, 116 attribute
+, 74 glue_spec, 116 attribute_list, 1 write, 11 pdf_action nodes
+   avail lists: 2:1009,3:464,4:118,5:441,6:100,7:6383,8:99,9:1493,10:18,11:733
+ 42334 multiletter control sequences out of 65536+600000
  60 fonts using 4725487 bytes
  60i,21n,65p,1531b,1329s stack positions out of 10000i,1000n,20000p,200000b,80000s
 </home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmmono10-regular.o
@@ -1017,9 +1017,9 @@ b></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msam1
 0.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/m
 sbm10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8a.p
 fb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (25 pages, 322951 bytes).
+Output written on main.pdf (26 pages, 331506 bytes).
 
-PDF statistics: 550 PDF objects out of 1000 (max. 8388607)
- 137 named destinations out of 1000 (max. 131072)
+PDF statistics: 567 PDF objects out of 1000 (max. 8388607)
+ 142 named destinations out of 1000 (max. 131072)
  137 words of extra memory for PDF output out of 10000 (max. 100000000)
 
