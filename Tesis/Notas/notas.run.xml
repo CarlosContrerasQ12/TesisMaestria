@@ -58,7 +58,7 @@
       <file>numeric.bbx</file>
       <file>numeric.cbx</file>
       <file>biblatex.cfg</file>
-      <file>english.lbx</file>
+      <file>spanish.lbx</file>
     </requires>
   </internal>
   <external package="biblatex" priority="5" active="0">

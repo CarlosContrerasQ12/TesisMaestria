@@ -175,9 +175,10 @@ and note that from this and using \eqref{eqn:Mdem}, $Y_t$ satisfies
 
 
 Thus, consider the function $\Phi:\Sspa\times\Hspa \to \Sspa\times\Hspa$ that maps the pair $(U,V)$ to the pair $(Y,Z)$ constructed as above, $\Phi(U,V)=(Y,Z)$. Note that it is well-defined as the $Z$ process is unique, and by Doob's martingale inequality \ref{thm:Doobs} we have
+\begin{shaded*}
 \begin{equation}
 	\mathbb{E}\left[\sup_{0\leq t\leq T}\left|\int_{t}^{T}Z_s\cdot dW_s\right|^2\right]\leq 4\mathbb{E}\left[\int_{0}^{T}|Z_s|^2ds\right]<\infty,
-\end{equation}
+\end{equation}\end{shaded*}
 and therefore, by assumptions $I$, $II a)$ and $II b)$, $Y_t$ lies in $\Sspa$. Also note that a solution to the BSDE \eqref{eqn:BSDE} is a fixed point of $\Phi$. We will show that such fixed point exist by showing it is a contraction if we endow the $\Sspa\times\Hspa$ space with the metric 
 \begin{equation}
 	\lVert(Y,Z)\rVert_\beta=\left(\expect*{\int_{0}^{T}e^{\beta s}(  |Y_s|^2+|Z_s|^2)ds}\right)^{\frac{1}{2}},
@@ -327,7 +328,7 @@ where $\Gamma_t$ satisfies
 		&\Gamma_0=1.
 	\end{split}
 \end{equation}
-Note that $\Gamma_t$ is strictly positive. We conclude the stated result using that $\xi_2-\xi_2\geq 0$ by assumption $1)$, and $\bar{f}_t\geq 0$ by assumption $2)$.
+\hlc[Why?]{Note that $\Gamma_t$ is strictly positive}. We conclude the stated result using that $\xi_2-\xi_2\geq 0$ by assumption $1)$, and $\bar{f}_t\geq 0$ by assumption $2)$.
 
 \end{proof}
 \subsection{Forward-Backward stochastic differential equations}
@@ -371,7 +372,6 @@ Let's establish this assertions in the following theorem.
 		\item $|f(t,x,y,z)|+|g(x)|\leq C(1+|x|^p)$ para $p\geq\frac{1}{2}$
 	\end{enumerate}
 \end{assumptions}
-\newpage
 \begin{theorem}[Existence and markovianity of solutions of FBSDEs \cite{el_karoui_backward_1997}]
 	Under assumptions \ref{ass:FBSDEexistence}, the uncoupled forward-backward stochastic differential equation \eqref{eqn:Uncoupled} has a unique solution $(X_{s}^{t,x},Y_{s}^{t,x},Z_{s}^{t,x})$ starting from $x$ at time $t$. Moreover, $(Y_{s}^{t,x},Z_{s}^{t,x})$ is adapted to the future $\sigma$-algebra of $W$ after $t$, i.e, it is $\mathcal{F}_{s}^{t}$-adapted where for each $s\in[t,T]$ we define $\mathcal{F}_{s}^{t}=\sigma(W_u-W_t,t\leq u\leq s)$. In particular, $Y_{t}^{t,x}$ is deterministic and for $0\leq s\leq t$ we have $Y_{s}^{t,x}=Y_{t}^{t,x}$ and $Z_{s}^{t,x}=0$.
 \end{theorem}
@@ -390,11 +390,13 @@ Let's establish this assertions in the following theorem.
 	Now consider the associated $\mathcal{F}'$-adapted solution $(Y_s',Z_s')$ with $s\in[0,T-t]$ to the BSDE
 	\begin{equation}
 		\begin{split}
-			&dY_s'=-f(s+t,X_s',Y_s',Z_s')ds+Z_s'\cdot dW_s\\
+			&dY_s'=-f(s+t,X_s',Y_s',Z_s')ds+Z_s'\cdot dW_s \\
 			&Y_{T-t}'=g(X_{T-t}').
 		\end{split}
 	\end{equation}
-We have that $(Y_{s-t}',Z_{s-t}')$ with $s\in[t,T]$ is also a solution of the backward equation in \eqref{eqn:Uncoupled} in $[t,T]$. Hence, by the  uniqueness provided before we have that $(Y_{s-t}',Z_{s-t}')=(Y_{s}^{t,x},Z_{s}^{t,x})$ for $s\in[t,T]$, therefore $(Y_{s-t}',Z_{s-t}')$ is $\mathcal{F}_{s}^{t}$-adapted.
+
+\hlLarge{We have that $(Y_{s-t}',Z_{s-t}')$ with $s\in[t,T]$ is also a solution of the backward equation in \eqref{eqn:Uncoupled} in $[t,T]$. Hence, by the  uniqueness provided before we have that $(Y_{s-t}',Z_{s-t}')=(Y_{s}^{t,x},Z_{s}^{t,x})$ for $s\in[t,T]$, therefore $(Y_{s-t}',Z_{s-t}')$ is $\mathcal{F}_{s}^{t}$-adapted.}
+
 \end{proof}
 From now on, we will denote by
 \begin{equation}
@@ -487,17 +489,17 @@ and therefore, using that $X_t=x$, $v(T,X_t)=g(X_T)$ and solving for $v(x,t)$, w
 		&-\int_{t}^{T}e^{-\int_{t}^{s}k(u,X_{u})du}D_x v(s,X_s)\cdot \sigma(s,X_s)dW_s.
 	\end{split}
 \end{equation}
-To obtain the desired formula, we take expectation to this expression, and observe that the stochastic integral is a square integrable martingale by assumption \ref{ass:FK} $III$ on $D_x v$, the non-negativity of $k$ and the linear growth condition on $\sigma$ and the estimation \ref{thm:estimationSDE}, therefore it's expected value is constant $0$.
+To obtain the desired formula, we take expectation to this expression, and observe that the stochastic integral is a square integrable martingale by assumption \ref{ass:FK} $III$ on $D_x v$, the non-negativity of $k$, the linear growth condition on $\sigma$ and the estimation \ref{thm:estimationSDE}, therefore it's expected value is constant $0$.
 \end{proof}
-Note that we required that equation \eqref{eqn:FKequation} has a classical smooth solution, for which we need some regularity conditions on $\mu$, $\sigma$ and growth conditions on $f$ and $g$ to ensure the uniform ellipticity of $\mathcal{L}_t$. However, even if there is no smooth solution to this problem, the Feynman-Kac formula may provide a solution with other meaning, which will be named a viscosity solution and will be defined in what follows.
+Note that we required that equation \eqref{eqn:FKequation} has a classical smooth solution, for which we need some regularity conditions on $\mu$, $\sigma$ and growth conditions on $f$ and $g$ to ensure the uniform ellipticity of $\mathcal{L}_t$. Also note, that assumptions \ref{ass:FK} are rather restrictive, especially the boundedness of $D_x$, but can be relaxed imposing some quadratic growth condition on $v$ and additional growth condition on $f$ and $g$. However, even if there is no smooth solution to this problem, the Feynman-Kac formula may provide a solution with other meaning, which will be named a viscosity solution and will be defined in what follows.
 
-In addition, this formula is useful for approximating solutions $v(t,x)$ to PDEs of the form \eqref{eqn:FKequation}, even in high dimensions, where classical methods fails because of the \textit{curse of dimensionality}. This expected value can be approximating by Monte-Carlo simulation using sample paths, whose rate of convergence is independent on the dimension $n$ of the underlying process. However, its use is limited to linear equations that may not be useful for certain problems.
+In addition, this formula is useful for approximating solutions $v(t,x)$ to PDEs of the form \eqref{eqn:FKequation}, even in high dimensions, where classical methods fails because of the \textit{curse of dimensionality}. This expected value can be approximated by Monte-Carlo simulation using sample paths, \hlc[Sure?]{whose rate of convergence is independent on the dimension $n$ of the underlying process}. However, its use is limited to linear equations that may not be useful for certain problems.
 \subsection{The non-linear Feynman-Kac formula}
 Now we deal with a more general PDE than \eqref{eqn:FKequation}. We consider, for some fixed $T>0$, the problem 
 \begin{equation}
 	\label{eqn:FKNolineal}
 	\begin{split}
-		&\dpartial{v}{t}(t,x)+\mathcal{L}_t v(t,x)+f(t,x,v(t,x),\sigma(t,x)\cdot D_x v(t,x))=0\\
+		&\dpartial{v}{t}(t,x)+\mathcal{L}_t v(t,x)+f(t,x,v(t,x),\sigma(t,x)' D_x v(t,x))=0\\
 		&v(T,x)=g(x),
 	\end{split}
 \end{equation}
@@ -524,5 +526,117 @@ is the solution to the backward stochastic differential equation in \ref{eqn:Unc
 and observing that $Y_T=v(T,X_T)=g(X_T)$, we have the first part, as this process is in $\Sspa\times \Hspa$ due to the growth condition of $v$ and $D_x v$.
 \end{proof}
 
-However, the reciprocal affirmation y somewhat more complicated. If we have a solution $(Y_t,Z_t)$ to the FBSDE \eqref{eqn:Uncoupled}, not necessarily $v(t,x)=Y_{t}^{t,x}$ will be a classical smooth solution to \eqref{eqn:FKNolineal} as it may not exist due to the non-linearity. Nevertheless, we can define a new weak notion of solution as follows 
- 
+Nevertheless, the reciprocal affirmation y somewhat more complicated. If we have a solution $(Y_t,Z_t)$ to the FBSDE \eqref{eqn:Uncoupled}, not necessarily $v(t,x)=Y_{t}^{t,x}$ will be a classical smooth solution to \eqref{eqn:FKNolineal} as it may not exist due to the non-linearity. Nevertheless, we can define a new weaker notion of solution as follows 
+\begin{definition}
+	Let $v(t,x):\bbR\times \bbR^n\to \bbR$ be a locally bounded continuous function. Then 
+	\begin{itemize}
+		\item $v(t,x)$ is called a viscosity sub-solution of \eqref{eqn:FKNolineal} if $v(T,x)\leq g(x)$ for $x\in\bbR^n$, and for all $\phi\in C^{1,2}([0,T]\times \bbR^n)$ such that the map $v(t,x)-\phi(t,x)$ attains a local maximum at $(t,x)\in [0,T]\times \bbR^n$ it holds
+		\begin{equation}
+			\dpartial{\phi}{t} +\mathcal{L}_t \phi +f(t,x,v(x,t),\sigma(t,x)'D_x v(t,x))\geq 0
+		\end{equation}
+		\item $v(t,x)$ is called a viscosity super-solution of \ref{eqn:FKNolineal} if $v(T,x)\geq g(x)$ for $x\in\bbR^n$, and for all $\phi\in C^{1,2}([0,T]\times \bbR^n)$ such that the map $v(t,x)-\phi(t,x)$ attains a local minimum at $(t,x)\in [0,T]\times \bbR^n$ it holds
+	    \begin{equation}
+		\dpartial{\phi}{t} +\mathcal{L}_t \phi +f(t,x,v(x,t),\sigma(t,x)'D_x v(t,x))\leq 0
+	    \end{equation}
+        \item If $v(t,x)$ is a sub-solution and a super-solution it is called a viscosity solution of \eqref{eqn:FKNolineal}.
+	\end{itemize}
+\end{definition}
+In particular, note that this definition does not require the smoothness of $v(t,x)$.
+
+With this new concept of solution, we can establish the reverse relation as follows
+\begin{theorem}[Representation theorem \cite{pham_continuous-time_2009}]
+	\label{thm:KFnonReps}
+	\hlc[Poner explicitas las condiciones para la FBSDE]{} Let $(X,Y,Z)$ be the solution to the uncoupled FBSDE \eqref{eqn:Uncoupled} and set $v(t,x)=Y_{t}^{t,x}$. Then, $v$ is a continuous function and is a viscosity solution to \ref{eqn:FKNolineal}.
+\end{theorem}
+\begin{shaded*}
+	\begin{center}
+		{\Huge Terminar prueba}
+	\end{center}
+\end{shaded*}
+\begin{proof}
+	\textit{Step 1: Continuity of $v(t,x)$}: \\
+	Let $(t_1,x_1),(t_2,x_2)\in [0,T]\times \bbR^n$, with $t_1\leq t_2$. For lighten the notation we write $X_{s}^i=X_s^{t_i,x_i}$, $i=1,2$.
+	
+	\begin{equation}
+		\begin{aligned}
+			\left|Y_t^1-Y_t^2\right|^2= & \left|g\left(X_T^1\right)-g\left(X_T^2\right)\right|^2-\int_t^T\left|Z_s^1-Z_s^2\right|^2 d s \\
+			& +2 \int_t^T\left(Y_s^1-Y_s^2\right) \cdot\left(f\left(s, X_s^1, Y_s^1, Z_s^1\right)-f\left(s, X_s^2, Y_s^2, Z_s^2\right)\right) d s \\
+			& -2 \int_t^T\left(Y_s^1-Y_s^2\right)^{\prime}\left(Z_s^1-Z_s^2\right) d W_s
+		\end{aligned}
+	\end{equation}
+Then,
+
+\begin{equation}
+	\begin{aligned}
+		& E\left[\left|Y_t^1-Y_t^2\right|^2\right]+E\left[\int_t^T\left|Z_s^1-Z_s^2\right|^2 d s\right] \\
+		= & E\left[\left|g\left(X_T^1\right)-g\left(X_T^2\right)\right|^2\right] \\
+		& +2 E\left[\int_t^T\left(Y_s^1-Y_s^2\right) \cdot\left(f\left(s, X_s^1, Y_s^1, Z_s^1\right)-f\left(s, X_s^2, Y_s^2, Z_s^2\right)\right) d s\right] \\
+		\leq & E\left[\left|g\left(X_T^1\right)-g\left(X_T^2\right)\right|^2\right] \\
+		& +2 E\left[\int_t^T\left|Y_s^1-Y_s^2\right|\left|f\left(s, X_s^1, Y_s^1, Z_s^1\right)-f\left(s, X_s^2, Y_s^1, Z_s^1\right)\right| d s\right] \\
+		& +2 C_f E\left[\int_t^T\left|Y_s^1-Y_s^2\right|\left(\left|Y_s^1-Y_s^2\right|+\left|Z_s^1-Z_s^2\right|\right) d s\right] \\
+		\leq & E\left[\left|g\left(X_T^1\right)-g\left(X_T^2\right)\right|^2\right] \\
+		& +E\left[\int_t^T\left|f\left(s, X_s^1, Y_s^1, Z_s^1\right)-f\left(s, X_s^2, Y_s^1, Z_s^1\right)\right|^2 d s\right] \\
+		& +\left(1+4 C_f^2\right) E\left[\int_t^T\left|Y_s^1-Y_s^2\right|^2 d s+\frac{1}{2} E \int_t^T\left|Z_s^1-Z_s^2\right|^2 d s\right],
+	\end{aligned}
+\end{equation}
+
+So,
+
+\begin{equation}
+	\begin{aligned}
+		E\left[\left|Y_t^1-Y_t^2\right|^2\right] \leq & E\left[\left|g\left(X_T^1\right)-g\left(X_T^2\right)\right|^2\right]+E\left[\int_t^T\left|f\left(s, X_s^1, Y_s^1, Z_s^1\right)-f\left(s, X_s^2, Y_s^1, Z_s^1\right)\right|^2 d s\right] \\
+		& +\left(1+4 C_f^2\right) E\left[\int_t^T\left|Y_s^1-Y_s^2\right|^2 d s\right]
+	\end{aligned}
+\end{equation}
+and, by Gronwall's lemma,
+\begin{equation}
+	\begin{aligned}
+		E\left[\left|Y_t^1-Y_t^2\right|^2\right] \leq C & \left\{E\left[\left|g\left(X_T^1\right)-g\left(X_T^2\right)\right|^2\right]\right. \\
+		& \left.+E\left[\int_t^T\left|f\left(s, X_s^1, Y_s^1, Z_s^1\right)-f\left(s, X_s^2, Y_s^1, Z_s^1\right)\right|^2 d s\right]\right\} .
+	\end{aligned}
+\end{equation}
+\textit{Step 2: $v(t,x)$ is a viscosity solution.}\\
+Let's prove it is a super-solution. Assume by contradiction that
+\begin{equation}
+	-\frac{\partial \varphi}{\partial t}(t, x)-\mathcal{L} \varphi(t, x)-f\left(t, x, v(t, x),\left(D_x \varphi\right)^{\prime}(t, x) \sigma(x)\right)>0.
+\end{equation}
+By continuity of $f, \varphi$ and its derivatives, there exists $h, \varepsilon>0$ such that for all $t \leq s \leq$ $t+h,|x-y| \leq \varepsilon$,
+$$
+\begin{aligned}
+	& v(s, y) \leq \varphi(s, y) \\
+	&-\frac{\partial \varphi}{\partial t}(s, y)-\mathcal{L} \varphi(s, y)-f\left(s, y, v(s, y),\left(D_x \varphi\right)^{\prime}(s, y) \sigma(y)\right)>0 .
+\end{aligned}
+$$
+Let $\tau=\inf \left\{s \geq t:\left|X_s^{t, x}-x\right| \geq \varepsilon\right\} \wedge(t+h)$, and consider the pair
+$$
+\left(Y_s^1, Z_s^1\right)=\left(Y_{s \wedge \tau}^{t, x}, 1_{[0, \tau]}(s) Z_s^{t, x}\right), \quad t \leq s \leq t+h
+$$
+By construction, $\left(Y_s^1, Z_s^1\right)$ solves the BSDE
+$$
+\begin{aligned}
+	-d Y_s^1 & =1_{[0, \tau]}(s) f\left(s, X_s^{t, x}, u\left(s, X_s^{t, x}\right), Z_s^1\right) d s-Z_s^1 d W_s, \quad t \leq s \leq t+h, \\
+	Y_{t+h}^1 & =u\left(\tau, X_\tau^{t, x}\right)
+\end{aligned}
+$$
+On the other hand, the pair
+$$
+\left(Y_s^2, Z_s^2\right)=\left(\varphi\left(s, X_{s \wedge \tau}^{t, x}\right), 1_{[0, \tau]}(s) D_x \varphi\left(s, X_s^{t, x}\right)^{\prime} \sigma\left(X_s^{t, x}\right)\right), \quad t \leq s \leq t+h
+$$
+satisfies, by Itô's formula, the BSDE
+$$
+\begin{aligned}
+	-d Y_s^2 & =-1_{[0, \tau]}(s)\left(\frac{\partial \varphi}{\partial t}+\mathcal{L} \varphi\right)\left(s, X_s^{t, x}\right)-Z_s^2 d W_s, \quad t \leq s \leq t+h, \\
+	Y_{t+h}^1 & =\varphi\left(\tau, X_\tau^{t, x}\right) .
+\end{aligned}
+$$
+From the inequalities (6.18)-(6.19), and the strict comparison principle in Theorem 6.2.2, we deduce $Y_0^1<Y_0^2$, i.e. $u(t, x)<\varphi(t, x)$, a contradiction.
+\end{proof}
+Finally, note that this representation can be restated in a more similar form to the linear Feynman-Kac formula as
+\begin{theorem}[]
+	Under assumptions the same assumptions as \ref{thm:KFnonReps}, the function defined by 
+	\begin{equation}
+		v(t, x):=Y_t^{t, x}=\mathbb{E}\left[g\left(X_T^{t, x}\right)+\int_t^T f\left(s, X_s^{t, x}, Y_s^{t, x}, Z_s^{t, x}\right) d s\right],
+	\end{equation}
+where $(X_t,Y_T,Z_T)$ is the solution to the FBSE \ref{eqn:Uncoupled} restricted to $[t,T]$, is a viscosity solution to the parabolic PDE \eqref{eqn:FKNolineal}.
+\end{theorem}
+

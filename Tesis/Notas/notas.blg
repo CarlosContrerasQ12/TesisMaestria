@@ -1,15 +1,15 @@
 [0] Config.pm:306> INFO - This is Biber 2.18
 [0] Config.pm:309> INFO - Logfile is 'notas.blg'
-[102] biber:340> INFO - === dom mar 12, 2023, 23:51:20
-[123] Biber.pm:418> INFO - Reading 'notas.bcf'
-[244] Biber.pm:978> INFO - Found 2 citekeys in bib section 0
-[268] Biber.pm:4401> INFO - Processing section 0
-[283] Biber.pm:4592> INFO - Looking for bibtex file 'PDEsML.bib' for section 0
-[291] bibtex.pm:1713> INFO - LaTeX decoding ...
-[409] bibtex.pm:1518> INFO - Found BibTeX data source 'PDEsML.bib'
-[487] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[487] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[487] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[487] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
-[496] bbl.pm:654> INFO - Writing 'notas.bbl' with encoding 'UTF-8'
-[499] bbl.pm:757> INFO - Output to notas.bbl
+[111] biber:340> INFO - === vie mar 24, 2023, 08:16:21
+[133] Biber.pm:418> INFO - Reading 'notas.bcf'
+[260] Biber.pm:978> INFO - Found 2 citekeys in bib section 0
+[285] Biber.pm:4401> INFO - Processing section 0
+[302] Biber.pm:4592> INFO - Looking for bibtex file 'PDEsML.bib' for section 0
+[310] bibtex.pm:1713> INFO - LaTeX decoding ...
+[431] bibtex.pm:1518> INFO - Found BibTeX data source 'PDEsML.bib'
+[513] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[514] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[514] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[514] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
+[523] bbl.pm:654> INFO - Writing 'notas.bbl' with encoding 'UTF-8'
+[527] bbl.pm:757> INFO - Output to notas.bbl

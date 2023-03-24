@@ -2,6 +2,7 @@
 \documentclass{article}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
 \usepackage[margin=1in]{geometry}
 \usepackage[most]{tcolorbox}
 \usepackage{amsmath}
@@ -86,7 +87,7 @@
 	\begin{enumerate}
 		\item Entender BSDE \greencheck
 		\item Escribir conexión PDE-BSDE
-		\item Falta completar comparison!
+		\item Arreglar dimensiones en cap 1, para $Y$ general
 		\item Programar reflexión en frontera
 		\item Deep Fictious Play
 		\item Escribir Crowd motion
@@ -121,19 +122,15 @@
     \HRule\par
     \section*{Preguntas}
 	\begin{enumerate}
-	\item ¿En que sentido converge a la solución?
-	\item ¿Qué pasaría si se cambia la discretización de Euler por una mejor?¿Afecta el modo de convergencia?
+	\item En que sentido converge a la solución?
+	\item Qué pasaría si se cambia la discretización de Euler por una mejor?Afecta el modo de convergencia?
 	\end{enumerate}
     \HRule\par
     \section*{Probabilidad}
     \subsection*{Preguntas}
     \begin{itemize}
     	\item Es $E[\int_{0}^{T} |f|^2]<\infty$ equivalente a que $\int_{0}^{T}|f|^2<\infty$ a.s?
-    	\item Revisar desigualdad de doob en prueba
-    	\item Typo al aplicar Bukholder en existencia
-    	\item Typo al aplicar Ito en linear BSDE(NO corregido)
-    	\item En comparación de BSDEs, ¿porque $\Gamma$ es positivo?
-    	\item Entender bien la prueba de FBSDEs
+    	\item Por que Feynman-Kac se parece a un problema de control?
     \end{itemize}
     \subsection*{Para recordar}
     \begin{recordar}[Filtración aumentada]

@@ -14,6 +14,27 @@
 \usepackage{color}   %May be necessary if you want to color links
 \usepackage{hyperref}
 \usepackage{comment}
+\usepackage{xcolor}
+\usepackage{soul}
+\makeatletter
+\newcommand{\hlLarge}[1]{%
+	\setbox\@tempboxa\hbox{#1}%
+	\ifdim\wd\@tempboxa>\linewidth
+	\noindent
+	\colorbox{yellow}{%
+		\parbox{\dimexpr\linewidth-2\fboxsep}{#1}%
+	}%
+	\else
+	\noindent
+	\colorbox{yellow}{#1}%
+	\fi}%Highlighter.
+\makeatother
+\usepackage{framed}
+\colorlet{shadecolor}{yellow}
+
+\DeclareRobustCommand{\hlgreen}[1]{{\sethlcolor{green}\hl{#1}}}
+\newcommand{\hlc}[2][]{\hl{#2}(\hlgreen{#1})}
+
 \hypersetup{
 	colorlinks=true, %set true if you want colored links
 	linktoc=all,     %set to all if you want both sections and subsections linked
