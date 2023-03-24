@@ -100,7 +100,7 @@ Here we consider the backward stochastic differential equation
 	Y_t=\xi+\int_t^T f\left(s, Y_s, Z_s\right) d s-\int_t^T Z_s \cdot d W_s, \quad 0 \leq t \leq T
 	\end{equation}
 \end{definition}
-Now we establish an existence and uniqueness theorem for $\bbR$-valued process, which can be extended to $\bbR^d$-valued processes. 
+Now we establish an existence and uniqueness theorem for $\bbR$-valued process, which can be extended to $\bbR^m$-valued processes. 
 \begin{assumptions}
 	\label{ass:BSDEexistence}
 	Let $(\xi,f)$ satisfy
@@ -125,7 +125,7 @@ Given a pair $(\xi,f)$, called the terminal condition and the driver of the BSDE
 To give a demonstration we will need the following inequalities about SDEs, whose proofs will be omitted.
 \begin{theorem}[Doob's martingale inequality \cite{mao_stochastic_2008}]
 	\label{thm:Doobs}
-	Let $\{M_t\}_t\geq 0$ be a $\bbR^d$-valued martingale in $L^{p}(\Omega;\bbR^d)$. Let $[0,T]$ be a bounded interval with $T>0$ and let $p>1$. Then
+	Let $\{M_t\}_t\geq 0$ be a $\bbR^m$-valued martingale in $L^{p}(\Omega;\bbR^m)$. Let $[0,T]$ be a bounded interval with $T>0$ and let $p>1$. Then
 	\begin{equation}
 		\mathbb{E}\left[ \sup_{0\leq t\leq T}|M_t|^p\right]\leq \left(\frac{p}{p-1}\right)^p \mathbb{E}[|M_T|^p],
 	\end{equation}
@@ -137,15 +137,15 @@ To give a demonstration we will need the following inequalities about SDEs, whos
 \begin{theorem}[Burkholder-Davis-Gundy inequality
  \cite{mao_stochastic_2008}]
  \label{thm:BDGineq}
-	Let $g\in L^2(\bbR^+;\bbR^{d\times m})$. Define for $t\geq 0$
+	Let $g\in L^2(\bbR^+;\bbR^{m\times d})$. Define for $t\geq 0$
 	\begin{equation*}
 		x(t)=\int_{0}^{t}g(s)dW_s\quad \text{ and }\quad  A(t)=\int_{0}^{t}|g(s)|^2 ds
 	\end{equation*}
-	then, for every $p>0$ there exist universal positive constants $c_p,C_p$, depending only on $p$, such that the following inequalities hold
+	then, for every $p>0$ there exist universal positive constants $c_p,C_p$, depending only on $p$, such that the following inequalities hold,
 	\begin{equation}
 		c_p\mathbb{E}[|A(t)|^{\frac{p}{2}}]\leq \mathbb{E}\left[\sup_{0\leq s\leq t}|x(s)|^p\right]\leq C_p\mathbb{E}[|A(t)|^{\frac{p}{2}}],
 	\end{equation}
-in particular, if $p=1$, we can take $c_p=\frac{1}{2}$ and $C_p=4\sqrt{2}$
+in particular, if $p=1$, we can take $c_p=\frac{1}{2}$ and $C_p=4\sqrt{2}$.
 \end{theorem}
 \begin{proof}[Proof of theorem \ref{thm:existence} ]
 Here we give a fixed point argument. To do it, lets consider a pair of process $(U,V)\in\Sspa\times\Hspa$ and, as in the motivation example, consider the martingale
@@ -412,7 +412,14 @@ We will start by the linear case to introduce the necessity for a non-linear gen
 		&X_t=x,
 	\end{split}
 \end{equation}
-where, again,  $W_t$ is a $d$-dimensional Brownian motion, $\mu$ is $\bbR^n$-valued function, $\sigma$ is a $(n\times d)$-valued matrix of functions and $x$ is the initial condition.
+where, again,  $W_t$ is a $d$-dimensional Brownian motion, $\mu$ is $\bbR^n$-valued function, $\sigma$ is a $(n\times d)$-valued matrix of functions and $x\in\bbR^n$ is the initial condition. We have the following estimate 
+\begin{theorem}[\cite{carmona_lectures_2016}]
+	\label{thm:estimationSDE}
+		Let $\mu$ and $\sigma$ satisfy conditions $I$ and $III$ of assumptions \ref{ass:FBSDEexistence}, then, there exist a constant $C>0$ such that the solution to \ref{eqn:FKprocess} satisfies
+		\begin{equation}
+			\expect*{\sup_{t\leq s\leq T}|X_s|^2}\leq C(1+\expect*{|x|^2})e^{C(T-t)}.
+		\end{equation} 
+\end{theorem}
 
 Now, for a fixed $T>0$, consider the following parabolic PDE with terminal condition for the function $v(t,x):\bbR^+\times \bbR^n\to \bbR$,
 \begin{equation}
@@ -425,7 +432,7 @@ Now, for a fixed $T>0$, consider the following parabolic PDE with terminal condi
 where $f(x,t)$ and $g(x)$ are some $\bbR$-valued continuous functions, $k(x,t)$ is a non-negative $\bbR$-valued function, and $\mathcal{L}_t$ is the \textit{generator} of the process $X_s$, defined as
 \begin{equation}
 	\begin{split}
-		\mathcal{L}_tv&=\mu(t,x)\cdot \nabla_x v(t,x)+\frac{1}{2}\Tr(\sigma(t,x)\sigma^{T}\nabla_x^2v(t,x))\\
+		\mathcal{L}_tv&=\mu(t,x)\cdot D_x v(t,x)+\frac{1}{2}\Tr(\sigma(t,x)\sigma^{T}(t,x)D_x^2v(t,x))\\
 		&=\sum_{i=1}^{n}\mu_i(t,x)\dpartial{v}{x_i}(t,x)+\sum_{1,k=1}^{n}a_{i,k}(t,x)\frac{\partial^2 v}{\partial x_i\partial x_k}(t,x),
 	\end{split}
 \end{equation} 
@@ -435,27 +442,54 @@ where we denote by $a_{i,k}$ the coefficients of the \textit{diffusion matrix}, 
 \end{equation}
 
 The linear Feynman-Kac formula establishes a connection between the process satisfying \eqref{eqn:FKprocess} and the classical solution to equation \eqref{eqn:FKequation} as follows
+\begin{comment}
+	\begin{assumptions}
+		\label{ass:FK}
+		Let $\mu$ and $\sigma$ satisfy conditions $I$ and $III$ of assumptions \ref{ass:FBSDEexistence}, and 
+		\begin{enumerate}[I.]
+			\item The function $g(t,x):\bbR^n\to \bbR$ is continuous and there exist constants $L_g>0$ and $\lambda_g\geq 1$ such that $|g(x)|\leq L_g(1+|x|^{2\lambda_g})$ or $g(x)\geq 0$ for all $x\in \bbR^n$.
+			\item The function $f(t,x):\bbR\times\bbR^n\to \bbR$ is continuous and there exist constants $L_f>0$ and $\lambda_f\geq 1$ such that $|f(t,x)|\leq L_f(1+|x|^{2\lambda_f})$ or $f(t,x)\geq 0$ for all $x\in \bbR^n$ and $t\in [0,T]$. 
+			\item The function $k(t,x):\bbR\times \bbR^{n}\to \bbR^{+}$ is a continuous function bounded above, i.e, there exist a constant $\bar{k}>0$ such that $k(t,x)\leq \bar{k}$ for all $x\in \bbR^n$ and $t\in[0,T]$
+			\item The function $v(t,x):[0,T]\times \bbR^n\to \bbR$ is continuous, one time differentiable in $t$, and two times differentiable in $x$, and satisfies the PDE \eqref{eqn:FKequation}, as well as a polynomial growth condition, i.e, there exist $L_v>0$ and $\lambda_v\geq 1$ such that  $\max_{0\leq t\leq T}|v(t,x)|\leq L_v(1+|x|^{2\lambda_v})$ for all $x\in\bbR^n$.
+		\end{enumerate}
+	\end{assumptions}
+\end{comment}
 \begin{assumptions}
 	\label{ass:FK}
-	Let $\mu$ and $\sigma$ satisfy conditions $I$ and $III$ of assumptions \ref{ass:FBSDEexistence}, and 
+	Let $\mu$ and $\sigma$ satisfy conditions $I$ and $III$ of assumptions \ref{ass:FBSDEexistence}, and assume that
 	\begin{enumerate}[I.]
-		\item The function $g(t,x):\bbR^n\to \bbR$ is continuous and there exist constants $L_g>0$ and $\lambda_g\geq 1$ such that $|g(x)|\leq L_g(1+|x|^{2\lambda_g})$ or $g(x)\geq 0$ for all $x\in \bbR^n$.
-		\item The function $f(t,x):\bbR\times\bbR^n\to \bbR$ is continuous and there exist constants $L_f>0$ and $\lambda_f\geq 1$ such that $|f(t,x)|\leq L_f(1+|x|^{2\lambda_f})$ or $f(t,x)\geq 0$ for all $x\in \bbR^n$ and $t\in [0,T]$. 
-		\item The function $k(t,x):\bbR\times \bbR^{n}\to \bbR^{+}$ is a non-negative continuous function.
-		\item The function $v(t,x):[0,T]\times \bbR^n\to \bbR$ is continuous, one time differentiable in $t$, and two times differentiable in $x$, and satisfies the PDE \eqref{eqn:FKequation}, as well as a polynomial growth condition, i.e, there exist $L_v>0$ and $\lambda_v\geq 1$ such that  $\max_{0\leq t\leq T}|v(t,x)|\leq L_v(1+|x|^{2\lambda_v})$ for all $x\in\bbR^n$.
+		\item The functions $g(x):\bbR^n\to \bbR$, $f(t,x):\bbR\times\bbR^n\to \bbR$ and $k(t,x):\bbR\times \bbR^{n}\to \bbR^{+}$ are continuous. 
+		\item The function $v(t,x):[0,T]\times \bbR^n\to \bbR$ is continuous in $[0,T]\times \bbR^{n}$, one time differentiable in $t$, and two times differentiable in $x$, and satisfies the PDE \eqref{eqn:FKequation}. Moreover, its first derivative in $x$ is bounded, i.e , $|D_x v(t,x)|<M$ for some constant $M$ and all $t\in[0,T]$ and $x\in\bbR^n$.
 	\end{enumerate}
 \end{assumptions}
-\begin{theorem}[Linear Feynman-Kac formula \cite{karatzas_brownian_1996}]
+\begin{theorem}[Linear Feynman-Kac formula \cite{carmona_lectures_2016}]
 	Under the assumptions \ref{ass:FK}, the solution $v(t,x)$ to the equation \eqref{eqn:FKequation} admits the stochastic representation 
 	\begin{equation}
-		v(t,x)=\expect*{g(X_{T}^{t,x})e^{-\int_{t}^{T}k(s,X_{s}^{t,x})ds}+\int_{t}^{T}f(s,X_{s}^{t,x})e^{-\int_{t}^{s}k(u,X_{u}^{t,x})du}ds}
+		v(t,x)=\expect*{g(X_{T}^{t,x})e^{-\int_{t}^{T}k(s,X_{s}^{t,x})ds}+\int_{t}^{T}f(s,X_{s}^{t,x})e^{-\int_{t}^{s}k(u,X_{u}^{t,x})du}ds},
 	\end{equation}
+	 for all $t\in[0,T]$ and $x\in\bbR^n$. In particular, this solution is unique.
 \end{theorem}
 \begin{proof}
-	contenidos...
+	In order to simplify notation, we set $X_s=X_{s}^{x,t}$. Let's apply Ito's formula to the process  $v(s,X_s)e^{-\int_{t}^{s}k(u,X_{u})du}$ in $s\in[t,T]$ to obtain
+	\begin{equation}
+		\begin{split}
+		e^{-\int_{t}^{T}k(u,X_{u})du}v(T,X_T)&=e^{-\int_{t}^{t}k(u,X_{u})du}v(t,X_t)\\
+		&+\int_{t}^{T}e^{-\int_{t}^{s}k(u,X_{u})du}\left(\dpartial{v}{t}(s,X_s)-k(s,X_s)v(s,K_s)+\mathcal{L}_s v(s,X_s)\right)ds\\
+		&+\int_{t}^{T}e^{-\int_{t}^{s}k(u,X_{u})du}D_x v(s,X_s)\cdot \sigma(s,X_s)dW_s\\
+		&=v(t,X_t)-\int_{t}^{T}e^{-\int_{t}^{s}k(u,X_{u})du}f(s,X_s)ds\\
+		&+\int_{t}^{T}e^{-\int_{t}^{s}k(u,X_{u})du}D_x v(s,X_s)\cdot \sigma(s,X_s)dW_s,
+		\end{split},
+	\end{equation}
+and therefore, using that $X_t=x$, $v(T,X_t)=g(X_T)$ and solving for $v(x,t)$, we have
+\begin{equation}
+	\begin{split}
+		v(t,x)&=g(X_T)e^{-\int_{t}^{T}k(u,X_{u})du}+\int_{t}^{T}f(s,X_s)e^{-\int_{t}^{s}k(u,X_{u})du}ds\\
+		&-\int_{t}^{T}e^{-\int_{t}^{s}k(u,X_{u})du}D_x v(s,X_s)\cdot \sigma(s,X_s)dW_s.
+	\end{split}
+\end{equation}
+To obtain the desired formula, we take expectation to this expression, and observe that the stochastic integral is a square integrable martingale by assumption \ref{ass:FK} $III$ on $D_x v$, the non-negativity of $k$ and the linear growth condition on $\sigma$ and the estimation \ref{thm:estimationSDE}, therefore it's expected value is constant $0$.
 \end{proof}
+Note that we required that equation \eqref{eqn:FKequation} has a classical smooth solution, for which we need some regularity conditions on $\mu$, $\sigma$ and growth conditions on $f$ and $g$ to ensure the uniform ellipticity of $\mathcal{L}_t$. However, even if there is no smooth solution to this problem, the Feynman-Kac formula may provide a solution with other meaning, which will be named a viscosity solution and will be defined in what follows.  
 \subsection{The non-linear Feynman-Kac formula}
 
  
-
-

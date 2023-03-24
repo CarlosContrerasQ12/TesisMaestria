@@ -811,48 +811,54 @@
       \endverb
       \keyw{backward stochastic equation,constrained portfolio,hedging portfolios,incomplete market,Malliavin derivative,mathematical finance,pricing,recursive utility,stochastic control,viscosity solution of {PDE}}
     \endentry
-    \entry{karatzas_brownian_1996}{book}{}
-      \name{author}{2}{}{%
-        {{hash=f2b9c76604ea66b2ab28d18a454d3fbf}{%
-           family={Karatzas},
-           familyi={K\bibinitperiod},
-           given={Ioannis},
-           giveni={I\bibinitperiod}}}%
-        {{hash=9e110e7c548ab825117ed32cb12bdfd3}{%
-           family={Shreve},
-           familyi={S\bibinitperiod},
-           given={Steven\bibnamedelima E.},
-           giveni={S\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+    \entry{carmona_lectures_2016}{book}{}
+      \name{author}{1}{}{%
+        {{hash=370488c27988d8e01125afd81ea71055}{%
+           family={Carmona},
+           familyi={C\bibinitperiod},
+           given={René},
+           giveni={R\bibinitperiod}}}%
       }
       \list{location}{1}{%
-        {New York}%
+        {Philadelphia, {PA}}%
       }
-      \list{publisher}{1}{%
-        {Springer}%
+      \list{publisher}{2}{%
+        {Society for Industrial}%
+        {Applied Mathematics}%
       }
-      \strng{namehash}{53d5a81a823486de515935e3bf6435a6}
-      \strng{fullhash}{53d5a81a823486de515935e3bf6435a6}
-      \strng{bibnamehash}{53d5a81a823486de515935e3bf6435a6}
-      \strng{authorbibnamehash}{53d5a81a823486de515935e3bf6435a6}
-      \strng{authornamehash}{53d5a81a823486de515935e3bf6435a6}
-      \strng{authorfullhash}{53d5a81a823486de515935e3bf6435a6}
+      \strng{namehash}{370488c27988d8e01125afd81ea71055}
+      \strng{fullhash}{370488c27988d8e01125afd81ea71055}
+      \strng{bibnamehash}{370488c27988d8e01125afd81ea71055}
+      \strng{authorbibnamehash}{370488c27988d8e01125afd81ea71055}
+      \strng{authornamehash}{370488c27988d8e01125afd81ea71055}
+      \strng{authorfullhash}{370488c27988d8e01125afd81ea71055}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{edition}{2nd ed}
-      \field{isbn}{978-0-387-97655-6 978-3-540-97655-4}
+      \field{day}{18}
+      \field{isbn}{978-1-61197-423-2 978-1-61197-424-9}
       \field{langid}{english}
-      \field{number}{113}
-      \field{pagetotal}{470}
-      \field{series}{Graduate texts in mathematics}
-      \field{title}{Brownian motion and stochastic calculus}
-      \field{year}{1996}
+      \field{month}{2}
+      \field{title}{Lectures on {BSDEs}, Stochastic Control, and Stochastic Differential Games with Financial Applications}
+      \field{urlday}{21}
+      \field{urlmonth}{2}
+      \field{urlyear}{2023}
+      \field{year}{2016}
       \field{dateera}{ce}
-      \verb{file}
-      \verb Karatzas y Shreve - 1996 - Brownian motion and stochastic calculus.pdf:/home/carlos/Zotero/storage/338KR42L/Karatzas y Shreve - 1996 - Brownian motion and stochastic calculus.pdf:application/pdf
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1137/1.9781611974249
       \endverb
-      \keyw{Brownian motion processes,Stochastic analysis}
+      \verb{file}
+      \verb Carmona - 2016 - Lectures on BSDEs, Stochastic Control, and Stochas.pdf:/home/carlos/Zotero/storage/45ZWRYKP/Carmona - 2016 - Lectures on BSDEs, Stochastic Control, and Stochas.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://epubs.siam.org/doi/book/10.1137/1.9781611974249
+      \endverb
+      \verb{url}
+      \verb http://epubs.siam.org/doi/book/10.1137/1.9781611974249
+      \endverb
     \endentry
   \enddatalist
   \missing{PINNS2}
