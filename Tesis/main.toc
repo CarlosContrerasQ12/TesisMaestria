@@ -9,9 +9,17 @@
 \contentsline {subsection}{\numberline {2.2.2}The non-linear Feynman-Kac formula}{15}{subsection.2.2.2}%
 \contentsline {chapter}{\numberline {3}Deep Learning Methods for PDEs}{19}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Deep BSDE method}{19}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Deep BSDE with one network}{19}{subsection.3.1.1}%
 \contentsline {section}{\numberline {3.2}Deep Backward Dynamic Programming}{19}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Deep Splitting}{19}{section.3.3}%
+\contentsline {section}{\numberline {3.4}PINN's and mixed models}{19}{section.3.4}%
 \contentsline {chapter}{\numberline {4}Crowd motion modeling}{20}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Some examples}{20}{section.4.1}%
+\contentsline {section}{\numberline {4.2}N-agent games}{20}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Mean Field Games}{20}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Numerical methods}{20}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Finite differences}{20}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Deep Fictious Play}{20}{subsection.4.4.2}%
 \contentsline {chapter}{\numberline {5}An application}{21}{chapter.5}%
 \contentsline {chapter}{\numberline {6}Conclusion}{22}{chapter.6}%
 \contentsline {chapter}{\numberline {A}Neural Networks}{23}{chapter.1}%
