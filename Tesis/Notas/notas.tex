@@ -86,9 +86,9 @@
 	\section*{To do list}
 	\begin{enumerate}
 		\item Entender BSDE \greencheck
-		\item Escribir conexión PDE-BSDE
+		\item Escribir conexión PDE-BSDE \greencheck
 		\item Arreglar dimensiones en cap 1, para $Y$ general
-		\item Programar reflexión en frontera
+		\item Programar reflexión en frontera \greencheck
 		\item Deep Fictious Play
 		\item Escribir Crowd motion
 		\item Simular diferencias finitas
@@ -143,7 +143,24 @@
     	
     	Una filtración continua a la derecha y completa se llama filtración aumentada.
     \end{recordar}
-	\section*{Deep BSDE}
+	\section*{Deep Learning schemes}
+	\subsection*{Preguntas}
+	\begin{itemize}
+		\item Porqué se puede resolver hacia adelante la bsde? Qué significa eso?
+		\item No hay forma de meter el parámetro t como entrada en la red neuronal?
+		\item Como aseguramos que el proceso se quede adentro de la habitación?
+	\end{itemize}
+\subsection*{To do list}
+\begin{enumerate}
+	\item Programar Deep BSDE Flux
+	\item Programar DBDP y Deep Splitting 
+	\item Programar Merged Deep BSDE
+	\item Programar PINNs interpolation
+	\item Comprobar con problemas de frontera
+	\item Programar Reflexion 1d
+	\item Calcular controles
+	\item Escribir
+\end{enumerate}
 	Vamos a intentar resolver ecuaciones del tipo 
 	\begin{equation}
 		\begin{gathered}
@@ -245,5 +262,19 @@ y asumiendo que el control no se aplica a la volatilidad se escribe
 	
 	return M
 \end{lstlisting}
+\section*{N-agent games and Mean field modeling}
+	\subsection*{Preguntas}
+\begin{itemize}
+	\item Cual es la diferencia entre los tipos de control abierto, cerrado y markoviano? En qué afecta acá?
+	\item cuales son exactamente las dimensiones?
+\end{itemize}
+\subsection*{To do list}
+\begin{enumerate}
+	\item Programar deep fictious play
+	\item Programar diferencias finitas
+	\item Escribir contexto
+	\item Escribir Mean field
+	\item Escribir deep fictious
+\end{enumerate}
 \printbibliography
 \end{document}
