@@ -12,7 +12,8 @@
 \contentsline {subsection}{\numberline {3.1.1}Deep BSDE with one network}{19}{subsection.3.1.1}%
 \contentsline {section}{\numberline {3.2}Deep Backward Dynamic Programming}{19}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Deep Splitting}{19}{section.3.3}%
-\contentsline {section}{\numberline {3.4}PINN's and mixed models}{19}{section.3.4}%
+\contentsline {section}{\numberline {3.4}Raissi}{19}{section.3.4}%
+\contentsline {section}{\numberline {3.5}PINN's and mixed models}{19}{section.3.5}%
 \contentsline {chapter}{\numberline {4}Crowd motion modeling}{20}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Some examples}{20}{section.4.1}%
 \contentsline {section}{\numberline {4.2}N-agent games}{20}{section.4.2}%
