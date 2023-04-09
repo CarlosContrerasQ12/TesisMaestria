@@ -16,6 +16,8 @@
 \usepackage{comment}
 \usepackage{xcolor}
 \usepackage{soul}
+\usepackage[toc,titletoc,title]{appendix}
+\usepackage{tocloft}
 \makeatletter
 \newcommand{\hlLarge}[1]{%
 	\setbox\@tempboxa\hbox{#1}%
@@ -110,6 +112,7 @@
 \chapter*{Acknowledgements}
 A mi lulú y mi pancita.Nadita.
 
+\newpage
 
 \tableofcontents
 
@@ -139,9 +142,12 @@ A mi lulú y mi pancita.Nadita.
 \chapter{Conclusion}
 \input{chapters/conclusion}
 
-\appendix
-\chapter{Neural Networks}
-\input{chapters/appendix}
+\begin{appendices}
+	\chapter{Neural Networks}
+	\input{chapters/appendix}
+\end{appendices}
+%\appendix
+
 
 
 \printbibliography

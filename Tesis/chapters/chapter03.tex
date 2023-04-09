@@ -1,7 +1,36 @@
-\section{Deep BSDE method}
-\subsection{Deep BSDE with one network}
+Partial differential equations (PDE's) are ubiquitous among the tools for modeling complex phenomena in all sciences. However, we almost never have explicit solutions for them, making it difficult to describe those phenomenons and make accurate predictions about them. Hence, we need numerical methods to provide approximate solutions to those equations, for example, classical methods are finite differences, finite elements and spectral methods. Those rely on different discretizations of the particular problem that  we can use for calculating approximations in different forms and with varying levels of accuracy. Since the advent of fast computers and efficient tools for programming them, this process is effective for many kinds of problems.   
 
-\section{Deep Backward Dynamic Programming}
-\section{Deep Splitting}
-\section{Raissi}
-\section{PINN's and mixed models}
+Now, when we attempt to solve numerically some particular problem, we need to play with the trade-off between accuracy of the approximate solution and the computational cost needed to obtain it. Indeed, with those classical methods, a small approximation error requires a finer grid, which implies more computational resources to store and process the information required by the method. In consequence, for some problems, we may not be able to calculate an accurate enough solution in a feasible computational time.
+
+This is the case for high dimensional PDE's, for which the size of discretization usually scales exponentially with the number of points used for each dimension. For example, if we try to use a finite difference scheme in a $100$-dimensional unit square $[0,1]^{100}$ with $N$ points in each dimension, we would need $N^{100}$ points in total, making it impossible to even store them in a computer. In practice, high dimension can be considered as low as $d>4$, for which traditional methods cannot be used as regularly. This problem is known as the \textit{curse of dimensionality}, a term established by Bellman when considering problems in dynamic programming.
+
+High dimensional PDE's appear in many contexts, such as asset pricing, image denoising, statistical physics, many-body quantum mechanics, optimal control and game theory. Therefore, there is a necessity for numerical methods that are able to overcome this difficulty. Early attempts to solve this kind of problems used the connection between stochastic diffusions and parabolic PDE's, as we seemed in the preceding chapter. In fact, if the PDE is linear, the linear Feynman-Kac \ref{thm:LinearFK} formula can be used to provide an approximate solution by computing the expectation using simulated paths of the process through the  Monte-Carlo approach. The convergence of this formulation is \hlc[Sure?]{independent} of the dimension of the underlying process, and therefore does not suffer from the curse dimensionality.
+
+Nevertheless, if we try a similar approach using the non-linear Feynman-Kac formula \ref{thm:NonlinealFK} for more general non-linear equations, we would have to deal with solving numerically the associated BSDE. There are numerical methods to approximate the set of solution processes $(X,Y,Z)$, but they are not as simple as an Euler-Maruyama discretization for a forward process. Generally, they require the computation of conditional expectations that almost never are computationally cheap and hence is not a straightforward generalization of the former linear approach. Despite this, some progress has been made under this formulation, see for example \cite{chessari_numerical_nodate}.
+
+Representing functions in a high dimensional space is a problem encountered in many other areas of applied mathematics. Particularly, in recent times, the analysis and inference on big amounts of data has emerged as the fascinating research area of \textit{machine learning}. Many methods have been proposed for this goal, for example, regression methods, support vector machines and tree methods. Nonetheless, the approach that has encountered more success when trying to approximate high dimensional functions using big amounts of data is deep learning.  In this setting, we parametrize functions using structures that use composition of simpler function for approximate complex ones, these structures are called neural networks. We refer the reader to \autoref{chp:ApendixNN} for a brief introduction and to \cite{higham_deep_2019} for a deeper exposition of the topic.
+
+The idea of using this neural network parametrization of functions to solve PDE's can be tracked to the 80's, when in \cite{} a perceptron layer approximation was proposed to \hlc[Completar]{}. However, due to the high computational cost of training a neural network, a sucessfull attempt was not achieved until recently, with the works \cite{bibid}\hlc[Blablabla]{}. 
+
+This is a very new area of research, for which many open questions remain. Particularly, it is not well understood yet if the curse of dimensionality is solved, even if there is work for certain equations that ensures it \cite{bibid}. Also, there is not yet a good understanding of why different classes of neural networks are useful to approximate certain classes of functions and how to tune adequately its parameters to do it efficiently. In consequence, even if it is possible to give a convergence proof for certain cases, most algorithms rely on empirical experimentation and heuristic arguments to provide reasonable approximate solutions.    
+
+In this chapter we review some of these methods, implement them for toy examples and perform a comparison of speed, accuracy and practical usefulness for solving PDE's.   
+
+
+
+
+\section{Free boundary problems}
+\subsection{Deep BSDE method}
+
+\subsubsection*{Merged Deep BSDE}
+\subsubsection*{Residual Merged Deep BSDE}
+
+\subsection{Raissi's method}
+\subsection{Deep Splitting/Tensor train?}
+\subsection{An example}
+\section{Boundary problems}
+\subsection{Deep Galerkin method}
+\subsection{Interpolating BSDEs with PINNs}
+\subsection{Reflection on Boundary}
+
+\subsection{An example with optimal control}

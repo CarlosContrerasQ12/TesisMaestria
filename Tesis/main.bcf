@@ -2381,6 +2381,10 @@
     <bcf:citekey order="22" intorder="1">carmona_lectures_2016</bcf:citekey>
     <bcf:citekey order="23" intorder="1">pham_continuous-time_2009</bcf:citekey>
     <bcf:citekey order="24" intorder="1">pham_continuous-time_2009</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">chessari_numerical_nodate</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">higham_deep_2019</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">bibid</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">bibid</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

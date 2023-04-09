@@ -674,6 +674,7 @@
       \strng{authorbibnamehash}{3cc26ef31ed487cc0d1e401f969fc83a}
       \strng{authornamehash}{3cc26ef31ed487cc0d1e401f969fc83a}
       \strng{authorfullhash}{86dfdd9b393215828f78e1e7d3b76b9d}
+      \field{extraname}{1}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -858,6 +859,47 @@
       \endverb
       \verb{url}
       \verb http://epubs.siam.org/doi/book/10.1137/1.9781611974249
+      \endverb
+    \endentry
+    \entry{chessari_numerical_nodate}{article}{}
+      \name{author}{4}{}{%
+        {{hash=c1d0f307f0c2d7d48bb314367196e0e9}{%
+           family={Chessari},
+           familyi={C\bibinitperiod},
+           given={Jared},
+           giveni={J\bibinitperiod}}}%
+        {{hash=fd042e1f6aa8f34fe4594b6276a466d5}{%
+           family={Kawai},
+           familyi={K\bibinitperiod},
+           given={Reiichiro},
+           giveni={R\bibinitperiod}}}%
+        {{hash=460bb8d894ff160172b3e3d0e376ea7b}{%
+           family={Shinozaki},
+           familyi={S\bibinitperiod},
+           given={Yuji},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=cb66cb34e25f56f889d7b1053e4c0823}{%
+           family={Yamada},
+           familyi={Y\bibinitperiod},
+           given={Toshihiro},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{3cc26ef31ed487cc0d1e401f969fc83a}
+      \strng{fullhash}{86dfdd9b393215828f78e1e7d3b76b9d}
+      \strng{bibnamehash}{3cc26ef31ed487cc0d1e401f969fc83a}
+      \strng{authorbibnamehash}{3cc26ef31ed487cc0d1e401f969fc83a}
+      \strng{authornamehash}{3cc26ef31ed487cc0d1e401f969fc83a}
+      \strng{authorfullhash}{86dfdd9b393215828f78e1e7d3b76b9d}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Backward Stochastic Differential Equations ({BSDEs}) have been widely employed in various areas of social and natural sciences, such as the pricing and hedging of ﬁnancial derivatives, stochastic optimal control problems, optimal stopping problems and gene expression. Most {BSDEs} cannot be solved analytically and thus numerical methods must be applied to approximate their solutions. There have been a variety of numerical methods proposed over the past few decades as well as many more currently being developed. For the most part, they exist in a complex and scattered manner with each requiring a variety of assumptions and conditions. The aim of the present work is thus to systematically survey various numerical methods for {BSDEs}, and in particular, compare and categorize them, for further developments and improvements. To achieve this goal, we focus primarily on the core features of each method based on an extensive collection of 333 references: the main assumptions, the numerical algorithm itself, key convergence properties and advantages and disadvantages, to provide an up-to-date coverage of numerical methods for {BSDEs}, with insightful summaries of each and a useful comparison and categorization.}
+      \field{langid}{english}
+      \field{title}{Numerical methods for backward stochastic differential equations: A survey}
+      \verb{file}
+      \verb Chessari et al. - Numerical methods for backward stochastic differen.pdf:/home/carlos/Zotero/storage/YUYKMCJ8/Chessari et al. - Numerical methods for backward stochastic differen.pdf:application/pdf
       \endverb
     \endentry
   \enddatalist

@@ -465,6 +465,7 @@ The linear Feynman-Kac formula establishes a connection between the process sati
 	\end{enumerate}
 \end{assumptions}
 \begin{theorem}[Linear Feynman-Kac formula \cite{carmona_lectures_2016}]
+	\label{thm:LinearFK}
 	Under the assumptions \ref{ass:FK}, the solution $v(t,x)$ to the equation \eqref{eqn:FKequation} admits the stochastic representation 
 	\begin{equation}
 		v(t,x)=\expect*{g(X_{T}^{t,x})e^{-\int_{t}^{T}k(s,X_{s}^{t,x})ds}+\int_{t}^{T}f(s,X_{s}^{t,x})e^{-\int_{t}^{s}k(u,X_{u}^{t,x})du}ds},
@@ -633,6 +634,7 @@ From the inequalities (6.18)-(6.19), and the strict comparison principle in Theo
 \end{proof}
 Finally, note that this representation can be restated in a more similar form to the linear Feynman-Kac formula as
 \begin{theorem}[]
+	\label{thm:NonlinealFK}
 	Under assumptions the same assumptions as \ref{thm:KFnonReps}, the function defined by 
 	\begin{equation}
 		v(t, x):=Y_t^{t, x}=\mathbb{E}\left[g\left(X_T^{t, x}\right)+\int_t^T f\left(s, X_s^{t, x}, Y_s^{t, x}, Z_s^{t, x}\right) d s\right],
