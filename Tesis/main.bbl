@@ -1021,6 +1021,179 @@
       \endverb
       \keyw{60H35,65C30,65M75,Backward stochastic differential equations,Control,Deep learning,Feynman-Kac,High dimension,{PDEs}}
     \endentry
+    \entry{chan-wai-nam_machine_2018}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=427d043f7276d80858a4d6ce40ffd384}{%
+           family={Chan-Wai-Nam},
+           familyi={C\bibinithyphendelim W\bibinithyphendelim N\bibinitperiod},
+           given={Quentin},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=a221d9622d6b04d560b45619cd365e38}{%
+           family={Mikael},
+           familyi={M\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ea3f10f25d882688b0162b224cc49e89}{%
+           family={Warin},
+           familyi={W\bibinitperiod},
+           given={Xavier},
+           giveni={X\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{bdec6dc3095b91a40f7ee97ab7e4d528}
+      \strng{fullhash}{bdec6dc3095b91a40f7ee97ab7e4d528}
+      \strng{bibnamehash}{bdec6dc3095b91a40f7ee97ab7e4d528}
+      \strng{authorbibnamehash}{bdec6dc3095b91a40f7ee97ab7e4d528}
+      \strng{authornamehash}{bdec6dc3095b91a40f7ee97ab7e4d528}
+      \strng{authorfullhash}{bdec6dc3095b91a40f7ee97ab7e4d528}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Recent machine learning algorithms dedicated to solving semi-linear {PDEs} are improved by using different neural network architectures and different parameterizations. These algorithms are compared to a new one that solves a fixed point problem by using deep learning techniques. This new algorithm appears to be competitive in terms of accuracy with the best existing algorithms.}
+      \field{day}{10}
+      \field{eprinttype}{arxiv}
+      \field{month}{12}
+      \field{number}{{arXiv}:1809.07609}
+      \field{title}{Machine Learning for semi linear {PDEs}}
+      \field{urlday}{26}
+      \field{urlmonth}{3}
+      \field{urlyear}{2023}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{eprint}
+      \verb 1809.07609 [cs, math, stat]
+      \endverb
+      \verb{file}
+      \verb arXiv Fulltext PDF:/home/carlos/Zotero/storage/88IC72XX/Chan-Wai-Nam et al. - 2018 - Machine Learning for semi linear PDEs.pdf:application/pdf;arXiv.org Snapshot:/home/carlos/Zotero/storage/LXCE4JAV/1809.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1809.07609
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1809.07609
+      \endverb
+      \keyw{Computer Science - Machine Learning,Statistics - Machine Learning,65C05,49L25,65C99,Mathematics - Analysis of {PDEs}}
+    \endentry
+    \entry{han_convergence_2020}{article}{}
+      \name{author}{2}{}{%
+        {{hash=dcbed821c92a82aa9d46cf353c58ec62}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Jiequn},
+           giveni={J\bibinitperiod}}}%
+        {{hash=fd05e790c41c09661660ac4f35ed744a}{%
+           family={Long},
+           familyi={L\bibinitperiod},
+           given={Jihao},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{e06737126e5207ae99c037f5c4b22882}
+      \strng{fullhash}{e06737126e5207ae99c037f5c4b22882}
+      \strng{bibnamehash}{e06737126e5207ae99c037f5c4b22882}
+      \strng{authorbibnamehash}{e06737126e5207ae99c037f5c4b22882}
+      \strng{authornamehash}{e06737126e5207ae99c037f5c4b22882}
+      \strng{authorfullhash}{e06737126e5207ae99c037f5c4b22882}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The recently proposed numerical algorithm, deep {BSDE} method, has shown remarkable performance in solving high-dimensional forward-backward stochastic differential equations ({FBSDEs}) and parabolic partial differential equations ({PDEs}). This article lays a theoretical foundation for the deep {BSDE} method in the general case of coupled {FBSDEs}. In particular, a posteriori error estimation of the solution is provided and it is proved that the error converges to zero given the universal approximation capability of neural networks. Numerical results are presented to demonstrate the accuracy of the analyzed algorithm in solving high-dimensional coupled {FBSDEs}.}
+      \field{eprinttype}{arxiv}
+      \field{issn}{2367-0126}
+      \field{journaltitle}{Probability, Uncertainty and Quantitative Risk}
+      \field{month}{12}
+      \field{number}{1}
+      \field{shortjournal}{Probab Uncertain Quant Risk}
+      \field{title}{Convergence of the Deep {BSDE} Method for Coupled {FBSDEs}}
+      \field{urlday}{10}
+      \field{urlmonth}{4}
+      \field{urlyear}{2023}
+      \field{volume}{5}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{5}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1186/s41546-020-00047-w
+      \endverb
+      \verb{eprint}
+      \verb 1811.01165 [cs, math]
+      \endverb
+      \verb{file}
+      \verb arXiv Fulltext PDF:/home/carlos/Zotero/storage/ZBMYGA95/Han y Long - 2020 - Convergence of the Deep BSDE Method for Coupled FB.pdf:application/pdf;arXiv.org Snapshot:/home/carlos/Zotero/storage/W623V8KV/1811.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1811.01165
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1811.01165
+      \endverb
+      \keyw{Computer Science - Machine Learning,Mathematics - Numerical Analysis,Mathematics - Probability}
+    \endentry
+    \entry{hure_deep_2020}{article}{}
+      \name{author}{3}{}{%
+        {{hash=3b6075cd0ba05bc749910ae11cd359c0}{%
+           family={Huré},
+           familyi={H\bibinitperiod},
+           given={Côme},
+           giveni={C\bibinitperiod}}}%
+        {{hash=63008f832cd1b7bff2b7965308101cb3}{%
+           family={Pham},
+           familyi={P\bibinitperiod},
+           given={Huyên},
+           giveni={H\bibinitperiod}}}%
+        {{hash=ea3f10f25d882688b0162b224cc49e89}{%
+           family={Warin},
+           familyi={W\bibinitperiod},
+           given={Xavier},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{3a46552915079364d2429ce9381a76a9}
+      \strng{fullhash}{3a46552915079364d2429ce9381a76a9}
+      \strng{bibnamehash}{3a46552915079364d2429ce9381a76a9}
+      \strng{authorbibnamehash}{3a46552915079364d2429ce9381a76a9}
+      \strng{authornamehash}{3a46552915079364d2429ce9381a76a9}
+      \strng{authorfullhash}{3a46552915079364d2429ce9381a76a9}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We propose new machine learning schemes for solving high dimensional nonlinear partial diﬀerential equations ({PDEs}). Relying on the classical backward stochastic diﬀerential equation ({BSDE}) representation of {PDEs}, our algorithms estimate simultaneously the solution and its gradient by deep neural networks. These approximations are performed at each time step from the minimization of loss functions deﬁned recursively by backward induction. The methodology is extended to variational inequalities arising in optimal stopping problems. We analyze the convergence of the deep learning schemes and provide error estimates in terms of the universal approximation of neural networks. Numerical results show that our algorithms give very good results till dimension 50 (and certainly above), for both {PDEs} and variational inequalities problems. For the {PDEs} resolution, our results are very similar to those obtained by the recent method in [{EHJ}17] when the latter converges to the right solution or does not diverge. Numerical tests indicate that the proposed methods are not stuck in poor local minima as it can be the case with the algorithm designed in [{EHJ}17], and no divergence is experienced. The only limitation seems to be due to the inability of the considered deep neural networks to represent a solution with a too complex structure in high dimension.}
+      \field{day}{31}
+      \field{issn}{0025-5718, 1088-6842}
+      \field{journaltitle}{Mathematics of Computation}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{number}{324}
+      \field{shortjournal}{Math. Comp.}
+      \field{title}{Deep backward schemes for high-dimensional nonlinear {PDEs}}
+      \field{urlday}{28}
+      \field{urlmonth}{2}
+      \field{urlyear}{2023}
+      \field{volume}{89}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1547\bibrangedash 1579}
+      \range{pages}{33}
+      \verb{doi}
+      \verb 10.1090/mcom/3514
+      \endverb
+      \verb{file}
+      \verb Huré et al. - 2020 - Deep backward schemes for high-dimensional nonline.pdf:/home/carlos/Zotero/storage/F337CQZ3/Huré et al. - 2020 - Deep backward schemes for high-dimensional nonline.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.ams.org/mcom/2020-89-324/S0025-5718-2020-03514-5/
+      \endverb
+      \verb{url}
+      \verb https://www.ams.org/mcom/2020-89-324/S0025-5718-2020-03514-5/
+      \endverb
+    \endentry
   \enddatalist
   \missing{PINNS2}
   \missing{PINNs}

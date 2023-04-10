@@ -1,34 +1,34 @@
 [0] Config.pm:306> INFO - This is Biber 2.18
 [0] Config.pm:309> INFO - Logfile is 'main.blg'
-[43] biber:340> INFO - === dom abr  9, 2023, 21:43:04
+[42] biber:340> INFO - === lun abr 10, 2023, 10:16:33
 [51] Biber.pm:418> INFO - Reading 'main.bcf'
-[95] Biber.pm:978> INFO - Found 22 citekeys in bib section 0
-[103] Biber.pm:4401> INFO - Processing section 0
-[109] Biber.pm:4592> INFO - Looking for bibtex file 'Probabilidad.bib' for section 0
-[110] bibtex.pm:1713> INFO - LaTeX decoding ...
-[122] bibtex.pm:1518> INFO - Found BibTeX data source 'Probabilidad.bib'
-[155] Biber.pm:4592> INFO - Looking for bibtex file 'PDEs ML.bib' for section 0
-[160] bibtex.pm:1713> INFO - LaTeX decoding ...
-[246] bibtex.pm:1518> INFO - Found BibTeX data source 'PDEs ML.bib'
-[285] Biber.pm:4592> INFO - Looking for bibtex file 'ControlOptimizacion.bib' for section 0
-[285] bibtex.pm:1713> INFO - LaTeX decoding ...
-[287] bibtex.pm:1518> INFO - Found BibTeX data source 'ControlOptimizacion.bib'
-[290] Biber.pm:4592> INFO - Looking for bibtex file 'BSDEs.bib' for section 0
-[291] bibtex.pm:1713> INFO - LaTeX decoding ...
-[307] bibtex.pm:1518> INFO - Found BibTeX data source 'BSDEs.bib'
-[339] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[339] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[339] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[339] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
-[348] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[357] bbl.pm:757> INFO - Output to main.bbl
-[357] Biber.pm:130> WARN - ISBN '978-3-540-89499-5 978-3-540-89500-8' in entry 'pham_continuous-time_2009' is invalid - run biber with '--validate_datamodel' for details.
-[357] Biber.pm:130> WARN - Duplicate entry key: 'pham_continuous-time_2009' in file 'BSDEs.bib', skipping ...
-[357] Biber.pm:130> WARN - ISBN '978-1-4939-7254-8 978-1-4939-7256-2' in entry 'zhang_backward_2017' is invalid - run biber with '--validate_datamodel' for details.
-[357] Biber.pm:130> WARN - ISBN '978-3-319-05713-2 978-3-319-05714-9' in entry 'pardoux_stochastic_2014' is invalid - run biber with '--validate_datamodel' for details.
-[357] Biber.pm:130> WARN - ISBN '978-1-4614-4285-1 978-1-4614-4286-8' in entry 'touzi_optimal_2013' is invalid - run biber with '--validate_datamodel' for details.
-[357] Biber.pm:130> WARN - ISBN '978-1-61197-423-2 978-1-61197-424-9' in entry 'carmona_lectures_2016' is invalid - run biber with '--validate_datamodel' for details.
-[357] Biber.pm:130> WARN - I didn't find a database entry for 'PINNs' (section 0)
-[357] Biber.pm:130> WARN - I didn't find a database entry for 'PINNS2' (section 0)
-[357] Biber.pm:130> WARN - I didn't find a database entry for 'bibid' (section 0)
-[357] Biber.pm:132> INFO - WARNINGS: 9
+[95] Biber.pm:978> INFO - Found 25 citekeys in bib section 0
+[104] Biber.pm:4401> INFO - Processing section 0
+[111] Biber.pm:4592> INFO - Looking for bibtex file 'Probabilidad.bib' for section 0
+[112] bibtex.pm:1713> INFO - LaTeX decoding ...
+[124] bibtex.pm:1518> INFO - Found BibTeX data source 'Probabilidad.bib'
+[158] Biber.pm:4592> INFO - Looking for bibtex file 'PDEs ML.bib' for section 0
+[163] bibtex.pm:1713> INFO - LaTeX decoding ...
+[253] bibtex.pm:1518> INFO - Found BibTeX data source 'PDEs ML.bib'
+[303] Biber.pm:4592> INFO - Looking for bibtex file 'ControlOptimizacion.bib' for section 0
+[303] bibtex.pm:1713> INFO - LaTeX decoding ...
+[306] bibtex.pm:1518> INFO - Found BibTeX data source 'ControlOptimizacion.bib'
+[309] Biber.pm:4592> INFO - Looking for bibtex file 'BSDEs.bib' for section 0
+[310] bibtex.pm:1713> INFO - LaTeX decoding ...
+[326] bibtex.pm:1518> INFO - Found BibTeX data source 'BSDEs.bib'
+[360] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[360] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[360] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[360] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
+[371] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[381] bbl.pm:757> INFO - Output to main.bbl
+[381] Biber.pm:130> WARN - ISBN '978-3-540-89499-5 978-3-540-89500-8' in entry 'pham_continuous-time_2009' is invalid - run biber with '--validate_datamodel' for details.
+[381] Biber.pm:130> WARN - Duplicate entry key: 'pham_continuous-time_2009' in file 'BSDEs.bib', skipping ...
+[381] Biber.pm:130> WARN - ISBN '978-1-4939-7254-8 978-1-4939-7256-2' in entry 'zhang_backward_2017' is invalid - run biber with '--validate_datamodel' for details.
+[381] Biber.pm:130> WARN - ISBN '978-3-319-05713-2 978-3-319-05714-9' in entry 'pardoux_stochastic_2014' is invalid - run biber with '--validate_datamodel' for details.
+[381] Biber.pm:130> WARN - ISBN '978-1-4614-4285-1 978-1-4614-4286-8' in entry 'touzi_optimal_2013' is invalid - run biber with '--validate_datamodel' for details.
+[381] Biber.pm:130> WARN - ISBN '978-1-61197-423-2 978-1-61197-424-9' in entry 'carmona_lectures_2016' is invalid - run biber with '--validate_datamodel' for details.
+[381] Biber.pm:130> WARN - I didn't find a database entry for 'PINNs' (section 0)
+[381] Biber.pm:130> WARN - I didn't find a database entry for 'PINNS2' (section 0)
+[381] Biber.pm:130> WARN - I didn't find a database entry for 'bibid' (section 0)
+[381] Biber.pm:132> INFO - WARNINGS: 9

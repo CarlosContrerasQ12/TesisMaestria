@@ -38,14 +38,16 @@ We have proven that we can construct a viscosity solution to this equation by se
 \end{equation}
 Moreover, we have that $Y_t=v(t,X_t)$ and $Z_t=\sigma(t,X_t)'D_x v(t,X_t)$.
 \subsection{Deep BSDE method}
-The first deep learning algorithm that was successfully applied to solve equation \eqref{eqn:FKNolinealCh2} was proposed by Han, E and Jentzen \cite{han_solving_2018,e_deep_2017}. This algorithm aims to approximate $Y_0=v(0,x)$ for all $x$ in some region of interest $\Omega$, and in spirit is similar to the stochastic shooting method for ODE's.
+The first deep learning algorithm that was successfully applied to solve equation \eqref{eqn:FKNolinealCh2} was proposed by Han, E and Jentzen \cite{han_solving_2018,e_deep_2017}. This algorithm aims to approximate $Y_0=v(0,x)$ for some point $x\in \bbR^n$, and is similar in spirit to the stochastic shooting method for ODE's.
 
 Here we discretize the time domain $0=t_0<t_1<\cdots <t_{N-1}<t_N=T$ and the FBSDE system a  forward equation using the Euler-Maruyama scheme for $n=0,\ldots,N-1$,
 \begin{equation}
+	\label{eqn:EMForward}
 	X_{t_{n+1}} \approx X_{t_n} +\mu\left(t_n, X_{t_n}\right) \Delta t_n+\sigma\left(t_n, X_{t_n}\right) \Delta W_n
 \end{equation}
 and 
 \begin{equation}
+	\label{eqn:EMBackward}
 	\begin{aligned}
 		 v\left(t_{n+1}, X_{t_{n+1}}\right)
 		&\approx  v\left(t_n, X_{t_n}\right) -f\left(t_n, X_{t_n}, v\left(t_n, X_{t_n}\right), \sigma'\left(t_n, X_{t_n}\right) D_x v\left(t_n, X_{t_n}\right)\right) \Delta t_n \\
@@ -53,6 +55,84 @@ and
 	\end{aligned}
 \end{equation}
 where $\Delta t_n=t_{n+1}-t_{n}$ and $\Delta W_n\sim \mathcal{N}(0,\Delta t_n)$.
+
+The main idea of this algorithm is to transform the problem in a learning one approximating the unknown product $\sigma\left(t_n, X_{t_n}\right)'D_x u\left(t_n, X_{t_n}\right)$ with a fully coupled neural network for each time step, i.e
+\begin{equation}
+	\sigma\left(t_n, X_{t_n}\right)'D_x u\left(t_n, X_{t_n}\right) \approx \mathcal{Z}_n(X_{t_n}|\theta_n),
+\end{equation}
+where $\theta_n$ denotes the parameters of the neural network at time $t_n$. Each one of these networks receives as inputs the simulated paths \eqref{eqn:EMForward} and therefore its input layers have $d$ neurons.   Furthermore, the desired solution $v(0,x)$ and its derivative $D_x v(0,x)$ also will be parameters to be learned in the model, it means $v(0,x)\approx \theta_{v_0}$ and $D_x v(0,x)\approx \theta_{D_x v_0}$. Thus, the total set of parameters to be optimized is 
+\begin{equation}
+	\theta=\{\theta_{v_0}, \theta_{D_x v_0},\theta_1,\theta_2,\cdots,\theta_n \}.
+\end{equation}
+If we need the solution $v(0,x)$ for all $x$ in some region $\Omega$, we can choose to parametrize $v(0,x)\approx \theta_{v_0}$ with a neural network and simulate the process $X_t$ with random initial conditions in $\Omega$.
+
+The set of parameters will be optimized such that the stacked solution $\hat{u}(\{X_{t_n}\}_{0}^{N},\{W_{t_n}\}_{0}^{N})$, constructed with \eqref{eqn:EMBackward}, resembles the terminal condition $g(X_{t_N})$. This is achieved defining the loss function 
+\begin{equation}
+	\label{eqn:lossDeepBSDE}
+	\ell(\theta)=\expect*{|g(X_{t_N})-\hat{u}(\{X_{t_n}\}_{0}^N,\{W_{t_n}\}_{0}^N)|^2},
+\end{equation}
+which will be minimized using deep learning standard methods for training, for example, the ADAM optimizer.
+
+The overall method can be thought as a constrained minimization problem of the form
+\begin{equation}
+	\label{eqn:constrainedDeepBSDE}
+	\begin{split}
+		&\inf_{\theta}\hat{u}(\{X_{t_n}\}_{0}^{N},\{W_{t_n}\}_{0}^{N})\\
+		s.t \quad & X_0=\xi ,\quad Y_0=\theta_{v_0}\\
+		& 		X_{t_{n+1}} = X_{t_n} +\mu\left(t_n, X_{t_n}\right) \Delta t_n+\sigma\left(t_n, X_{t_n}\right) \Delta W_n\\
+		&Z_{t_n}=\mathcal{Z}_n(X_{t_n})\\
+		&Y_{t_{n+1}}=Y_{t_n}-f(t_n,X_{t_n},Y_{t_n},Z_{t_n})\Delta t +Z_{t_n}'\Delta W_{n}
+	\end{split}
+\end{equation}
+where $\xi$ is random variable uniformly distributed on $\Omega$. And it can be summarized in the diagram shown in figure \ref{fig:deepbsdemap}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{images/DeepBSDEMap}
+	\caption{Deep BSDE diagram \cite{chan-wai-nam_machine_2018}. In red are the parameters to be optimized in the algorithm \hlc[Hay que cambiar $\kappa_i$]{}}
+	\label{fig:deepbsdemap}
+\end{figure}
+
+The convergence of this algorithm has been proved in \cite{han_convergence_2020} for fully coupled FBSDEs. The assumptions needed are very general, and the proof is rather technical, so for the sake of brevity, we only state some imprecise results.
+
+Denote by $X_t,Y_t,Z_t$ the exact solution to the FBSDE \eqref{eqn:UncoupledCh2}, and by $X_{t_i}^\pi,Y_{t_i}^\pi,Y_{t_i}^\pi$ the discrete solution to the constrained optimization problem \eqref{eqn:constrainedDeepBSDE}. Also, let's denote $h=\max_{i}\Delta t_i$. The first result states that the simulation error can be bounded through the value of the loss function \eqref{eqn:lossDeepBSDE}.
+\begin{theorem}[Error of discretization is bounded by loss function \cite{han_convergence_2020}]
+	Under some assumptions, there exist a constant $C$, independent of $h$, $d$ and $n$, such that for sufficiently small $h$
+	$$
+	\sup _{t \in[0, T]}\left(E\left|X_t-\hat{X}_t^\pi\right|^2+E\left|Y_t-\hat{Y}_t^\pi\right|^2\right)+\int_0^T E\left|Z_t-\hat{Z}_t^\pi\right|^2 \mathrm{~d} t \leq C\left[h+E\left|g\left(X_T^\pi\right)-Y_T^\pi\right|^2\right]
+	$$
+	where $\hat{X}_t^\pi=X_{t_i}^\pi, \hat{Y}_t^\pi=Y_{t_i}^\pi, \hat{Z}_t^\pi=Z_{t_i}^\pi$ for $t \in\left[t_i, t_{i+1}\right)$
+\end{theorem}   
+
+The second result establishes that the optimal value of the loss function can be small if the approximation capability of the family of parametric functions (neural networks) is good enough. Denote by $\mathcal{N}_0'$ and $\{\mathcal{N}_i\}_{0}^{N-1}$ the parametric function spaces generated by neural networks, then we have
+\begin{theorem}[Optimal loss function is bounded by approximation error \cite{han_convergence_2020}]
+Under some assumptions, there exists a constant $C$, independent of $\Delta t, d$ and $n$, such that for sufficiently small $\Delta t$,
+	$$
+	\begin{aligned}
+		& \inf _{\mu_0^\pi \in \mathcal{N}_0^{\prime}, \phi_i^\pi \in \mathcal{N}_i} E\left|g\left(X_T^\pi\right)-Y_T^\pi\right|^2 \\
+		& \leq C\left\{h+\inf _{\mu_0^\pi \in \mathcal{N}_0^{\prime}, \phi_i^\pi \in \mathcal{N}_i}\left[E\left|Y_0-\mu_0^\pi(\xi)\right|^2\right.\right. \\
+		&\left.\left.+\sum_{i=0}^{N-1} E\left|E\left[\tilde{Z}_{t_i} \mid X_{t_i}^\pi, Y_{t_i}^\pi\right]-\phi_i^\pi\left(X_{t_i}^\pi, Y_{t_i}^\pi\right)\right|^2 h\right]\right\},
+	\end{aligned}
+	$$
+	where $\tilde{Z}_{t_i}=h^{-1} E\left[\int_{t_i}^{t_{i+1}} Z_t \mathrm{~d} t \mid \mathcal{F}_{t_i}\right]$. If $\mu$ and $\sigma$ are independent of $Y$, the term $E\left[\tilde{Z}_{t_i} \mid X_{t_i}^\pi, Y_{t_i}^\pi\right]$ can be replaced with $E\left[\tilde{Z}_{t_i} \mid X_{t_i}^\pi\right]$.
+\end{theorem}
+
+Neural networks are a promising candidate for such approximation space of functions, as there are results in regard
+to the universal approximation and complexity of neural networks\hlc[Completar referencias]{}.
+
+Note that, in practice, we cannot minimize exactly the loss function in the space of parametric functions, as the methods we use are generally iterative. Also, it is not known how better is the approximation depending on the width, deep and connections of the neural network, so the capability of approximation is not well understood yet. Therefore, this results only establish the convergence of the method in a general setting and are not useful for estimate the real velocity of convergence, the achievable loss in the training stage, nor the real accuracy of the approximate solution.  
+
+Now, we highlight the major drawbacks of this method 
+\begin{enumerate}
+	\item The number of neural networks to train grows linearly with the number of time steps in the discretization, making it very computationally costly to use small time steps.
+	\item We only have a full solution at time $t=0$. At intermediate times we only have approximate solutions evaluated on sample paths $v(t,X_t)$. Therefore, we would need many of them to represent accurately the solution in the desired region.
+	\item Moreover, nothing guarantees that this intermediate steps resembles accurately the real solutions in between steps. This requirement is not well encoded in the loss function.
+	\item The time structure of the problem is not reflected in the separate approximations for each step, at least not directly.
+	\item It may be unstable or converge to saddle points, see \cite{hure_deep_2020}.
+\end{enumerate}     
+
+Moreover, the structure of the neural networks is crucial for the practical convergence of the algorithm. The original work by \cite{han_solving_2018} used fully coupled neural networks with 3 layers, the $relu$ activation function and batch normalization. However, many changes can be made to accelerate the process of training or to achieve lower optimal losses. All of them are inspired by practical evidence and currently there is not enough understanding of how to choose theoretically the hyperparameters to reach the best convergence we can. Some of these modifications are explained below.
+
+
 \subsubsection*{Merged Deep BSDE}
 \subsubsection*{Residual Merged Deep BSDE}
 

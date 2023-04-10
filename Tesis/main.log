@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  9 APR 2023 23:31
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  10 APR 2023 10:16
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1065,21 +1065,35 @@ LaTeX Warning: Citation 'bibid' on page 20 undefined on input line 13.
 
 LaTeX Warning: Citation 'bibid' on page 20 undefined on input line 15.
 
-[20]) [21] [22]
+[20] [21]
+<images/DeepBSDEMap.png, id=434, 715.67375pt x 246.9225pt>
+File: images/DeepBSDEMap.png Graphic file (type png)
+<use images/DeepBSDEMap.png>
+Package luatex.def Info: images/DeepBSDEMap.png  used on input line 90.
+(luatex.def)             Requested size: 426.79134pt x 147.25414pt.
+ [22<./images/DeepBSDEMap.png>]
+Overfull \hbox (25.29305pt too wide) in paragraph at lines 115--117
+\TU/lmr/m/it/10.95 where $[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 h[]E []$\
+TU/lmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 $ \TU/lmr/m/it/10.95 and $\OML/cmm
+/m/it/10.95 $ \TU/lmr/m/it/10.95 are in-de-pen-dent of $\OML/cmm/m/it/10.95 Y$
+\TU/lmr/m/it/10.95 , the term $\OML/cmm/m/it/10.95 E []$
+ []
+
+[23]) [24]
 Chapter 4.
-(./chapters/chapter04.tex) [23
+(./chapters/chapter04.tex) [25
 
 ]
 Chapter 5.
-(./chapters/chapter05.tex) [24
+(./chapters/chapter05.tex) [26
 
 ]
 Chapter 6.
-(./chapters/conclusion.tex) [25
+(./chapters/conclusion.tex) [27
 
 ]
 Appendix A.
-(./chapters/appendix.tex) [26
+(./chapters/appendix.tex) [28
 
 
 ]
@@ -1099,33 +1113,33 @@ Overfull \hbox (5.19708pt too wide) in paragraph at lines 154--154
 - 4939 - 7256 - 2$[][] \TU/lmr/m/n/10.95 (vi-si-ted on 02/15/2023). 
  []
 
-[27
+[29
 
-] [28
+] [30
 Missing character: There is no ӑ (U+04D1) in font [lmroman10-regular]:+tlig;!
-] (./main.aux)
+] [31] (./main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please rerun LaTeX.
+
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 23242 strings out of 477240
+ 23304 strings out of 477240
  125086,1373583 words of node,token memory allocated
- 1716 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 sub_mlist, 28 glyph, 174 attribut
-e, 110 glue_spec, 174 attribute_list, 1 write, 13 pdf_action nodes
-   avail lists: 1:1,2:1065,3:514,4:255,5:528,6:142,7:7968,8:89,9:1709,10:18,11:7
+ 1857 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 sub_mlist, 35 glyph, 194 attribut
+e, 110 glue_spec, 194 attribute_list, 1 write, 15 pdf_action nodes
+   avail lists: 1:1,2:1151,3:533,4:255,5:531,6:146,7:8221,8:91,9:1709,10:18,11:7
 58
- 43465 multiletter control sequences out of 65536+600000
+ 43500 multiletter control sequences out of 65536+600000
  61 fonts using 4808287 bytes
- 60i,21n,65p,1997b,1335s stack positions out of 10000i,1000n,20000p,200000b,80000s
-
-warning  (pdf backend): unreferenced destination with name 'subsection.4.4.2'
-
-warning  (pdf backend): unreferenced destination with name 'subsection.4.4.1'
-
-warning  (pdf backend): unreferenced destination with name 'section.4.4'
+ 60i,21n,65p,1997b,1507s stack positions out of 10000i,1000n,20000p,200000b,80000s
 </home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmmono10-regular.o
 tf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmromancaps10-r
 egular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman
@@ -1145,14 +1159,15 @@ cm/cmmi8.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm
 /cmr10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/c
 mr6.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8
 .pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pf
-b></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msam1
-0.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/m
-sbm10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8a.p
-fb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (32 pages, 385701 bytes).
+pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy6.pf
+b></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+</home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msam10.
+pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msb
+m10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8a.pfb
+></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
+Output written on main.pdf (35 pages, 439864 bytes).
 
-PDF statistics: 708 PDF objects out of 1000 (max. 8388607)
- 184 named destinations out of 1000 (max. 131072)
+PDF statistics: 763 PDF objects out of 1000 (max. 8388607)
+ 199 named destinations out of 1000 (max. 131072)
  233 words of extra memory for PDF output out of 10000 (max. 100000000)
 

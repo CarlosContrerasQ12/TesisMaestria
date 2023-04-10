@@ -2388,6 +2388,13 @@
     <bcf:citekey order="29" intorder="1">bibid</bcf:citekey>
     <bcf:citekey order="30" intorder="1">han_solving_2018</bcf:citekey>
     <bcf:citekey order="30" intorder="2">e_deep_2017</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">chan-wai-nam_machine_2018</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">chan-wai-nam_machine_2018</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">han_convergence_2020</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">han_convergence_2020</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">han_convergence_2020</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">hure_deep_2020</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">han_solving_2018</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
