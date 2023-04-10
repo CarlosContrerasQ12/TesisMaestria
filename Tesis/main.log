@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  9 APR 2023 18:45
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  9 APR 2023 23:31
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -946,6 +946,13 @@ Package biblatex Warning: The following entry could not be found
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
 
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                bibid
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
 )
 Package biblatex Info: Reference section=0 on input line 105.
 Package biblatex Info: Reference segment=0 on input line 105.
@@ -970,7 +977,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write5
 
 \openout5 = main.toc
- [3] [4]
+ [3]
 Chapter 1.
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 1
 26.
@@ -1037,7 +1044,7 @@ Overfull \hbox (3.04167pt too wide) in alignment at lines 484--485
  []
 
 [14] [15] [16]
-Overfull \hbox (22.53984pt too wide) detected at line 591
+Overfull \hbox (22.53984pt too wide) detected at line 592
 [][][][][]
  []
 
@@ -1047,6 +1054,9 @@ Chapter 3.
 
 ]
 
+LaTeX Warning: Citation 'bibid' on page 20 undefined on input line 9.
+
+
 LaTeX Warning: Citation '' on page 20 undefined on input line 13.
 
 
@@ -1055,21 +1065,21 @@ LaTeX Warning: Citation 'bibid' on page 20 undefined on input line 13.
 
 LaTeX Warning: Citation 'bibid' on page 20 undefined on input line 15.
 
-) [20] [21]
+[20]) [21] [22]
 Chapter 4.
-(./chapters/chapter04.tex) [22
+(./chapters/chapter04.tex) [23
 
 ]
 Chapter 5.
-(./chapters/chapter05.tex) [23
+(./chapters/chapter05.tex) [24
 
 ]
 Chapter 6.
-(./chapters/conclusion.tex) [24
+(./chapters/conclusion.tex) [25
 
 ]
 Appendix A.
-(./chapters/appendix.tex) [25
+(./chapters/appendix.tex) [26
 
 
 ]
@@ -1089,35 +1099,33 @@ Overfull \hbox (5.19708pt too wide) in paragraph at lines 154--154
 - 4939 - 7256 - 2$[][] \TU/lmr/m/n/10.95 (vi-si-ted on 02/15/2023). 
  []
 
-[26
+[27
 
-] [27
+] [28
 Missing character: There is no ӑ (U+04D1) in font [lmroman10-regular]:+tlig;!
 ] (./main.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                main
-(biblatex)                and rerun LaTeX afterwards.
-
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 23220 strings out of 477240
+ 23242 strings out of 477240
  125086,1373583 words of node,token memory allocated
- 1672 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 sub_mlist, 28 glyph, 166 attribut
-e, 110 glue_spec, 166 attribute_list, 1 write, 11 pdf_action nodes
-   avail lists: 1:2,2:1073,3:464,4:254,5:527,6:140,7:7552,8:89,9:1709,10:18,11:7
-49
- 43450 multiletter control sequences out of 65536+600000
+ 1716 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 sub_mlist, 28 glyph, 174 attribut
+e, 110 glue_spec, 174 attribute_list, 1 write, 13 pdf_action nodes
+   avail lists: 1:1,2:1065,3:514,4:255,5:528,6:142,7:7968,8:89,9:1709,10:18,11:7
+58
+ 43465 multiletter control sequences out of 65536+600000
  61 fonts using 4808287 bytes
- 60i,21n,65p,1531b,1335s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 60i,21n,65p,1997b,1335s stack positions out of 10000i,1000n,20000p,200000b,80000s
+
+warning  (pdf backend): unreferenced destination with name 'subsection.4.4.2'
+
+warning  (pdf backend): unreferenced destination with name 'subsection.4.4.1'
+
+warning  (pdf backend): unreferenced destination with name 'section.4.4'
 </home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmmono10-regular.o
 tf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmromancaps10-r
 egular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman
@@ -1142,9 +1150,9 @@ b></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msam1
 0.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/m
 sbm10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8a.p
 fb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (32 pages, 377654 bytes).
+Output written on main.pdf (32 pages, 385701 bytes).
 
-PDF statistics: 698 PDF objects out of 1000 (max. 8388607)
- 177 named destinations out of 1000 (max. 131072)
- 249 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 708 PDF objects out of 1000 (max. 8388607)
+ 184 named destinations out of 1000 (max. 131072)
+ 233 words of extra memory for PDF output out of 10000 (max. 100000000)
 

@@ -509,6 +509,7 @@ for all $t\in[0,T]$ and $x\in\bbR^{n}$, and where $f:\bbR\times \bbR^n\times \bb
 We will associate the solution to this problem with a forward-backward stochastic differential equation of the form \eqref{eqn:Uncoupled}. We have an easy association given by the following theorem
 
 \begin{theorem}[Verification theorem \cite{pham_continuous-time_2009}]
+	\label{thm:verficationThm}
 	Let $v(t,x)$ be a classical solution to \ref{eqn:FKNolineal}, that is continuous on $[0,T]\times \bbR^n$, one time differentiable in $t$ and two times differentiable in $x$ and satisfy the linear growth condition $|v(t,x)|\leq L(1+|x|)$ for some $L>0$ and all $x\in\bbR^n$ $t\in[0,T]$. Also, let its first space derivative satisfy the growth condition $|D_x v(t,x)|\leq C(1+|x|^q)$ for some $C>0$, $q>0$ and all $x\in\bbR^n$ $t\in[0,T]$.Then, the pair $(Y,Z)$ defined by
 	\begin{equation}
 		Y_t=v(t,X_t) \quad Z_t=\sigma(t,X_t)' D_x v(t,X_t)

@@ -902,9 +902,129 @@
       \verb Chessari et al. - Numerical methods for backward stochastic differen.pdf:/home/carlos/Zotero/storage/YUYKMCJ8/Chessari et al. - Numerical methods for backward stochastic differen.pdf:application/pdf
       \endverb
     \endentry
+    \entry{han_solving_2018}{article}{}
+      \name{author}{3}{}{%
+        {{hash=dcbed821c92a82aa9d46cf353c58ec62}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Jiequn},
+           giveni={J\bibinitperiod}}}%
+        {{hash=31ce46557e2d08499e8b06d041f40bf2}{%
+           family={Jentzen},
+           familyi={J\bibinitperiod},
+           given={Arnulf},
+           giveni={A\bibinitperiod}}}%
+        {{hash=268e9715905f2ab3cb20df636d3750c1}{%
+           family={E},
+           familyi={E\bibinitperiod},
+           given={Weinan},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{d917cfee603f491b8bf02638f1d9d19c}
+      \strng{fullhash}{d917cfee603f491b8bf02638f1d9d19c}
+      \strng{bibnamehash}{d917cfee603f491b8bf02638f1d9d19c}
+      \strng{authorbibnamehash}{d917cfee603f491b8bf02638f1d9d19c}
+      \strng{authornamehash}{d917cfee603f491b8bf02638f1d9d19c}
+      \strng{authorfullhash}{d917cfee603f491b8bf02638f1d9d19c}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Significance Partial differential equations ({PDEs}) are among the most ubiquitous tools used in modeling problems in nature. However, solving high-dimensional {PDEs} has been notoriously difficult due to the “curse of dimensionality.” This paper introduces a practical algorithm for solving nonlinear {PDEs} in very high (hundreds and potentially thousands of) dimensions. Numerical results suggest that the proposed algorithm is quite effective for a wide variety of problems, in terms of both accuracy and speed. We believe that this opens up a host of possibilities in economics, finance, operational research, and physics, by considering all participating agents, assets, resources, or particles together at the same time, instead of making ad hoc assumptions on their interrelationships. , Developing algorithms for solving high-dimensional partial differential equations ({PDEs}) has been an exceedingly difficult task for a long time, due to the notoriously difficult problem known as the “curse of dimensionality.” This paper introduces a deep learning-based approach that can handle general high-dimensional parabolic {PDEs}. To this end, the {PDEs} are reformulated using backward stochastic differential equations and the gradient of the unknown solution is approximated by neural networks, very much in the spirit of deep reinforcement learning with the gradient acting as the policy function. Numerical results on examples including the nonlinear Black–Scholes equation, the Hamilton–Jacobi–Bellman equation, and the Allen–Cahn equation suggest that the proposed algorithm is quite effective in high dimensions, in terms of both accuracy and cost. This opens up possibilities in economics, finance, operational research, and physics, by considering all participating agents, assets, resources, or particles together at the same time, instead of making ad hoc assumptions on their interrelationships.}
+      \field{day}{21}
+      \field{issn}{0027-8424, 1091-6490}
+      \field{journaltitle}{Proceedings of the National Academy of Sciences}
+      \field{langid}{english}
+      \field{month}{8}
+      \field{number}{34}
+      \field{shortjournal}{Proc. Natl. Acad. Sci. U.S.A.}
+      \field{title}{Solving high-dimensional partial differential equations using deep learning}
+      \field{urlday}{26}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{volume}{115}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{8505\bibrangedash 8510}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1073/pnas.1718942115
+      \endverb
+      \verb{file}
+      \verb pnas.1718942115.pdf:/home/carlos/Descargas/pnas.1718942115.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://pnas.org/doi/full/10.1073/pnas.1718942115
+      \endverb
+      \verb{url}
+      \verb https://pnas.org/doi/full/10.1073/pnas.1718942115
+      \endverb
+    \endentry
+    \entry{e_deep_2017}{article}{}
+      \name{author}{3}{}{%
+        {{hash=268e9715905f2ab3cb20df636d3750c1}{%
+           family={E},
+           familyi={E\bibinitperiod},
+           given={Weinan},
+           giveni={W\bibinitperiod}}}%
+        {{hash=dcbed821c92a82aa9d46cf353c58ec62}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Jiequn},
+           giveni={J\bibinitperiod}}}%
+        {{hash=31ce46557e2d08499e8b06d041f40bf2}{%
+           family={Jentzen},
+           familyi={J\bibinitperiod},
+           given={Arnulf},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{5e547ff0c21fdf3d6461d7f7c3449b5e}
+      \strng{fullhash}{5e547ff0c21fdf3d6461d7f7c3449b5e}
+      \strng{bibnamehash}{5e547ff0c21fdf3d6461d7f7c3449b5e}
+      \strng{authorbibnamehash}{5e547ff0c21fdf3d6461d7f7c3449b5e}
+      \strng{authornamehash}{5e547ff0c21fdf3d6461d7f7c3449b5e}
+      \strng{authorfullhash}{5e547ff0c21fdf3d6461d7f7c3449b5e}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We study a new algorithm for solving parabolic partial differential equations ({PDEs}) and backward stochastic differential equations ({BSDEs}) in high dimension, which is based on an analogy between the {BSDE} and reinforcement learning with the gradient of the solution playing the role of the policy function, and the loss function given by the error between the prescribed terminal condition and the solution of the {BSDE}. The policy function is then approximated by a neural network, as is done in deep reinforcement learning. Numerical results using {TensorFlow} illustrate the efficiency and accuracy of the studied algorithm for several 100-dimensional nonlinear {PDEs} from physics and finance such as the Allen–Cahn equation, the Hamilton–Jacobi–Bellman equation, and a nonlinear pricing model for financial derivatives.}
+      \field{day}{1}
+      \field{issn}{2194-671X}
+      \field{journaltitle}{Communications in Mathematics and Statistics}
+      \field{langid}{english}
+      \field{month}{12}
+      \field{number}{4}
+      \field{shortjournal}{Commun. Math. Stat.}
+      \field{title}{Deep Learning-Based Numerical Methods for High-Dimensional Parabolic Partial Differential Equations and Backward Stochastic Differential Equations}
+      \field{urlday}{10}
+      \field{urlmonth}{4}
+      \field{urlyear}{2023}
+      \field{volume}{5}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{349\bibrangedash 380}
+      \range{pages}{32}
+      \verb{doi}
+      \verb 10.1007/s40304-017-0117-6
+      \endverb
+      \verb{file}
+      \verb Versión enviada:/home/carlos/Zotero/storage/DEBYV7F3/E et al. - 2017 - Deep Learning-Based Numerical Methods for High-Dim.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s40304-017-0117-6
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s40304-017-0117-6
+      \endverb
+      \keyw{60H35,65C30,65M75,Backward stochastic differential equations,Control,Deep learning,Feynman-Kac,High dimension,{PDEs}}
+    \endentry
   \enddatalist
   \missing{PINNS2}
   \missing{PINNs}
+  \missing{bibid}
 \endrefsection
 \endinput
 

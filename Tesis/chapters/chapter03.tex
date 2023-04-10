@@ -6,27 +6,58 @@ This is the case for high dimensional PDE's, for which the size of discretizatio
 
 High dimensional PDE's appear in many contexts, such as asset pricing, image denoising, statistical physics, many-body quantum mechanics, optimal control and game theory. Therefore, there is a necessity for numerical methods that are able to overcome this difficulty. Early attempts to solve this kind of problems used the connection between stochastic diffusions and parabolic PDE's, as we seemed in the preceding chapter. In fact, if the PDE is linear, the linear Feynman-Kac \ref{thm:LinearFK} formula can be used to provide an approximate solution by computing the expectation using simulated paths of the process through the  Monte-Carlo approach. The convergence of this formulation is \hlc[Sure?]{independent} of the dimension of the underlying process, and therefore does not suffer from the curse dimensionality.
 
-Nevertheless, if we try a similar approach using the non-linear Feynman-Kac formula \ref{thm:NonlinealFK} for more general non-linear equations, we would have to deal with solving numerically the associated BSDE. There are numerical methods to approximate the set of solution processes $(X,Y,Z)$, but they are not as simple as an Euler-Maruyama discretization for a forward process. Generally, they require the computation of conditional expectations that almost never are computationally cheap and hence is not a straightforward generalization of the former linear approach. Despite this, some progress has been made under this formulation, see for example \cite{chessari_numerical_nodate}.
+Nevertheless, if we try a similar approach using the non-linear Feynman-Kac formula \ref{thm:NonlinealFK} for more general non-linear equations, we would have to deal with solving numerically the associated BSDE. There are numerical methods to approximate the set of solution processes $(X,Y,Z)$, but they are not as simple as an Euler-Maruyama discretization for a forward process. Generally, they require the computation of conditional expectations that almost never are computationally cheap and hence is not a straightforward generalization of the former linear approach. Despite this, some progress has been made under this formulation, see for example \cite{chessari_numerical_nodate}. Other solutions methods are based in fixed point iterations and branching methods \cite{bibid}.
 
 Representing functions in a high dimensional space is a problem encountered in many other areas of applied mathematics. Particularly, in recent times, the analysis and inference on big amounts of data has emerged as the fascinating research area of \textit{machine learning}. Many methods have been proposed for this goal, for example, regression methods, support vector machines and tree methods. Nonetheless, the approach that has encountered more success when trying to approximate high dimensional functions using big amounts of data is deep learning.  In this setting, we parametrize functions using structures that use composition of simpler function for approximate complex ones, these structures are called neural networks. We refer the reader to \autoref{chp:ApendixNN} for a brief introduction and to \cite{higham_deep_2019} for a deeper exposition of the topic.
 
-The idea of using this neural network parametrization of functions to solve PDE's can be tracked to the 80's, when in \cite{} a perceptron layer approximation was proposed to \hlc[Completar]{}. However, due to the high computational cost of training a neural network, a sucessfull attempt was not achieved until recently, with the works \cite{bibid}\hlc[Blablabla]{}. 
+The idea of using this neural network parametrization of functions to solve PDE's can be tracked to the 80's, when in \cite{} a perceptron layer approximation was proposed to \hlc[Completar]{}. However, due to the high computational cost of training a neural network, a successful attempt was not achieved until recently, with the works of \cite{bibid}\hlc[Blablabla]{}. 
 
 This is a very new area of research, for which many open questions remain. Particularly, it is not well understood yet if the curse of dimensionality is solved, even if there is work for certain equations that ensures it \cite{bibid}. Also, there is not yet a good understanding of why different classes of neural networks are useful to approximate certain classes of functions and how to tune adequately its parameters to do it efficiently. In consequence, even if it is possible to give a convergence proof for certain cases, most algorithms rely on empirical experimentation and heuristic arguments to provide reasonable approximate solutions.    
 
 In this chapter we review some of these methods, implement them for toy examples and perform a comparison of speed, accuracy and practical usefulness for solving PDE's.   
 
-
-
-
 \section{Free boundary problems}
+Let's start with problems in free space. In the same setup as \autoref{thm:verficationThm}, we deal with the following equation with terminal condition
+\begin{equation}
+	\label{eqn:FKNolinealCh2}
+	\begin{split}
+		&\dpartial{v}{t}(t,x)+\mu(t,x)\cdot D_x v(t,x)+\frac{1}{2}\Tr(\sigma(t,x)\sigma^{T}(t,x)D_{xx}^2v(t,x))\\
+		&+f(t,x,v(t,x),\sigma(t,x)' D_x v(t,x))=0\\
+		&v(T,x)=g(x).
+	\end{split}
+\end{equation}
+We have proven that we can construct a viscosity solution to this equation by setting $v(t,x)=Y_{t}^{t,x}$, where $Y$ is the solution process to the FBSDE
+\begin{equation}
+	\label{eqn:UncoupledCh2}
+	\begin{split}
+		&dX_s=\mu(s,X_s)ds+\sigma(s,X_s)dW_s\\
+		&X_t=x,\\
+		&dY_s=-f(s,X_s,Y_s,Z_s)ds+Z_s dW_s\\
+		&Y_T=g(X_T).
+	\end{split}
+\end{equation}
+Moreover, we have that $Y_t=v(t,X_t)$ and $Z_t=\sigma(t,X_t)'D_x v(t,X_t)$.
 \subsection{Deep BSDE method}
+The first deep learning algorithm that was successfully applied to solve equation \eqref{eqn:FKNolinealCh2} was proposed by Han, E and Jentzen \cite{han_solving_2018,e_deep_2017}. This algorithm aims to approximate $Y_0=v(0,x)$ for all $x$ in some region of interest $\Omega$, and in spirit is similar to the stochastic shooting method for ODE's.
 
+Here we discretize the time domain $0=t_0<t_1<\cdots <t_{N-1}<t_N=T$ and the FBSDE system a  forward equation using the Euler-Maruyama scheme for $n=0,\ldots,N-1$,
+\begin{equation}
+	X_{t_{n+1}} \approx X_{t_n} +\mu\left(t_n, X_{t_n}\right) \Delta t_n+\sigma\left(t_n, X_{t_n}\right) \Delta W_n
+\end{equation}
+and 
+\begin{equation}
+	\begin{aligned}
+		 v\left(t_{n+1}, X_{t_{n+1}}\right)
+		&\approx  v\left(t_n, X_{t_n}\right) -f\left(t_n, X_{t_n}, v\left(t_n, X_{t_n}\right), \sigma'\left(t_n, X_{t_n}\right) D_x v\left(t_n, X_{t_n}\right)\right) \Delta t_n \\
+		& +\sigma\left(t_n, X_{t_n}\right)'D_x u\left(t_n, X_{t_n}\right)  \Delta W_n,
+	\end{aligned}
+\end{equation}
+where $\Delta t_n=t_{n+1}-t_{n}$ and $\Delta W_n\sim \mathcal{N}(0,\Delta t_n)$.
 \subsubsection*{Merged Deep BSDE}
 \subsubsection*{Residual Merged Deep BSDE}
 
 \subsection{Raissi's method}
-\subsection{Deep Splitting/Tensor train?}
+%\subsection{Deep Splitting/Tensor train?}
 \subsection{An example}
 \section{Boundary problems}
 \subsection{Deep Galerkin method}
