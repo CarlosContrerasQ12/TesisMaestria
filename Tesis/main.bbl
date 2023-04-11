@@ -1194,6 +1194,54 @@
       \verb https://www.ams.org/mcom/2020-89-324/S0025-5718-2020-03514-5/
       \endverb
     \endentry
+    \entry{raissi_forward-backward_2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=95a17c39168b9e6b8812f207b4e036c1}{%
+           family={Raissi},
+           familyi={R\bibinitperiod},
+           given={Maziar},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{95a17c39168b9e6b8812f207b4e036c1}
+      \strng{fullhash}{95a17c39168b9e6b8812f207b4e036c1}
+      \strng{bibnamehash}{95a17c39168b9e6b8812f207b4e036c1}
+      \strng{authorbibnamehash}{95a17c39168b9e6b8812f207b4e036c1}
+      \strng{authornamehash}{95a17c39168b9e6b8812f207b4e036c1}
+      \strng{authorfullhash}{95a17c39168b9e6b8812f207b4e036c1}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Classical numerical methods for solving partial differential equations suffer from the curse dimensionality mainly due to their reliance on meticulously generated spatio-temporal grids. Inspired by modern deep learning based techniques for solving forward and inverse problems associated with partial differential equations, we circumvent the tyranny of numerical discretization by devising an algorithm that is scalable to high-dimensions. In particular, we approximate the unknown solution by a deep neural network which essentially enables us to benefit from the merits of automatic differentiation. To train the aforementioned neural network we leverage the well-known connection between high-dimensional partial differential equations and forward-backward stochastic differential equations. In fact, independent realizations of a standard Brownian motion will act as training data. We test the effectiveness of our approach for a couple of benchmark problems spanning a number of scientific domains including Black-Scholes-Barenblatt and Hamilton-Jacobi-Bellman equations, both in 100-dimensions.}
+      \field{day}{19}
+      \field{eprinttype}{arxiv}
+      \field{month}{4}
+      \field{number}{{arXiv}:1804.07010}
+      \field{shorttitle}{Forward-Backward Stochastic Neural Networks}
+      \field{title}{Forward-Backward Stochastic Neural Networks: Deep Learning of High-dimensional Partial Differential Equations}
+      \field{urlday}{22}
+      \field{urlmonth}{3}
+      \field{urlyear}{2023}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{eprint}
+      \verb 1804.07010 [cs, math, stat]
+      \endverb
+      \verb{file}
+      \verb arXiv Fulltext PDF:/home/carlos/Zotero/storage/XR8RPSHY/Raissi - 2018 - Forward-Backward Stochastic Neural Networks Deep .pdf:application/pdf;arXiv.org Snapshot:/home/carlos/Zotero/storage/KHWY7D98/1804.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1804.07010
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1804.07010
+      \endverb
+      \keyw{Computer Science - Machine Learning,Statistics - Machine Learning,Mathematics - Optimization and Control,Mathematics - Analysis of {PDEs},Electrical Engineering and Systems Science - Systems and Control}
+    \endentry
   \enddatalist
   \missing{PINNS2}
   \missing{PINNs}

@@ -130,15 +130,66 @@ Now, we highlight the major drawbacks of this method
 	\item It may be unstable or converge to saddle points, see \cite{hure_deep_2020}.
 \end{enumerate}     
 
-Moreover, the structure of the neural networks is crucial for the practical convergence of the algorithm. The original work by \cite{han_solving_2018} used fully coupled neural networks with 3 layers, the $relu$ activation function and batch normalization. However, many changes can be made to accelerate the process of training or to achieve lower optimal losses. All of them are inspired by practical evidence and currently there is not enough understanding of how to choose theoretically the hyperparameters to reach the best convergence we can. Some of these modifications are explained below.
+Moreover, the structure of the neural networks is crucial for the practical convergence of the algorithm. The original work by \cite{han_solving_2018} used fully coupled neural networks with 3 layers, the $relu$ activation function and batch normalization, this structure is represented in figure \ref{fig:FCStructure}. However, many changes can be made to accelerate the process of training or to achieve lower optimal losses. All of them are inspired by practical evidence and currently there is not enough understanding of how to choose theoretically the hyperparameters to reach the best convergence we can. Some of these modifications are explained below.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth,height=5cm]{images/FCStructure}
+	\caption{Neural network structure \cite{chan-wai-nam_machine_2018}.\hlc[Hay que cambiar $\kappa_i$ Mejor hago la mia :(]{}}
+	\label{fig:FCStructure}
+\end{figure}
 
 \subsubsection*{Merged Deep BSDE}
-\subsubsection*{Residual Merged Deep BSDE}
+The first such modification was proposed in \cite{chan-wai-nam_machine_2018}. In this work, the authors propose to use a single neural network to approximate the $Z$ process for all time steps. Thus, this reduced model has less parameters to optimize, making this process faster, and also adds regularity to the computed gradients, which means that close in time parametrizations should be close for a given $x$.
 
-\subsection{Raissi's method}
+Moreover, it was noted that using all information available at time $t$, like $Y_t$ and $g(X_t)$, increases the performance and optimal loss. Thus, in order to merge all neural networks in a single one, we have to add new dimensions to the neural network to include the additional variables, hence we use a neural network $\mathcal{N}^{\theta}:(t,x)\in \bbR^{n+3}\to\bbR^n$ that uses $(t_n,Y_{t_n},g(X_{t_n}),X_{t_n})$ as inputs to approximate $Z_{t_{n}}$ for each $t_n$ in the discretization. Note that $Z_0$ is also obtained through such network and therefore is not longer a parameter to be optimized. This process is summarized in the figure \ref{fig:mergeddeepbsdemap}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{images/MergedBSDE}
+	\caption{Merged Deep BSDE diagram \cite{chan-wai-nam_machine_2018}. In red are the parameters to be optimized in the algorithm \hlc[Hay que cambiar $\kappa_i$]{}}
+	\label{fig:mergeddeepbsdemap}
+\end{figure}
+
+The structure of the neural network needs to be adapted to this new setup. In this case, the activation functions may be changed for the ELU function and batch normalization was not performed after each layer as the process in no longer stationary. This structure is represented in figure \ref{fig:MergedStructure}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth,height=5cm]{images/MergedStructure}
+	\caption{Neural network structure for merged BSDE \cite{chan-wai-nam_machine_2018}.\hlc[Hay que cambiar $\kappa_i$ Mejor hago la mia :(]{}}
+	\label{fig:MergedStructure}
+\end{figure}
+\subsubsection*{Residual Merged Deep BSDE}
+Finally, another useful modification to the merged deep BSDE scheme was to modify the network structure adding shortcut connections between layers. This new configuration is represented in figure \ref{fig:ResidualMergedStructure}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth,height=5cm]{images/ResidualMergedStructure}
+	\caption{Neural network structure for merged BSDE \cite{chan-wai-nam_machine_2018}.\hlc[Hay que cambiar $\kappa_i$ Mejor hago la mia :(]{}}
+	\label{fig:ResidualMergedStructure}
+\end{figure}
+\subsubsection*{Raissi's method}
+To circumvent some of the problems encountered with the deep BSDE method and last variants, Raissi \cite{raissi_forward-backward_2018} proposed a new scheme based on the same stochastic formulation. In this approach, the solution $v(t,x)$ is directly approximated with a neural network $\mathcal{t,x}$ that takes as inputs $x$ and $t$ instead of its gradient as before. 
+
+Now, the constraints on problem \eqref{eqn:constrainedDeepBSDE} are relaxed and they are enforced weakly through the loss function given by
+
+\begin{equation}
+	\begin{gathered}
+		\ell(\theta):=\mathbb{E}\left[\sum_{i=0}^{N-1} \Phi\left(t_i, X_{t_i}, Y_{t_i}, Y_{t_{i+1}}, \Delta W_{t_{i}}\right)+\left(g\left(X_{t_N}\right)-Y_{t_N}\right)^2\right] \\
+	\end{gathered}
+\end{equation}
+where 
+\begin{equation}
+	\begin{split}
+		\Phi\left(t_i, X_{t_i}, Y_{t_i}, Y_{t_{i+1}}, \Delta W_{t_i}\right)&=\left(Y_{t_{i+1}}-Y_{t_i}+f\left(t_i, X_{t_i}, Y_{t_i}, \sigma'\left(t_i, X_{t_i}\right) \widehat{Z}_{t_i}\right)\left(\Delta t_i\right)\right. \\
+		&\left.-\widehat{Z}_{t_i}' \sigma\left(t_i, X_{t_i}\right)\left(\Delta W_{t_i}\right)\right)^2,
+	\end{split}
+\end{equation}
+and $\widehat{Z}_{t_i}$ is calculated with automatic differentiation in the neural network $\widehat{Z}_{t_i}=\hat{D}\mathcal{N}(t_i,X_{t_i})$. With this approach we can compute the solution at all times $t$ and point in space $x$.
 %\subsection{Deep Splitting/Tensor train?}
 \subsection{An example}
+Let's test these algorithms with a toy problem from control theory using the Hamilton-Jacobi-Bellman equation. For completeness, we briefly review the standard formulation of these problems in \autoref{chp:ApendixStochasticControl}.
+
+We will perform a comparison between the preceding algorithms by solving, just for fun, the Hamilton-Jacobi-Bellman equation associated to a linear-quadratic regulator in dimension 100.
+
 \section{Boundary problems}
 \subsection{Deep Galerkin method}
 \subsection{Interpolating BSDEs with PINNs}

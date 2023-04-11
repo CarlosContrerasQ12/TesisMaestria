@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  10 APR 2023 10:16
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  10 APR 2023 23:25
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -977,15 +977,20 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write5
 
 \openout5 = main.toc
- [3]
+ (./main.lof
+[3])
+\tf@lof=\write6
+
+\openout6 = main.lof
+ [4]
 Chapter 1.
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 1
-26.
+27.
 (/home/carlos/.miktex/texmfs/install/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 1
-26.
+27.
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -1020,7 +1025,7 @@ LaTeX Warning: Citation 'PINNs' on page 2 undefined on input line 9.
 LaTeX Warning: Citation 'PINNS2' on page 2 undefined on input line 9.
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 9--129
+Underfull \hbox (badness 10000) in paragraph at lines 9--130
 
  []
 
@@ -1066,7 +1071,7 @@ LaTeX Warning: Citation 'bibid' on page 20 undefined on input line 13.
 LaTeX Warning: Citation 'bibid' on page 20 undefined on input line 15.
 
 [20] [21]
-<images/DeepBSDEMap.png, id=434, 715.67375pt x 246.9225pt>
+<images/DeepBSDEMap.png, id=455, 715.67375pt x 246.9225pt>
 File: images/DeepBSDEMap.png Graphic file (type png)
 <use images/DeepBSDEMap.png>
 Package luatex.def Info: images/DeepBSDEMap.png  used on input line 90.
@@ -1079,22 +1084,53 @@ TU/lmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 $ \TU/lmr/m/it/10.95 and $\OML/cmm
 \TU/lmr/m/it/10.95 , the term $\OML/cmm/m/it/10.95 E []$
  []
 
-[23]) [24]
+[23]
+<images/FCStructure.png, id=485, 137.51375pt x 243.91125pt>
+File: images/FCStructure.png Graphic file (type png)
+<use images/FCStructure.png>
+Package luatex.def Info: images/FCStructure.png  used on input line 137.
+(luatex.def)             Requested size: 170.72931pt x 142.26508pt.
+<images/MergedBSDE.png, id=490, 709.65125pt x 244.915pt>
+File: images/MergedBSDE.png Graphic file (type png)
+<use images/MergedBSDE.png>
+Package luatex.def Info: images/MergedBSDE.png  used on input line 148.
+(luatex.def)             Requested size: 426.79134pt x 147.29767pt.
+ [24<./images/FCStructure.png>]
+<images/MergedStructure.png, id=504, 143.53625pt x 242.9075pt>
+File: images/MergedStructure.png Graphic file (type png)
+<use images/MergedStructure.png>
+Package luatex.def Info: images/MergedStructure.png  used on input line 157.
+(luatex.def)             Requested size: 170.71825pt x 142.26154pt.
+<images/ResidualMergedStructure.png, id=508, 187.70125pt x 244.915pt>
+File: images/ResidualMergedStructure.png Graphic file (type png)
+<use images/ResidualMergedStructure.png>
+Package luatex.def Info: images/ResidualMergedStructure.png  used on input line
+ 165.
+(luatex.def)             Requested size: 170.72534pt x 142.26753pt.
+ [25<./images/MergedBSDE.png><./images/MergedStructure.png>]
+Overfull \hbox (4.17139pt too wide) in paragraph at lines 185--188
+\TU/lmr/m/n/10.95 and $[]$ is cal-cu-la-ted with au-to-ma-tic dif-fe-ren-ti-a-ti
+on in the neu-ral net-work $[] \OT1/cmr/m/n/10.95 = []\OMS/cmsy/m/n/10.95 N\OT1
+/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 t[]; X[]\OT1/cmr/m/n/10.95 )$\TU/lmr/m/n/10
+.95 .
+ []
+
+) [26<./images/ResidualMergedStructure.png>] [27]
 Chapter 4.
-(./chapters/chapter04.tex) [25
+(./chapters/chapter04.tex) [28
 
 ]
 Chapter 5.
-(./chapters/chapter05.tex) [26
-
-]
-Chapter 6.
-(./chapters/conclusion.tex) [27
+(./chapters/conclusion.tex) [29
 
 ]
 Appendix A.
-(./chapters/appendix.tex) [28
+(./chapters/appendixNN.tex) [30
 
+
+]
+Appendix B.
+(./chapters/appendixSC.tex) [31
 
 ]
 Overfull \hbox (6.05995pt too wide) in paragraph at lines 154--154
@@ -1113,33 +1149,33 @@ Overfull \hbox (5.19708pt too wide) in paragraph at lines 154--154
 - 4939 - 7256 - 2$[][] \TU/lmr/m/n/10.95 (vi-si-ted on 02/15/2023). 
  []
 
-[29
+[32
 
-] [30
+] [33
 Missing character: There is no ӑ (U+04D1) in font [lmroman10-regular]:+tlig;!
-] [31] (./main.aux)
+]
+Overfull \hbox (12.53581pt too wide) in paragraph at lines 154--154
+\TU/lmr/m/it/10.95 High-dimensional Par-tial Dif-fe-ren-tial Equa-ti-ons\TU/lmr
+/m/n/10.95 . Apr. 19, 2018. arXiv: [][]$\TU/lmtt/m/n/10.95 1804 . 07010[cs ,
+ []
 
-LaTeX Warning: There were undefined references.
-
-
-Package biblatex Warning: Please rerun LaTeX.
-
+[34] (./main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 23304 strings out of 477240
+ 23429 strings out of 477240
  125086,1373583 words of node,token memory allocated
- 1857 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 sub_mlist, 35 glyph, 194 attribut
-e, 110 glue_spec, 194 attribute_list, 1 write, 15 pdf_action nodes
-   avail lists: 1:1,2:1151,3:533,4:255,5:531,6:146,7:8221,8:91,9:1709,10:18,11:7
-58
- 43500 multiletter control sequences out of 65536+600000
+ 2157 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 sub_mlist, 57 glyph, 229 attribut
+e, 110 glue_spec, 229 attribute_list, 1 write, 16 pdf_action nodes
+   avail lists: 1:1,2:1151,3:533,4:419,5:531,6:152,7:8222,8:101,9:1709,10:18,11:
+758
+ 43553 multiletter control sequences out of 65536+600000
  61 fonts using 4808287 bytes
- 60i,21n,65p,1997b,1507s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 60i,21n,65p,1997b,1512s stack positions out of 10000i,1000n,20000p,200000b,80000s
 </home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmmono10-regular.o
 tf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmromancaps10-r
 egular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman
@@ -1165,9 +1201,9 @@ b></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
 pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msb
 m10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8a.pfb
 ></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (35 pages, 439864 bytes).
+Output written on main.pdf (39 pages, 499389 bytes).
 
-PDF statistics: 763 PDF objects out of 1000 (max. 8388607)
- 199 named destinations out of 1000 (max. 131072)
+PDF statistics: 826 PDF objects out of 1000 (max. 8388607)
+ 214 named destinations out of 1000 (max. 131072)
  233 words of extra memory for PDF output out of 10000 (max. 100000000)
 
