@@ -15,7 +15,7 @@
 \contentsline {subsection}{\numberline {3.2.1}Deep Galerkin method}{27}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Interpolating BSDEs with PINNs}{27}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Reflection on Boundary}{27}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}An example with optimal control}{27}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.4}An example}{27}{subsection.3.2.4}%
 \contentsline {chapter}{\numberline {4}Crowd motion modeling}{28}{chapter.4}%
 \contentsline {section}{\numberline {4.1}N-agent games}{28}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Mean Field Games}{28}{section.4.2}%

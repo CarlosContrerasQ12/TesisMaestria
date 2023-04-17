@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  10 APR 2023 23:25
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  16 APR 2023 23:49
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1039,17 +1039,17 @@ Overfull \hbox (13.83426pt too wide) detected at line 275
  []
 
 [9] [10] [11] [12] Excluding 'comment' comment. [13]
-Overfull \hbox (8.48651pt too wide) detected at line 485
+Overfull \hbox (8.48651pt too wide) detected at line 486
 []
  []
 
 
-Overfull \hbox (3.04167pt too wide) in alignment at lines 484--485
+Overfull \hbox (3.04167pt too wide) in alignment at lines 485--486
 [] []
  []
 
 [14] [15] [16]
-Overfull \hbox (22.53984pt too wide) detected at line 592
+Overfull \hbox (22.53984pt too wide) detected at line 593
 [][][][][]
  []
 
@@ -1130,9 +1130,11 @@ Appendix A.
 
 ]
 Appendix B.
-(./chapters/appendixSC.tex) [31
+(./chapters/appendixSC.tex
+\c@thm=\count444
+ [31
 
-]
+] [32]) [33]
 Overfull \hbox (6.05995pt too wide) in paragraph at lines 154--154
 \TU/lmr/m/it/10.95 Net-works: Where we are and What’s next\TU/lmr/m/n/10.95 . June 7, 2022. arXiv: [][]$\TU/lmtt/m/n/10.95 2201 . 05624[physics]$[][]\TU/lmr/m/n/10.95 .
  []
@@ -1149,9 +1151,9 @@ Overfull \hbox (5.19708pt too wide) in paragraph at lines 154--154
 - 4939 - 7256 - 2$[][] \TU/lmr/m/n/10.95 (vi-si-ted on 02/15/2023). 
  []
 
-[32
+[34
 
-] [33
+] [35
 Missing character: There is no ӑ (U+04D1) in font [lmroman10-regular]:+tlig;!
 ]
 Overfull \hbox (12.53581pt too wide) in paragraph at lines 154--154
@@ -1159,21 +1161,21 @@ Overfull \hbox (12.53581pt too wide) in paragraph at lines 154--154
 /m/n/10.95 . Apr. 19, 2018. arXiv: [][]$\TU/lmtt/m/n/10.95 1804 . 07010[cs ,
  []
 
-[34] (./main.aux)
+[36] (./main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 23429 strings out of 477240
+ 23450 strings out of 477240
  125086,1373583 words of node,token memory allocated
- 2157 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 sub_mlist, 57 glyph, 229 attribut
-e, 110 glue_spec, 229 attribute_list, 1 write, 16 pdf_action nodes
-   avail lists: 1:1,2:1151,3:533,4:419,5:531,6:152,7:8222,8:101,9:1709,10:18,11:
+ 2339 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 sub_mlist, 67 glyph, 257 attribut
+e, 110 glue_spec, 257 attribute_list, 1 write, 16 pdf_action nodes
+   avail lists: 1:1,2:1151,3:533,4:419,5:531,6:152,7:8222,8:105,9:1709,10:18,11:
 758
- 43553 multiletter control sequences out of 65536+600000
+ 43560 multiletter control sequences out of 65536+600000
  61 fonts using 4808287 bytes
  60i,21n,65p,1997b,1512s stack positions out of 10000i,1000n,20000p,200000b,80000s
 </home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmmono10-regular.o
@@ -1201,9 +1203,9 @@ b></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
 pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msb
 m10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8a.pfb
 ></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (39 pages, 499389 bytes).
+Output written on main.pdf (41 pages, 514739 bytes).
 
-PDF statistics: 826 PDF objects out of 1000 (max. 8388607)
- 214 named destinations out of 1000 (max. 131072)
+PDF statistics: 855 PDF objects out of 1000 (max. 8388607)
+ 228 named destinations out of 1000 (max. 131072)
  233 words of extra memory for PDF output out of 10000 (max. 100000000)
 
