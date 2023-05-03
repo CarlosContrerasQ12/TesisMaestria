@@ -83,7 +83,8 @@ where the function $H(t,x,p,M)$ is the \textit{hamiltonian} defined as
 Note that we assume implicitly that the supremums appearing in these equations exists, but this condition is not necessary as pointed in \cite{pham_continuous-time_2009}.
 
 Solving this equation the Hamilton-Jacobi-Bellman equation for the function $V(t,x)$ can be used to construct optimal controls for the original problem as will be shown below with the linear-quadratic regulator. However, we need a result stating that a solution to such equation is in fact the desired value function
-\begin{thm}[Verfication theorem \cite{pham_continuous-time_2009}]
+\begin{thm}[Verification theorem \cite{pham_continuous-time_2009}]
+	\hlc[Revisar notacion]{}
 	Let $w$ be a function in $C^{1,2}\left([0, T) \times \mathbb{R}^n\right) \cap C^0\left([0, T] \times \mathbb{R}^n\right)$, and satisfying a quadratic growth condition, i.e. there exists a constant $C$ such that
 	$$
 	|w(t, x)| \leq C\left(1+|x|^2\right), \quad \forall(t, x) \in[0, T] \times \mathbb{R}^n
@@ -106,7 +107,7 @@ Solving this equation the Hamilton-Jacobi-Bellman equation for the function $V(t
 	$$
 	the $S D E$
 	$$
-	d X_s=b\left(X_s, \hat{\alpha}\left(s, X_s\right)\right) d s+\sigma\left(X_s, \hat{\alpha}\left(s, X_s\right)\right) d W_s
+	d X_s=\mu\left(X_s, \hat{\alpha}\left(s, X_s\right)\right) d s+\sigma\left(X_s, \hat{\alpha}\left(s, X_s\right)\right) d W_s
 	$$
 	admits a unique solution, denoted by $\hat{X}_s^{t, x}$, given an initial condition $X_t=x$, and the process $\left\{\hat{\alpha}\left(s, \hat{X}_s^{t, x}\right) t \leq s \leq T\right\}$ lies in $\mathcal{A}(t, x)$. Then
 	$$
@@ -115,3 +116,73 @@ Solving this equation the Hamilton-Jacobi-Bellman equation for the function $V(t
 	and $\hat{\alpha}$ is an optimal Markovian control.
 \end{thm}
 \section*{The linear-quadratic regulator (LQR)}
+To exemplify how to use the stochastic dynamic programming approach to solve optimal control problems we will solve the linear-quadratic regulator. This problem models a particle whose dynamics is described by the SDE
+\begin{equation}
+	\begin{split}
+		&dX_t=2\sqrt{\lambda}\alpha_t dt+\sqrt{2}dW_t\\
+		&X_0=x,
+	\end{split}
+\end{equation} 
+where $\alpha_t$ is the control process and $\lambda$ is a constant representing the strength of the control. 
+
+We want to minimize the cost functional
+\begin{equation}
+	J(\alpha_t)=\mathbb{E}\left[\int_{0}^{T}|\alpha_t|^2 dt +g(X_T)\right],
+\end{equation}
+which models the cost of the particle to reach a desired state, whose distance is modeled by $g(x)$, using the least amount of fuel as possible, which is represented by $\alpha_t$. For example, if we want the particle to reach the point $z_0$, we should choose $g(x)=|x-z_0|^2$.
+
+To derive the Hamilton-Jacobi-Bellman satisfied by the value function associated with this problems, note that the generator of the $X$ process is given by
+\begin{equation}
+	\mathcal{L}^a V(t,x)=2 \sqrt{\lambda} a\cdot D_x V+\Tr(D_{xx}^2 V)= 2 \sqrt{\lambda}a\cdot D_x V +\Delta V,
+\end{equation}
+hence the Hamiltonian for this problem is 
+\begin{equation}
+	H(t,x,D_x V,D_{xx}^2 V)=\inf_{a\in A}\{2 \sqrt{\lambda}a\cdot D_x V +\Delta V+|a|^2\},
+\end{equation}
+where we can calculate this $\inf$ analytically by taking the derivative with respect to $a$ and equating to cero, as the function inside is convex in $a$. Therefore, the minimum is attained at $a=-\sqrt{\lambda}D_x V$ and the Hamiltonian is 
+\begin{equation}
+	H(t,x,D_x V,D_{xx}^2 V)=-2\lambda|D_x V|^2+\lambda|D_x V|^2+\Delta V=\Delta V -\lambda |D_x V|^2.
+\end{equation}
+Thus, the associated HJB equation is 
+\begin{equation}
+	\dpartial{V}{t}+\Delta V -\lambda|\nabla V|^2=0
+\end{equation}
+subject to the terminal condition
+\begin{equation}
+	V(T,x)=g(x).
+\end{equation}
+If we solve this equation for $V(t,x)$, then we can use the verification theorem to obtain the optimal control process as $\hat{\alpha}=D_x V(t,x)$. 
+
+Fortunately, we can solve this equation explicitly using the Hopf-Cole transformation, $u(t,x)=e^{-\lambda V(t,x)}$. For such $u(t,x)$ we have
+\begin{equation}
+	\nabla u(t,x)=-\lambda e^{-\lambda V}\nabla V
+\end{equation}
+and
+\begin{equation}
+	\begin{split}
+		\Delta u(t,x)&=\lambda^2 e^{-\lambda V}|\nabla V|^2-\lambda e^{-\lambda V}\Delta V \\
+		&=-\lambda e^{-\lambda V}\left(\Delta V - \lambda |\nabla V|^2 \right)
+	\end{split}
+\end{equation}
+and 
+\begin{equation}
+	\dpartial{u}{t}(t,x)=-\lambda e^{-\lambda V} \dpartial{V}{t}.
+\end{equation}
+
+Therefore, the HJB equation for $u(t,x)$ is 
+\begin{equation}
+	\dpartial{u}{t}+\Delta u=0
+\end{equation}
+subject to the final condition 
+\begin{equation}
+	u(T,x)=e^{-\lambda g(x)}
+\end{equation}
+
+Hence, using the linear Feynman-Kac formula \ref{thm:LinearFK}, we can give a probabilistic explicit representation of the solution as
+\begin{equation}
+	u(t,x)=\expect*{\exp(-\lambda g(x+\sqrt{2}W_{T-t}))}
+\end{equation}
+and solving for $V(t,x)$ we obtain
+\begin{equation}
+	V(t,x)=-\frac{1}{\lambda}\ln\left(\expect*{\exp(-\lambda g(x+\sqrt{2}W_{T-t}))}\right).
+\end{equation}

@@ -38,8 +38,8 @@
       \strng{authorbibnamehash}{e17027d1dfcef26462d04886515cd994}
       \strng{authornamehash}{e17027d1dfcef26462d04886515cd994}
       \strng{authorfullhash}{e17027d1dfcef26462d04886515cd994}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Multilayered artiﬁcial neural networks are becoming a pervasive tool in a host of application ﬁelds. At the heart of this deep learning revolution are familiar concepts from applied and computational mathematics; notably, in calculus, approximation theory, optimization and linear algebra. This article provides a very brief introduction to the basic ideas that underlie deep learning from an applied mathematics perspective. Our target audience includes postgraduate and ﬁnal year undergraduate students in mathematics who are keen to learn about the area. The article may also be useful for instructors in mathematics who wish to enliven their classes with references to the application of deep learning techniques. We focus on three fundamental questions: what is a deep neural network? how is a network trained? what is the stochastic gradient method? We illustrate the ideas with a short {MATLAB} code that sets up and trains a network. We also show the use of state-of-the art software on a large scale image classiﬁcation problem. We ﬁnish with references to the current literature.}
@@ -120,8 +120,8 @@
       \strng{authorbibnamehash}{edf93f47ab09a8c56b86e9ad2e628607}
       \strng{authornamehash}{edf93f47ab09a8c56b86e9ad2e628607}
       \strng{authorfullhash}{3e58006f2c869702116637d04136c3b9}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{The classical development of neural networks has primarily focused on learning mappings between finite-dimensional Euclidean spaces. Recently, this has been generalized to neural operators that learn mappings between function spaces. For partial differential equations ({PDEs}), neural operators directly learn the mapping from any functional parametric dependence to the solution. Thus, they learn an entire family of {PDEs}, in contrast to classical methods which solve one instance of the equation. In this work, we formulate a new neural operator by parameterizing the integral kernel directly in Fourier space, allowing for an expressive and efficient architecture. We perform experiments on Burgers' equation, Darcy flow, and Navier-Stokes equation. The Fourier neural operator is the first {ML}-based method to successfully model turbulent flows with zero-shot super-resolution. It is up to three orders of magnitude faster compared to traditional {PDE} solvers. Additionally, it achieves superior accuracy compared to previous learning-based solvers under fixed resolution.}
@@ -169,8 +169,8 @@
       \strng{authorbibnamehash}{fb5add8979e6ca053be0b10341d44fe1}
       \strng{authornamehash}{fb5add8979e6ca053be0b10341d44fe1}
       \strng{authorfullhash}{fb5add8979e6ca053be0b10341d44fe1}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{High-dimensional {PDEs} have been a longstanding computational challenge. We propose to solve highdimensional {PDEs} by approximating the solution with a deep neural network which is trained to satisfy the diﬀerential operator, initial condition, and boundary conditions. Our algorithm is meshfree, which is key since meshes become infeasible in higher dimensions. Instead of forming a mesh, the neural network is trained on batches of randomly sampled time and space points. The algorithm is tested on a class of high-dimensional free boundary {PDEs}, which we are able to accurately solve in up to 200 dimensions. The algorithm is also tested on a high-dimensional Hamilton-Jacobi-Bellman {PDE} and Burgers’ equation. The deep learning algorithm approximates the general solution to the Burgers’ equation for a continuum of diﬀerent boundary conditions and physical conditions (which can be viewed as a high-dimensional space). We call the algorithm a “Deep Galerkin Method ({DGM})” since it is similar in spirit to Galerkin methods, with the solution approximated by a neural network instead of a linear combination of basis functions. In addition, we prove a theorem regarding the approximation power of neural networks for a class of quasilinear parabolic {PDEs}.}
@@ -247,8 +247,8 @@
       \strng{authorbibnamehash}{ecacc4512ae1bd881356a9535bcb4121}
       \strng{authornamehash}{ecacc4512ae1bd881356a9535bcb4121}
       \strng{authorfullhash}{27f0bb500f48733ffa04338eaf617bf2}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Physics-Informed Neural Networks ({PINN}) are neural networks ({NNs}) that encode model equations, like Partial Differential Equations ({PDE}), as a component of the neural network itself. {PINNs} are nowadays used to solve {PDEs}, fractional equations, integral-differential equations, and stochastic {PDEs}. This novel methodology has arisen as a multi-task learning framework in which a {NN} must fit observed data while reducing a {PDE} residual. This article provides a comprehensive review of the literature on {PINNs}: while the primary goal of the study was to characterize these networks and their related advantages and disadvantages. The review also attempts to incorporate publications on a broader range of collocation-based physics informed neural networks, which stars form the vanilla {PINN}, as well as many other variants, such as physics-constrained neural networks ({PCNN}), variational hp-{VPINN}, and conservative {PINN} ({CPINN}). The study indicates that most research has focused on customizing the {PINN} through different activation functions, gradient optimization techniques, neural network structures, and loss function structures. Despite the wide range of applications for which {PINNs} have been used, by demonstrating their ability to be more feasible in some contexts than classical numerical techniques like Finite Element Method ({FEM}), advancements are still possible, most notably theoretical issues that remain unresolved.}
@@ -297,8 +297,8 @@
       \strng{authorbibnamehash}{1c18533cebbda08fb288ae5804f700a2}
       \strng{authornamehash}{1c18533cebbda08fb288ae5804f700a2}
       \strng{authorfullhash}{1c18533cebbda08fb288ae5804f700a2}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Neural networks are increasingly used to construct numerical solution methods for partial diﬀerential equations. In this expository review, we introduce and contrast three important recent approaches attractive in their simplicity and their suitability for high-dimensional problems: physics-informed neural networks, methods based on the Feynman-Kac formula and methods based on the solution of backward stochastic diﬀerential equations. The article is accompanied by a suite of expository software in the form of Jupyter notebooks in which each basic methodology is explained step by step, allowing for a quick assimilation and experimentation. An extensive bibliography summarizes the state of the art.}
@@ -343,8 +343,8 @@
       \strng{authorbibnamehash}{eace1db2158ab018d2d2bb076c56909b}
       \strng{authornamehash}{eace1db2158ab018d2d2bb076c56909b}
       \strng{authorfullhash}{eace1db2158ab018d2d2bb076c56909b}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{1}
@@ -396,8 +396,8 @@
       \strng{authorbibnamehash}{ca377fe79cb834ca805a5a3cd77da393}
       \strng{authornamehash}{ca377fe79cb834ca805a5a3cd77da393}
       \strng{authorfullhash}{ca377fe79cb834ca805a5a3cd77da393}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Let Wt; t ϵ [0, 1] be a standard k-dimensional Weiner process defined on a probability space (Ω, F, P), and let Ft denote its natural filtration. Given a F1 measurable d-dimensional random vector X, we look for an adapted pair of processes \{x(t), y(t); t ϵ [0, 1]\} with values in Rd and Rd×k respectively, which solves an equation of the form: x(t) + ∫t1f(s, x(s), y(s)) ds + ∫t1 [g(s, x(s)) + y(s)] {dWs} = X. A linearized version of that equation appears in stochastic control theory as the equation satisfied by the adjoint process. We also generalize our results to the following equation: x(t) + ∫t1f(s, x(s), y(s)) ds + ∫t1 g(s, x(s)) + y(s)) {dWs} = X under rather restrictive assumptions on g.}
@@ -452,8 +452,8 @@
       \strng{authorbibnamehash}{17f34ccb8b943a37fda9e3c1e404f6d9}
       \strng{authornamehash}{17f34ccb8b943a37fda9e3c1e404f6d9}
       \strng{authorfullhash}{17f34ccb8b943a37fda9e3c1e404f6d9}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-1-4939-7254-8 978-1-4939-7256-2}
@@ -505,8 +505,8 @@
       \strng{authorbibnamehash}{4765bb24c67ec2d8037bb9a5ed16432f}
       \strng{authornamehash}{4765bb24c67ec2d8037bb9a5ed16432f}
       \strng{authorfullhash}{4765bb24c67ec2d8037bb9a5ed16432f}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-3-319-05713-2 978-3-319-05714-9}
@@ -547,8 +547,8 @@
       \strng{authorbibnamehash}{04b1ed251efdd057328781524789a201}
       \strng{authornamehash}{04b1ed251efdd057328781524789a201}
       \strng{authorfullhash}{04b1ed251efdd057328781524789a201}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{spanish}
@@ -577,8 +577,8 @@
       \strng{authorbibnamehash}{701a2d95e8b3a75c89608e9b91902077}
       \strng{authornamehash}{701a2d95e8b3a75c89608e9b91902077}
       \strng{authorfullhash}{701a2d95e8b3a75c89608e9b91902077}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-1-4614-4285-1 978-1-4614-4286-8}
@@ -778,8 +778,8 @@
       \strng{authorbibnamehash}{bbe43688d649da783741badb0ca7daf5}
       \strng{authornamehash}{bbe43688d649da783741badb0ca7daf5}
       \strng{authorfullhash}{bbe43688d649da783741badb0ca7daf5}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{We are concerned with different properties of backward stochastic differential equations and their applications to finance. These equations, first introduced by Pardoux and Peng (1990), are useful for the theory of contingent claim valuation, especially cases with constraints and for the theory of recursive utilities, introduced by Duffie and Epstein (1992a, 1992b).}
@@ -891,8 +891,8 @@
       \strng{authornamehash}{3cc26ef31ed487cc0d1e401f969fc83a}
       \strng{authorfullhash}{86dfdd9b393215828f78e1e7d3b76b9d}
       \field{extraname}{2}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Backward Stochastic Differential Equations ({BSDEs}) have been widely employed in various areas of social and natural sciences, such as the pricing and hedging of ﬁnancial derivatives, stochastic optimal control problems, optimal stopping problems and gene expression. Most {BSDEs} cannot be solved analytically and thus numerical methods must be applied to approximate their solutions. There have been a variety of numerical methods proposed over the past few decades as well as many more currently being developed. For the most part, they exist in a complex and scattered manner with each requiring a variety of assumptions and conditions. The aim of the present work is thus to systematically survey various numerical methods for {BSDEs}, and in particular, compare and categorize them, for further developments and improvements. To achieve this goal, we focus primarily on the core features of each method based on an extensive collection of 333 references: the main assumptions, the numerical algorithm itself, key convergence properties and advantages and disadvantages, to provide an up-to-date coverage of numerical methods for {BSDEs}, with insightful summaries of each and a useful comparison and categorization.}
@@ -1159,8 +1159,8 @@
       \strng{authorbibnamehash}{3a46552915079364d2429ce9381a76a9}
       \strng{authornamehash}{3a46552915079364d2429ce9381a76a9}
       \strng{authorfullhash}{3a46552915079364d2429ce9381a76a9}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{We propose new machine learning schemes for solving high dimensional nonlinear partial diﬀerential equations ({PDEs}). Relying on the classical backward stochastic diﬀerential equation ({BSDE}) representation of {PDEs}, our algorithms estimate simultaneously the solution and its gradient by deep neural networks. These approximations are performed at each time step from the minimization of loss functions deﬁned recursively by backward induction. The methodology is extended to variational inequalities arising in optimal stopping problems. We analyze the convergence of the deep learning schemes and provide error estimates in terms of the universal approximation of neural networks. Numerical results show that our algorithms give very good results till dimension 50 (and certainly above), for both {PDEs} and variational inequalities problems. For the {PDEs} resolution, our results are very similar to those obtained by the recent method in [{EHJ}17] when the latter converges to the right solution or does not diverge. Numerical tests indicate that the proposed methods are not stuck in poor local minima as it can be the case with the algorithm designed in [{EHJ}17], and no divergence is experienced. The only limitation seems to be due to the inability of the considered deep neural networks to represent a solution with a too complex structure in high dimension.}
@@ -1211,8 +1211,8 @@
       \strng{authorbibnamehash}{95a17c39168b9e6b8812f207b4e036c1}
       \strng{authornamehash}{95a17c39168b9e6b8812f207b4e036c1}
       \strng{authorfullhash}{95a17c39168b9e6b8812f207b4e036c1}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Classical numerical methods for solving partial differential equations suffer from the curse dimensionality mainly due to their reliance on meticulously generated spatio-temporal grids. Inspired by modern deep learning based techniques for solving forward and inverse problems associated with partial differential equations, we circumvent the tyranny of numerical discretization by devising an algorithm that is scalable to high-dimensions. In particular, we approximate the unknown solution by a deep neural network which essentially enables us to benefit from the merits of automatic differentiation. To train the aforementioned neural network we leverage the well-known connection between high-dimensional partial differential equations and forward-backward stochastic differential equations. In fact, independent realizations of a standard Brownian motion will act as training data. We test the effectiveness of our approach for a couple of benchmark problems spanning a number of scientific domains including Black-Scholes-Barenblatt and Hamilton-Jacobi-Bellman equations, both in 100-dimensions.}

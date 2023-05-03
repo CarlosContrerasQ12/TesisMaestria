@@ -191,7 +191,45 @@ Let's test these algorithms with a toy problem from control theory using the Ham
 We will perform a comparison between the preceding algorithms by solving, just for fun, the Hamilton-Jacobi-Bellman equation associated to a linear-quadratic regulator in dimension 100.
 
 \section{Boundary problems}
+In this section, we consider PDE's with boundary conditions of the form 
+\begin{subequations}
+	\label{eqn:PDEBoundaryCh2}
+	\begin{equation}
+		\begin{split}
+			&\dpartial{v}{t}(t,x)+\mathcal{L}v(t,x)+f(t,x,v(t,x),\sigma(t,x)' D_x v(t,x))=0
+		\end{split}
+	%\tag{\ref{eqn:PDEBoundaryCh2}}
+	\end{equation}
+with terminal condition 
+\begin{equation}
+	\label{eqn:terminalBoundary}
+	v(T,x)=g(x) \quad \forall x\in \Omega ,
+\end{equation}
+and Dirichlet and Neumman conditions
+\begin{align}
+	&v(t,x)=h_d(x) \quad \forall x\in \Gamma_D \text{ and } \forall t\in[0,T] \label{eqn:DirichletBoundary}\\
+	&\dpartial{v}{n}(t,x)=h_n(x) \quad \forall x\in \Gamma_N \text{ and } \forall t\in[0,T] \label{eqn:NeumanBoundary},
+\end{align}
+\end{subequations}
+where $\Omega$ is a bounded domain, regular enough for a solution to exist, and $\Gamma_D \dot{\cup} \Gamma_N=\partial \Omega$.
+
+If, in addition to the PDE, we impose Neumman/Dirichlet boundary conditions, the previous approaches must be modified because the Feynman-Kac formula does not account for them explicitly. We will try two different approaches.
 \subsection{Deep Galerkin method}
+The first approach is named the deep Galerkin method (DGM) and was proposed in \cite{sirignano_dgm_2018}. This method is also called Physics Informed Neural Networks (PINN's). It does not rely on a probabilistic representation of the solution, but on the explicit form \eqref{eqn:PDEBoundaryCh2}.
+
+The DGM algorithm approximates the solution $v(t,x)$ with a deep neural network $\varphi(t,x|\theta)$, where $\theta$ are the network's parameters. We will choose this function aiming to minimize the cost function given by
+\begin{equation}
+	\label{eqn:DGMLoss}
+	\begin{split}
+			J(\varphi)=&\norm{\dpartial{\varphi}{t}+\mathcal{L}\varphi+f(t,x,\varphi(t,x),\sigma(t,x)'D_x \varphi(t,x))}_{[0,T]\times \Omega,\nu_1}^2\\
+			+&\norm{\varphi(T,x|\theta)-g(x)}_{\Omega,\nu_2}^2\\
+			+&\norm{\varphi(t,x)-h_d(x)}_{[0,T]\times \partial \Gamma_D,\nu_3 }^2\\
+			+&\norm{\hat{n}\cdot D_x \varphi(t,x)-h_n(x)}_{[0,T]\times \partial \Gamma_N,\nu_4 }^2
+	\end{split},
+\end{equation}
+where we use the notation for the norms $\norm{f(y)}_{\mathcal{Y},\nu}^2=\int_{\mathcal{Y}}|f(y)|^2d\nu$, given a positive probability density on $\mathcal{Y}$. Here, $J(\varphi)$ measure how well $\phi$ satisfies the PDE with its initial and boundary conditions. If $J(\varphi)=0$, then $\varphi$ is a solution to \eqref{eqn:PDEBoundaryCh2}.
+
+To obtain the minimizing parameters $\theta$, we will perform a training procedure of the neural network with a stochastic gradient descent algorithm. We will sample points according to $v_1,v_2,v_3,v_4$ and calculate a Monte-Carlo approximation of the functional loss \eqref{eqn:DGMLoss} using automatic differentiation to calculate the derivatives appearing in the PDE operator and boundary conditions. With this approximation, we will take a descent step in the gradient direction calculated again using automatic differentiation. 
 \subsection{Interpolating BSDEs with PINNs}
 \subsection{Reflection on Boundary}
 
