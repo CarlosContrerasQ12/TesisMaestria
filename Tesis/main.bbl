@@ -1242,6 +1242,59 @@
       \endverb
       \keyw{Computer Science - Machine Learning,Statistics - Machine Learning,Mathematics - Optimization and Control,Mathematics - Analysis of {PDEs},Electrical Engineering and Systems Science - Systems and Control}
     \endentry
+    \entry{nusken_interpolating_2023}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=1809e073002f6b361a45b910e990e573}{%
+           family={Nüsken},
+           familyi={N\bibinitperiod},
+           given={Nikolas},
+           giveni={N\bibinitperiod}}}%
+        {{hash=320a939ee9de885642a8b23fb9d71407}{%
+           family={Richter},
+           familyi={R\bibinitperiod},
+           given={Lorenz},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{3fda6a4067919d21da05be927834cf75}
+      \strng{fullhash}{3fda6a4067919d21da05be927834cf75}
+      \strng{bibnamehash}{3fda6a4067919d21da05be927834cf75}
+      \strng{authorbibnamehash}{3fda6a4067919d21da05be927834cf75}
+      \strng{authornamehash}{3fda6a4067919d21da05be927834cf75}
+      \strng{authorfullhash}{3fda6a4067919d21da05be927834cf75}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Solving high-dimensional partial differential equations is a recurrent challenge in economics, science and engineering. In recent years, a great number of computational approaches have been developed, most of them relying on a combination of Monte Carlo sampling and deep learning based approximation. For elliptic and parabolic problems, existing methods can broadly be classified into those resting on reformulations in terms of \${\textbackslash}textit\{backward stochastic differential equations\}\$ ({BSDEs}) and those aiming to minimize a regression-type \$L{\textasciicircum}2\$-error (\${\textbackslash}textit\{physics-informed neural networks\}\$, {PINNs}). In this paper, we review the literature and suggest a methodology based on the novel \${\textbackslash}textit\{diffusion loss\}\$ that interpolates between {BSDEs} and {PINNs}. Our contribution opens the door towards a unified understanding of numerical approaches for high-dimensional {PDEs}, as well as for implementations that combine the strengths of {BSDEs} and {PINNs}. The diffusion loss furthermore bears close similarities to \${\textbackslash}textit\{(least squares) temporal difference\}\$ objectives found in reinforcement learning. We also discuss eigenvalue problems and perform extensive numerical studies, including calculations of the ground state for nonlinear Schr{\textbackslash}"odinger operators and committor functions relevant in molecular dynamics.}
+      \field{day}{29}
+      \field{eprinttype}{arxiv}
+      \field{month}{1}
+      \field{number}{{arXiv}:2112.03749}
+      \field{shorttitle}{Interpolating between {BSDEs} and {PINNs}}
+      \field{title}{Interpolating between {BSDEs} and {PINNs}: deep learning for elliptic and parabolic boundary value problems}
+      \field{urlday}{26}
+      \field{urlmonth}{3}
+      \field{urlyear}{2023}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{eprint}
+      \verb 2112.03749 [cs, math, stat]
+      \endverb
+      \verb{file}
+      \verb arXiv Fulltext PDF:/home/carlos/Zotero/storage/F6XGPLPR/Nüsken y Richter - 2023 - Interpolating between BSDEs and PINNs deep learni.pdf:application/pdf;arXiv.org Snapshot:/home/carlos/Zotero/storage/W2J945H2/2112.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2112.03749
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2112.03749
+      \endverb
+      \keyw{Mathematics - Numerical Analysis,Statistics - Machine Learning,Mathematics - Probability}
+    \endentry
   \enddatalist
   \missing{PINNS2}
   \missing{PINNs}

@@ -8,14 +8,13 @@
 \contentsline {subsection}{\numberline {2.2.1}The linear Feynman-Kac formula}{13}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}The non-linear Feynman-Kac formula}{15}{subsection.2.2.2}%
 \contentsline {chapter}{\numberline {3}Deep Learning Methods for PDEs}{19}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Free boundary problems}{21}{section.3.1}%
+\contentsline {section}{\numberline {3.1}Unbounded problems}{21}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Deep BSDE method}{21}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}An example}{26}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Boundary problems}{27}{section.3.2}%
+\contentsline {section}{\numberline {3.2}Bounded problems}{27}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Deep Galerkin method}{27}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Interpolating BSDEs with PINNs}{28}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Reflection on Boundary}{28}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}An example}{28}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.3}An example}{28}{subsection.3.2.3}%
 \contentsline {chapter}{\numberline {4}Crowd motion modeling}{29}{chapter.4}%
 \contentsline {section}{\numberline {4.1}N-agent games}{29}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Mean Field Games}{29}{section.4.2}%

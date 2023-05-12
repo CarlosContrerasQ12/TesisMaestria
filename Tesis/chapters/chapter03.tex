@@ -16,7 +16,7 @@ This is a very new area of research, for which many open questions remain. Parti
 
 In this chapter we review some of these methods, implement them for toy examples and perform a comparison of speed, accuracy and practical usefulness for solving PDE's.   
 
-\section{Free boundary problems}
+\section{Unbounded problems}
 Let's start with problems in free space. In the same setup as \autoref{thm:verficationThm}, we deal with the following equation with terminal condition
 \begin{equation}
 	\label{eqn:FKNolinealCh2}
@@ -190,7 +190,7 @@ Let's test these algorithms with a toy problem from control theory using the Ham
 
 We will perform a comparison between the preceding algorithms by solving, just for fun, the Hamilton-Jacobi-Bellman equation associated to a linear-quadratic regulator in dimension 100.
 
-\section{Boundary problems}
+\section{Bounded problems}
 In this section, we consider PDE's with boundary conditions of the form 
 \begin{subequations}
 	\label{eqn:PDEBoundaryCh2}
@@ -221,16 +221,20 @@ The DGM algorithm approximates the solution $v(t,x)$ with a deep neural network 
 \begin{equation}
 	\label{eqn:DGMLoss}
 	\begin{split}
-			J(\varphi)=&\norm{\dpartial{\varphi}{t}+\mathcal{L}\varphi+f(t,x,\varphi(t,x),\sigma(t,x)'D_x \varphi(t,x))}_{[0,T]\times \Omega,\nu_1}^2\\
-			+&\norm{\varphi(T,x|\theta)-g(x)}_{\Omega,\nu_2}^2\\
-			+&\norm{\varphi(t,x)-h_d(x)}_{[0,T]\times \partial \Gamma_D,\nu_3 }^2\\
-			+&\norm{\hat{n}\cdot D_x \varphi(t,x)-h_n(x)}_{[0,T]\times \partial \Gamma_N,\nu_4 }^2
+			J(\varphi)=&\alpha_{int}\norm{\dpartial{\varphi}{t}+\mathcal{L}\varphi+f(t,x,\varphi(t,x),\sigma(t,x)'D_x \varphi(t,x))}_{[0,T]\times \Omega,\nu_1}^2\\
+			+&\alpha_{T}\norm{\varphi(T,x|\theta)-g(x)}_{\Omega,\nu_2}^2\\
+			+&\alpha_{d}\norm{\varphi(t,x)-h_d(x)}_{[0,T]\times \partial \Gamma_D,\nu_3 }^2\\
+			+&\alpha_{n}\norm{\hat{n}\cdot D_x \varphi(t,x)-h_n(x)}_{[0,T]\times \partial \Gamma_N,\nu_4 }^2
 	\end{split},
 \end{equation}
-where we use the notation for the norms $\norm{f(y)}_{\mathcal{Y},\nu}^2=\int_{\mathcal{Y}}|f(y)|^2d\nu$, given a positive probability density on $\mathcal{Y}$. Here, $J(\varphi)$ measure how well $\phi$ satisfies the PDE with its initial and boundary conditions. If $J(\varphi)=0$, then $\varphi$ is a solution to \eqref{eqn:PDEBoundaryCh2}.
+where we use the notation for the norms $\norm{f(y)}_{\mathcal{Y},\nu}^2=\int_{\mathcal{Y}}|f(y)|^2d\nu$, given a positive probability density $\nu$ on $\mathcal{Y}$. Here, $J(\varphi)$ measure how well $\phi$ satisfies the PDE with its initial and boundary conditions weighted by the $\alpha$ coefficients. If $J(\varphi)=0$, then $\varphi$ is a solution to \eqref{eqn:PDEBoundaryCh2}.
 
-To obtain the minimizing parameters $\theta$, we will perform a training procedure of the neural network with a stochastic gradient descent algorithm. We will sample points according to $v_1,v_2,v_3,v_4$ and calculate a Monte-Carlo approximation of the functional loss \eqref{eqn:DGMLoss} using automatic differentiation to calculate the derivatives appearing in the PDE operator and boundary conditions. With this approximation, we will take a descent step in the gradient direction calculated again using automatic differentiation. 
+To obtain the minimizing parameters $\theta$, we will perform a training procedure of the neural network with a stochastic gradient descent algorithm. We will sample points according to $\nu_1,\nu_2,\nu_3,\nu_4$ and calculate a Monte-Carlo approximation of the functional loss \eqref{eqn:DGMLoss} using automatic differentiation to calculate the derivatives appearing in the PDE operator and boundary conditions. With this approximation, we will take a descent step in the gradient direction calculated again using automatic differentiation. 
+
+Due to the universal approximation theorem for neural networks and some more theoretical considerations, we can establish the convergence of this algorithm for some well-behaved partial differential equations, see \cite{sirignano_dgm_2018}. However, the practical convergence presents difficulties as it depends strongly on a set of well-chosen hyper-parameters, such as the learning rate of the descent method, the batch sizes, the weights in the loss function, the network architecture, as well as the sampling densities. There is not a straightforward way to choose such parameters, thus the convergence is 
+
+Note also that there is a big operational cost involved in the computation of derivatives appearing in the loss function through automatic differentiation. For operators using fully coupled second order derivatives, this cost becomes prohibitive in high dimensions. Therefore, we need alternatives for problems with these restrictions.
 \subsection{Interpolating BSDEs with PINNs}
-\subsection{Reflection on Boundary}
+To circumvent these issues, we may combine the powerful ideas of stochastic representation of solution of PDEs with the forcing technique used in the PINNs approach. This method was proposed by \cite{nusken_interpolating_2023}, where the authors define an interpolation parameter between both methods to 
 
 \subsection{An example}

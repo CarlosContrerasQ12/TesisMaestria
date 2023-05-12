@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  1 MAY 2023 10:01
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  11 MAY 2023 23:07
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1071,7 +1071,7 @@ LaTeX Warning: Citation 'bibid' on page 20 undefined on input line 13.
 LaTeX Warning: Citation 'bibid' on page 20 undefined on input line 15.
 
 [20] [21]
-<images/DeepBSDEMap.png, id=455, 715.67375pt x 246.9225pt>
+<images/DeepBSDEMap.png, id=453, 715.67375pt x 246.9225pt>
 File: images/DeepBSDEMap.png Graphic file (type png)
 <use images/DeepBSDEMap.png>
 Package luatex.def Info: images/DeepBSDEMap.png  used on input line 90.
@@ -1085,23 +1085,23 @@ TU/lmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 $ \TU/lmr/m/it/10.95 and $\OML/cmm
  []
 
 [23]
-<images/FCStructure.png, id=485, 137.51375pt x 243.91125pt>
+<images/FCStructure.png, id=483, 137.51375pt x 243.91125pt>
 File: images/FCStructure.png Graphic file (type png)
 <use images/FCStructure.png>
 Package luatex.def Info: images/FCStructure.png  used on input line 137.
 (luatex.def)             Requested size: 170.72931pt x 142.26508pt.
-<images/MergedBSDE.png, id=490, 709.65125pt x 244.915pt>
+<images/MergedBSDE.png, id=488, 709.65125pt x 244.915pt>
 File: images/MergedBSDE.png Graphic file (type png)
 <use images/MergedBSDE.png>
 Package luatex.def Info: images/MergedBSDE.png  used on input line 148.
 (luatex.def)             Requested size: 426.79134pt x 147.29767pt.
  [24<./images/FCStructure.png>]
-<images/MergedStructure.png, id=504, 143.53625pt x 242.9075pt>
+<images/MergedStructure.png, id=502, 143.53625pt x 242.9075pt>
 File: images/MergedStructure.png Graphic file (type png)
 <use images/MergedStructure.png>
 Package luatex.def Info: images/MergedStructure.png  used on input line 157.
 (luatex.def)             Requested size: 170.71825pt x 142.26154pt.
-<images/ResidualMergedStructure.png, id=508, 187.70125pt x 244.915pt>
+<images/ResidualMergedStructure.png, id=506, 187.70125pt x 244.915pt>
 File: images/ResidualMergedStructure.png Graphic file (type png)
 <use images/ResidualMergedStructure.png>
 Package luatex.def Info: images/ResidualMergedStructure.png  used on input line
@@ -1115,7 +1115,7 @@ on in the neu-ral net-work $[] \OT1/cmr/m/n/10.95 = []\OMS/cmsy/m/n/10.95 N\OT1
 .95 .
  []
 
-[26<./images/ResidualMergedStructure.png>]) [27] [28]
+[26<./images/ResidualMergedStructure.png>] [27]) [28]
 Chapter 4.
 (./chapters/chapter04.tex) [29
 
@@ -1162,20 +1162,26 @@ Overfull \hbox (12.53581pt too wide) in paragraph at lines 155--155
  []
 
 [39] (./main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please rerun LaTeX.
+
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 23479 strings out of 477240
+ 23481 strings out of 477240
  125086,1373583 words of node,token memory allocated
  2492 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 sub_mlist, 70 glyph, 290 attribut
 e, 110 glue_spec, 290 attribute_list, 1 write, 16 pdf_action nodes
-   avail lists: 1:1,2:1151,3:533,4:419,5:531,6:153,7:8222,8:105,9:1709,10:18,11:
-758
- 43566 multiletter control sequences out of 65536+600000
+   avail lists: 1:1,2:1153,3:533,4:419,5:531,6:153,7:8223,8:106,9:1709,10:18,11:
+759
+ 43568 multiletter control sequences out of 65536+600000
  61 fonts using 4808287 bytes
  60i,21n,65p,1997b,1512s stack positions out of 10000i,1000n,20000p,200000b,80000s
 </home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmmono10-regular.o
@@ -1203,9 +1209,9 @@ b></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
 pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msb
 m10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8a.pfb
 ></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (44 pages, 533902 bytes).
+Output written on main.pdf (44 pages, 536142 bytes).
 
-PDF statistics: 894 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 895 PDF objects out of 1000 (max. 8388607)
  251 named destinations out of 1000 (max. 131072)
- 233 words of extra memory for PDF output out of 10000 (max. 100000000)
+ 225 words of extra memory for PDF output out of 10000 (max. 100000000)
 
