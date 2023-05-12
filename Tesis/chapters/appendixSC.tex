@@ -119,33 +119,33 @@ Solving this equation the Hamilton-Jacobi-Bellman equation for the function $V(t
 To exemplify how to use the stochastic dynamic programming approach to solve optimal control problems we will solve the linear-quadratic regulator. This problem models a particle whose dynamics is described by the SDE
 \begin{equation}
 	\begin{split}
-		&dX_t=2\sqrt{\lambda}\alpha_t dt+\sqrt{2}dW_t\\
+		&dX_t=2\sqrt{\lambda}\alpha_t dt+\sqrt{2\nu}dW_t\\
 		&X_0=x,
 	\end{split}
 \end{equation} 
-where $\alpha_t$ is the control process and $\lambda$ is a constant representing the strength of the control. 
+where $\alpha_t$ is the control process and $\lambda,\nu$ are constants representing the strength of the control and noise respectively. 
 
 We want to minimize the cost functional
 \begin{equation}
-	J(\alpha_t)=\mathbb{E}\left[\int_{0}^{T}|\alpha_t|^2 dt +g(X_T)\right],
+	J(\alpha_t)=\mathbb{E}\left[\int_{0}^{T}(|\alpha_t|^2+F) dt +g(X_T)\right],
 \end{equation}
-which models the cost of the particle to reach a desired state, whose distance is modeled by $g(x)$, using the least amount of fuel as possible, which is represented by $\alpha_t$. For example, if we want the particle to reach the point $z_0$, we should choose $g(x)=|x-z_0|^2$.
+which models the cost of the particle to reach a desired state, whose distance is modeled by $g(x)$, using the least amount of fuel as possible, which is represented by $\alpha_t$, and alo penalizing time time to reazh the desired final state through a constant $F$. For example, if we want the particle to reach the point $z_0$, we should choose $g(x)=|x-z_0|^2$.
 
 To derive the Hamilton-Jacobi-Bellman satisfied by the value function associated with this problems, note that the generator of the $X$ process is given by
 \begin{equation}
-	\mathcal{L}^a V(t,x)=2 \sqrt{\lambda} a\cdot D_x V+\Tr(D_{xx}^2 V)= 2 \sqrt{\lambda}a\cdot D_x V +\Delta V,
+	\mathcal{L}^a V(t,x)=2 \sqrt{\lambda} a\cdot D_x V+\nu\Tr(D_{xx}^2 V)= 2 \sqrt{\lambda}a\cdot D_x V +\nu\Delta V,
 \end{equation}
 hence the Hamiltonian for this problem is 
 \begin{equation}
-	H(t,x,D_x V,D_{xx}^2 V)=\inf_{a\in A}\{2 \sqrt{\lambda}a\cdot D_x V +\Delta V+|a|^2\},
+	H(t,x,D_x V,D_{xx}^2 V)=\inf_{a\in A}\{2 \sqrt{\lambda}a\cdot D_x V +\nu\Delta V+|a|^2+F\},
 \end{equation}
 where we can calculate this $\inf$ analytically by taking the derivative with respect to $a$ and equating to cero, as the function inside is convex in $a$. Therefore, the minimum is attained at $a=-\sqrt{\lambda}D_x V$ and the Hamiltonian is 
 \begin{equation}
-	H(t,x,D_x V,D_{xx}^2 V)=-2\lambda|D_x V|^2+\lambda|D_x V|^2+\Delta V=\Delta V -\lambda |D_x V|^2.
+	H(t,x,D_x V,D_{xx}^2 V)=-2\lambda|D_x V|^2+\lambda|D_x V|^2+\nu\Delta V+F=\nu\Delta V+F -\lambda |D_x V|^2.
 \end{equation}
 Thus, the associated HJB equation is 
 \begin{equation}
-	\dpartial{V}{t}+\Delta V -\lambda|\nabla V|^2=0
+	\dpartial{V}{t}+\nu\Delta V -\lambda|\nabla V|^2+F=0
 \end{equation}
 subject to the terminal condition
 \begin{equation}
@@ -153,7 +153,7 @@ subject to the terminal condition
 \end{equation}
 If we solve this equation for $V(t,x)$, then we can use the verification theorem to obtain the optimal control process as $\hat{\alpha}=D_x V(t,x)$. 
 
-Fortunately, we can solve this equation explicitly using the Hopf-Cole transformation, $u(t,x)=e^{-\lambda V(t,x)}$. For such $u(t,x)$ we have
+Fortunately, for $\nu=1$ ,we can solve this equation explicitly using the Hopf-Cole transformation, $u(t,x)= e^{-\lambda V(t,x)}$. For such $u(t,x)$ we have
 \begin{equation}
 	\nabla u(t,x)=-\lambda e^{-\lambda V}\nabla V
 \end{equation}

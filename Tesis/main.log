@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  11 MAY 2023 23:07
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  12 MAY 2023 10:03
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1162,12 +1162,6 @@ Overfull \hbox (12.53581pt too wide) in paragraph at lines 155--155
  []
 
 [39] (./main.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-Package biblatex Warning: Please rerun LaTeX.
-
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
@@ -1209,7 +1203,7 @@ b></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
 pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msb
 m10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8a.pfb
 ></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (44 pages, 536142 bytes).
+Output written on main.pdf (44 pages, 536801 bytes).
 
 PDF statistics: 895 PDF objects out of 1000 (max. 8388607)
  251 named destinations out of 1000 (max. 131072)

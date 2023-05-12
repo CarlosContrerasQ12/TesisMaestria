@@ -1,14 +1,14 @@
 [0] Config.pm:306> INFO - This is Biber 2.18
 [0] Config.pm:309> INFO - Logfile is 'notas.blg'
-[42] biber:340> INFO - === lun abr 10, 2023, 17:41:23
+[42] biber:340> INFO - === jue may 11, 2023, 23:09:59
 [51] Biber.pm:418> INFO - Reading 'notas.bcf'
-[92] Biber.pm:978> INFO - Found 2 citekeys in bib section 0
-[101] Biber.pm:4401> INFO - Processing section 0
-[107] Biber.pm:4592> INFO - Looking for bibtex file 'PDEsML.bib' for section 0
-[110] bibtex.pm:1713> INFO - LaTeX decoding ...
-[154] bibtex.pm:1518> INFO - Found BibTeX data source 'PDEsML.bib'
-[184] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[184] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[184] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[187] bbl.pm:654> INFO - Writing 'notas.bbl' with encoding 'UTF-8'
-[189] bbl.pm:757> INFO - Output to notas.bbl
+[94] Biber.pm:978> INFO - Found 2 citekeys in bib section 0
+[103] Biber.pm:4401> INFO - Processing section 0
+[109] Biber.pm:4592> INFO - Looking for bibtex file 'PDEsML.bib' for section 0
+[112] bibtex.pm:1713> INFO - LaTeX decoding ...
+[159] bibtex.pm:1518> INFO - Found BibTeX data source 'PDEsML.bib'
+[188] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[188] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[188] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[192] bbl.pm:654> INFO - Writing 'notas.bbl' with encoding 'UTF-8'
+[193] bbl.pm:757> INFO - Output to notas.bbl
