@@ -23,9 +23,19 @@ Let's start with problems in free space. In the same setup as \autoref{thm:verfi
 	\begin{split}
 		&\dpartial{v}{t}(t,x)+\mu(t,x)\cdot D_x v(t,x)+\frac{1}{2}\Tr(\sigma(t,x)\sigma^{T}(t,x)D_{xx}^2v(t,x))\\
 		&+f(t,x,v(t,x),\sigma(t,x)' D_x v(t,x))=0\\
-		&v(T,x)=g(x).
+		&v(T,x)=g(x),
 	\end{split}
 \end{equation}
+that can also be written as 
+\begin{equation}
+	\label{eqn:FKNolinealLCh2}
+	\begin{split}
+	&\dpartial{v}{t}(t,x)+\mathcal{L}_t v(t,x)+f(t,x,v(t,x),\sigma(t,x)' D_x v(t,x))=0\\
+	&v(T,x)=g(x),
+   \end{split}
+\end{equation}
+using the infinitesimal generator $\mathcal{L}_t$ of the forward process $X$ as in \eqref{eqn:ininitesimalGen}.
+
 We have proven that we can construct a viscosity solution to this equation by setting $v(t,x)=Y_{t}^{t,x}$, where $Y$ is the solution process to the FBSDE
 \begin{equation}
 	\label{eqn:UncoupledCh2}
@@ -211,17 +221,29 @@ and Dirichlet and Neumman conditions
 	&\dpartial{v}{n}(t,x)=h_n(x) \quad \forall x\in \Gamma_N \text{ and } \forall t\in[0,T] \label{eqn:NeumanBoundary},
 \end{align}
 \end{subequations}
-where $\Omega$ is a bounded domain, regular enough for a solution to exist, and $\Gamma_D \dot{\cup} \Gamma_N=\partial \Omega$.
+where $\Omega$ is a bounded domain, regular enough for a solution to exist, and $\Gamma_D \dot{\cup} \Gamma_N=\partial \Omega$. Here again $\mathcal{L}$ represents the infinitesimal generator of the process $X$ that is solution to \eqref{eqn:UncoupledCh2}. 
+
+We will assume the following
+\begin{assumptions}
+	\label{ass:BoundaryExistence}
+	The following holds
+	\begin{enumerate}[I.] 
+		\item The domain $\Omega$ is bounded with piecewise smooth boundary
+		\item The boundary problem \eqref{eqn:PDEBoundaryCh2} admits a unique classical solution $v\in C^{1,2}([0,t]\times \Omega) \cap C(\bar{\Omega} \times [0,T])$. Moreover, the gradient of $v$ satisfies a polynomial growth condition in $x$, i.e , $|D_x v(t,x)|\leq C (1+|x|^p)$ for $(t,x)\in [0,T]\times \Omega$ and some $C,q\geq 0$
+		\item The forward process in \eqref{eqn:UncoupledCh2} admits a unique strong solution globally in time.
+		\end{enumerate}
+\end{assumptions}
 
 If, in addition to the PDE, we impose Neumman/Dirichlet boundary conditions, the previous approaches must be modified because the Feynman-Kac formula does not account for them explicitly. We will try two different approaches.
 \subsection{Deep Galerkin method}
 The first approach is named the deep Galerkin method (DGM) and was proposed in \cite{sirignano_dgm_2018}. This method is also called Physics Informed Neural Networks (PINN's). It does not rely on a probabilistic representation of the solution, but on the explicit form \eqref{eqn:PDEBoundaryCh2}.
 
-The DGM algorithm approximates the solution $v(t,x)$ with a deep neural network $\varphi(t,x|\theta)$, where $\theta$ are the network's parameters. We will choose this function aiming to minimize the cost function given by
+The DGM algorithm approximates the solution $v(t,x)$ with a deep neural network $\varphi(t,x|\theta)$, where $\theta$ are the network's parameters. We will choose this function aiming to minimize the loss function given by
 \begin{equation}
 	\label{eqn:DGMLoss}
 	\begin{split}
-			J(\varphi)=&\alpha_{int}\norm{\dpartial{\varphi}{t}+\mathcal{L}\varphi+f(t,x,\varphi(t,x),\sigma(t,x)'D_x \varphi(t,x))}_{[0,T]\times \Omega,\nu_1}^2\\
+			\mathcal{L}(\varphi):=&\alpha_{int}\mathcal{L}_{\text{DGM,int}}(\varphi)+\alpha_{T}\mathcal{L}_{\text{DGM,T}}(\varphi)+\alpha_{d}\mathcal{L}_{\text{DGM,d}}(\varphi)+\alpha_{n}\mathcal{L}_{\text{DGM,n}}(\varphi) \\
+			:=&\alpha_{int}\norm{\dpartial{\varphi}{t}+\mathcal{L}\varphi+f(t,x,\varphi(t,x),\sigma(t,x)'D_x \varphi(t,x))}_{[0,T]\times \Omega,\nu_1}^2\\
 			+&\alpha_{T}\norm{\varphi(T,x|\theta)-g(x)}_{\Omega,\nu_2}^2\\
 			+&\alpha_{d}\norm{\varphi(t,x)-h_d(x)}_{[0,T]\times \partial \Gamma_D,\nu_3 }^2\\
 			+&\alpha_{n}\norm{\hat{n}\cdot D_x \varphi(t,x)-h_n(x)}_{[0,T]\times \partial \Gamma_N,\nu_4 }^2
@@ -235,6 +257,90 @@ Due to the universal approximation theorem for neural networks and some more the
 
 Note also that there is a big operational cost involved in the computation of derivatives appearing in the loss function through automatic differentiation. For operators using fully coupled second order derivatives, this cost becomes prohibitive in high dimensions. Therefore, we need alternatives for problems with these restrictions.
 \subsection{Interpolating BSDEs with PINNs}
-To circumvent these issues, we may combine the powerful ideas of stochastic representation of solution of PDEs with the forcing technique used in the PINNs approach. This method was proposed by \cite{nusken_interpolating_2023}, where the authors define an interpolation parameter between both methods to 
+To circumvent these issues, we may combine the powerful ideas of stochastic representation of solutions of PDEs with the forcing technique used in the PINNs approach. This method was proposed by \cite{nusken_interpolating_2023}, and its main idea is to define a parameter to interpolate between the losses used by each scheme to combine the strengths of both. In the same spirit of the last methods, we parameterize the PDE's solution by a neural network $\phi$ and try to adjust its parameters to give a good enough approximation of the desired solution.
+
+In this method, we use the Ito's formula applied to $v(X_t,t)$ to obtain
+\begin{equation}
+	\label{eqn:itoV}
+	v(T,X_T)-v(0,X_0)=\int_{0}^{T}\left(\dpartial{}{s}+\mathcal{L}\right)v(s,X_s)ds+\int_{0}^{T}\sigma'D_x v(s,X_s)\cdot dW_s,
+\end{equation}
+and, inspired in this relation for the interior process and the forcing of boundary conditions used in the DGM method, we aim to minimize the \textit{diffusion loss} with interpolation parameter $\mathrm{t}\in(0,\infty)$ defined as
+\begin{equation}
+	\mathcal{L}_{\text {diff }}^{\mathrm{t}}(\varphi)=\alpha_{\text {int }} \mathcal{L}_{\text {diff,int }}^{\mathrm{t}}(\varphi)+\alpha_{\mathrm{T}} \mathcal{L}_{\text {diff, } \mathrm{T}}^{\mathrm{t}}(\varphi)+\alpha_{\mathrm{d}} \mathcal{L}_{\text {diff, } \mathrm{d}}^{\mathrm{t}}(\varphi)+\alpha_{\mathrm{n}} \mathcal{L}_{\text {diff, } \mathrm{n}}^{\mathrm{t}}(\varphi)
+\end{equation}
+where
+\begin{equation}
+	\begin{aligned}
+		& \mathcal{L}_{\text {diff,int }}^{\mathrm{t}}(\varphi)=\mathbb{E}\left[\left(\varphi\left(\mathcal{T},X_{\mathcal{T}} \right)-\varphi\left(t_0,X_{t_0}\right)-\int_{t_0}^{\mathcal{T}} \sigma^{\top} \nabla \varphi\left(s,X_s\right) \cdot \mathrm{d} W_s\right.\right. \\
+		& \left.\left.+\int_{t_0}^{\mathcal{T}} f\left(s,X_s, \varphi\left(s,X_s\right), \sigma^{\top} \nabla \varphi\left(s,X_s\right)\right) \mathrm{d} s\right)^2\right] \text {, } \\
+		& \mathcal{L}_{\text {diff,T }}^{\mathrm{t}}(\varphi)=\mathbb{E}\left[\left(\varphi\left(T,X^{(T)}\right)-g\left(X^{(T)}\right)\right)^2\right] \\
+		& \mathcal{L}_{\text {diff, } \mathrm{d}}^{\mathrm{t}}(\varphi)=\mathbb{E}\left[\left(\varphi\left(t^{\mathrm{d}},X^{\mathrm{d}}\right)-h_d\left(t^{\mathrm{d}},X^{\mathrm{d}}\right)\right)^2\right], \\
+		&
+		\mathcal{L}_{\text {diff, } \mathrm{n}}^{\mathrm{t}}(\varphi)=\mathbb{E}\left[\left(D_x\varphi\left(t^{\mathrm{n}},X^{\mathrm{n}} \right)-h_n\left(t^{\mathrm{n}},X^{\mathrm{n}}\right)\right)^2\right]. \\
+	\end{aligned}
+\end{equation}
+
+Here, the process $(X_t)_{0\leq t\leq \mathcal{T}}$ is the solution to \eqref{eqn:UncoupledCh2} with initial condition $(X_0,t_0)\sim \nu_{\Omega\times [0,T]}$, where $\nu_{\Omega\times [0,T]}$ is a measure with full support on $\Omega\times[0,T]$,  and maximal trajectory length $\mathrm{t}>0$. In addition, the stopping time $\mathcal{T}:=(t_0+\mathrm{t})\wedge \tau \wedge T$ refers to the random final time associated with the realization of the path $X_t$ when it either hit the boundary at time $\tau=\inf\{t>0: X_t\notin\Omega\}$ or runs for $t_0+\mathrm{t}$ or reaches time $T$. Furthermore, using the same notation as in the case of DGM, $X^{(T)} \sim \nu_{2}$, $(t^{\mathrm{n}},X^{\mathrm{d}})\sim \nu_{3}$ and $(t^\mathrm{n},X^{\mathrm{n}})\sim \nu_{4}$.
+
+In this case, the data inside the domain is not sampled as points with distribution $\nu_1$ as in DGM, but along trajectories of the diffusion. Hence, we do not need to calculate second derivatives of $\varphi$ explicitly trough automatic differentiation, but are approximated using the underlying process $X_t$. Note also that using a maximal trajectory length we avoid computing large first exit times that may arise depending on $\Omega$ or long simulation times if $T$ is large. 
+
+Now, let's prove that this loss function is indeed suitable for the problem \eqref{eqn:PDEBoundaryCh2}.
+\begin{theorem}[\cite{nusken_interpolating_2023}]
+	Let $\mathcal{F}\subset C^{1,2}([0,t]\times \Omega) \cap C(\bar{\Omega} \times [0,T])$ be the function space of neural networks. Then, under assumptions \ref{ass:FBSDEexistence} and \ref{ass:BoundaryExistence}, for $\varphi\in \mathcal{F}$, the following are equivalent
+	\begin{enumerate}[I.]
+		\item $\varphi$ fulfills the boundary value problem
+		\item The difussion loss vanishes on $\varphi$ 
+		\begin{equation}
+			\mathcal{L}_{\text{diff}}^{\mathrm{t}}(\varphi)=0
+		\end{equation}
+	 \eqref{eqn:PDEBoundaryCh2}.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	
+	$I \implies II)$ Assume that $\varphi$ satisfies \eqref{eqn:PDEBoundaryCh2} and $X_s$ is the strong solution to the forward process \eqref{eqn:UncoupledCh2}, then, by Ito's formula, we have
+\begin{equation}
+	\varphi(\mathcal{T},X_\mathcal{T})=v(0,X_0)+\int_{t_0}^{\mathcal{T}}\left(\dpartial{}{s}+\mathcal{L}\right)\varphi(s,X_s)ds+\int_{t_0}^{\mathcal{T}}\sigma'D_x \varphi(s,X_s)\cdot dW_s,
+\end{equation}
+almost surely. It follows that $\mathcal{L}_{\text{diff,int}}^{\mathrm{t}}(\varphi)=0$, and similarly, as $\varphi$ satisfies terminal and boundary conditions, we have $\mathcal{L}_{\text{diff,T}}^{\mathrm{t}}(\varphi)=\mathcal{L}_{\text{diff,d}}^{\mathrm{t}}(\varphi)=\mathcal{L}_{\text{diff,n}}^{\mathrm{t}}(\phi)=0$, so $\mathcal{L}_{\text{diff}}^{\mathrm{t}}(\varphi)=0$
+
+$II \implies I)$ Observe that $\mathcal{L}_{\text{diff,int}}^{\mathrm{t}}(\varphi)=0$ implies that 
+\begin{equation}
+	\label{eqn:itoPhi}
+	\varphi(\mathcal{T},X_\mathcal{T})=\varphi(0,X_0)+\int_{t_0}^{\mathcal{T}}\sigma'D_x\varphi(s,X_s)\cdot dW_s-\int_{t_0}^{\mathcal{T}}f(s,X_s \varphi(s,X_s),\sigma' D_x \varphi(s,X_s))ds,
+\end{equation}
+almost surely, and note that the same holds for $\phi$ replaced by $v$ \eqref{eqn:itoV}. Now, define the processes $\tilde{Y}_s=\phi(s,X_s)$,$\tilde{Z}_s=\sigma'D_x \phi(s,X_s)$ and $Y_s=v(s,X_s)$,$Z_s=\sigma'D_x v(s,X_s)$. Observe that those are $W_{t}-$progressively measurable and square integrable. Moreover, \eqref{eqn:itoPhi} and \eqref{eqn:itoV} means that they satisfy a BSDE with terminal condition $\xi=\varphi(\mathcal{T},X_\mathcal{T})$ on $[t_0,\mathcal{T}]$. Thus, by the uniqueness of solution in \autoref{thm:linearBSDE}, we have that $Y=\tilde{Y}$ and $Z=\tilde{Z}$. Observe also that $v(t_{0},X_{t_0})=Y^{t_0,X_{t_0}}=\tilde{Y}^{t_0,X_{t_0}}=\varphi(t_0,X_{t_0})$. Hence, we conclude that $v=\varphi$ $\nu_{\Omega}\times [0,T]-$ almost surely, and thus $\varphi$ is the solution to \eqref{eqn:PDEBoundaryCh2} using that $\nu_{\Omega\times[0,T]}$ has full support.
+\end{proof}
+
+By the other hand, observe that this diffusion loss, in the case of an unbounded problem, where $\alpha_d=\alpha_n=0$, is an interpolation between the weak BSDE loss defined as
+\begin{equation}
+	\begin{aligned}
+			\mathcal{L}_{BSDE}=\mathbb{E}\Big[\Big(g(X_T)&-\varphi(t_0,X_{t_0})-\int_{t_0}^{T}\sigma'D_x \varphi (s,X_s)\cdot dW_s\\ &+\int_{t_0}^{T}f(s,X_s,\varphi(s,X_s),\sigma'D_x \varphi(s,X_s)ds)\Big)^2\Big]
+	\end{aligned}
+\end{equation}
+and the DGM loss as the following theorem shows.
+\begin{theorem}[\cite{nusken_interpolating_2023}]
+	Let $\phi\in \mathcal{F}$. Assuming that the sampling distributions $\nu_1$ for interior points in the DGM loss and $\nu_{\Omega\times [0,t]}$ for starting points in the BSDE and diffusion losses coincide, then we have 
+	\begin{enumerate}[I.]
+		\item \begin{equation}
+			\frac{\mathcal{L}_{\text{diff, int}}(\varphi)}{\mathrm{t}^2}\to \mathcal{L}_{DGM,int}(\varphi)
+		\end{equation} as $\mathrm{t}\to 0$
+		\item \begin{equation}
+			\mathcal{L}_{\text{diff, int}}(\varphi)\to \mathcal{L}_{BSDE}(\varphi)
+		\end{equation} as $\mathrm{t}\to \infty$
+	\end{enumerate} 
+\end{theorem}
+\begin{proof}
+	For $I)$ note that the interior part of the diffusion loss can be written as 
+	\begin{equation}
+		\mathcal{L}_{\text {diff,int }}^{\mathrm{t}}(\varphi)=\mathbb{E}\left[\left(\int_{t_0}^{\mathcal{T}}\left(\dpartial{}{s}+\mathcal{L}\right)\varphi(s,X_s)ds
+		+\int_{t_0}^{\mathcal{T}} f\left(s,X_s, \varphi\left(s,X_s\right), \sigma^{\top} \nabla \varphi\left(s,X_s\right)\right) \mathrm{d} s\right)^2\right] \text {, }
+	\end{equation} and that $\mathcal{T}\to t_0$ as $\mathrm{t}\to 0$ almost surely, then by the dominated convergence theorem $I$ follow. Moreover, note that $\mathcal{T}\to T$ as $\mathrm{t}\to\infty$ almost surely, thus $II)$  holds.
+\end{proof}
+
+In practice, we use the same strategy as in the DGM algorithm. We simulate paths  of the $X_t$ process to estimate the interior diffusion loss using Monte-Carlo method. We approximate the integral by using, for example, the Euler-Maruyama scheme. Furthermore, we sample points according to $\nu_2,\nu_3,\nu_4$ to estimate the losses associated to boundary and terminal conditions, using automatic differentiation when necessary. 
+
+With this estimation of the loss, we take gradient descent steps to reduce sequentially the total error and obtain a good approximation of the solution. However, there is almost no theory about what are the optimal hyperparameters, as the weights in the loss, the learning rate, length of the sample paths or network architecture to be chosen in the algorithm to converge optimally, so empirical experience is needed to obtain approximations efficiently.
+
 
 \subsection{An example}

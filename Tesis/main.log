@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  12 MAY 2023 10:03
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  14 MAY 2023 18:34
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1071,13 +1071,13 @@ LaTeX Warning: Citation 'bibid' on page 20 undefined on input line 13.
 LaTeX Warning: Citation 'bibid' on page 20 undefined on input line 15.
 
 [20] [21]
-<images/DeepBSDEMap.png, id=453, 715.67375pt x 246.9225pt>
+<images/DeepBSDEMap.png, id=454, 715.67375pt x 246.9225pt>
 File: images/DeepBSDEMap.png Graphic file (type png)
 <use images/DeepBSDEMap.png>
-Package luatex.def Info: images/DeepBSDEMap.png  used on input line 90.
+Package luatex.def Info: images/DeepBSDEMap.png  used on input line 100.
 (luatex.def)             Requested size: 426.79134pt x 147.25414pt.
  [22<./images/DeepBSDEMap.png>]
-Overfull \hbox (25.29305pt too wide) in paragraph at lines 115--117
+Overfull \hbox (25.29305pt too wide) in paragraph at lines 125--127
 \TU/lmr/m/it/10.95 where $[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 h[]E []$\
 TU/lmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 $ \TU/lmr/m/it/10.95 and $\OML/cmm
 /m/it/10.95 $ \TU/lmr/m/it/10.95 are in-de-pen-dent of $\OML/cmm/m/it/10.95 Y$
@@ -1085,56 +1085,62 @@ TU/lmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 $ \TU/lmr/m/it/10.95 and $\OML/cmm
  []
 
 [23]
-<images/FCStructure.png, id=483, 137.51375pt x 243.91125pt>
+<images/FCStructure.png, id=484, 137.51375pt x 243.91125pt>
 File: images/FCStructure.png Graphic file (type png)
 <use images/FCStructure.png>
-Package luatex.def Info: images/FCStructure.png  used on input line 137.
+Package luatex.def Info: images/FCStructure.png  used on input line 147.
 (luatex.def)             Requested size: 170.72931pt x 142.26508pt.
-<images/MergedBSDE.png, id=488, 709.65125pt x 244.915pt>
+<images/MergedBSDE.png, id=489, 709.65125pt x 244.915pt>
 File: images/MergedBSDE.png Graphic file (type png)
 <use images/MergedBSDE.png>
-Package luatex.def Info: images/MergedBSDE.png  used on input line 148.
+Package luatex.def Info: images/MergedBSDE.png  used on input line 158.
 (luatex.def)             Requested size: 426.79134pt x 147.29767pt.
  [24<./images/FCStructure.png>]
-<images/MergedStructure.png, id=502, 143.53625pt x 242.9075pt>
+<images/MergedStructure.png, id=504, 143.53625pt x 242.9075pt>
 File: images/MergedStructure.png Graphic file (type png)
 <use images/MergedStructure.png>
-Package luatex.def Info: images/MergedStructure.png  used on input line 157.
+Package luatex.def Info: images/MergedStructure.png  used on input line 167.
 (luatex.def)             Requested size: 170.71825pt x 142.26154pt.
-<images/ResidualMergedStructure.png, id=506, 187.70125pt x 244.915pt>
+<images/ResidualMergedStructure.png, id=508, 187.70125pt x 244.915pt>
 File: images/ResidualMergedStructure.png Graphic file (type png)
 <use images/ResidualMergedStructure.png>
 Package luatex.def Info: images/ResidualMergedStructure.png  used on input line
- 165.
+ 175.
 (luatex.def)             Requested size: 170.72534pt x 142.26753pt.
  [25<./images/MergedBSDE.png><./images/MergedStructure.png>]
-Overfull \hbox (4.17139pt too wide) in paragraph at lines 185--188
+Overfull \hbox (4.17139pt too wide) in paragraph at lines 195--198
 \TU/lmr/m/n/10.95 and $[]$ is cal-cu-la-ted with au-to-ma-tic dif-fe-ren-ti-a-ti
 on in the neu-ral net-work $[] \OT1/cmr/m/n/10.95 = []\OMS/cmsy/m/n/10.95 N\OT1
 /cmr/m/n/10.95 (\OML/cmm/m/it/10.95 t[]; X[]\OT1/cmr/m/n/10.95 )$\TU/lmr/m/n/10
 .95 .
  []
 
-[26<./images/ResidualMergedStructure.png>] [27]) [28]
+[26<./images/ResidualMergedStructure.png>] [27] [28] [29]
+Overfull \hbox (20.96161pt too wide) detected at line 338
+[][][]\OMS/cmsy/m/n/10.95 L[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 '\OT1/cmr/
+m/n/10.95 ) = \U/msb/m/n/10.95 E [] []
+ []
+
+[30]) [31]
 Chapter 4.
-(./chapters/chapter04.tex) [29
+(./chapters/chapter04.tex) [32
 
 ]
 Chapter 5.
-(./chapters/conclusion.tex) [30
+(./chapters/conclusion.tex) [33
 
 ]
 Appendix A.
-(./chapters/appendixNN.tex) [31
+(./chapters/appendixNN.tex) [34
 
 
 ]
 Appendix B.
 (./chapters/appendixSC.tex
 \c@thm=\count444
- [32
+ [35
 
-] [33] [34] [35]) [36]
+] [36] [37] [38]) [39]
 Overfull \hbox (6.05995pt too wide) in paragraph at lines 155--155
 \TU/lmr/m/it/10.95 Net-works: Where we are and What’s next\TU/lmr/m/n/10.95 . June 7, 2022. arXiv: [][]$\TU/lmtt/m/n/10.95 2201 . 05624[physics]$[][]\TU/lmr/m/n/10.95 .
  []
@@ -1151,9 +1157,9 @@ Overfull \hbox (5.19708pt too wide) in paragraph at lines 155--155
 - 4939 - 7256 - 2$[][] \TU/lmr/m/n/10.95 (vi-si-ted on 02/15/2023). 
  []
 
-[37
+[40
 
-] [38
+] [41
 Missing character: There is no ӑ (U+04D1) in font [lmroman10-regular]:+tlig;!
 ]
 Overfull \hbox (12.53581pt too wide) in paragraph at lines 155--155
@@ -1161,51 +1167,53 @@ Overfull \hbox (12.53581pt too wide) in paragraph at lines 155--155
 /m/n/10.95 . Apr. 19, 2018. arXiv: [][]$\TU/lmtt/m/n/10.95 1804 . 07010[cs ,
  []
 
-[39] (./main.aux)
+[42] (./main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 23481 strings out of 477240
+ 23509 strings out of 477240
  125086,1373583 words of node,token memory allocated
- 2492 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 sub_mlist, 70 glyph, 290 attribut
-e, 110 glue_spec, 290 attribute_list, 1 write, 16 pdf_action nodes
-   avail lists: 1:1,2:1153,3:533,4:419,5:531,6:153,7:8223,8:106,9:1709,10:18,11:
+ 2600 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 sub_mlist, 70 glyph, 317 attribut
+e, 110 glue_spec, 317 attribute_list, 1 write, 16 pdf_action nodes
+   avail lists: 1:1,2:1153,3:533,4:419,5:534,6:153,7:8223,8:108,9:1709,10:18,11:
 759
- 43568 multiletter control sequences out of 65536+600000
+ 43572 multiletter control sequences out of 65536+600000
  61 fonts using 4808287 bytes
  60i,21n,65p,1997b,1512s stack positions out of 10000i,1000n,20000p,200000b,80000s
 </home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmmono10-regular.o
 tf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmromancaps10-r
 egular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman
-9-regular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmro
-man10-italic.otf>{/home/carlos/.miktex/texmfs/install/fonts/enc/dvips/base/8r.en
-c}</home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman10-bold.o
-tf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman10-regul
-ar.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman12-r
-egular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman
-17-regular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmr
-oman12-bold.otf></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts
-/cm/cmex10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/
-cmextra/cmex8.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfon
-ts/cm/cmmi10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfont
-s/cm/cmmi6.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/
-cm/cmmi8.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm
-/cmr10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/c
-mr6.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8
-.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy6.pf
-b></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-</home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msam10.
-pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msb
-m10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8a.pfb
-></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (44 pages, 536801 bytes).
+8-italic.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmrom
+an8-regular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lm
+roman9-regular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm
+/lmroman10-italic.otf>{/home/carlos/.miktex/texmfs/install/fonts/enc/dvips/base/
+8r.enc}</home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman10-b
+old.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman10-
+regular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroma
+n12-regular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lm
+roman17-regular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/l
+m/lmroman12-bold.otf></home/carlos/.miktex/texmfs/install/fonts/type1/public/ams
+fonts/cm/cmex10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsf
+onts/cmextra/cmex8.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/a
+msfonts/cm/cmmi10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/am
+sfonts/cm/cmmi6.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsf
+onts/cm/cmmi8.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts
+/cm/cmr6.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm
+/cmr8.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cms
+y6.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8
+.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/ms
+am10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbol
+s/msbm10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8
+a.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
+Output written on main.pdf (47 pages, 569243 bytes).
 
-PDF statistics: 895 PDF objects out of 1000 (max. 8388607)
- 251 named destinations out of 1000 (max. 131072)
+PDF statistics: 963 PDF objects out of 1000 (max. 8388607)
+ 275 named destinations out of 1000 (max. 131072)
  225 words of extra memory for PDF output out of 10000 (max. 100000000)
 

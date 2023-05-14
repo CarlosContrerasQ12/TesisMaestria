@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  11 MAY 2023 23:10
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  14 MAY 2023 18:17
  restricted system commands enabled.
 **notas.tex
 (./notas.tex
@@ -1155,26 +1155,24 @@ Package biblatex Info: Reference segment=0 on input line 83.
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
 (Font)              using `T1/lmr/bx/n' instead on input line 84.
 
-[1
-
-{/home/carlos/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 124
+LaTeX Font Info:    Trying to load font information for U+msa on input line 113
 .
-
 (/home/carlos/.miktex/texmfs/install/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 124
+LaTeX Font Info:    Trying to load font information for U+msb on input line 113
 .
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [2] [3]
+) [1
+
+{/home/carlos/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}] [2] [3]
 (/home/carlos/.miktex/texmfs/install/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-68.
+57.
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1194,12 +1192,12 @@ Package logreq Info: Writing requests to 'notas.run.xml'.
 
 Here is how much of LuaTeX's memory you used:
  30891 strings out of 477240
- 244337,1648299 words of node,token memory allocated
+ 195463,1648299 words of node,token memory allocated
  1457 words of node memory still in use:
    30 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 1 glyph, 119 attribute, 66 glue_s
 pec, 97 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack nodes
-   avail lists: 1:1,2:4984,3:416,4:4456,5:4176,6:84,7:9276,8:61,9:12484,10:23,11
-:788
+   avail lists: 1:5,2:4248,3:390,4:3154,5:3104,6:74,7:7085,8:61,9:9129,10:23,11:
+570
  51080 multiletter control sequences out of 65536+600000
  47 fonts using 2972207 bytes
  99i,17n,98p,1448b,1778s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -1219,7 +1217,7 @@ b></home/carlos/.miktex/texmfs/install/fonts/type1/public/lm/lmtt10.pfb></home/c
 arlos/.miktex/texmfs/install/fonts/type1/public/lm/lmtt8.pfb></home/carlos/.mikt
 ex/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/carlos/.
 miktex/texmfs/install/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on notas.pdf (5 pages, 281833 bytes).
+Output written on notas.pdf (5 pages, 282295 bytes).
 
 PDF statistics: 122 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
