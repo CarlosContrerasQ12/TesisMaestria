@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  14 MAY 2023 18:34
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  14 MAY 2023 18:46
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1116,7 +1116,7 @@ on in the neu-ral net-work $[] \OT1/cmr/m/n/10.95 = []\OMS/cmsy/m/n/10.95 N\OT1
  []
 
 [26<./images/ResidualMergedStructure.png>] [27] [28] [29]
-Overfull \hbox (20.96161pt too wide) detected at line 338
+Overfull \hbox (20.96161pt too wide) detected at line 340
 [][][]\OMS/cmsy/m/n/10.95 L[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 '\OT1/cmr/
 m/n/10.95 ) = \U/msb/m/n/10.95 E [] []
  []
@@ -1211,7 +1211,7 @@ y6.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8
 am10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8
 a.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (47 pages, 569243 bytes).
+Output written on main.pdf (47 pages, 569504 bytes).
 
 PDF statistics: 963 PDF objects out of 1000 (max. 8388607)
  275 named destinations out of 1000 (max. 131072)
