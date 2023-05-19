@@ -1,0 +1,54 @@
+######################################################  NOTAS DE  USUARIO PARA MIGRACIÓN TORQUE/SLURM  #######################################################
+             
+
+1. Comandos de SLURM:
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++			SLURM			++			FUNCIÓN		                        ++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++ sbatch [job_script]				++ Someter trabajo						++
+++ squeue					++ Estado Trabajo/Cola						++
+++ scancel [JOB_ID]				++ Eliminar Trabajo						++
+++ Scontrol show nodes				++ Lista de nodos						++
+++ scontrol hold [JOB_ID] 			++ Retener trabajo						++
+++ scontrol release [JOB_ID]			++ Liberar trabajo						++
+++ sinfo					++ Estado del cluster						++
+++ salloc 					++ Lanzar trabajo interactivo					++
+++ srun [command]				++ Lanzar (paralelo) paso de trabajo				++
+++ sacct					++ Muestra información de la cuenta y del trabajo		++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+2. Control de trabajos (estado):
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++			COMANDO 				++				SIGNIFICADO						++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++ squeue –-long						++ Provee más información del trabajo							++
+++ squeue –-user=USER_ID					++ Provee información de los trabajos para un USER_ID					++
+++ squeue –-account=ACCOUNT_ID					++ Provee información para los trabajos corriendo bajo un ACCOUNT_ID			++
+++ squeue –-states=running					++ Muestra solo los trabajos corriendo							++
+++ squeue –-Format=account,username,numcpus,st-ate,timeleft	++ Ajustar el formato de output de squeue						++
+++ squeue –-start						++ Lista el tiempo estimado para trabajos encolados					++
+++ squeue –-help						++ Muestra todas las opciones								++
+++ sbatch --test-only [SCRIPT]					++ Hace un test y calcula el estimado de inicio del trabajo (NO LO SOMETE)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+3. Encabezado de trabajos de SLURM:
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++		Slurm script - testcpu.sh					++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++ #!/bin/bash									++
+++ #SBATCH --mail-user=abc123@case.edu						++
+++ #SBATCH --mail-type=ALL							++
+++ #SBATCH --nodes=1								++
+++ #SBATCH --cpus-per-task=1							++
+++ #SBATCH --time=2:00:00							++
+++ #SBATCH --mem=500m     # Note: --mem es la memoria por nodo			++
+++ #SBATCH -o matlab_job.o%j							++
+++ module load matlab								++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+

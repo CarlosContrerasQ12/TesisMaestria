@@ -1,0 +1,48 @@
+######################################################  NOTAS DE  USUARIO PARA COLAS DE TRABAJO #######################################################
+
+A continuación se describen las colas de trabajo del cluster y sus límites:
+Por convención PU=Por usuario, PJ=Por Job, Def=Default, Max=Capacidad máxima
+La memoria está dada en Mb
+Nodea = Nodo en tecnología AMD
+Nodei = Nodo en tecnología Intel
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++ Partition   ++ Nodes	            ++ MaxNodesPJ  ++ DefMemCPU  ++ MaxMemCPU  ++ MaxTime   ++ DefTime   ++ MaxCPUPU  ++ MaxMemPU   ++ MaxCPUPJ	  ++ MaxGPUPU
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++ bigmem      ++ a-[4-6],i-[1-5]   ++ 2	   ++ 4096	 ++ 32768      ++ 15 días   ++ 2 horas   ++ 48	      ++ 578845     ++ 48
+++ short       ++ all		    ++ 16	   ++ 2048	 ++ 4096       ++ 2 días    ++ 2 horas   ++ 120       ++ 257275     ++ 120
+++ medium      ++ all		    ++ 8	   ++ 2048	 ++ 22528      ++ 7 días    ++ 2 horas   ++ 48        ++ 368640     ++ 48
+++ long	       ++ a-[1-3],i-[6-10   ++ 2	   ++ 2048	 ++ 16384      ++ 30 días   ++ 2 horas   ++ 48	      ++ 262144     ++ 48
+++ gpu	       ++ i-gpu[1,2]        ++ 2           ++ 4096       ++ 16384      ++ 15 días   ++ 2 horas   ++ 32	      ++ 191776     ++ 32	  ++ 2
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Los límites por usuario aplican para todas las colas, es decir, si un usuario está corriendo jobs solo en la cola short, su máximo aplicado es el de la cola short. Pero si tiene un job en short y uno en long, aplicarán los límites de la cola long de CPUs totales y Memoria máxima total.
+
+Dentro de las directivas del job, la cola se especifica con el flag -p <cola> (e.g. -p short). La cola por defecto es short para todos los jobs.
+
+
+Características de los Nodos
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++ Node            ++ Cpu      ++Memoria    ++ Gpu                  ++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++ nodei-1         ++ 40       ++ 565 GB                            ++
+++ nodei-2         ++ 40       ++ 565 GB                            ++
+++ nodei-3         ++ 40       ++ 565 GB                            ++
+++ nodei-4         ++ 40       ++ 565 GB                            ++
+++ nodei-5         ++ 40       ++ 565 GB                            ++
+++ nodei-6         ++ 40       ++ 565 GB                            ++
+++ nodei-7         ++ 40       ++ 565 GB                            ++
+++ nodei-8         ++ 40       ++ 565 GB                            ++
+++ nodei-9         ++ 40       ++ 565 GB                            ++
+++ nodei-10        ++ 40       ++ 565 GB                            ++
+++ nodea-1         ++ 48       ++ 256 GB                            ++
+++ nodea-2         ++ 48       ++ 256 GB                            ++
+++ nodea-3         ++ 48       ++ 256 GB                            ++
+++ nodea-4         ++ 48       ++ 512 GB                            ++
+++ nodea-5         ++ 48       ++ 512 GB                            ++
+++ nodea-6         ++ 48       ++ 1 TB                              ++
+++ nodei-gpu-1     ++ 32       ++ 192 GB    ++ 3 x Quadro RTX 6000  ++
+++ nodei-gpu-2     ++ 32       ++ 192 GB    ++ 3 x Quadro RTX 6000  ++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+

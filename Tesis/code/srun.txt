@@ -1,0 +1,15 @@
+###############################################  NOTAS DE  USUARIO PARA EJECUCIÓN DE SESIÓN INTERACTIVA/SLURM  ################################################
+
+
++++++++++++++++++++++++++++++++++++++++++++
++++	Comando srun			+++
++++++++++++++++++++++++++++++++++++++++++++
+
+El comando srun es multipropósito, puede ser usado para requerir nodos durante un uso interactivo, la sintaxis es:
+
+srun --pty bash
+
+En el caso de requerir recursos específicos la sintaxis es:
+
+srun -N 2 --ntasks-per-node=8 --pty bash #para personalizar los requerimientos de recursos, dirigirse a la documentación de slurm
+
