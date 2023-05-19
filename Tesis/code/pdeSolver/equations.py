@@ -11,6 +11,7 @@ class HJB_LQR_Equation_2D():
     def __init__(self,domain, eqn_config):
         self.domain=domain #Domain of the equation
         self.N=eqn_config["N"] #Number of agents
+        self.dim=2*self.N
         self.nu=eqn_config["nu"] #Parameter controlling the volatility of the process
         self.lam=eqn_config["lam"] #Paramenter controlling the control strentgh
     
@@ -40,6 +41,18 @@ class HJB_LQR_Equation_2D():
     def Nv(self, x, V_t,nV_x2,V_xx):
         """Satisfaction operator, should be zero for a true solution """
         return V_t + self.nu*V_xx +self.f(x,V,nV_x2)
+    
+    def interior_point_sample(self,num_sample):
+        return self.domain.interior_points_sample(num_sample,self.N)
+    
+    def dirichlet_sample(self,num_sample,i):
+        return self.domain.dirichlet_sample(num_sample,self.N,i)
+    
+    def neumann_sample(self,num_sample,i):
+        return self.domain.neumann_sample(num_sample,self.N,i)
+    
+    def terminal_sample(self,num_sample):
+        return self.domain.terminal_sample(num_sample,self.N)
 
 eqn_config={"N":1,"nu":0.05,"lam":4.0}
 dom=EmptyRoom(1.0,0.4,0.6)
