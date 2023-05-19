@@ -38,7 +38,7 @@ class HJB_LQR_Equation_2D():
         """
         return -self.lam*(nV_x2)+self.F(x)
         
-    def Nv(self, x, V_t,nV_x2,V_xx):
+    def Nv(self, x,V, V_t,nV_x2,V_xx):
         """Satisfaction operator, should be zero for a true solution """
         return V_t + self.nu*V_xx +self.f(x,V,nV_x2)
     
@@ -54,6 +54,7 @@ class HJB_LQR_Equation_2D():
     def terminal_sample(self,num_sample):
         return self.domain.terminal_sample(num_sample,self.N)
 
+"""
 eqn_config={"N":1,"nu":0.05,"lam":4.0}
 dom=EmptyRoom(1.0,0.4,0.6)
 eqn=HJB_LQR_Equation_2D(dom,eqn_config)
@@ -67,3 +68,4 @@ print(V_x)
 nV2=torch.sum(V_x*V_x,axis=1)
 
 print(eqn.f(x,V,nV2))
+"""

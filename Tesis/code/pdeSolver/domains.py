@@ -1,10 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
-from numba import int64, float64    # import the types
-from numba import jitclass
 import time
-import mpltex
+
+"""
+
+#from numba import int64, float64    # import the types
+#from numba import jitclass
+
+#import mpltex
 
 spec = [
     ('N', int64),               # a simple scalar field
@@ -14,7 +18,7 @@ spec = [
     ('pSup',float64),
     ('pAnc',float64)
 ]
-
+"""
 
 #@jitclass(spec)
 class EmptyRoom():
@@ -268,7 +272,8 @@ class EmptyRoom():
         X=np.random.uniform(size=(num_sample,2*Nagents))
         x,ns=self.outer_boundary_sample(num_sample)
         X[:,i:i+2]=x
-        return X,ns
+        t=np.random.uniform(low=0,high=self.total_time,size=[x.shape[0],1])
+        return np.hstack((t,X)),ns
 
     def terminal_sample(self,num_sample,Nagents):
         """ Sample points for the terminal condition for the domain with N agents"""
@@ -278,7 +283,7 @@ class EmptyRoom():
 
 """ 
 #dom=EmptyRoom({"N":1,"total_time":1.0,"pInf":0.4,"pSup":0.6})
-dom=EmptyRoom(5,1.0,0.4,0.6)
+dom=EmptyRoom(1.0,0.4,0.6)
 nu=0.05
 lam=4
 def control_posible(t,X):

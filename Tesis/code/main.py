@@ -1,64 +1,29 @@
 """
-The main file to run BSDE solver to solve parabolic partial differential equations (PDEs).
-
+The main file to solve parabolic partial differential equations (PDEs).
 """
+import sys
+sys.path.append('./pdeSolver')
 
-import json
-import munch
-import os
-import logging
-
-from absl import app
-from absl import flags
-from absl import logging as absl_logging
+from domains import *
+from equations import *
+from torch_solvers import *
+import torch
 import numpy as np
-import tensorflow as tf
 
-import equation as eqn
-from solver import BSDESolver
-
-
-flags.DEFINE_string('config_path', 'configs/hjb_lq_d100.json',
-                    """The path to load json file.""")
-flags.DEFINE_string('exp_name', 'test',
-                    """The name of numerical experiments, prefix for logging""")
-FLAGS = flags.FLAGS
-FLAGS.log_dir = './logs'  # directory where to write event logs and output array
-
-
-def main(argv):
-    del argv
-    with open(FLAGS.config_path) as json_data_file:
-        config = json.load(json_data_file)
-    config = munch.munchify(config)
-    bsde = getattr(eqn, config.eqn_config.eqn_name)(config.eqn_config)
-    tf.keras.backend.set_floatx(config.net_config.dtype)
-
-    if not os.path.exists(FLAGS.log_dir):
-        os.mkdir(FLAGS.log_dir)
-    path_prefix = os.path.join(FLAGS.log_dir, FLAGS.exp_name)
-    with open('{}_config.json'.format(path_prefix), 'w') as outfile:
-        json.dump(dict((name, getattr(config, name))
-                       for name in dir(config) if not name.startswith('__')),
-                  outfile, indent=2)
-
-    absl_logging.get_absl_handler().setFormatter(logging.Formatter('%(levelname)-6s %(message)s'))
-    absl_logging.set_verbosity('info')
-
-    logging.info('Begin to solve %s ' % config.eqn_config.eqn_name)
-    bsde_solver = BSDESolver(config, bsde)
-    training_history = bsde_solver.train()
-    if bsde.y_init:
-        logging.info('Y0_true: %.4e' % bsde.y_init)
-        logging.info('relative error of Y0: %s',
-                     '{:.2%}'.format(abs(bsde.y_init - training_history[-1, 2])/bsde.y_init))
-    np.savetxt('{}_training_history.csv'.format(path_prefix),
-               training_history,
-               fmt=['%d', '%.5e', '%.5e', '%d'],
-               delimiter=",",
-               header='step,loss_function,target_value,elapsed_time',
-               comments='')
-
+def l_schedule(epoch):
+    return 1.0/(10*(epoch+1))
 
 if __name__ == '__main__':
-    app.run(main)
+    dom=EmptyRoom(1.0,0.4,0.6)
+    eqn_config={"N":1,"nu":0.05,"lam":4.0}
+    eqn=HJB_LQR_Equation_2D(dom,eqn_config)
+    solver_params={"initial_lr":0.01,
+               "lambda_lr":l_schedule,
+               "initial_loss_weigths":[2.0,1.0,3.0,1.0],
+               "logging_interval":100,
+               "dtype":torch.float32}
+
+    sol=DGM_solver(eqn,solver_params)
+    training=sol.train(100000)
+    np.save('training.npy',training)
+    sol.save_model("./models/LQR_N=1.pth")

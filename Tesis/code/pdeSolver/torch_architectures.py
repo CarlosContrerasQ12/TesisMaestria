@@ -49,16 +49,17 @@ class ResNetLikeDGM(nn.Module):
     """
     def __init__(
             self, d_in, d_out, M=50, L=3,
-            growing=False, as_array=True, weight_norm=False):
+            growing=False, as_array=True, weight_norm=False,sigma=torch.tanh):
         super().__init__()
         wn = WN if weight_norm else lambda x: x
         self.W0 = wn(nn.Linear(d_in, M))
         self.W1 = wn(nn.Linear(M, d_out))
         self._convert = _set_convert(as_array)
+        self.sigma=sigma
 
         self.layers = []
         for l in range(L):
-            self.layers.append(DGMCell(d_in, M, growing, weight_norm))
+            self.layers.append(DGMCell(d_in, M, growing, weight_norm,sigma))
         self.layers = nn.Sequential(*self.layers)
 
     def forward(self, *X):
