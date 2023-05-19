@@ -16,6 +16,7 @@
 ########################################################################################
 
 # ################## Zona Carga de Módulos ############################################
+
 module load anaconda/python3.9
 
 pip3 install torch torchvision torchaudio
@@ -29,7 +30,7 @@ date=`/bin/date`
 echo "Soy un JOB de prueba"
 echo "Corri en la maquina: "$host
 echo "Corri el: "$date
-python3 main.py
+python main.py
 echo -e "Ejecutando Script de R \n"
 echo -e "Finalicé la ejecución del script \n"
 ########################################################################################

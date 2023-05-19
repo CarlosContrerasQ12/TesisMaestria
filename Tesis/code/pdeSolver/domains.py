@@ -28,10 +28,11 @@ class EmptyRoom():
     -pInf is the lower part of the door in the y axis
     -pSup is the Upper part of the door in the y axis
     """
-    def __init__(self,total_time,pInf,pSup):
-        self.total_time=total_time #Terminal time of the domain
-        self.pInf=pInf #Lower point of the door in the y axis
-        self.pSup=pSup #Upper point of the door in the y axis
+    def __init__(self,dom_config):
+        self.dom_config=dom_config
+        self.total_time=dom_config["total_time"] #Terminal time of the domain
+        self.pInf=dom_config["pInf"] #Lower point of the door in the y axis
+        self.pSup=dom_config["pSup"] #Upper point of the door in the y axis
         self.pAnc=self.pSup-self.pInf #Width of thr door 
 
     def exited_domain(self,X0,X1):
@@ -169,7 +170,7 @@ class EmptyRoom():
             Xi,xi,dtfi=self.one_agent_brownian(sig,dt,Xc.shape[0],t0,X0[2*i:2*i+2],False,False)
             X[:,2*i:2*i+2]=Xi
             Xis[:,2*i:2*i+2]=xi
-        return X,xi,dtf
+        return X,Xis,dtf
 
     
     #@mpltex.web_decorator
