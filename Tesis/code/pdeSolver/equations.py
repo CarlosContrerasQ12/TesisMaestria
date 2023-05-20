@@ -44,6 +44,9 @@ class HJB_LQR_Equation_2D():
         """Satisfaction operator, should be zero for a true solution """
         return V_t + self.nu*self.dim*V_xx +self.f(x,V,nV_x2)
     
+    def control(self,t,V_x):
+        return -np.sqrt(self.lam)*V_x
+    
     def interior_point_sample(self,num_sample):
         return self.domain.interior_points_sample(num_sample,self.N)
     

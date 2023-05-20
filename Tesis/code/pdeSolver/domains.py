@@ -282,6 +282,11 @@ class EmptyRoom():
         T=np.ones(shape=[num_sample,1])*self.total_time
         x=np.random.uniform(size=(num_sample,2*Nagents))
         return np.hstack((T,x))
+    
+    def surface_plot_domain(self):
+        x = y = np.arange(-0.05, 1.05, 0.05)
+        X, Y = np.meshgrid(x, y)
+        return X , Y 
 
 """ 
 #dom=EmptyRoom({"N":1,"total_time":1.0,"pInf":0.4,"pSup":0.6})

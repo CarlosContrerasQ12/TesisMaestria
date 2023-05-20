@@ -26,9 +26,11 @@ if __name__ == '__main__':
     eqn=HJB_LQR_Equation_2D(dom,eqn_config)
     solver_params={"initial_lr":0.01,
                "initial_loss_weigths":[2.0,1.0,3.0,1.0],
+               "net_size":{"width":3,"depth":50,"weigth_norm":False},
                "logging_interval":200,
                "dtype":torch.float32,
-               "N_samples":512}
+               "N_samples":512,
+               "sample_every":10}
 
     sol=DGM_solver(eqn,solver_params)
     sol.lr_schedule=l_schedule
