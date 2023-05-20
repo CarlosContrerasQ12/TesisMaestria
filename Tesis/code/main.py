@@ -25,13 +25,13 @@ if __name__ == '__main__':
     eqn_config={"N":1,"nu":0.05,"lam":4.0}
     eqn=HJB_LQR_Equation_2D(dom,eqn_config)
     solver_params={"initial_lr":0.01,
-               "lambda_lr":l_schedule,
                "initial_loss_weigths":[2.0,1.0,3.0,1.0],
                "logging_interval":200,
                "dtype":torch.float32,
                "N_samples":512}
 
     sol=DGM_solver(eqn,solver_params)
+    sol.lr_schedule=l_schedule
 
     namesol='LQR_DGM_N=1_solution'
     nametrain='LQR_DGM_N=1_training'
@@ -43,6 +43,6 @@ if __name__ == '__main__':
         namemodel=namemodel+'_'+sys.argv[1]
 
     sol.save_sol(namesol+'.sol')
-    training=sol.train(100000)
+    training=sol.train(1000)
     np.save(nametrain+'.npy',training)
     sol.save_model("./models/"+namemodel+".pth")

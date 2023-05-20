@@ -29,6 +29,7 @@ class EmptyRoom():
     -pSup is the Upper part of the door in the y axis
     """
     def __init__(self,dom_config):
+        dom_config["Domain"]='EmptyRoom'
         self.dom_config=dom_config
         self.total_time=dom_config["total_time"] #Terminal time of the domain
         self.pInf=dom_config["pInf"] #Lower point of the door in the y axis

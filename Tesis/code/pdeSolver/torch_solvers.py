@@ -8,8 +8,25 @@ from torch.optim.lr_scheduler import LambdaLR
 import time
 import pickle
 
-def load_sol(sol_file):
-    return pickle.load(open(sol_file, "rb") )
+
+from matplotlib.widgets import Slider
+from mpl_toolkits.mplot3d import Axes3D 
+import matplotlib.pyplot as plt
+
+
+
+def load_sol(config_file):
+    dic=pickle.load(open(config_file, "rb"))
+    dom=None
+    eqn=None
+    sol=None
+    if dic["dom_config"]["Domain"]=='EmptyRoom':
+        dom=EmptyRoom(dic["dom_config"])
+    if dic["eqn_config"]["Equation"]=='HJB_LQR_Equation_2D':
+        eqn=HJB_LQR_Equation_2D(dom,dic["eqn_config"])
+    if dic["solver_config"]["Solver"]=='DGM_solver':
+        sol=DGM_solver(eqn, dic["solver_config"])
+    return sol
 
 class DGM_solver():
     """
@@ -17,12 +34,13 @@ class DGM_solver():
     using the DGM algorithm.
     """
     def __init__(self, eqn,solver_params):
+        solver_params["Solver"]='DGM_solver'
         self.solver_params=solver_params
         self.eqn=eqn
         self.initial_lr=solver_params["initial_lr"]
         self.model=ResNetLikeDGM(self.eqn.dim+1,1)
         self.optimizer=torch.optim.Adam(self.model.parameters(),lr=self.initial_lr,weight_decay=0.00001)
-        self.scheduler=torch.optim.lr_scheduler.LambdaLR(self.optimizer,solver_params["lambda_lr"])
+        self.scheduler=torch.optim.lr_scheduler.LambdaLR(self.optimizer,self.lr_schedule)
         self.Lweights=solver_params["initial_loss_weigths"]
         self.logging_interval=solver_params["logging_interval"]
         self.dtype=solver_params["dtype"]
@@ -37,6 +55,9 @@ class DGM_solver():
         self.dirichlet_valid=torch.as_tensor(self.eqn.dirichlet_sample(2048,0),dtype=self.dtype).requires_grad_()
         self.terminal_valid=torch.as_tensor(self.eqn.terminal_sample(2048),dtype=self.dtype).requires_grad_()
 
+    def lr_schedule(self,epoch):
+        return 10.0/(epoch+1)
+
     def set_lr(self,lr):
         for g in self.optimizer.param_groups:
             g['lr'] = lr
@@ -48,10 +69,9 @@ class DGM_solver():
         self.model.load_state_dict(torch.load(file_name))
     
     def save_sol(self,name):
-        #pickle.dump({"dom_config":self.eqn.domain.dom_config,
-                     #"eqn_config":self.eqn.eqn_config,
-                     #"solver_config":self.solver_params},open(name,'wb'))
-        pickle.dump(self,open(name,'wb'))
+        pickle.dump({"dom_config":self.eqn.domain.dom_config,
+                     "eqn_config":self.eqn.eqn_config,
+                     "solver_config":self.solver_params},open(name,'wb'))
 
     def control(self,t,X):
         pos=torch.tensor(np.hstack((t,X)),requires_grad=True)
@@ -142,6 +162,47 @@ class DGM_solver():
                       " L4: ",L4.item())
             self.currEps+=1
         return np.array(training_history)
+    
+    def plot_solution(self):
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')
+        x = y = np.arange(-0.05, 1.05, 0.05)
+        X, Y = np.meshgrid(x, y)
+        ax.set_xlabel('X Label')
+        ax.set_ylabel('Y Label')
+        ax.set_zlabel('Z Label')
+        ax.set_xlim(0,1)
+        ax.set_ylim(0,1)
+        ax.set_zlim(-5,5)
+
+        fig.subplots_adjust(bottom=0.25)
+
+        axfreq = fig.add_axes([0.25, 0.1, 0.5, 0.03])
+        freq_slider = Slider(
+            ax=axfreq,
+            label='t',
+            valmin=0.0,
+            valmax=1.0,
+            valinit=0.0,
+            valstep=0.01
+        )
+
+        def draw(t):  
+            ax.cla()
+            ax.set_xlabel('X Label')
+            ax.set_ylabel('Y Label')
+            ax.set_zlabel('Z Label')
+            ax.set_xlim(0,1)
+            ax.set_ylim(0,1)
+            ax.set_zlim(-2,2)
+            times=t*np.ones(np.ravel(X).shape[0])
+            tes=torch.tensor(np.stack((times,np.ravel(X), np.ravel(Y)),axis=1),dtype=self.dtype)
+            zs =self.model(tes).detach().numpy()
+            Z = zs.reshape(X.shape)
+            ax.plot_surface(X, Y, Z)
+        draw(0)
+        freq_slider.on_changed(draw)
+        return freq_slider
 
 class Interp_PINN_BSDE_solver():
     """

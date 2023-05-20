@@ -9,6 +9,8 @@ class HJB_LQR_Equation_2D():
     of a process that is trying to get out of a room in 2D
     """
     def __init__(self,domain, eqn_config):
+        eqn_config["Equation"]='HJB_LQR_Equation_2D'
+        self.eqn_config=eqn_config
         self.domain=domain #Domain of the equation
         self.N=eqn_config["N"] #Number of agents
         self.dim=2*self.N
@@ -40,7 +42,7 @@ class HJB_LQR_Equation_2D():
         
     def Nv(self, x,V, V_t,nV_x2,V_xx):
         """Satisfaction operator, should be zero for a true solution """
-        return V_t + self.nu*V_xx +self.f(x,V,nV_x2)
+        return V_t + self.nu*self.dim*V_xx +self.f(x,V,nV_x2)
     
     def interior_point_sample(self,num_sample):
         return self.domain.interior_points_sample(num_sample,self.N)
