@@ -171,9 +171,11 @@ class EmptyRoom():
             Xi,xi,dtfi=self.one_agent_brownian(sig,dt,Xc.shape[0],t0,X0[2*i:2*i+2],False,False)
             X[:,2*i:2*i+2]=Xi
             Xis[:,2*i:2*i+2]=xi
-        return X,Xis,dtf
+        t=np.linspace(t0,(Xc.shape[0]-1)*dt,Xc.shape[0])
+        t[-1]=t[-2]+dt*dtf
+        return np.hstack((t.reshape((Xc.shape[0],1)),X)),Xis,dtf
 
-    
+
     #@mpltex.web_decorator
     def plot_N_brownian_paths(self,sig,dt,Nmax,t0,X0,N,dirichlet_cut=False,neumann_cut=False):
         """
@@ -223,6 +225,7 @@ class EmptyRoom():
         """
         Plot an interior sample for the interpolation PINN-BSDE algorithm
         """
+        X=X[:,1:]
         fig, ax = plt.subplots(1)
         rect = patches.Rectangle((0, 0), 1, 1, linewidth=2, edgecolor='r', facecolor='none')
         rect2 = patches.Rectangle((1.0, self.pInf),0 , self.pAnc, linewidth=5, edgecolor='g', facecolor='none')
@@ -237,8 +240,6 @@ class EmptyRoom():
             plt.scatter([X[-1,2*i]],[X[-1,2*i+1]],color='g')
         plt.show()
         return 0
-
-
 
     def interior_points_sample(self,num_sample,Nagents):
         """ Sample points inside the domain with N agents"""
@@ -288,16 +289,26 @@ class EmptyRoom():
         X, Y = np.meshgrid(x, y)
         return X , Y 
 
+dom=EmptyRoom({"total_time":1.0,"pInf":0.4,"pSup":0.6})
+N=1
+nu=0.05
+sig=np.sqrt(2*nu)
+start = time.perf_counter()
+X0=np.random.uniform(low=0,high=1,size=(N*2))
+for _ in range(200):
+    X,a,t=dom.simulate_difussion_N_agents_path(sig,0.001,20,N,0.0,X0)
+end = time.perf_counter()
+print("Elapsed (after compilation) = {}s".format((end - start)))
 """ 
-#dom=EmptyRoom({"N":1,"total_time":1.0,"pInf":0.4,"pSup":0.6})
-dom=EmptyRoom(1.0,0.4,0.6)
+#dom=EmptyRoom({"total_time":1.0,"pInf":0.4,"pSup":0.6})
+
 nu=0.05
 lam=4
 def control_posible(t,X):
     n=np.array([1.0-X[0],0.5-X[1]])
     return 2*np.sqrt(lam) *n/np.linalg.norm(n)
 
-sig=np.sqrt(2*nu)
+
 #dom.plot_controlled_diffusion(control_posible,sig,0.001,2000,0.0,[0.1,0.5],1,dirichlet_cut=True,neumann_cut=False)
 
 

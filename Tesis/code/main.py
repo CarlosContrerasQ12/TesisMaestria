@@ -29,7 +29,7 @@ if __name__ == '__main__':
                "net_size":{"width":3,"depth":50,"weigth_norm":False},
                "logging_interval":200,
                "dtype":torch.float32,
-               "N_samples":512,
+               "N_samples_per_batch":512,
                "sample_every":10}
 
     sol=DGM_solver(eqn,solver_params)

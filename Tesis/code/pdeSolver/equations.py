@@ -16,6 +16,7 @@ class HJB_LQR_Equation_2D():
         self.dim=2*self.N
         self.nu=eqn_config["nu"] #Parameter controlling the volatility of the process
         self.lam=eqn_config["lam"] #Paramenter controlling the control strentgh
+        self.sig=np.sqrt(2*self.nu)
     
     def h_n(self,x):
         """Neumann boundary condition"""
@@ -58,6 +59,9 @@ class HJB_LQR_Equation_2D():
     
     def terminal_sample(self,num_sample):
         return self.domain.terminal_sample(num_sample,self.N)
+    
+    def interior_diffusion_sample(self,dt,N_max,t0,X0):
+        return self.domain.simulate_difussion_N_agents_path(self.sig,dt,N_max,self.N,t0,X0)
 
 """
 eqn_config={"N":1,"nu":0.05,"lam":4.0}
