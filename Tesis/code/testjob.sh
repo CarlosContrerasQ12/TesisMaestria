@@ -30,8 +30,8 @@ date=`/bin/date`
 echo "Soy un JOB de prueba"
 echo "Corri en la maquina: "$host
 echo "Corri el: "$date
-python main.py
-echo -e "Ejecutando Script de R \n"
+python mainInterp.py
+echo -e "Ejecutando Script de Python \n"
 echo -e "Finalicé la ejecución del script \n"
 ########################################################################################
 

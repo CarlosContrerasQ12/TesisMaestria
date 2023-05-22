@@ -104,7 +104,7 @@ class DGM_solver(Solver):
         super(DGM_solver,self).__init__(eqn,solver_params)
         self.solver_params["Solver"]='DGM_solver'
         self.initial_lr=solver_params["initial_lr"]
-        self.net_structure=["net_size"]
+        self.net_structure=solver_params["net_size"]
         self.model=ResNetLikeDGM(self.eqn.dim+1,
                                  1,
                                  self.net_structure["width"],
@@ -134,6 +134,7 @@ class DGM_solver(Solver):
 
     def loss(self,interior_sample,neumann_sample,dirichlet_sample,terminal_sample):
 
+        tLi=time.time()
         V=self.model(interior_sample)
         dV=torch.autograd.grad(V,
                            interior_sample,
@@ -153,7 +154,9 @@ class DGM_solver(Solver):
         V_xx=torch.sum(V_xxn,axis=1)
         diff_V=self.eqn.Nv(interior_sample, V,V_t,nV_x2,V_xx)
         Li=torch.mean(torch.square(diff_V))
-        
+        print("Li:",time.time()-tLi)
+
+        tb=time.time()
         x_neumann,n_neumann=neumann_sample
         Vn=self.model(x_neumann)
         dVn=torch.autograd.grad(Vn,
@@ -171,6 +174,7 @@ class DGM_solver(Solver):
         
         Vter=self.model(terminal_sample)
         LT=torch.mean(torch.square(Vter-self.eqn.g_Tf(terminal_sample)))
+        print("Lb ",time.time()-tb)
 
         return Li,Ln,Ld,LT
     
@@ -188,6 +192,7 @@ class DGM_solver(Solver):
 
         # Begin iteration over samples
         for step in range(epochs):
+            ti=time.time()
             if (step+1)%self.sample_every==0:
                 interior = torch.as_tensor(self.eqn.interior_point_sample(self.Nsamp),dtype=self.dtype).requires_grad_()
                 np_neumann,np_n_neumann=self.eqn.neumann_sample(self.Nsamp,0)
@@ -196,13 +201,14 @@ class DGM_solver(Solver):
                 dirichlet=torch.as_tensor(self.eqn.dirichlet_sample(self.Nsamp,0),dtype=self.dtype).requires_grad_()
                 terminal=torch.as_tensor(self.eqn.terminal_sample(self.Nsamp),dtype=self.dtype).requires_grad_()
             
+            
             Li,Ln,Ld,LT=self.loss(interior,neumann,dirichlet,terminal)
             L=(self.Lweights[0]*Li)+(self.Lweights[1]*Ln)+(self.Lweights[2]*Ld)+(self.Lweights[3]*LT)
             self.optimizer.zero_grad(set_to_none=True)
             L.backward()
             self.optimizer.step()
             self.scheduler.step()
-            
+            print("Total time:",time.time()-ti)
 
             if step % self.logging_interval==0:
                 L1,L2,L3,L4 = self.loss(self.interior_valid,
@@ -228,17 +234,27 @@ class difussionSampleGenerator(Dataset):
         self.eqn=eqn
         self.N_samples=num_samples
         self.solver_config=solver_config
+        self.dt=solver_config["dt"]
+        self.N_max=solver_config["N_max"]
+        self.dtype=solver_config["dtype"]
+        samp=self.eqn.interior_point_sample(self.N_samples)
+        t0=samp[:,0]
+        X0=samp[:,1:]
+        salp=self.eqn.simulate_N_interior_diffusion(self.dt,self.N_max,t0,X0,self.N_samples)
+        self.samples=[torch.as_tensor(path,dtype=self.dtype) for path in salp]
+
+    def re_sample(self):
+        samp=self.eqn.interior_point_sample(self.N_samples)
+        t0=samp[:,0]
+        X0=samp[:,1:]
+        salp=self.eqn.simulate_N_interior_diffusion(self.dt,self.N_max,t0,X0,self.N_samples)
+        self.samples=[torch.as_tensor(path,dtype=self.dtype) for path in salp]
 
     def __len__(self):
-        return self.N_samples
+        return len(self.samples)
     
     def __getitem__(self, idx):
-        dt=self.solver_config["dt"]
-        N_max=self.solver_config["N_max"]
-        samp=self.eqn.interior_point_sample(1)[0]
-        t0=samp[0]
-        X0=samp[1:]
-        return self.eqn.interior_diffusion_sample(dt,N_max,t0,X0)
+        return self.samples[idx]
 
 
 class Interp_PINN_BSDE_solver(Solver):
@@ -251,12 +267,14 @@ class Interp_PINN_BSDE_solver(Solver):
         self.solver_params["Solver"]='Interp_PINN_BSDE_solver'
         self.initial_lr=solver_params["initial_lr"]
         self.net_structure=solver_params["net_size"]
-        #self.model=DenseNet(self.eqn.dim+1,1,[self.net_structure["width"]]*self.net_structure["depth"]).float()
+        self.model=DenseNet(self.eqn.dim+1,1,[self.net_structure["width"]]*self.net_structure["depth"]).float()
+        """
         self.model=ResNetLikeDGM(self.eqn.dim+1,
                                  1,
                                  self.net_structure["width"],
                                  self.net_structure["depth"],
                                  self.net_structure["weigth_norm"])
+        """
         self.optimizer=torch.optim.Adam(self.model.parameters(),lr=self.initial_lr,weight_decay=0.00001)
         self.scheduler=torch.optim.lr_scheduler.LambdaLR(self.optimizer,self.lr_schedule)
         self.Lweights=solver_params["initial_loss_weigths"]
@@ -266,6 +284,8 @@ class Interp_PINN_BSDE_solver(Solver):
         self.sample_every=solver_params["sample_every"]
         self.dt=solver_params["dt"]
         self.N_max=solver_params["N_max"]
+        self.alpha=solver_params["alpha"]
+        self.adaptive_weigths=solver_params["adaptive_weigths"]
         torch.set_default_dtype(self.dtype)
         self.currEps=0
         self.dataGenerator=difussionSampleGenerator(eqn, self.Nsamp_interior,solver_params)
@@ -284,36 +304,42 @@ class Interp_PINN_BSDE_solver(Solver):
             g['lr'] = lr
     
     def plot_N_agent_sample_path(self):
-        X,Xis,dtf=self.dataGenerator[0]
+        X=self.dataGenerator[0]
         self.eqn.domain.plot_N_agent_sample_path(X)
+
+    def sample_paths_loss(self,path):
+        X=path[0,:]
+        Xis=path[1,:-1,1:]
+        dtf=X[-1,0]-X[-2,0]
+        V=self.model(X.requires_grad_())
+        dV=torch.autograd.grad(V,X,
+                                grad_outputs=torch.ones_like(V),
+                                retain_graph=True,
+                                create_graph=True,
+                                only_inputs=True)[0]
+        V_x=dV[:,1:]
+        term1=np.sqrt(self.dt)*torch.sum(V_x[:-2]*Xis[:-1])+torch.sum(V_x[-2]*Xis[-1])*np.sqrt(dtf)
+        nV_x2=torch.nansum(V_x*V_x,axis=1)
+        term2=self.dt*(torch.sum(self.eqn.f(X[:-2,1:],V[:-2],nV_x2[:-2])))
+        term3=dtf*self.dt*(self.eqn.f(X[-2,1:],V[-2],nV_x2[-2]))
+        #dV.requires_grad_(False)
+        #V.requires_grad_(False)
+        X.requires_grad_(False)
+        return torch.square(V[-1]-V[0]-term1+term2+term3)
 
     def interior_loss(self,dataLoader):
         err=0.0
-        for path in dataLoader:
-            X,Xis,dtf=path
-            X=X.float().requires_grad_()
-            Xis=Xis.float().requires_grad_()
-            #X=torch.as_tensor(X,dtype=self.dtype).requires_grad_()
-            #Xis=torch.as_tensor(Xis,dtype=self.dtype).requires_grad_()
-            V=self.model(X)
-            dV=torch.autograd.grad(V,X,
-                                   grad_outputs=torch.ones_like(V),
-                                   retain_graph=True,
-                                   create_graph=True,
-                                   only_inputs=True)[0]
-            V_x=dV[:,1:]
-            term1=np.sqrt(self.dt)*torch.sum(V_x[:-2]*Xis[:-1])+torch.sum(V_x[-2]*Xis[-1])*np.sqrt(self.dt*dtf)
-            nV_x2=torch.sum(V_x*V_x,axis=1)
-            term2=self.dt*(torch.sum(self.eqn.f(X[:-2,1:],V[:-2],nV_x2[:-2])))
-            term3=dtf*self.dt*(self.eqn.f(X[-2,1:],V[-2],nV_x2[-2]))
-            err+=torch.square(V[-1]-V[0]-term1+term2+term3)
+        losses=[self.sample_paths_loss(path) for path in dataLoader]
+        for l in losses:
+            err+=l
         return err/self.Nsamp_interior
 
     def loss(self,dirichlet_data_loader,neumann_sample,dirichlet_sample,terminal_sample):
         tii=time.time()
         Li=self.interior_loss(dirichlet_data_loader)
-        print("tiempo:",time.time()-tii)
+        print("Li:",time.time()-tii)
 
+        tb=time.time()
         x_neumann,n_neumann=neumann_sample
         Vn=self.model(x_neumann)
         dVn=torch.autograd.grad(Vn,x_neumann,
@@ -330,7 +356,7 @@ class Interp_PINN_BSDE_solver(Solver):
         
         Vter=self.model(terminal_sample)
         LT=torch.mean(torch.square(Vter-self.eqn.g_Tf(terminal_sample)))
-        
+        print("Lb:",time.time()-tb)
         return Li,Ln,Ld,LT
     
     def train(self,epochs):
@@ -338,7 +364,10 @@ class Interp_PINN_BSDE_solver(Solver):
         training_history = []
         print('Comencemos a calcular')
         start_time=time.time()
-        dirichlet_data_loader=DataLoader(self.dataGenerator, batch_size=None,shuffle=False, num_workers=8)
+        dirichlet_data_loader=DataLoader(self.dataGenerator, 
+                                        batch_size=None,
+                                        shuffle=False,
+                                        num_workers=0)
         np_neumann,np_n_neumann=self.eqn.neumann_sample(self.Nsamp_boundary,0)
         neumann= (torch.as_tensor(np_neumann,dtype=self.dtype).requires_grad_(),
                 torch.as_tensor(np_n_neumann,dtype=self.dtype).requires_grad_())
@@ -346,22 +375,67 @@ class Interp_PINN_BSDE_solver(Solver):
         terminal=torch.as_tensor(self.eqn.terminal_sample(self.Nsamp_boundary),dtype=self.dtype).requires_grad_()
 
         # Begin iteration over samples
-        for step in range(epochs):
+        for step in range(1,epochs+1):
+            self.currEps+=1
             print(step)
-            if (step+1)%self.sample_every==0:
+            tis=time.time()
+            if (step)%self.sample_every==0:
+                self.dataGenerator.re_sample()
+                dirichlet_data_loader=DataLoader(self.dataGenerator, 
+                                        batch_size=None,
+                                        shuffle=False,
+                                        num_workers=0)
                 np_neumann,np_n_neumann=self.eqn.neumann_sample(self.Nsamp_boundary,0)
                 neumann= (torch.as_tensor(np_neumann,dtype=self.dtype).requires_grad_(),
                         torch.as_tensor(np_n_neumann,dtype=self.dtype).requires_grad_())
                 dirichlet=torch.as_tensor(self.eqn.dirichlet_sample(self.Nsamp_boundary,0),dtype=self.dtype).requires_grad_()
                 terminal=torch.as_tensor(self.eqn.terminal_sample(self.Nsamp_boundary),dtype=self.dtype).requires_grad_()
-            
             Li,Ln,Ld,LT=self.loss(dirichlet_data_loader,neumann,dirichlet,terminal)
-            L=(self.Lweights[0]*Li)+(self.Lweights[1]*Ln)+(self.Lweights[2]*Ld)+(self.Lweights[3]*LT)
             self.optimizer.zero_grad(set_to_none=True)
-            L.backward()
-            self.optimizer.step()
-            self.scheduler.step()
-            
+            if self.adaptive_weigths:
+                dLi=torch.autograd.grad(outputs=Li,inputs=self.model.parameters(),retain_graph=True)
+                dLn=torch.autograd.grad(outputs=Ln,inputs=self.model.parameters(),retain_graph=True,allow_unused=True)
+                dLd=torch.autograd.grad(outputs=Ld,inputs=self.model.parameters(),retain_graph=True)
+                dLT=torch.autograd.grad(outputs=LT,inputs=self.model.parameters(),retain_graph=True)
+                maxLi=0.0
+                sumLn=0.0
+                sumLd=0.0
+                sumLT=0.0
+                tamLn=0
+                tamLd=0
+                tamLT=0
+
+                for i, w in enumerate(self.model.parameters()):
+                    gdL=[dLi[i],dLn[i],dLd[i],dLT[i]]
+                    if dLi[i]==None: gdL[0]=torch.Tensor([0.0])
+                    if dLn[i]==None: gdL[1]=torch.Tensor([0.0])
+                    if dLd[i]==None: gdL[2]=torch.Tensor([0.0])
+                    if dLT[i]==None: gdL[3]=torch.Tensor([0.0]) 
+                    dL=(self.Lweights[0]*gdL[0])+(self.Lweights[1]*gdL[1])+(self.Lweights[2]*gdL[2])+(self.Lweights[3]*gdL[3])
+                    #print(i,w.grad[0],dL[0])
+                    w.grad=dL
+
+                    gLiMax=torch.max(torch.abs(gdL[0])).detach().numpy()
+                    sumLn+=torch.sum(torch.abs(gdL[1])).detach().numpy()
+                    sumLd+=torch.sum(torch.abs(gdL[2])).detach().numpy()
+                    sumLT+=torch.sum(torch.abs(gdL[3])).detach().numpy()
+                    if gLiMax>maxLi: maxLi=gLiMax
+                    tamLn+=gdL[1].shape[0]
+                    tamLd+=gdL[2].shape[0]
+                    tamLT+=gdL[3].shape[0]
+                lamhat=[1.0,maxLi*tamLn/sumLn,maxLi*tamLd/sumLd,maxLi*tamLd/sumLd]
+                lamnew=[1.0 if i==0 else (1-self.alpha)*self.Lweights[i]+self.alpha*lamhat[i] for i in range(4)]
+                self.Lweights=lamnew
+                print("Nuevos Lamn",self.Lweights)
+                self.optimizer.step()
+                self.scheduler.step()
+            else:
+                L=(self.Lweights[0]*Li)+(self.Lweights[1]*Ln)+(self.Lweights[2]*Ld)+(self.Lweights[3]*LT)
+                L.backward()
+                self.optimizer.step()
+                self.scheduler.step()
+
+            print("Tiempto toal",time.time()-tis)
 
             if step % self.logging_interval==0:
                 L1,L2,L3,L4 = self.loss(dirichlet_data_loader,
@@ -379,5 +453,5 @@ class Interp_PINN_BSDE_solver(Solver):
                       " L2:",L2.item(),
                       " L3: ",L3.item(),
                       " L4: ",L4.item())
-            self.currEps+=1
+            
         return np.array(training_history)

@@ -32,7 +32,7 @@ class HJB_LQR_Equation_2D():
     
     def F(self,x):
         """Panic function"""
-        return 2.0
+        return 5.0
 
     def f(self,x,V,nV_x2):
         """
@@ -62,6 +62,9 @@ class HJB_LQR_Equation_2D():
     
     def interior_diffusion_sample(self,dt,N_max,t0,X0):
         return self.domain.simulate_difussion_N_agents_path(self.sig,dt,N_max,self.N,t0,X0)
+    
+    def simulate_N_interior_diffusion(self,dt,N_max,t0,X0,Ndifussions):
+        return self.domain.simulate_N_difussions_Nagents(self.sig,dt,N_max,self.N,t0,X0,Ndifussions)
 
 """
 eqn_config={"N":1,"nu":0.05,"lam":4.0}

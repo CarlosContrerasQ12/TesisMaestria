@@ -12,10 +12,6 @@ import numpy as np
 import time
 
 
-
-def l_schedule(epoch):
-    return 10.0/(epoch+1)
-
 if __name__ == '__main__':
     t = time.localtime()
     current_time = time.strftime("%H:%M:%S", t)
