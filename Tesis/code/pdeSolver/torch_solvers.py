@@ -26,6 +26,8 @@ def load_sol(config_file):
         eqn=HJB_LQR_Equation_2D(dom,dic["eqn_config"])
     if dic["solver_config"]["Solver"]=='DGM_solver':
         sol=DGM_solver(eqn, dic["solver_config"])
+    if dic["solver_config"]["Solver"]=='Interp_PINN_BSDE_solver':
+        sol=Interp_PINN_BSDE_solver(eqn, dic["solver_config"])
     return sol
 
 class Solver():

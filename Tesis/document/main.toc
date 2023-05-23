@@ -17,12 +17,9 @@
 \contentsline {subsection}{\numberline {3.2.3}An example}{31}{subsection.3.2.3}%
 \contentsline {chapter}{\numberline {4}Crowd motion modeling}{32}{chapter.4}%
 \contentsline {section}{\numberline {4.1}N-agent games}{32}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Mean Field Games}{32}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Numerical methods}{32}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Finite differences}{32}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Deep Fictious Play}{32}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}An example}{32}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Conclusion}{33}{chapter.5}%
-\contentsline {chapter}{Appendices}{34}{section*.9}%
-\contentsline {chapter}{Appendix \numberline {A}Neural Networks}{34}{appendix.1.A}%
-\contentsline {chapter}{Appendix \numberline {B}Stochastic Control}{35}{appendix.1.B}%
+\contentsline {section}{\numberline {4.2}Deep Fictious Play}{34}{section.4.2}%
+\contentsline {section}{\numberline {4.3}An example}{34}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Conclusion}{35}{chapter.5}%
+\contentsline {chapter}{Appendices}{36}{section*.9}%
+\contentsline {chapter}{Appendix \numberline {A}Neural Networks}{36}{appendix.1.A}%
+\contentsline {chapter}{Appendix \numberline {B}Stochastic Control}{37}{appendix.1.B}%

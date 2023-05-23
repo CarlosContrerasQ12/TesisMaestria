@@ -1295,6 +1295,88 @@
       \endverb
       \keyw{Mathematics - Numerical Analysis,Statistics - Machine Learning,Mathematics - Probability}
     \endentry
+    \entry{hu_recent_nodate}{article}{}
+      \name{author}{2}{}{%
+        {{hash=839da6ced1e86337b95ea9d732662ae8}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Ruimeng},
+           giveni={R\bibinitperiod}}}%
+        {{hash=b784c21c4869994f46ae1f521c97ae04}{%
+           family={Laurière},
+           familyi={L\bibinitperiod},
+           given={Mathieu},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{820231d08c0487c8a23bc9fdc78b245d}
+      \strng{fullhash}{820231d08c0487c8a23bc9fdc78b245d}
+      \strng{bibnamehash}{820231d08c0487c8a23bc9fdc78b245d}
+      \strng{authorbibnamehash}{820231d08c0487c8a23bc9fdc78b245d}
+      \strng{authornamehash}{820231d08c0487c8a23bc9fdc78b245d}
+      \strng{authorfullhash}{820231d08c0487c8a23bc9fdc78b245d}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper, we give an overview of recently developed machine learning methods for stochastic control problems and games. The main focus is on deep learning methods that have unlocked the possibility to solve such problems even when the structure is very complex or when the dimension is very high, which is not feasible with traditional numerical methods. Many of these new approaches build on recent breakthrough machine learning methods for partial diﬀerential equations or backward stochastic diﬀerential equations, or on model-free reinforcement learning for Markov decision processes. This review summarizes state-of-the-art works at the crossroad of artiﬁcial intelligence and stochastic control and games. It also discusses connections with real applications and identiﬁes unsolved challenges.}
+      \field{langid}{english}
+      \field{title}{Recent Developments in Machine Learning Methods for Stochastic Control and Games}
+      \verb{file}
+      \verb Hu y Laurière - Recent Developments in Machine Learning Methods fo.pdf:/home/carlos/Zotero/storage/YF566UKJ/Hu y Laurière - Recent Developments in Machine Learning Methods fo.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{han_deep_2020}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=dcbed821c92a82aa9d46cf353c58ec62}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Jiequn},
+           giveni={J\bibinitperiod}}}%
+        {{hash=839da6ced1e86337b95ea9d732662ae8}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Ruimeng},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {PMLR}%
+      }
+      \strng{namehash}{e1992e87e0b3c2d8d658d195b466215a}
+      \strng{fullhash}{e1992e87e0b3c2d8d658d195b466215a}
+      \strng{bibnamehash}{e1992e87e0b3c2d8d658d195b466215a}
+      \strng{authorbibnamehash}{e1992e87e0b3c2d8d658d195b466215a}
+      \strng{authornamehash}{e1992e87e0b3c2d8d658d195b466215a}
+      \strng{authorfullhash}{e1992e87e0b3c2d8d658d195b466215a}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We propose a deep neural network-based algorithm to identify the Markovian Nash equilibrium of general large \$N\$-player stochastic differential games. Following the idea of fictitious play, we recast the \$N\$-player game into \$N\$ decoupled decision problems (one for each player) and solve them iteratively. The individual decision problem is characterized by a semilinear Hamilton-Jacobi-Bellman equation, to solve which we employ the recently developed deep {BSDE} method. The resulted algorithm can solve large \$N\$-player games for which conventional numerical methods would suffer from the curse of dimensionality. Multiple numerical examples involving identical or heterogeneous agents, with risk-neutral or risk-sensitive objectives, are tested to validate the accuracy of the proposed algorithm in large group games. Even for a fifty-player game with the presence of common noise, the proposed algorithm still finds the approximate Nash equilibrium accurately, which, to our best knowledge, is difficult to achieve by other numerical algorithms.}
+      \field{booktitle}{Proceedings of The First Mathematical and Scientific Machine Learning Conference}
+      \field{day}{16}
+      \field{eventtitle}{Mathematical and Scientific Machine Learning}
+      \field{langid}{english}
+      \field{month}{8}
+      \field{note}{{ISSN}: 2640-3498}
+      \field{title}{Deep Fictitious Play for Finding Markovian Nash Equilibrium in Multi-Agent Games}
+      \field{urlday}{28}
+      \field{urlmonth}{2}
+      \field{urlyear}{2023}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{221\bibrangedash 245}
+      \range{pages}{25}
+      \verb{file}
+      \verb Full Text PDF:/home/carlos/Zotero/storage/ELYE2Q4K/Han y Hu - 2020 - Deep Fictitious Play for Finding Markovian Nash Eq.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://proceedings.mlr.press/v107/han20a.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.mlr.press/v107/han20a.html
+      \endverb
+    \endentry
   \enddatalist
   \missing{PINNS2}
   \missing{PINNs}

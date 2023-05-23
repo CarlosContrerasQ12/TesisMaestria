@@ -2350,6 +2350,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">PDEs ML.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">ControlOptimizacion.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">BSDEs.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">MFG.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="6" intorder="1">higham_deep_2019</bcf:citekey>
@@ -2410,10 +2411,12 @@
     <bcf:citekey order="55" intorder="1">nusken_interpolating_2023</bcf:citekey>
     <bcf:citekey order="56" intorder="1">nusken_interpolating_2023</bcf:citekey>
     <bcf:citekey order="57" intorder="1">nusken_interpolating_2023</bcf:citekey>
-    <bcf:citekey order="58" intorder="1">pham_continuous-time_2009</bcf:citekey>
+    <bcf:citekey order="58" intorder="1">hu_recent_nodate</bcf:citekey>
+    <bcf:citekey order="58" intorder="2">han_deep_2020</bcf:citekey>
     <bcf:citekey order="59" intorder="1">pham_continuous-time_2009</bcf:citekey>
     <bcf:citekey order="60" intorder="1">pham_continuous-time_2009</bcf:citekey>
     <bcf:citekey order="61" intorder="1">pham_continuous-time_2009</bcf:citekey>
+    <bcf:citekey order="62" intorder="1">pham_continuous-time_2009</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

@@ -1,7 +1,69 @@
-People run
+We have seen how deep learning tool can be used to solve partial differential equations, even in the high dimensional setting. However, we have not solved any problem for which we do not know an exact solution or an approximate one by means of classical numerical methods. Hence, in this section we will apply the exposed methods to solve a larger problem whose solution cannot be approximated by classical numerical methods. That is the case for N-agent games, which is the main topic of this section. 
 \section{N-agent games}
-\section{Mean Field Games}
-\section{Numerical methods}
-\subsection{Finite differences}
-\subsection{Deep Fictious Play}
+Classical optimal stochastic control deals with the problem of optimizing the optimal choice that a single agent should take to minimize a cost function in a random environment, see \autoref{chp:ApendixStochasticControl}.  What happens when there are many agents taking decisions to minimize their own cost that may depend on other's states and strategies? How should an agent choose its strategy to minimize its own cost knowing that other agents will try to do the same?  Such questions can be answered in the framework of stochastic differential games, for which here we give an introduction following \cite{hu_recent_nodate,han_deep_2020}.
+
+Consider a system that consist of $N$ agents, also called players, whose states are represented by a continuous stochastic process $X^{i}_{t}\in \bbR^d$ , with $i\in \mathcal{I}:=\{1,\ldots, N\}$, that continuously take actions $\alpha_{t}^{i}$ in a control set $\mathcal{A}\subset \bbR^k$. The dynamics in the time interval $[0,T]$ of the controlled state process $X^i$ follows the stochastic differential equation
+\begin{equation}
+	\begin{split}
+		&dX_t^{i}=\mu^{i}(t,\bfX_t,\bfAlp_t)dt+\sigma^{i}(t,\bfX_t,\bfAlp_t)dW_t^{i}+\sigma^{0}(t,\bfX_t,\bfAlp_t)dW_{t}^0\\
+		&X_{0}^{i}=x_{0}^{i} \quad \text{ for } i\in \mathcal{I},
+	\end{split}
+\end{equation}
+where $\mathbf{W}:=(W^0,W^1,\ldots W^N)$ are $N+1$ $m$-dimensional independent Brownian motions, $W^{i}$ are individual noises and $W^0$ is common noise for all agents, and $\bfX_t=[X_t^1,\ldots,X_t^N]$ is the joint vector for the $N$ agent dynamics with their corresponding controls $\bfAlp_t=(\alpha_t^1,\ldots,\alpha_t^N)$. The individual drift and volatility $(\mu^i,\sigma^i)$ are deterministic functions $b^{i}:[0,T]\times \bbR^{dN}\times \mathcal{A}^N\to \bbR^d\times \bbR$ and $\sigma^{i}:[0,T]\times \bbR^{dN}\times \mathcal{A}^N\to \bbR^d\times \bbR\times\bbR^{d\times m}$, which are dependent on the states and controls of every other agent.
+
+Given a set of strategies $(\bfAlp_t)_{t\in [0,T]}$, we associate a cost/value function to player $i$ of the form
+\begin{equation}
+	\label{eqn:individualCost}
+	v^i(t,x,\bfAlp_t):=\expect*{\int_{t}^{T}f^i(t,\bfX_t,\bfAlp_t)dt +g^i(\bfX_T)\Big| X_t^i=x},
+\end{equation}
+where the running cost $f^i:[0,T]\times \bbR^{dN}\times \mathcal{A}^N\to \bbR$ and the terminal cost $g^i:\bbR^{dN}\to \bbR$ are deterministic measurable functions.
+
+Each player will try to minimize its repective total cost $J^i(\bfAlp_t):=v(0,x^i_0,\bfAlp_t)$ choosing adequately $(\alpha^{i}_t)_{t\in[0,T]}$ within the set of admissible strategies $\mathbb{A}^i$. The choice of this set describes measurability and integrability of $\alpha_t^i$. For example, if we choose $\mathbb{A}^i=\mathbb{A}=\mathbb{H}^2_T(\mathcal{A})$, the space of square integrable $\bm{W}$-progressively measurable $\mathcal{A}$-valued processes, the $\alpha$ is said to be a \textit{open loop control}, because it only uses the information of the noise that has occurred. If instead we choose $\mathbb{A}^i$ as the set $\mathbb{H}_{\bfX}^2(\mathcal{A})$, the set of square integrable  $\bfX$-measurable processes, the $\alpha_t$ is a \textit{closed loop markovian control}\hlc[Revisar definicion del espacio, ¿Cuando es no medible?]{}, as it uses information of the current state $\bfX_t$.
+
+In a noncooperative game, there is an important notion of optimality termed \textit{Nash equilibrium}, which refers to a set of strategies for all agents such that no one has an incentive to deviate in order to reduce its own cost. Explicitly, we have the following definition
+\begin{definition}
+A tuple $\bfAlp^*=(\alpha^{1,*},\ldots,\alpha^{N,*})\in \mathcal{A}^1\times \cdots \times \mathcal{A}^N$ is said to be a Nash equilibrium if for all $i\in\mathcal{I}$ and any $\beta^i\in\mathcal{A}^i$ we have that
+ $$J^{i}(\bfAlp)\leq J^i(\alpha^{1,*},\ldots,\alpha^{i-1,*},\beta^i,\alpha^{i+1,*},\ldots ,\alpha^{N,*})$$,
+ where on the rigth-hand side the strategy $(\alpha^{1,*},\ldots,\alpha^{i-1,*},\beta^i,\alpha^{i+1,*},\ldots ,\alpha^{N,*})$ is used to solve for $\bfX$ in the dynamics equation \eqref{eqn:individualCost}. Particularly, if we search for a \textit{markovian Nash equilibrium}, we require the functions $\alpha^i_t$ to be of the form $\alpha^i_t=\alpha^i(t,\bfX_t)$, for $\alpha^i$ a measurable function.  
+\end{definition}
+
+\hlc[Aclarar existencia de equilibrios? Convixidad del hamiltoniano en state and control variables]{}. Finding such equilibria is an important, yet difficult task to acomplish. In the markovian setting, the equilibrium is related to solving N coupled Hamilton-Jacobi-Bellman equations. Consider the dynamics for the joint vector 
+\begin{equation}
+	\begin{split}
+&d\bfX_t=\mu(t,\bfX_t,\bfAlp(t,\bfX))dt+\Sigma(t,\bfX_t,\bfAlp(t,X_t))d\bm{W}_t\\
+&\bfX_0=\bm{x}_0,
+	\end{split}
+\end{equation}
+where we used the vector notation stated before and the joint noise matrix and drift given by
+\begin{equation}
+	\mu=\begin{bmatrix}
+		\mu^1 \\
+		\mu^2 \\
+		\vdots   \\
+		\mu^N
+	\end{bmatrix}
+	\quad\quad\quad
+	\Sigma=\begin{bmatrix}
+		\sigma^0 & \sigma^1\\
+		\sigma^0 & \sigma^2\\
+		\vdots   &  \vdots\\
+		\sigma^0 & \sigma^N
+	\end{bmatrix}.
+\end{equation}
+
+Then, the optimal value function for agent $i$ satisfies the Hamilton-Jacobi-Bellman equation given by
+\begin{equation}
+	\begin{split}
+	&\dpartial{u^i}{t}+H^i(t,\bm{x},\bfAlp,D_x v^i,D_{xx} v^i)=0\\
+	&v^i(T,x)=g^i(x),
+	\end{split}
+\end{equation}
+where $H^i$ is the Hamiltonian function 
+\begin{equation}
+	H^i(t,\bm{x},\bfAlp,p,q)=\inf_{\alpha^i\in \mathbb{A}^i}\{\mu(t,\bm{x},\bfAlp)\cdot p+f^i(t,\bm{x},\bfAlp)+\frac{1}{2}\Tr(\Sigma\Sigma'(t,\bm{x},\bfAlp) q)\}.
+\end{equation}
+
+The minimization over $\alpha^i$ should be done while taking $(\alpha^1,\ldots,\alpha^{i-1},\alpha^{i+1},\ldots,\alpha^N)$ as given and fixed. Note that this system of equations for $i\in\mathcal{I}$ is implicitly coupled through the joint control $\bfAlp$ because it depends directly on every $v^i$ from which we derive each $\alpha^i$.
+
+\section{Deep Fictious Play}
 \section{An example}
