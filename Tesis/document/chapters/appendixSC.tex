@@ -130,7 +130,7 @@ We want to minimize the cost functional
 \begin{equation}
 	J(\alpha_t)=\mathbb{E}\left[\int_{0}^{T}(|\alpha_t|^2+F) dt +g(X_T)\right],
 \end{equation}
-which models the cost of the particle to reach a desired state, whose distance is modeled by $g(x)$, using the least amount of fuel as possible, which is represented by $\alpha_t$, and alo penalizing time time to reazh the desired final state through a constant $F$. For example, if we want the particle to reach the point $z_0$, we should choose $g(x)=|x-z_0|^2$.
+which models the cost of the particle to reach a desired state, whose distance is modeled by $g(x)$, using the least amount of fuel as possible, which is represented by $\alpha_t$, and also penalizing the required time to reach the desired final state through a function $F(t,x)$. For example, if we want the particle to reach the point $z_0$, we should choose $g(x)=|x-z_0|^2$.
 
 To derive the Hamilton-Jacobi-Bellman satisfied by the value function associated with this problems, note that the generator of the $X$ process is given by
 \begin{equation}
@@ -154,36 +154,45 @@ subject to the terminal condition
 \end{equation}
 If we solve this equation for $V(t,x)$, then we can use the verification theorem to obtain the optimal control process as $\hat{\alpha}=D_x V(t,x)$. 
 
-Fortunately, for $\nu=1$ ,we can solve this equation explicitly using the Hopf-Cole transformation, $u(t,x)= e^{-\lambda V(t,x)}$. For such $u(t,x)$ we have
+Fortunately, we can solve this equation explicitly using the Hopf-Cole transformation, $u(t,x)= e^{-\frac{\lambda}{\nu} V(t,x)}$. For such $u(t,x)$ we have
 \begin{equation}
-	\nabla u(t,x)=-\lambda e^{-\lambda V}\nabla V
+	\nabla u(t,x)=-\frac{\lambda}{\nu} e^{-\frac{\lambda}{\nu} V}\nabla V
 \end{equation}
 and
 \begin{equation}
 	\begin{split}
-		\Delta u(t,x)&=\lambda^2 e^{-\lambda V}|\nabla V|^2-\lambda e^{-\lambda V}\Delta V \\
-		&=-\lambda e^{-\lambda V}\left(\Delta V - \lambda |\nabla V|^2 \right)
+		\Delta u(t,x)&=\frac{\lambda^2}{\nu^2} e^{-\frac{\lambda}{\nu} V}|\nabla V|^2-\frac{\lambda}{\nu} e^{-\frac{\lambda}{\nu} V}\Delta V \\
+		&=-\frac{\lambda}{\nu} e^{-\frac{\lambda}{\nu} V}\left(\Delta V - \frac{\lambda}{\nu} |\nabla V|^2 \right)\\
+		&=-\frac{\lambda}{\nu^2} e^{-\frac{\lambda}{\nu} V}\left(\nu\Delta V - \lambda |\nabla V|^2 \right)
 	\end{split}
 \end{equation}
-and 
+and so
 \begin{equation}
-	\dpartial{u}{t}(t,x)=-\lambda e^{-\lambda V} \dpartial{V}{t}.
+	\nu \Delta u(t,x)=-\frac{\lambda}{\nu} e^{-\frac{\lambda}{\nu} V}\left(\nu\Delta V - \lambda |\nabla V|^2 \right).
+\end{equation}
+We also have
+\begin{equation}
+	\dpartial{u}{t}(t,x)=-\frac{\lambda}{\nu} e^{-\frac{\lambda}{\nu} V} \dpartial{V}{t}.
 \end{equation}
 
-Therefore, the HJB equation for $u(t,x)$ is 
+Therefore, adding these derivatives for $u(t,x)$ we obtain 
 \begin{equation}
-	\dpartial{u}{t}+\Delta u=0
+	\dpartial{u}{t}+\nu\Delta u=-\frac{\lambda}{\nu}e^{-\frac{\lambda}{\nu} V}\left(\dpartial{V}{t}+\nu \Delta V -\lambda |\nabla V|^2\right)=-\frac{\lambda F}{\nu}u.
+\end{equation}
+Which means that the HJB equation for $u$ is 
+\begin{equation}
+	\dpartial{u}{t}+\nu \Delta u+\frac{\lambda F}{\nu}u=0
 \end{equation}
 subject to the final condition 
 \begin{equation}
-	u(T,x)=e^{-\lambda g(x)}
+	u(T,x)=e^{-\frac{\lambda}{\nu} g(x)}
 \end{equation}
 
 Hence, using the linear Feynman-Kac formula \ref{thm:LinearFK}, we can give a probabilistic explicit representation of the solution as
 \begin{equation}
-	u(t,x)=\expect*{\exp(-\lambda g(x+\sqrt{2}W_{T-t}))}
+	u(t,x)=\expect*{\exp\left(-\frac{\lambda}{\nu} g(x+\sqrt{2\nu}W_{T-t})-\frac{\lambda}{\nu}\int_{t}^{T}F(s,x+\sqrt{2\nu}W_{s-t})ds\right)}
 \end{equation}
 and solving for $V(t,x)$ we obtain
 \begin{equation}
-	V(t,x)=-\frac{1}{\lambda}\ln\left(\expect*{\exp(-\lambda g(x+\sqrt{2}W_{T-t}))}\right).
+	V(t,x)=-\frac{\nu}{\lambda}\ln\left(\expect*{\exp \left(-\frac{\lambda}{\nu} g(x+\sqrt{2\nu}W_{T-t})-\frac{\lambda}{\nu}\int_{t}^{T}F(s,x+\sqrt{2\nu}W_{s-t})ds\right)}\right).
 \end{equation}
