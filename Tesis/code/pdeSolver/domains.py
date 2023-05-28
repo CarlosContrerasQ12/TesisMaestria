@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
-import time
+import torch
 
 dtype=np.float32
 np.random.normal2 = lambda *args,**kwargs: np.random.normal(*args, **kwargs).astype(dtype)
@@ -35,9 +35,9 @@ class EmptyRoom():
     -pSup is the Upper part of the door in the y axis
     """
     def __init__(self,dom_config):
-        dom_config["Domain"]='EmptyRoom'
         self.dom_config=dom_config
         self.total_time=dom_config["total_time"] #Terminal time of the domain
+        self.dim=2
         self.pInf=dom_config["pInf"] #Lower point of the door in the y axis
         self.pSup=dom_config["pSup"] #Upper point of the door in the y axis
         self.pAnc=self.pSup-self.pInf #Width of thr door 
@@ -273,6 +273,7 @@ class EmptyRoom():
         X=np.random.uniform2(size=(num_sample,2*Nagents))
         X[:,i:i+2]=x
         return np.hstack((t,X))
+    
     def outer_boundary_sample(self,num_sample):
         Ns=int(num_sample/4)
         iz=np.stack((np.zeros2(Ns),np.random.uniform2(size=Ns)),axis=1)
@@ -307,6 +308,28 @@ class EmptyRoom():
         x = y = np.arange(-0.05, 1.05, 0.05)
         X, Y = np.meshgrid(x, y)
         return X , Y 
+    
+class FreeSpace():
+    def __init__(self,dom_config):
+        self.dom_config=dom_config
+        self.total_time=dom_config["total_time"] #Terminal time of the domain
+    
+
+    def initial_point_diffusion(self,num_sample,dim,X0=None):
+        if X0!=None:
+            return torch.ones([num_sample, dim],requires_grad=False)*X0 
+        return torch.Tensor(np.random.uniform(low=0.0,high=1.0,size=([num_sample,dim]))).requires_grad_(False)
+
+    
+    def diffusion_brownian_sample(self, num_sample,dim,dt,Ndis,sigma,X0=None):
+        sqrt_dt=np.sqrt(dt)
+        dw_sample=torch.tensor(np.random.normal(size=[num_sample,dim,Ndis])*sqrt_dt).requires_grad_(False)
+        x_sample = torch.zeros([num_sample, dim, Ndis]).requires_grad_(False)
+        x_sample[:, :, 0] = self.initial_point_diffusion(num_sample,dim,X0)
+        for i in range(Ndis-1):
+            x_sample[:, :, i + 1] = x_sample[:, :, i] + sigma * dw_sample[:, :, i]
+        return dw_sample, x_sample
+
 """
 dom=EmptyRoom({"total_time":1.0,"pInf":0.4,"pSup":0.6})
 N=1

@@ -13,21 +13,24 @@ from matplotlib.widgets import Slider
 from mpl_toolkits.mplot3d import Axes3D 
 import matplotlib.pyplot as plt
 
+types=torch.float32
+torch.set_default_dtype(types)
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print(device)
+
+
 
 
 def load_sol(config_file):
     dic=pickle.load(open(config_file, "rb"))
-    dom=None
-    eqn=None
-    sol=None
-    if dic["dom_config"]["Domain"]=='EmptyRoom':
-        dom=EmptyRoom(dic["dom_config"])
-    if dic["eqn_config"]["Equation"]=='HJB_LQR_Equation_2D':
-        eqn=HJB_LQR_Equation_2D(dom,dic["eqn_config"])
-    if dic["solver_config"]["Solver"]=='DGM_solver':
-        sol=DGM_solver(eqn, dic["solver_config"])
-    if dic["solver_config"]["Solver"]=='Interp_PINN_BSDE_solver':
-        sol=Interp_PINN_BSDE_solver(eqn, dic["solver_config"])
+    domType=globals()[dic["dom_config"]["Domain"]]
+    eqnType=globals()[dic["eqn_config"]["Equation"]]
+    solType=globals()[dic["solver_config"]["Solver"]]
+    dom=domType(dic["dom_config"])
+    eqn=eqnType(dic["eqn_config"])
+    sol=solType(eqn,dic["solver_config"])
+    sol.training_history=dic["training_history"]
+    sol.currEps=dic["currEps"]
     return sol
 
 class Solver():
@@ -35,6 +38,8 @@ class Solver():
         self.eqn=eqn
         self.solver_params=solver_params
         self.model=lambda x:0
+        self.training_history=[]
+        self.currEps=0
         self.dtype=solver_params["dtype"]
 
     def save_model(self,file_name):
@@ -46,7 +51,9 @@ class Solver():
     def save_sol(self,name):
         pickle.dump({"dom_config":self.eqn.domain.dom_config,
                      "eqn_config":self.eqn.eqn_config,
-                     "solver_config":self.solver_params},open(name,'wb'))
+                     "solver_config":self.solver_params,
+                     "training_history":self.training_history,
+                     "currEps":self.currEps},open(name,'wb'))
         
     def control(self,t,X):
         pos=torch.tensor(np.hstack((t,X)),requires_grad=True)
@@ -106,12 +113,8 @@ class DGM_solver(Solver):
         super(DGM_solver,self).__init__(eqn,solver_params)
         self.solver_params["Solver"]='DGM_solver'
         self.initial_lr=solver_params["initial_lr"]
-        self.net_structure=solver_params["net_size"]
-        self.model=ResNetLikeDGM(self.eqn.dim+1,
-                                 1,
-                                 self.net_structure["width"],
-                                 self.net_structure["depth"],
-                                 self.net_structure["weigth_norm"])
+        self.net_structure=globals()[solver_params["net_structure"]]
+        self.model=self.net_structure(solver_params["net_config"],eqn)
         self.optimizer=torch.optim.Adam(self.model.parameters(),lr=self.initial_lr,weight_decay=0.00001)
         self.scheduler=torch.optim.lr_scheduler.LambdaLR(self.optimizer,self.lr_schedule)
         self.Lweights=solver_params["initial_loss_weigths"]
@@ -266,17 +269,12 @@ class Interp_PINN_BSDE_solver(Solver):
     """
     def __init__(self, eqn,solver_params):
         super(Interp_PINN_BSDE_solver,self).__init__(eqn,solver_params)
+        self.solver_params=solver_params
         self.solver_params["Solver"]='Interp_PINN_BSDE_solver'
         self.initial_lr=solver_params["initial_lr"]
         self.net_structure=solver_params["net_size"]
-        self.model=DenseNet(self.eqn.dim+1,1,[self.net_structure["width"]]*self.net_structure["depth"]).float()
-        """
-        self.model=ResNetLikeDGM(self.eqn.dim+1,
-                                 1,
-                                 self.net_structure["width"],
-                                 self.net_structure["depth"],
-                                 self.net_structure["weigth_norm"])
-        """
+        self.net_structure=globals()[solver_params["net_structure"]]
+        self.model=self.net_structure(solver_params["net_config"],eqn)
         self.optimizer=torch.optim.Adam(self.model.parameters(),lr=self.initial_lr,weight_decay=0.00001)
         self.scheduler=torch.optim.lr_scheduler.LambdaLR(self.optimizer,self.lr_schedule)
         self.Lweights=solver_params["initial_loss_weigths"]
@@ -457,3 +455,95 @@ class Interp_PINN_BSDE_solver(Solver):
                       " L4: ",L4.item())
             
         return np.array(training_history)
+
+
+class difussionSampleGeneratorBSDE(Dataset):
+    def __init__(self, eqn, num_samples,dt,Ndis):
+        self.eqn=eqn
+        self.num_samples=num_samples
+        self.dt=dt
+        self.Ndis=Ndis
+        self.samples=self.eqn.simulate_N_interior_diffusion(dt,Ndis,num_samples,X0=torch.zeros(eqn.dim))
+    
+    def re_sample(self):
+        self.samples=self.eqn.simulate_N_interior_diffusion(self.dt,self.Ndis,self.num_samples,X0=torch.zeros(self.eqn.dim))
+
+    def __len__(self):
+        return 1
+    
+    def __getitem__(self, idx):
+        return self.samples
+
+class BSDE_Solver_Single_Point(Solver):
+    """The fully connected neural network model."""
+    def __init__(self,eqn, solver_params):
+        self.solver_params=solver_params
+        self.eqn = eqn
+        self.Ndis=self.solver_params["Ndis"]
+        self.dt=self.eqn.domain.total_time/(self.Ndis-1)
+        self.solver_params["net_config"]["Ndis"]=self.Ndis
+        self.solver_params["net_config"]["dt"]=self.Ndis
+        self.net_config = self.solver_params["net_config"]
+        self.model = Global_Model_Deep_BSDE_Single_point(self.net_config, eqn).to(device)
+        self.initial_lr=solver_params["initial_lr"]
+        self.sample_every=solver_params["sample_every"]
+        self.Nsamp=solver_params["Nsamp"]
+        self.logging_interval=solver_params["logging_interval"]
+        self.optimizer=torch.optim.Adam(self.model.parameters(),lr=self.initial_lr,weight_decay=0.00001)
+        self.scheduler=torch.optim.lr_scheduler.LambdaLR(self.optimizer,self.lr_schedule)
+        self.dataGenerator=difussionSampleGeneratorBSDE(eqn, self.Nsamp,self.dt,self.Ndis)
+        self.X0=torch.zeros(eqn.dim)
+        self.true_sol=eqn.true_solution(0.0,self.X0,10000,0.01).numpy()
+        print(self.true_sol)
+        self.training_history=[]
+
+    def lr_schedule(self,epoch):
+        #return 10.0/(epoch+1)
+        return 1.0
+    
+    def train(self,steps):
+        start_time = time.time()
+        valid_data = self.dataGenerator[0]
+
+        data_loader=DataLoader(self.dataGenerator, 
+                                        batch_size=None,
+                                        shuffle=False,
+                                        num_workers=0)
+
+        # begin sgd iteration
+        for step in range(1,steps+1):
+            #print(step)
+            if (step)%self.sample_every==0:
+                self.dataGenerator.re_sample()
+                data_loader=DataLoader(self.dataGenerator, 
+                                        batch_size=None,
+                                        shuffle=False,
+                                        num_workers=0)
+            inputs=self.dataGenerator[0]
+            results=self.model(inputs)
+            loss=self.loss_fn(inputs,results)
+            self.optimizer.zero_grad(set_to_none=True)
+            loss.backward()
+            self.optimizer.step()
+            
+            if step % self.logging_interval==0:
+                loss = self.loss_fn(valid_data, self.model(valid_data)).detach().numpy()
+                y_init = self.model.evaluate_y_0(self.X0).detach().numpy()[0]
+                elapsed_time = time.time() - start_time
+                err=y_init-self.true_sol
+                self.training_history.append([step, loss, y_init, err, elapsed_time])
+                print("Epoch ",step, " y_0 ",y_init," time ", elapsed_time," loss ", loss, " error ",err)
+
+        return np.array(self.training_history)
+
+    def loss_fn(self, inputs,results):
+        DELTA_CLIP = 50.0
+        dw, x = inputs
+        y_terminal = self.model(inputs)
+        delta = results - self.eqn.g_tf(x[:, :, -1])
+        # use linear approximation outside the clipped range
+        loss = torch.mean(torch.where(torch.abs(delta) < DELTA_CLIP, torch.square(delta),
+                                       2 * DELTA_CLIP * torch.abs(delta) - DELTA_CLIP ** 2))
+
+        return loss
+    

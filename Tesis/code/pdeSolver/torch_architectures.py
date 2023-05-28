@@ -1,11 +1,12 @@
 import torch
 import torch.nn as nn
 from torch.nn.utils import weight_norm as WN
+import numpy as np
 
 
 
 class DGMCell(nn.Module):
-    def __init__(self, d, M, growing, weight_norm,sigma=torch.tanh):
+    def __init__(self, d, M, growing, weight_norm,sigma):
         super().__init__()
         wn = WN if weight_norm else lambda x: x
 
@@ -47,10 +48,25 @@ class ResNetLikeDGM(nn.Module):
     M - layers' width
     L - recurrency depth
     """
-    def __init__(
-            self, d_in, d_out, M=50, L=3,
-            growing=False, as_array=True, weight_norm=False,sigma=torch.tanh):
+    def __init__(self,net_config,eqn):
         super().__init__()
+        default_config={"int_layers":[50,50,50],
+                        "growing":False,
+                        "as_array":True,"weight_norm":False,
+                        "activation":torch.tanh,
+                        "dtype":torch.float32}
+        default_config.update(net_config)
+
+        d_in=eqn.dim+1
+        d_out=1
+
+        growing=default_config["growing"]
+        weight_norm=default_config["weight_norm"]
+        as_array=default_config["as_array"]
+        M=default_config["int_layers"][0]
+        sigma=default_config["activation"]
+        int_layers=default_config["int_layers"]
+
         wn = WN if weight_norm else lambda x: x
         self.W0 = wn(nn.Linear(d_in, M))
         self.W1 = wn(nn.Linear(M, d_out))
@@ -58,8 +74,8 @@ class ResNetLikeDGM(nn.Module):
         self.sigma=sigma
 
         self.layers = []
-        for l in range(L):
-            self.layers.append(DGMCell(d_in, M, growing, weight_norm,sigma))
+        for l in int_layers:
+            self.layers.append(DGMCell(d_in, l, growing, weight_norm,sigma))
         self.layers = nn.Sequential(*self.layers)
 
     def forward(self, *X):
@@ -70,10 +86,24 @@ class ResNetLikeDGM(nn.Module):
 
 
 class DenseNet(nn.Module):
-    def __init__(self, d_in, d_out, arch=[30, 30], seed=42):
+    def __init__(self, net_config,eqn):
         super(DenseNet, self).__init__()
+
+        default_config={"int_layers":[30,30],
+                        "activation":torch.relu,
+                        "dtype":torch.float32,
+                        "seed":42}
+        default_config.update(net_config)
+
+        d_in=eqn.dim+1
+        d_out=1
+
+        sigma=default_config["activation"]
+        int_layers=default_config["int_layers"]
+        seed=default_config["seed"]
+
         torch.manual_seed(seed)
-        self.nn_dims = [d_in] + arch + [d_out]
+        self.nn_dims = [d_in] + int_layers + [d_out]
         self.W = [item for sublist in
                   [[torch.nn.Parameter(torch.randn(sum(self.nn_dims[:i + 1]), self.nn_dims[i + 1],
                                              requires_grad=True) * 0.1),
@@ -83,14 +113,161 @@ class DenseNet(nn.Module):
 
         for i, w in enumerate(self.W):
             self.register_parameter('param %d' % i, w)
-
-        #self.optim = pt.optim.Adam(self.parameters(), lr=lr)
+        self.sigma=sigma
 
     def forward(self, x):
         for i in range(len(self.nn_dims) - 1):
             if i == len(self.nn_dims) - 2:
                 x = torch.matmul(x, self.W[2 * i]) + self.W[2 * i + 1]
             else:
-                x = torch.cat([x, torch.nn.functional.relu(torch.matmul(x, self.W[2 * i])
+                x = torch.cat([x, self.sigma(torch.matmul(x, self.W[2 * i])
                                                      + self.W[2 * i + 1]) ** 2], dim=1)
         return x
+
+class General_FC_net(nn.Module):
+    def __init__(self,net_config,din,dout):
+        super().__init__()
+        default_config={"batch_norm":False,
+                        "eps":1e-6,"momentum":0.99,
+                        "activation":nn.ReLU(),"final_act":False,"bias":False,
+                        "dtype":torch.float32}
+        default_config.update(net_config)
+        layers=[]
+
+        batch_norm=default_config["batch_norm"]
+        lay_sizes=[din]+default_config["int_layers"]+[dout]
+        eps=default_config["eps"]
+        momentum=default_config["momentum"]
+        bias=default_config["bias"]
+        dtype=default_config["dtype"]
+        activation=default_config["activation"]
+        final_act=default_config["final_act"]
+
+        if batch_norm:
+            layers.append(nn.BatchNorm1d(lay_sizes[0], eps=eps, momentum=momentum,affine=False,dtype=dtype))
+        for i in range(len(lay_sizes)-1):
+            layers.append(nn.Linear(lay_sizes[i],lay_sizes[i+1],bias=bias))
+            if batch_norm:
+                layers.append(nn.BatchNorm1d(lay_sizes[i+1], eps=eps, momentum=momentum,affine=False,dtype=dtype))
+            if i<len(lay_sizes)-2 or final_act:
+                layers.append(activation)
+        self.net=nn.Sequential(*layers)
+
+    def forward(self,x):
+        return self.net(x)
+
+class FF_subnet_DBSDE(nn.Module):
+    def __init__(self, eqn,net_config):
+        super(FF_subnet_DBSDE, self).__init__()
+        self.dim = eqn.dim
+        types=net_config["dtype"]
+        self.net=nn.Sequential(
+                            nn.BatchNorm1d(self.dim, eps=1e-06, momentum=0.99,affine=False,dtype=types),
+                            nn.Linear(self.dim,self.dim+10,bias=False),
+                            nn.BatchNorm1d(self.dim+10, eps=1e-06, momentum=0.99,affine=False,dtype=types),
+                            nn.ReLU(),
+                            nn.Linear(self.dim+10,self.dim+10,bias=False),
+                            nn.BatchNorm1d(self.dim+10, eps=1e-06, momentum=0.99,affine=False,dtype=types),
+                            nn.ReLU(),
+                            nn.Linear(self.dim+10,self.dim,bias=False),
+                            nn.BatchNorm1d(self.dim, eps=1e-06, momentum=0.99,affine=False,dtype=types)
+                            )
+    def forward(self,x):
+        return self.net(x)
+
+class FF_y0_net_DBSDE(nn.Module):
+    def __init__(self, eqn):
+        super( FF_y0_net_DBSDE, self).__init__()
+        self.dim = eqn.dim
+        self.net=nn.Sequential(
+                            nn.Linear(self.dim,self.dim+10,bias=True),
+                            nn.ReLU(),
+                            nn.Linear(self.dim+10,self.dim+10,bias=True),
+                            nn.ReLU(),
+                            nn.Linear(self.dim+10,1,bias=True),
+                            nn.ReLU()
+                            )  
+    def forward(self,x):
+        return self.net(x)    
+    
+class FF_z0_net_DBSDE(nn.Module):
+    def __init__(self, eqn):
+        super(FF_z0_net_DBSDE, self).__init__()
+        self.dim = eqn.dim
+        self.net=nn.Sequential(
+                            nn.Linear(self.dim,self.dim+10,bias=True),
+                            nn.ReLU(),
+                            nn.Linear(self.dim+10,self.dim+10,bias=True),
+                            nn.ReLU(),
+                            nn.Linear(self.dim+10,self.dim,bias=True),
+                            nn.ReLU()
+                            )
+    def forward(self,x):
+        return self.net(x)    
+    
+
+class Global_Model_Deep_BSDE_Single_point(nn.Module):
+    def __init__(self, net_config,eqn):
+        super(Global_Model_Deep_BSDE_Single_point, self).__init__()
+        self.net_config = net_config
+        self.eqn=eqn
+        self.Ndis=net_config["Ndis"]
+        self.dt=net_config["dt"]
+
+        self.y_0=nn.Parameter(torch.rand(1))
+        self.z_0=nn.Parameter((torch.rand((1,self.eqn.dim))*0.2)-0.1)
+
+        self.subnet = [General_FC_net(net_config,self.eqn.dim,self.eqn.dim) for _ in range(self.Ndis-2)]
+        self.time_stamp = np.arange(0, self.Ndis) * self.dt
+    
+    def evaluate_y_0(self,x):
+        return self.y_0
+
+    def forward(self, inputs):
+        dw, x = inputs
+
+        all_one_vec = torch.ones((dw.shape[0], 1))
+        y = all_one_vec * self.y_0
+        z = torch.matmul(all_one_vec, self.z_0)
+
+        for t in range(0, self.Ndis-2):
+            y = y - self.dt * (
+                self.eqn.f_tf(self.time_stamp[t], x[:, :, t], y, z)
+            ) + torch.sum(z * dw[:, :, t], 1, keepdims=True)
+            z = self.subnet[t](x[:, :, t + 1]) / self.eqn.dim
+        # terminal time
+        y = y - self.dt * self.eqn.f_tf(self.time_stamp[-1], x[:, :, -2], y, z) + \
+            torch.sum(z * dw[:, :, -1], 1, keepdims=True)
+        return y
+
+class Global_Model_Deep_BSDE_Region(nn.Module):
+    def __init__(self, net_config, eqn):
+        super(Global_Model_Deep_BSDE_Region, self).__init__()
+        self.net_config = net_config
+        self.eqn=eqn
+        din=self.eqn.dim
+        dout=self.eqn.dim
+        self.Ndis=net_config["Ndis"]
+        self.dt=net_config["dt"]
+
+        self.y_0=General_FC_net(net_config["y0_net_config"],self.eqn.dim,1)
+        self.z_0=General_FC_net(net_config["z0_net_config"],self.eqn.dim,self.eqn.dim)
+
+        self.subnet = [General_FC_net(net_config,self.eqn.dim,self.eqn.dim) for _ in range(self.Ndis-2)]
+        self.time_stamp = np.arange(0, self.eqn.Ndis) * self.eqn.dt
+
+    def forward(self, inputs):
+        dw, x = inputs
+        
+        y = self.y_0(x[:,:,0])
+        z = self.z_0(x[:,:,0])
+
+        for t in range(0, self.Ndis-2):
+            y = y - self.dt * (
+                self.eqn.f_tf(self.time_stamp[t], x[:, :, t], y, z)
+            ) + torch.sum(z * dw[:, :, t], 1, keepdims=True)
+            z = self.subnet[t](x[:, :, t + 1]) / self.eqn.dim
+        # terminal time
+        y = y - self.dt * self.eqn.f_tf(self.time_stamp[-1], x[:, :, -2], y, z) + \
+            torch.sum(z * dw[:, :, -1], 1, keepdims=True)
+        return y

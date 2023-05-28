@@ -83,16 +83,16 @@ class HJB_LQR_Equation():
     def F(self,t,x):
         #print(torch.square(x[:,0]-x[:,2]).shape)
         #print(torch.square(x[:,1]-x[:,3]).shape)
-        dist=torch.square(x[:,0]-x[:,2])+torch.square(x[:,1]-x[:,3])+1.0
-        return 2*torch.reciprocal(dist)
-        #return 0.0
+        #dist=torch.square(x[:,0]-x[:,2])+torch.square(x[:,1]-x[:,3])+1.0
+        #return 2*torch.reciprocal(dist)
+        return 0.0
 
     def f_tf(self, t, x, y, z):
         return -self.lambd * torch.sum(torch.square(z), 1, keepdims=True) +self.F(t,x)
 
     def g_tf(self, x):
-        return torch.sum(torch.square(x-torch.ones((x.shape[0],self.dim))*self.final_point),axis=1, keepdims=True)
-        #return torch.log((1 + torch.sum(torch.square(x), 1, keepdims=True)) / 2)
+        #return torch.sum(torch.square(x-torch.ones((x.shape[0],self.dim))*self.final_point),axis=1, keepdims=True)
+        return torch.log((1 + torch.sum(torch.square(x), 1, keepdims=True)) / 2)
     
 class FF_subnet_DBSDE(nn.Module):
     def __init__(self, eqn,net_config):
@@ -124,12 +124,7 @@ class FF_y0_net_DBSDE(nn.Module):
                             nn.ReLU(),
                             nn.Linear(self.dim+10,1,bias=True),
                             nn.ReLU()
-                            )
-        
-
-    #def init_weights(self,m):
-        #if isinstance(m, nn.Linear):
-            #torch.nn.init.ones_(m.weight)    
+                            )  
     def forward(self,x):
         return self.net(x)    
     
@@ -208,7 +203,7 @@ class BSDESolver(object):
         # begin sgd iteration
         for step in range(steps):
             #print(step)
-            inputs=self.eqn.sample(512)
+            inputs=self.eqn.sample(64)
             results=self.model(inputs)
             loss=self.loss_fn(inputs,results)
             self.optimizer.zero_grad(set_to_none=True)
@@ -217,8 +212,8 @@ class BSDESolver(object):
             
             if step % 200==0:
                 loss = self.loss_fn(valid_data, self.model(valid_data)).detach().numpy()
-                Xp=torch.Tensor(np.array([0.2,0.5,0.8,0.5]))
-                #Xp=torch.zeros(self.eqn.dim)
+                #Xp=torch.Tensor(np.array([0.2,0.5,0.8,0.5]))
+                Xp=torch.zeros(self.eqn.dim)
                 y_init = self.model.y_0(Xp).detach().numpy()[0]
                 #y_init = self.model.y_0.detach().numpy()[0]
                 elapsed_time = time.time() - start_time
@@ -281,19 +276,19 @@ class BSDESolver(object):
         freq_slider.on_changed(draw)
         return freq_slider
 
-dim=4  
-eqn=HJB_LQR_Equation({"dim":dim,"total_time":1.0,"Ndis":50,"nu":0.01,"lam":1.0})
+dim=100 
+eqn=HJB_LQR_Equation({"dim":dim,"total_time":1.0,"Ndis":50,"nu":1.0,"lam":1.0})
 def control(t,X):
     n=-(X-np.array([0.2,0.5,0.8,0.5]))
     return n/np.linalg.norm(n)
 
 Xp=torch.Tensor(np.array([0.2,0.5,0.8,0.5]))
 Xz=torch.zeros(dim)
-app=eqn.true_solution(0.0,Xp,20000,0.05)
+app=eqn.true_solution(0.0,Xz,20000,0.05)
 print(app)
 #X=eqn.simulate_controlled_trajectory(0.0,np.random.uniform(size=(dim)),control)
 #eqn.plot_trajectory(X)
 
 sol=BSDESolver(eqn,{"dtype":torch.float32,})
-sol.train(2000)
+sol.train(1000)
 sol.plot_solution()
