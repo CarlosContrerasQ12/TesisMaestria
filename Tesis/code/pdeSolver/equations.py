@@ -117,7 +117,7 @@ class HJB_LQR_Unbounded():
         #return 2*torch.reciprocal(dist)
         return 0.0
 
-    def simulate_N_interior_diffusion(self,dt,Ndis,Ndifussions,X0):
+    def simulate_N_interior_diffusion(self,dt,Ndis,Ndifussions,X0=None):
         return self.domain.diffusion_brownian_sample(Ndifussions,self.dim,dt,Ndis,self.sig,X0)
 
     def simulate_controlled_trajectory(self,t0,X0,control=None):

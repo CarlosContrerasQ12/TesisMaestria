@@ -458,15 +458,23 @@ class Interp_PINN_BSDE_solver(Solver):
 
 
 class difussionSampleGeneratorBSDE(Dataset):
-    def __init__(self, eqn, num_samples,dt,Ndis):
+    def __init__(self, eqn, num_samples,dt,Ndis,in_region,test_point):
         self.eqn=eqn
         self.num_samples=num_samples
         self.dt=dt
         self.Ndis=Ndis
-        self.samples=self.eqn.simulate_N_interior_diffusion(dt,Ndis,num_samples,X0=torch.zeros(eqn.dim))
+        self.in_region=in_region
+        self.test_point=test_point
+        if in_region:
+            self.samples=self.eqn.simulate_N_interior_diffusion(dt,Ndis,num_samples)
+        else:
+            self.samples=self.eqn.simulate_N_interior_diffusion(dt,Ndis,num_samples,X0=self.test_point)
     
     def re_sample(self):
-        self.samples=self.eqn.simulate_N_interior_diffusion(self.dt,self.Ndis,self.num_samples,X0=torch.zeros(self.eqn.dim))
+        if self.in_region:
+            self.samples=self.eqn.simulate_N_interior_diffusion(self.dt,self.Ndis,self.num_samples)
+        else:
+            self.samples=self.eqn.simulate_N_interior_diffusion(self.dt,self.Ndis,self.num_samples,X0=self.test_point)
 
     def __len__(self):
         return 1
@@ -474,7 +482,7 @@ class difussionSampleGeneratorBSDE(Dataset):
     def __getitem__(self, idx):
         return self.samples
 
-class BSDE_Solver_Single_Point(Solver):
+class Deep_BSDE_Solver(Solver):
     """The fully connected neural network model."""
     def __init__(self,eqn, solver_params):
         self.solver_params=solver_params
@@ -482,20 +490,28 @@ class BSDE_Solver_Single_Point(Solver):
         self.Ndis=self.solver_params["Ndis"]
         self.dt=self.eqn.domain.total_time/(self.Ndis-1)
         self.solver_params["net_config"]["Ndis"]=self.Ndis
-        self.solver_params["net_config"]["dt"]=self.Ndis
+        self.solver_params["net_config"]["dt"]=self.dt
         self.net_config = self.solver_params["net_config"]
-        self.model = Global_Model_Deep_BSDE_Single_point(self.net_config, eqn).to(device)
+        self.net_config["in_region"]=self.solver_params["in_region"]
+        self.in_region=self.solver_params["in_region"]
+        if self.net_config["net_type"]=='Normal':
+            self.model = Global_Model_Deep_BSDE(self.net_config, eqn).to(device)
+        if self.net_config["net_type"]=='Merged':
+            self.model = Global_Model_Merged_Deep_BSDE(self.net_config, eqn).to(device)
+        if self.net_config["net_type"]=='Merged_residual':
+            self.model = Global_Model_Merged_Residual_Deep_BSDE(self.net_config, eqn).to(device)
         self.initial_lr=solver_params["initial_lr"]
         self.sample_every=solver_params["sample_every"]
         self.Nsamp=solver_params["Nsamp"]
         self.logging_interval=solver_params["logging_interval"]
         self.optimizer=torch.optim.Adam(self.model.parameters(),lr=self.initial_lr,weight_decay=0.00001)
         self.scheduler=torch.optim.lr_scheduler.LambdaLR(self.optimizer,self.lr_schedule)
-        self.dataGenerator=difussionSampleGeneratorBSDE(eqn, self.Nsamp,self.dt,self.Ndis)
-        self.X0=torch.zeros(eqn.dim)
-        self.true_sol=eqn.true_solution(0.0,self.X0,10000,0.01).numpy()
+        self.test_point=torch.zeros(eqn.dim)
+        self.dataGenerator=difussionSampleGeneratorBSDE(eqn, self.Nsamp,self.dt,self.Ndis,self.in_region,self.test_point)  
+        self.true_sol=eqn.true_solution(0.0,self.test_point,10000,0.01).numpy()
         print(self.true_sol)
         self.training_history=[]
+        self.currEps=0
 
     def lr_schedule(self,epoch):
         #return 10.0/(epoch+1)
@@ -511,8 +527,9 @@ class BSDE_Solver_Single_Point(Solver):
                                         num_workers=0)
 
         # begin sgd iteration
-        for step in range(1,steps+1):
+        for step in range(steps+1):
             #print(step)
+            
             if (step)%self.sample_every==0:
                 self.dataGenerator.re_sample()
                 data_loader=DataLoader(self.dataGenerator, 
@@ -526,13 +543,14 @@ class BSDE_Solver_Single_Point(Solver):
             loss.backward()
             self.optimizer.step()
             
-            if step % self.logging_interval==0:
+            if self.currEps % self.logging_interval==0:
                 loss = self.loss_fn(valid_data, self.model(valid_data)).detach().numpy()
-                y_init = self.model.evaluate_y_0(self.X0).detach().numpy()[0]
+                y_init = self.model.evaluate_y_0(self.test_point).detach().numpy()[0]
                 elapsed_time = time.time() - start_time
                 err=y_init-self.true_sol
                 self.training_history.append([step, loss, y_init, err, elapsed_time])
-                print("Epoch ",step, " y_0 ",y_init," time ", elapsed_time," loss ", loss, " error ",err)
+                print("Epoch ",self.currEps, " y_0 ",y_init," time ", elapsed_time," loss ", loss, " error ",err)
+            self.currEps+=1
 
         return np.array(self.training_history)
 
@@ -545,5 +563,97 @@ class BSDE_Solver_Single_Point(Solver):
         loss = torch.mean(torch.where(torch.abs(delta) < DELTA_CLIP, torch.square(delta),
                                        2 * DELTA_CLIP * torch.abs(delta) - DELTA_CLIP ** 2))
 
+        return loss
+    
+
+class Raissi_BSDE_Solver(object):
+    def __init__(self,eqn, solver_params):
+        self.solver_params=solver_params
+        self.eqn = eqn
+        self.Ndis=self.solver_params["Ndis"]
+        self.dt=self.eqn.domain.total_time/(self.Ndis-1)
+        self.times=np.arange(0, self.Ndis) * self.dt
+        self.net_config = self.solver_params["net_config"]
+        self.model=Global_Raissi_Net(self.net_config,eqn)
+        self.initial_lr=solver_params["initial_lr"]
+        self.sample_every=solver_params["sample_every"]
+        self.Nsamp=solver_params["Nsamp"]
+        self.logging_interval=solver_params["logging_interval"]
+        self.optimizer=torch.optim.Adam(self.model.parameters(),lr=self.initial_lr,weight_decay=0.00001)
+        self.scheduler=torch.optim.lr_scheduler.LambdaLR(self.optimizer,self.lr_schedule)
+        self.test_point=torch.zeros(eqn.dim)
+        self.in_region=False
+        self.dataGenerator=difussionSampleGeneratorBSDE(eqn, self.Nsamp,self.dt,self.Ndis,self.in_region,self.test_point)  
+        self.true_sol=eqn.true_solution(0.0,self.test_point,10000,0.01).numpy()
+        print(self.true_sol)
+        self.training_history=[]
+        self.currEps=0
+
+    def lr_schedule(self,epoch):
+        #return 10.0/(epoch+1)
+        return 1.0
+    
+    def train(self,steps):
+        start_time = time.time()
+        valid_data = self.dataGenerator[0]
+
+        data_loader=DataLoader(self.dataGenerator, 
+                                        batch_size=None,
+                                        shuffle=False,
+                                        num_workers=0)
+
+        # begin sgd iteration
+        for step in range(steps+1):
+            #print(step)
+            
+            if (step)%self.sample_every==0:
+                self.dataGenerator.re_sample()
+                data_loader=DataLoader(self.dataGenerator, 
+                                        batch_size=None,
+                                        shuffle=False,
+                                        num_workers=0)
+            inputs=self.dataGenerator[0]
+            loss=self.loss_fn(inputs)
+            self.optimizer.zero_grad(set_to_none=True)
+            loss.backward()
+            self.optimizer.step()
+            
+            if self.currEps % self.logging_interval==0:
+                loss = self.loss_fn(valid_data).detach().numpy()
+                tx=torch.hstack((torch.zeros(1),self.test_point))
+                y_init = self.model(tx).detach().numpy()[0]
+                elapsed_time = time.time() - start_time
+                err=y_init-self.true_sol
+                self.training_history.append([step, loss, y_init, err, elapsed_time])
+                print("Epoch ",self.currEps, " y_0 ",y_init," time ", elapsed_time," loss ", loss, " error ",err)
+            self.currEps+=1
+
+        return np.array(self.training_history)
+
+    def Dg_tf(self,X): # M x D
+        Gt=self.eqn.g_tf(X)
+        return torch.autograd.grad(Gt, X, create_graph=True,grad_outputs=torch.ones_like(Gt),allow_unused=True)[0]
+    
+    def loss_fn(self, inputs):
+        loss=0.0
+        dw, x = inputs
+        tx=torch.hstack((self.times[0]*torch.ones((x.shape[0], 1)),x[:,:,0]))
+        tx.requires_grad_()
+        Y0=self.model(tx)
+        Z0 = torch.autograd.grad(Y0, tx, create_graph=True,grad_outputs=torch.ones_like(Y0),allow_unused=True)[0][:,1:]
+        
+        for t in range(self.Ndis-1):
+            Y1_tilde = Y0 + self.eqn.f_tf(self.times[t],x[:,:,0],Y0,Z0)*self.dt + torch.sum(Z0 * dw[:, :, t], 1, keepdims=True)
+            tx=torch.hstack((self.times[t+1]*torch.ones((x.shape[0], 1)),x[:,:,t+1]))
+            tx.requires_grad_()
+            Y1=self.model(tx)
+            Z1=torch.autograd.grad(Y1, tx, create_graph=True,grad_outputs=torch.ones_like(Y1),allow_unused=True)[0][:,1:]
+            loss+=torch.sum(torch.square(Y1_tilde-Y1))
+            Y0=Y1
+            Z0=Z1
+        
+        loss += torch.sum(torch.square(Y1 - self.eqn.g_tf(x[:,:,-1])))
+        x.requires_grad_()
+        loss += torch.sum(torch.square(Z1 - self.Dg_tf(x[:,:,-1])))
         return loss
     

@@ -3,7 +3,8 @@ import torch.nn as nn
 from torch.nn.utils import weight_norm as WN
 import numpy as np
 
-
+types=torch.float32
+torch.set_default_dtype(types)
 
 class DGMCell(nn.Module):
     def __init__(self, d, M, growing, weight_norm,sigma):
@@ -156,79 +157,41 @@ class General_FC_net(nn.Module):
     def forward(self,x):
         return self.net(x)
 
-class FF_subnet_DBSDE(nn.Module):
-    def __init__(self, eqn,net_config):
-        super(FF_subnet_DBSDE, self).__init__()
-        self.dim = eqn.dim
-        types=net_config["dtype"]
-        self.net=nn.Sequential(
-                            nn.BatchNorm1d(self.dim, eps=1e-06, momentum=0.99,affine=False,dtype=types),
-                            nn.Linear(self.dim,self.dim+10,bias=False),
-                            nn.BatchNorm1d(self.dim+10, eps=1e-06, momentum=0.99,affine=False,dtype=types),
-                            nn.ReLU(),
-                            nn.Linear(self.dim+10,self.dim+10,bias=False),
-                            nn.BatchNorm1d(self.dim+10, eps=1e-06, momentum=0.99,affine=False,dtype=types),
-                            nn.ReLU(),
-                            nn.Linear(self.dim+10,self.dim,bias=False),
-                            nn.BatchNorm1d(self.dim, eps=1e-06, momentum=0.99,affine=False,dtype=types)
-                            )
-    def forward(self,x):
-        return self.net(x)
 
-class FF_y0_net_DBSDE(nn.Module):
-    def __init__(self, eqn):
-        super( FF_y0_net_DBSDE, self).__init__()
-        self.dim = eqn.dim
-        self.net=nn.Sequential(
-                            nn.Linear(self.dim,self.dim+10,bias=True),
-                            nn.ReLU(),
-                            nn.Linear(self.dim+10,self.dim+10,bias=True),
-                            nn.ReLU(),
-                            nn.Linear(self.dim+10,1,bias=True),
-                            nn.ReLU()
-                            )  
-    def forward(self,x):
-        return self.net(x)    
-    
-class FF_z0_net_DBSDE(nn.Module):
-    def __init__(self, eqn):
-        super(FF_z0_net_DBSDE, self).__init__()
-        self.dim = eqn.dim
-        self.net=nn.Sequential(
-                            nn.Linear(self.dim,self.dim+10,bias=True),
-                            nn.ReLU(),
-                            nn.Linear(self.dim+10,self.dim+10,bias=True),
-                            nn.ReLU(),
-                            nn.Linear(self.dim+10,self.dim,bias=True),
-                            nn.ReLU()
-                            )
-    def forward(self,x):
-        return self.net(x)    
-    
-
-class Global_Model_Deep_BSDE_Single_point(nn.Module):
+class Global_Model_Deep_BSDE(nn.Module):
     def __init__(self, net_config,eqn):
-        super(Global_Model_Deep_BSDE_Single_point, self).__init__()
+        super(Global_Model_Deep_BSDE, self).__init__()
         self.net_config = net_config
         self.eqn=eqn
         self.Ndis=net_config["Ndis"]
         self.dt=net_config["dt"]
+        self.in_region=net_config["in_region"]
 
-        self.y_0=nn.Parameter(torch.rand(1))
-        self.z_0=nn.Parameter((torch.rand((1,self.eqn.dim))*0.2)-0.1)
+        if self.in_region:
+            self.y_0=General_FC_net(net_config["y0_net_config"],self.eqn.dim,1)
+            self.z_0=General_FC_net(net_config["z0_net_config"],self.eqn.dim,self.eqn.dim)
+        else:
+            self.y_0=nn.Parameter(torch.rand(1))
+            self.z_0=nn.Parameter((torch.rand((1,self.eqn.dim))*0.2)-0.1)
 
         self.subnet = [General_FC_net(net_config,self.eqn.dim,self.eqn.dim) for _ in range(self.Ndis-2)]
         self.time_stamp = np.arange(0, self.Ndis) * self.dt
     
     def evaluate_y_0(self,x):
-        return self.y_0
+        if self.in_region:
+            return self.y_0(x)
+        else:
+            return self.y_0
 
     def forward(self, inputs):
         dw, x = inputs
-
-        all_one_vec = torch.ones((dw.shape[0], 1))
-        y = all_one_vec * self.y_0
-        z = torch.matmul(all_one_vec, self.z_0)
+        if self.in_region:
+            y = self.y_0(x[:,:,0])
+            z = self.z_0(x[:,:,0])
+        else:
+            all_one_vec = torch.ones((dw.shape[0], 1))
+            y = all_one_vec * self.y_0
+            z = torch.matmul(all_one_vec, self.z_0)
 
         for t in range(0, self.Ndis-2):
             y = y - self.dt * (
@@ -240,34 +203,126 @@ class Global_Model_Deep_BSDE_Single_point(nn.Module):
             torch.sum(z * dw[:, :, -1], 1, keepdims=True)
         return y
 
-class Global_Model_Deep_BSDE_Region(nn.Module):
+class Global_Model_Merged_Deep_BSDE(nn.Module):
     def __init__(self, net_config, eqn):
-        super(Global_Model_Deep_BSDE_Region, self).__init__()
+        super(Global_Model_Merged_Deep_BSDE, self).__init__()
         self.net_config = net_config
         self.eqn=eqn
-        din=self.eqn.dim
-        dout=self.eqn.dim
         self.Ndis=net_config["Ndis"]
         self.dt=net_config["dt"]
+        self.in_region=net_config["in_region"]
 
-        self.y_0=General_FC_net(net_config["y0_net_config"],self.eqn.dim,1)
-        self.z_0=General_FC_net(net_config["z0_net_config"],self.eqn.dim,self.eqn.dim)
+        self.z_net=General_FC_net(net_config,self.eqn.dim+1,self.eqn.dim)
 
-        self.subnet = [General_FC_net(net_config,self.eqn.dim,self.eqn.dim) for _ in range(self.Ndis-2)]
-        self.time_stamp = np.arange(0, self.eqn.Ndis) * self.eqn.dt
+        if self.in_region:
+            self.y_0=General_FC_net(net_config["y0_net_config"],self.eqn.dim,1)
+        else:
+            self.y_0=nn.Parameter(torch.rand(1))
+
+        self.time_stamp = np.arange(0, self.Ndis) * self.dt
+    
+    def evaluate_y_0(self,x):
+        if self.in_region:
+            return self.y_0(x)
+        else:
+            return self.y_0
 
     def forward(self, inputs):
         dw, x = inputs
-        
-        y = self.y_0(x[:,:,0])
-        z = self.z_0(x[:,:,0])
+        all_one_vec = torch.ones((dw.shape[0], 1))
+        if self.in_region:
+            y = self.y_0(x[:,:,0])
+        else:
+            y = all_one_vec * self.y_0
 
-        for t in range(0, self.Ndis-2):
+        for t in range(0, self.Ndis):
+            inp=torch.hstack((self.time_stamp[t]*all_one_vec,x[:,:,t]))
+            z = self.z_net(inp) / self.eqn.dim
             y = y - self.dt * (
                 self.eqn.f_tf(self.time_stamp[t], x[:, :, t], y, z)
             ) + torch.sum(z * dw[:, :, t], 1, keepdims=True)
-            z = self.subnet[t](x[:, :, t + 1]) / self.eqn.dim
-        # terminal time
-        y = y - self.dt * self.eqn.f_tf(self.time_stamp[-1], x[:, :, -2], y, z) + \
-            torch.sum(z * dw[:, :, -1], 1, keepdims=True)
         return y
+
+class Global_Model_Merged_Residual_Deep_BSDE(nn.Module):
+    def __init__(self, net_config, eqn):
+        super(Global_Model_Merged_Residual_Deep_BSDE, self).__init__()
+        self.net_config = net_config
+        self.eqn=eqn
+        self.Ndis=net_config["Ndis"]
+        self.dt=net_config["dt"]
+        self.in_region=net_config["in_region"]
+
+        self.z_net=General_FC_Residual_net(net_config,self.eqn.dim+1+1+1,self.eqn.dim)
+
+        if self.in_region:
+            self.y_0=General_FC_net(net_config["y0_net_config"],self.eqn.dim,1)
+        else:
+            self.y_0=nn.Parameter(torch.rand(1))
+
+        self.time_stamp = np.arange(0, self.Ndis) * self.dt
+    
+    def evaluate_y_0(self,x):
+        if self.in_region:
+            return self.y_0(x)
+        else:
+            return self.y_0
+
+    def forward(self, inputs):
+        dw, x = inputs
+        all_one_vec = torch.ones((dw.shape[0], 1),dtype=torch.float32)
+        if self.in_region:
+            y = self.y_0(x[:,:,0])
+        else:
+            y = all_one_vec * self.y_0
+
+        for t in range(0, self.Ndis):
+            
+            inp=torch.hstack((self.time_stamp[t]*all_one_vec,y,self.eqn.g_tf(x[:,:,t]),x[:,:,t]))
+            z = self.z_net(inp) / self.eqn.dim
+            kss=self.eqn.f_tf(self.time_stamp[t], x[:, :, t], y, z)
+            y = y - self.dt * (
+                self.eqn.f_tf(self.time_stamp[t], x[:, :, t], y, z)
+            ) + torch.sum(z * dw[:, :, t], 1, keepdims=True)
+            print(t, inp.dtype,z.dtype,y.dtype)
+            
+        return y
+
+class General_FC_Residual_net(nn.Module):
+    def __init__(self, net_config,din,dout):
+        super().__init__()
+        default_config={"batch_norm":False,
+                        "eps":1e-6,"momentum":0.99,
+                        "activation":nn.ELU(),"final_act":False,"bias":False,
+                        "dtype":torch.float32}
+        default_config.update(net_config)
+
+        lay_sizes=[din]+default_config["int_layers"]+[dout]
+        self.num_int_layers=len(lay_sizes)-2
+        self.bias=default_config["bias"]
+        dtype=default_config["dtype"]
+        self.activation=default_config["activation"]
+        self.final_act=default_config["final_act"]
+        self.layers=torch.nn.ModuleList()
+
+        for i in range(len(lay_sizes)-1):
+            self.layers.append(nn.Linear(lay_sizes[i],lay_sizes[i+1],bias=self.bias,dtype=dtype))
+
+
+    def forward(self,x):
+        out1=self.activation(self.layers[0](x))
+        out2=out1.clone()
+        for i in range(1,self.num_int_layers):
+            out2=self.activation(self.layers[i](out2))
+        if self.final_act:
+            return self.activation(self.layers[-1](out1+out2))
+        else:
+            return self.layers[-1](out1+out2)
+        
+class Global_Raissi_Net(nn.Module):
+    def __init__(self,net_config,eqn):
+        super(Global_Raissi_Net, self).__init__()
+        self.eqn=eqn
+        self.model=General_FC_net(net_config,self.eqn.dim+1,self.eqn.dim)
+
+    def forward(self,tx):
+        return self.model(tx)

@@ -9,6 +9,8 @@ np.random.uniform2 = lambda *args,**kwargs: np.random.uniform(*args, **kwargs).a
 np.ones2 = lambda *args,**kwargs: np.ones(*args, **kwargs).astype(dtype)
 np.zeros2 = lambda *args,**kwargs: np.zeros(*args, **kwargs).astype(dtype)
 np.array2 = lambda *args,**kwargs: np.array(*args, **kwargs).astype(dtype)
+
+torch.set_default_dtype(torch.float32)
 """
 
 #from numba import int64, float64    # import the types
@@ -318,12 +320,12 @@ class FreeSpace():
     def initial_point_diffusion(self,num_sample,dim,X0=None):
         if X0!=None:
             return torch.ones([num_sample, dim],requires_grad=False)*X0 
-        return torch.Tensor(np.random.uniform(low=0.0,high=1.0,size=([num_sample,dim]))).requires_grad_(False)
+        return torch.Tensor(np.random.uniform2(low=0.0,high=1.0,size=([num_sample,dim]))).requires_grad_(False)
 
     
     def diffusion_brownian_sample(self, num_sample,dim,dt,Ndis,sigma,X0=None):
         sqrt_dt=np.sqrt(dt)
-        dw_sample=torch.tensor(np.random.normal(size=[num_sample,dim,Ndis])*sqrt_dt).requires_grad_(False)
+        dw_sample=torch.tensor(np.random.normal2(size=[num_sample,dim,Ndis])*sqrt_dt).requires_grad_(False)
         x_sample = torch.zeros([num_sample, dim, Ndis]).requires_grad_(False)
         x_sample[:, :, 0] = self.initial_point_diffusion(num_sample,dim,X0)
         for i in range(Ndis-1):
