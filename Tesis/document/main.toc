@@ -18,9 +18,9 @@
 \contentsline {subsection}{\numberline {3.2.3}An example}{35}{subsection.3.2.3}%
 \contentsline {chapter}{\numberline {4}Crowd motion modeling}{39}{chapter.4}%
 \contentsline {section}{\numberline {4.1}N-agent games}{39}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Deep Fictious Play}{41}{section.4.2}%
-\contentsline {section}{\numberline {4.3}An example}{41}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Conclusion}{42}{chapter.5}%
-\contentsline {chapter}{Appendices}{43}{section*.19}%
-\contentsline {chapter}{Appendix \numberline {A}Neural Networks}{43}{appendix.1.A}%
-\contentsline {chapter}{Appendix \numberline {B}Stochastic Control}{44}{appendix.1.B}%
+\contentsline {section}{\numberline {4.2}Deep Fictitious Play}{41}{section.4.2}%
+\contentsline {section}{\numberline {4.3}An example}{42}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Conclusion}{44}{chapter.5}%
+\contentsline {chapter}{Appendices}{45}{section*.19}%
+\contentsline {chapter}{Appendix \numberline {A}Neural Networks}{45}{appendix.1.A}%
+\contentsline {chapter}{Appendix \numberline {B}Stochastic Control}{46}{appendix.1.B}%

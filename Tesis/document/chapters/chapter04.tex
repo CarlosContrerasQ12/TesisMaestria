@@ -2,7 +2,7 @@ We have seen how deep learning tool can be used to solve partial differential eq
 \section{N-agent games}
 Classical optimal stochastic control deals with the problem of optimizing the optimal choice that a single agent should take to minimize a cost function in a random environment, see \autoref{chp:ApendixStochasticControl}.  What happens when there are many agents taking decisions to minimize their own cost that may depend on other's states and strategies? How should an agent choose its strategy to minimize its own cost knowing that other agents will try to do the same?  Such questions can be answered in the framework of stochastic differential games, for which here we give an introduction following \cite{hu_recent_nodate,han_deep_2020}.
 
-Consider a system that consist of $N$ agents, also called players, whose states are represented by a continuous stochastic process $X^{i}_{t}\in \bbR^d$ , with $i\in \mathcal{I}:=\{1,\ldots, N\}$, that continuously take actions $\alpha_{t}^{i}$ in a control set $\mathcal{A}\subset \bbR^k$. The dynamics in the time interval $[0,T]$ of the controlled state process $X^i$ follows the stochastic differential equation
+Consider a system that consist of $N$ agents, also called players, whose states are represented by a continuous stochastic process $X^{i}_{t}\in \bbR^d$ , with $i\in \mathcal{I}:=\{1,\ldots, N\}$, that continuously take actions $\alpha_{t}^{i}$ in a control set $\mathcal{A}^i\subset \bbR^k$. The dynamics in the time interval $[0,T]$ of the controlled state process $X^i$ follows the stochastic differential equation
 \begin{equation}
 	\begin{split}
 		&dX_t^{i}=\mu^{i}(t,\bfX_t,\bfAlp_t)dt+\sigma^{i}(t,\bfX_t,\bfAlp_t)dW_t^{i}+\sigma^{0}(t,\bfX_t,\bfAlp_t)dW_{t}^0\\
@@ -18,7 +18,11 @@ Given a set of strategies $(\bfAlp_t)_{t\in [0,T]}$, we associate a cost/value f
 \end{equation}
 where the running cost $f^i:[0,T]\times \bbR^{dN}\times \mathcal{A}^N\to \bbR$ and the terminal cost $g^i:\bbR^{dN}\to \bbR$ are deterministic measurable functions.
 
-Each player will try to minimize its repective total cost $J^i(\bfAlp_t):=v(0,x^i_0,\bfAlp_t)$ choosing adequately $(\alpha^{i}_t)_{t\in[0,T]}$ within the set of admissible strategies $\mathbb{A}^i$. The choice of this set describes measurability and integrability of $\alpha_t^i$. For example, if we choose $\mathbb{A}^i=\mathbb{A}=\mathbb{H}^2_T(\mathcal{A})$, the space of square integrable $\bm{W}$-progressively measurable $\mathcal{A}$-valued processes, the $\alpha$ is said to be a \textit{open loop control}, because it only uses the information of the noise that has occurred. If instead we choose $\mathbb{A}^i$ as the set $\mathbb{H}_{\bfX}^2(\mathcal{A})$, the set of square integrable  $\bfX$-measurable processes, the $\alpha_t$ is a \textit{closed loop markovian control}\hlc[Revisar definicion del espacio, ¿Cuando es no medible?]{}, as it uses information of the current state $\bfX_t$.
+Each player will try to minimize its repective total cost
+\begin{equation}
+	\label{eqn:total_cost}
+	J^i_0(\bfAlp_t):=v(0,x^i_0,\bfAlp_t),
+\end{equation}  choosing adequately $(\alpha^{i}_t)_{t\in[0,T]}$ within the set of admissible strategies $\mathbb{A}^i$. The choice of this set describes measurability and integrability of $\alpha_t^i$. For example, if we choose $\mathbb{A}^i=\mathbb{A}=\mathbb{H}^2_T(\mathcal{A})$, the space of square integrable $\bm{W}$-progressively measurable $\mathcal{A}$-valued processes, the $\alpha$ is said to be a \textit{open loop control}, because it only uses the information of the noise that has occurred. If instead we choose $\mathbb{A}^i$ as the set $\mathbb{H}_{\bfX}^2(\mathcal{A})$, the set of square integrable  $\bfX$-measurable processes, the $\alpha_t$ is a \textit{closed loop markovian control}\hlc[Revisar definicion del espacio, ¿Cuando es no medible?]{}, as it uses information of the current state $\bfX_t$.
 
 In a noncooperative game, there is an important notion of optimality termed \textit{Nash equilibrium}, which refers to a set of strategies for all agents such that no one has an incentive to deviate in order to reduce its own cost. Explicitly, we have the following definition
 \begin{definition}
@@ -29,6 +33,7 @@ A tuple $\bfAlp^*=(\alpha^{1,*},\ldots,\alpha^{N,*})\in \mathcal{A}^1\times \cdo
 
 \hlc[Aclarar existencia de equilibrios? Convixidad del hamiltoniano en state and control variables]{}. Finding such equilibria is an important, yet difficult task to acomplish. In the markovian setting, the equilibrium is related to solving N coupled Hamilton-Jacobi-Bellman equations. Consider the dynamics for the joint vector 
 \begin{equation}
+	\label{eqn:X_dynamics}
 	\begin{split}
 &d\bfX_t=\mu(t,\bfX_t,\bfAlp(t,\bfX))dt+\Sigma(t,\bfX_t,\bfAlp(t,X_t))d\bm{W}_t\\
 &\bfX_0=\bm{x}_0,
@@ -60,11 +65,105 @@ Then, the optimal value function for agent $i$ satisfies the Hamilton-Jacobi-Bel
 \end{equation}
 where $H^i$ is the Hamiltonian function 
 \begin{equation}
-	H^i(t,\bm{x},\bfAlp,p,q)=\inf_{\alpha^i\in \mathbb{A}^i}\{\mu(t,\bm{x},\bfAlp)\cdot p+f^i(t,\bm{x},\bfAlp)+\frac{1}{2}\Tr(\Sigma\Sigma'(t,\bm{x},\bfAlp) q)\}.
+	\label{eqn:Hamiltonian}
+	\begin{split}
+		H^i(t,\bm{x},\bfAlp,p,q)&=\inf_{\alpha^i\in \mathcal{A}^i}\{\mu(t,\bm{x},\bfAlp)\cdot p+f^i(t,\bm{x},\bfAlp)+\frac{1}{2}\Tr(\Sigma\Sigma'(t,\bm{x},\bfAlp) q)\}\\
+		&:=\inf_{\alpha^i\in \mathcal{A}^i}\{G^i(t,\bm{x},\bfAlp,p,q)\}.
+	\end{split}
 \end{equation}
 
 The minimization over $\alpha^i$ should be carried while taking $(\alpha^1,\ldots,\alpha^{i-1},\alpha^{i+1},\ldots,\alpha^N)$ given and fixed. Note that this system of equations for $i\in\mathcal{I}$ is implicitly coupled through the joint control $\bfAlp$ because it depends directly on every $v^i$ from which we derive each $\alpha^i$.
 
-\section{Deep Fictious Play}
-If we were able to solve the later system of differential equations, we would find 
+\section{Deep Fictitious Play}
+If we were able to solve the latter coupled system of partial differential equations, we would be able to find the strategy that each player must follow to minimize its cost if every other player behaves as expected.  However, this is not an achievable due to the complexity of the system.
+
+Hence, the idea of \textit{fictitius play} was introduced by Brown \cite{brown_notes_1949} to decouple this N-player game into N individual decision problems where opponents' strategies are fixed and assumed to follow their past play. If we solve these problems iteratively using the opponents' strategy  at $(m-1)'s$ stage to compute the optimal strategy at stage $m$, we may find the Nash equilibrium of the system, if it exists. In \cite{han_deep_2020}, each of the individual decision problems is solved using the HJB equation and the deep learning methods we have studied.  
+
+To describe this process mathematically, let's denote by $\mathcal{A}^i\subset \bbR^k $ the range player $i$'s strategy $\alpha^i$, and $\mathcal{A}:=\bigotimes_{i=1}^{N}\mathcal{A}^i$ the control space for all agents. Also, denote $\mathcal{A}^{-i}:=\bigotimes_{j\neq i}\mathcal{A}^j$ the control space for all agents by $i$. A similar notation applies for $\mathbb{A}^i$,$\mathbb{A},\mathbb{A}^{-1}$, the sets of measurable functions in which we search for controls.
+
+Likewise, denote $\bfAlp^{-1}=(\alpha^1,\ldots,\alpha^{i-1},\alpha^{i+1},\ldots,\alpha^{N})$ the set of all agents' strategies excluding player $i$'s. A superscript $m$ in $\bfAlp^m$ denotes the set of strategies of all players at stage $m$. When both superscripts are present, $\bfAlp^{-i,m}$ it denotes the set of strategies of all players but $i$'s at stage $m$. Finally, we use the notation $(\alpha^i,\bfAlp^{-i,m})=:(\alpha^{1,m},\ldots,\alpha^{i-1,m},\alpha^i,\alpha^{i+1,m},\ldots,\alpha^{N,m})$
+
+To start the iterations, assume we have an initial guess set of strategies $\bfAlp^0$. At stage $m+1$, all players observe $\bfAlp^m$, and the decision problem for player $i$ is 
+\begin{equation}
+	\inf_{\alpha^i \in \mathbb{A}^i} J_0^i((\alpha^i,\bfAlp^{-i,m}))
+\end{equation},
+where $J_0^i$ is defined in  equation \eqref{eqn:total_cost} and $\bfX_t$ satisfies \eqref{eqn:X_dynamics} with $\bfAlp$ being replaced by $(\alpha^i,\bfAlp^{-i,m})$. The optimal strategy for player $i$, if it exists, is denoted by $\alpha^{i,m+1}$. The set of all optimal strategies for $i\in\mathcal{I}$ together form $\bfAlp^{m+1}$.
+
+Due to the markovianity associated to these problems, each can be translated in a Hamilton-Jacobi-Bellman equation for the value function $V^{i,m+1}(t,\bm{x})$ of the form
+\begin{equation}
+	\label{eqn:HJB_m_stage}
+	\begin{split}
+		&\dpartial{V^{i,m+1}}{t}+H^{i}(t,\bm{x},(\alpha^i,\bfAlp^{-i,m}),D_x V^{i,m+1},D_{xx} V^{i,m+1})=0\\
+		&V^{i}(T,\bm{x})=g^i(\bm{x}),
+	\end{split}
+\end{equation}
+where $H^{i}$ is defined in \eqref{eqn:Hamiltonian}. 
+
+If this equation has a solution, the optimal strategy for player $i$ at stage $m+1$ is given by the minimizer of the Hamiltonian function
+\begin{equation}
+	\alpha^{i,m+1}=\argmin_{\alpha^i\in\mathcal{A}^i} G^i(t,\bm{x},(\alpha^i,\bfAlp^{-i,m}),D_x V^{i,m+1},D_{xx} V^{i,m+1}).
+\end{equation}
+
+Solving these $N$ uncoupled equations completes one stage in the fictitious play. If we solve them using deep learning methods, we call this algorithm \textit{deep fictitious play}, see \cite{han_deep_2020,hu_recent_nodate}. 
+
+As today, we have not found general necessary conditions for this algorithm to converge to a Nash equilibrium. Indeed, we may face many problems, for example, equation \eqref{eqn:HJB_m_stage} may not have a solution for some not regular enough $\bfAlp^0$. Even more there is nothing that guarantees that $\bfAlp^m$ will converge, much less that it does so to a Nash equilibrium. In fact, there are numerous examples where it converges and where it does not, and there is not a clear pattern to evidence when it should work.
 \section{An example}
+Nevertheless, we will not worry too much about convergences issues and will test it numerically using the PDE solvers we have studied. 
+Consider again the unbounded LQR problem in \autoref{subsec:example_LQR}. Suppose now that we can't control all players at the same time while trying to minimize a global cost function, i.e, there is not a central planner. However, every particle is able to choose its own control that minimizes it's own cost function. As before, the $i$-th particle state $X^i\in \bbR^2$ is described by the dynamics
+\begin{equation}
+	\begin{split}
+	&dX_t^i=2\sqrt{\lambda} \alpha^i_t dt +\sqrt{2\nu} dW^i_t\\
+	&X_0^i=x_0^i,
+	\end{split}
+\end{equation} 
+where $\alpha^i_t$ is the respective $i$-th particle control function taking values in $\bbR^2$. The joint state vector is $\bfX=(X^1,\ldots,X^N)$ and the joint control is $\bfAlp=(\alpha^1,\ldots,\alpha^N)$.
+
+Each particle is trying to minimize individually the cost 
+\begin{equation}
+	J^i(\alpha^i_t)=\mathbb{E}\left[\int_{0}^{T}(|\alpha^i_t|^2+F^i(t,\bfX_t)) dt +g^i(\bfX_T)\right],
+\end{equation}   
+irrespective of what every other particle does. Here we denoted by 
+\begin{equation}
+	F^i(t,\bfX_t)=C\sum_{j \neq i} e^{-\frac{|X^i-X^j|^2}{\sigma}}
+\end{equation}
+and 
+\begin{equation}
+	g^i(\bfX_T)=|X_i|^2.
+\end{equation}
+
+Hence, if we try to apply the deep fictitious play algorithm to find a Nash equilibrium for this problem, at stage $m+1$ we would need to solve all the Hamilton-Jacobi-Bellman equation for the player $i$'s value function $V^{i,m+1}$ given all other's player strategies $\bfAlp^{-i,m}$
+\begin{equation}
+	\label{eqn:HBJ_nomin}
+	\dpartial{V^{i,m+1}}{t}+\inf_{\alpha^i}\left\{2\sqrt{\lambda}(\alpha^i,\bfAlp^{-i,m})\cdot \nabla V^{i,m+1} +|\alpha^i|^2+F^i(t,\bfX_t)+\nu \Delta V^{i,m+1}\right\}=0,
+\end{equation}
+subject to the terminal condition
+\begin{equation}
+	V^{i,m+1}(T,\bfX)=g^i(\bfX_T).
+\end{equation}
+The infimum of this equation can be obtained analytically, being achieved at $\alpha^i=-\sqrt{\lambda}\nabla_i V$, where $\nabla_i$ denotes the operator $\nabla_i V=(\partial_{x^i}V,\partial_{y_i}V)$. Then, inserting this infimum in \eqref{eqn:HBJ_nomin} we obtain
+\begin{equation}
+	\dpartial{V^{i,m+1}}{t}-\lambda|\nabla_i V^{i,m+1}|^2+2\sqrt{\lambda}\bfAlp^{-i,m}\cdot \nabla_{-i} V^{i,m+1}+F(t,\bfX)+\nu\Delta V^{i,m+1}=0,
+\end{equation}
+where we use the notation $\nabla_{-i} V= (\partial_{x_1}V,\partial_{y_1}V,\ldots,\partial_{x_{i-1}}V,\partial_{y_{i-1}}V,\partial_{x_{i+1}}V,\partial_{y_{i+1}}V,\ldots,\partial_{x_N}V,\partial_{y_N}V)$.
+
+Now, to use the deep learning solvers we have seen, we recast this equation in the form \eqref{eqn:FKNolinealCh2} by choosing 
+\begin{equation}
+	\mu^i(t,\bfX)=2\sqrt{\lambda}\begin{bmatrix}
+		\alpha^1(t,\bfX) \\
+		\vdots\\
+		\alpha^{i-1}(t,\bfX) \\
+		0\\
+		\alpha^{i+1}(t,\bfX)\\
+		\vdots   \\
+		\alpha^N(t,\bfX)
+	\end{bmatrix}
+	\quad\quad\quad
+	\sigma^i(t,\bfX)=\sqrt{2\nu}\mathbb{I}_{2N\times 2N}
+\end{equation}
+and
+\begin{equation}
+	f^i(t,\bfX,V(t,\bfX),\nabla V(t,\bfX))=-\lambda|\nabla_i V|^2+F^i(t,\bfX),
+\end{equation}
+where we dropped the $m$ superscripts for simplicity.
+
+Note that, in the case we solved before, all $f^i$ and $g^i$ are symmetric when interchanging players' names. Therefore, in each stage of the algorithm we need to calculate only one control that would work for every other player in the next stage of the algorithm.  

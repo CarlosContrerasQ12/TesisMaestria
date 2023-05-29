@@ -463,7 +463,7 @@ class FreeSpace():
     def initial_point_diffusion(self,num_sample,dim,X0=None):
         if X0!=None:
             return torch.ones([num_sample, dim],requires_grad=False)*X0 
-        return torch.Tensor(np.random.uniform2(low=0.0,high=1.0,size=([num_sample,dim]))).requires_grad_(False)
+        return torch.Tensor(np.random.uniform2(low=-0.1,high=0.1,size=([num_sample,dim]))).requires_grad_(False)
 
     
     def diffusion_brownian_sample(self, num_sample,dim,dt,Ndis,sigma,X0=None):

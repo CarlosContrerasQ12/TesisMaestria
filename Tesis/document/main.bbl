@@ -1377,6 +1377,45 @@
       \verb https://proceedings.mlr.press/v107/han20a.html
       \endverb
     \endentry
+    \entry{brown_notes_1949}{report}{}
+      \name{author}{1}{}{%
+        {{hash=a84f0ecb7dc3c25662e69881f1b264ff}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={George\bibnamedelima W.},
+           giveni={G\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {{RAND} Corporation}%
+      }
+      \strng{namehash}{a84f0ecb7dc3c25662e69881f1b264ff}
+      \strng{fullhash}{a84f0ecb7dc3c25662e69881f1b264ff}
+      \strng{bibnamehash}{a84f0ecb7dc3c25662e69881f1b264ff}
+      \strng{authorbibnamehash}{a84f0ecb7dc3c25662e69881f1b264ff}
+      \strng{authornamehash}{a84f0ecb7dc3c25662e69881f1b264ff}
+      \strng{authorfullhash}{a84f0ecb7dc3c25662e69881f1b264ff}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A presentation of several dynamical systems whose steady-state solutions yield solutions to a discrete game matrix. Considered in the report are (1) various systems of differential equations for a symmetric game, (2) related systems of difference eq...}
+      \field{day}{1}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{title}{Some Notes on Computation of Games Solutions}
+      \field{urlday}{29}
+      \field{urlmonth}{5}
+      \field{urlyear}{2023}
+      \field{year}{1949}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.rand.org/pubs/research_memoranda/RM125.html
+      \endverb
+      \verb{url}
+      \verb https://www.rand.org/pubs/research_memoranda/RM125.html
+      \endverb
+    \endentry
   \enddatalist
   \missing{PINNS2}
   \missing{PINNs}

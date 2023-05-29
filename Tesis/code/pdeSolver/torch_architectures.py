@@ -283,8 +283,6 @@ class Global_Model_Merged_Residual_Deep_BSDE(nn.Module):
             y = y - self.dt * (
                 self.eqn.f_tf(self.time_stamp[t], x[:, :, t], y, z)
             ) + torch.sum(z * dw[:, :, t], 1, keepdims=True)
-            print(t, inp.dtype,z.dtype,y.dtype)
-            
         return y
 
 class General_FC_Residual_net(nn.Module):
