@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  28 MAY 2023 23:25
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  28 MAY 2023 23:51
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1077,7 +1077,7 @@ LaTeX Warning: Citation 'bibid' on page 20 undefined on input line 13.
 LaTeX Warning: Citation 'bibid' on page 20 undefined on input line 15.
 
 [20] [21]
-<images/DeepBSDEMap.png, id=464, 715.67375pt x 246.9225pt>
+<images/DeepBSDEMap.png, id=470, 715.67375pt x 246.9225pt>
 File: images/DeepBSDEMap.png Graphic file (type png)
 <use images/DeepBSDEMap.png>
 Package luatex.def Info: images/DeepBSDEMap.png  used on input line 100.
@@ -1091,23 +1091,23 @@ TU/lmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 $ \TU/lmr/m/it/10.95 and $\OML/cmm
  []
 
 [23]
-<images/FCStructure.png, id=494, 137.51375pt x 243.91125pt>
+<images/FCStructure.png, id=500, 137.51375pt x 243.91125pt>
 File: images/FCStructure.png Graphic file (type png)
 <use images/FCStructure.png>
 Package luatex.def Info: images/FCStructure.png  used on input line 147.
 (luatex.def)             Requested size: 170.72931pt x 142.26508pt.
-<images/MergedBSDE.png, id=499, 709.65125pt x 244.915pt>
+<images/MergedBSDE.png, id=505, 709.65125pt x 244.915pt>
 File: images/MergedBSDE.png Graphic file (type png)
 <use images/MergedBSDE.png>
 Package luatex.def Info: images/MergedBSDE.png  used on input line 158.
 (luatex.def)             Requested size: 426.79134pt x 147.29767pt.
  [24<./images/FCStructure.png>]
-<images/MergedStructure.png, id=514, 143.53625pt x 242.9075pt>
+<images/MergedStructure.png, id=520, 143.53625pt x 242.9075pt>
 File: images/MergedStructure.png Graphic file (type png)
 <use images/MergedStructure.png>
 Package luatex.def Info: images/MergedStructure.png  used on input line 167.
 (luatex.def)             Requested size: 170.71825pt x 142.26154pt.
-<images/ResidualMergedStructure.png, id=518, 187.70125pt x 244.915pt>
+<images/ResidualMergedStructure.png, id=524, 187.70125pt x 244.915pt>
 File: images/ResidualMergedStructure.png Graphic file (type png)
 <use images/ResidualMergedStructure.png>
 Package luatex.def Info: images/ResidualMergedStructure.png  used on input line
@@ -1122,7 +1122,7 @@ on in the neu-ral net-work $[] \OT1/cmr/m/n/10.95 = []\OMS/cmsy/m/n/10.95 N\OT1
  []
 
 [26<./images/ResidualMergedStructure.png>] [27]
-<example-image.pdf, id=560, 321.2pt x 240.9pt>
+<example-image.pdf, id=566, 321.2pt x 240.9pt>
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
 Package luatex.def Info: example-image.pdf  used on input line 254.
@@ -1179,26 +1179,47 @@ File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
 Package luatex.def Info: example-image.pdf  used on input line 521.
 (luatex.def)             Requested size: 298.75262pt x 224.07143pt.
-[35]) [36]
+[35] [36]
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+Package luatex.def Info: example-image.pdf  used on input line 555.
+(luatex.def)             Requested size: 202.72849pt x 152.05083pt.
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+Package luatex.def Info: example-image.pdf  used on input line 560.
+(luatex.def)             Requested size: 202.72849pt x 152.05083pt.
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+Package luatex.def Info: example-image.pdf  used on input line 570.
+(luatex.def)             Requested size: 202.72849pt x 152.05083pt.
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+Package luatex.def Info: example-image.pdf  used on input line 575.
+(luatex.def)             Requested size: 202.72849pt x 152.05083pt.
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+Package luatex.def Info: example-image.pdf  used on input line 585.
+(luatex.def)             Requested size: 298.75262pt x 224.07143pt.
+ [37]) [38]
 Chapter 4.
-(./chapters/chapter04.tex [37
+(./chapters/chapter04.tex [39
 
-] [38]) [39]
+] [40]) [41]
 Chapter 5.
-(./chapters/conclusion.tex) [40
+(./chapters/conclusion.tex) [42
 
 ]
 Appendix A.
-(./chapters/appendixNN.tex) [41
+(./chapters/appendixNN.tex) [43
 
 
 ]
 Appendix B.
 (./chapters/appendixSC.tex
 \c@thm=\count444
- [42
+ [44
 
-] [43] [44] [45]) [46]
+] [45] [46] [47]) [48]
 Overfull \hbox (6.05995pt too wide) in paragraph at lines 161--161
 \TU/lmr/m/it/10.95 Net-works: Where we are and What’s next\TU/lmr/m/n/10.95 . June 7, 2022. arXiv: [][]$\TU/lmtt/m/n/10.95 2201 . 05624[physics]$[][]\TU/lmr/m/n/10.95 .
  []
@@ -1215,9 +1236,9 @@ Overfull \hbox (5.19708pt too wide) in paragraph at lines 161--161
 - 4939 - 7256 - 2$[][] \TU/lmr/m/n/10.95 (vi-si-ted on 02/15/2023). 
  []
 
-[47
+[49
 
-] [48
+] [50
 Missing character: There is no ӑ (U+04D1) in font [lmroman10-regular]:+tlig;!
 ]
 Overfull \hbox (12.53581pt too wide) in paragraph at lines 161--161
@@ -1225,20 +1246,20 @@ Overfull \hbox (12.53581pt too wide) in paragraph at lines 161--161
 /m/n/10.95 . Apr. 19, 2018. arXiv: [][]$\TU/lmtt/m/n/10.95 1804 . 07010[cs ,
  []
 
-[49] (./main.aux)
+[51] (./main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 23778 strings out of 477240
+ 23814 strings out of 477240
  125094,1373583 words of node,token memory allocated
  3070 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 3 glue, 4 kern, 1 sub_mlist, 97 glyph, 384 attribut
 e, 110 glue_spec, 384 attribute_list, 1 write, 17 pdf_action nodes
-   avail lists: 2:1410,3:533,4:447,5:570,6:150,7:8224,8:108,9:1709,10:18,11:759
- 43748 multiletter control sequences out of 65536+600000
+   avail lists: 2:1410,3:533,4:459,5:570,6:150,7:8224,8:108,9:1709,10:18,11:759
+ 43759 multiletter control sequences out of 65536+600000
  83 fonts using 6244127 bytes
  60i,21n,65p,1997b,1512s stack positions out of 10000i,1000n,20000p,200000b,80000s
 </home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmmono10-regular.o
@@ -1272,9 +1293,9 @@ y6.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8
 am10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8
 a.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (54 pages, 660754 bytes).
+Output written on main.pdf (56 pages, 665310 bytes).
 
-PDF statistics: 1080 PDF objects out of 1200 (max. 8388607)
- 311 named destinations out of 1000 (max. 131072)
+PDF statistics: 1097 PDF objects out of 1200 (max. 8388607)
+ 316 named destinations out of 1000 (max. 131072)
  209 words of extra memory for PDF output out of 10000 (max. 100000000)
 

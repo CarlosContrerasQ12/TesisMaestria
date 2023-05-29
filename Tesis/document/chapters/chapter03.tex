@@ -519,7 +519,7 @@ Thus, just for illustration of the methods for a very simple case, consider a mo
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{example-image}
-	\caption{Domain}
+	\caption{Empty room with sample paths}
 	\label{fig:EmptyRoom}
 \end{figure}
 
@@ -542,4 +542,48 @@ and the terminal condition
 
 The constant $1$ in the equation \eqref{eqn:HJB2D} models a steady running cost that will impulse the particle to exit the domain faster. The Dirichlet condition at the door implies that a process that reaches this part of the boundary will stay there without increasing its running cost. The Neumann boundary conditions represent the condition that the process is bounded in the room, which means that it is reflected along those boundary points when touched. Finally, the terminal condition implies that there is no cost in ending at every other part of the room. 
 
+We solve this equation using the DGM algorithm using batches of 512 interior points $(t,x)$ uniformly distributed  in $[0,T]\times \Omega$, 512 points uniformly distributed  on the Neumann boundary, 200 points uniformly distributed on the Dirichlet boundary and 512 points uniformly distributed in $\Omega$. The tunning of the weight losses was a critical task for the convergence of the algorithm. We found that it worked using $\alpha_int=2.0$ and $\alpha_d=\alpha_n=\alpha_T=1.0$. We use the DGM architecture for the neural network.
+
+Similarly, we solve the same problem using the interpolation algorithm with the diffusion loss. We use batches of data of the same size as in the DGM algorithm. We use time discretization steps of $\Delta t=0.01$ and a maximum path length of $20$ steps. We use a DenseNet architecture for the neural network.
+
+All networks were trained using the ADAM optimizer with learning rate of $\eta=0.01$.
+
+In \autoref{fig:Training_PINNS} we show the losses achieved during the training proccess of both algorithms. In \autoref{fig:Computed solutions} we plot our computed solution as a surface over the room domain. 
+
+\begin{figure}[htb!]		
+	\begin{subfigure}{.475\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{Training loss interpolation algorithm}
+		\label{fig:Interpolation_loss}
+	\end{subfigure}\hfill % <-- "\hfill"
+	\begin{subfigure}{.475\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{Training loss DGM algorithm}
+		\label{fig:DGM_algorithm}
+	\end{subfigure}
+	\caption{}
+	\label{fig:Training_PINNS}
+\end{figure}
+
+\begin{figure}[htb!]		
+	\begin{subfigure}{.475\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{Computed solution interpolation algorithm}
+		\label{fig:Solution_Interp}
+	\end{subfigure}\hfill % <-- "\hfill"
+	\begin{subfigure}{.475\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{Computed solution DGM algorithm}
+		\label{fig:Solution_DGM}
+	\end{subfigure}
+	\caption{}
+	\label{fig:Computed solutions}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{example-image}
+	\caption{Optimal path for exit the room}
+	\label{fig:OptimalPathRoom}
+\end{figure}
 
