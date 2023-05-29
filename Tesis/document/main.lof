@@ -5,7 +5,14 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Neural network structure \blx@tocontentsinit {0}\cite {chan-wai-nam_machine_2018}.\hlc [Hay que cambiar $\kappa _i$ Mejor hago la mia :(]{}\relax }}{24}{figure.caption.2}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Merged Deep BSDE diagram \blx@tocontentsinit {0}\cite {chan-wai-nam_machine_2018}. In red are the parameters to be optimized in the algorithm \hlc [Hay que cambiar $\kappa _i$]{}\relax }}{25}{figure.caption.4}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Neural network structure for merged BSDE \blx@tocontentsinit {0}\cite {chan-wai-nam_machine_2018}.\hlc [Hay que cambiar $\kappa _i$ Mejor hago la mia :(]{}\relax }}{25}{figure.caption.5}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Neural network structure for merged BSDE \blx@tocontentsinit {0}\cite {chan-wai-nam_machine_2018}.\hlc [Hay que cambiar $\kappa _i$ Mejor hago la mia :(]{}\relax }}{26}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Neural network structure for merged residual BSDE \blx@tocontentsinit {0}\cite {chan-wai-nam_machine_2018}.\hlc [Hay que cambiar $\kappa _i$ Mejor hago la mia :(]{}\relax }}{26}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Sample path for the 6-dimensional diffusion\relax }}{28}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Losses and error in training Deep BSDE method \relax }}{29}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Losses and error in training Merged Deep BSDE method \relax }}{29}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Losses and error in training Merged Residual Deep BSDE method \relax }}{30}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Losses and error in training Raissi's method \relax }}{30}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces \relax }}{31}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Domain\relax }}{36}{figure.caption.15}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

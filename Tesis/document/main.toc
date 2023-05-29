@@ -10,16 +10,17 @@
 \contentsline {chapter}{\numberline {3}Deep Learning Methods for PDEs}{19}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Unbounded problems}{21}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Deep BSDE method}{21}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}An example}{26}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Bounded problems}{27}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Deep Galerkin method}{27}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Interpolating BSDEs with PINNs}{28}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}An example}{31}{subsection.3.2.3}%
-\contentsline {chapter}{\numberline {4}Crowd motion modeling}{32}{chapter.4}%
-\contentsline {section}{\numberline {4.1}N-agent games}{32}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Deep Fictious Play}{34}{section.4.2}%
-\contentsline {section}{\numberline {4.3}An example}{34}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Conclusion}{35}{chapter.5}%
-\contentsline {chapter}{Appendices}{36}{section*.9}%
-\contentsline {chapter}{Appendix \numberline {A}Neural Networks}{36}{appendix.1.A}%
-\contentsline {chapter}{Appendix \numberline {B}Stochastic Control}{37}{appendix.1.B}%
+\contentsline {subsection}{\numberline {3.1.2}Raissi's method}{26}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}An example}{26}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Bounded problems}{31}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Deep Galerkin method}{32}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Interpolating BSDEs with PINNs}{33}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}An example}{35}{subsection.3.2.3}%
+\contentsline {chapter}{\numberline {4}Crowd motion modeling}{37}{chapter.4}%
+\contentsline {section}{\numberline {4.1}N-agent games}{37}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Deep Fictious Play}{39}{section.4.2}%
+\contentsline {section}{\numberline {4.3}An example}{39}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Conclusion}{40}{chapter.5}%
+\contentsline {chapter}{Appendices}{41}{section*.16}%
+\contentsline {chapter}{Appendix \numberline {A}Neural Networks}{41}{appendix.1.A}%
+\contentsline {chapter}{Appendix \numberline {B}Stochastic Control}{42}{appendix.1.B}%

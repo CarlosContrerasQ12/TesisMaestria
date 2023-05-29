@@ -173,13 +173,13 @@ Finally, another useful modification to the merged deep BSDE scheme was to modif
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\linewidth,height=5cm]{images/ResidualMergedStructure}
-	\caption{Neural network structure for merged BSDE \cite{chan-wai-nam_machine_2018}.\hlc[Hay que cambiar $\kappa_i$ Mejor hago la mia :(]{}}
+	\caption{Neural network structure for merged residual BSDE \cite{chan-wai-nam_machine_2018}.\hlc[Hay que cambiar $\kappa_i$ Mejor hago la mia :(]{}}
 	\label{fig:ResidualMergedStructure}
 \end{figure}
-\subsubsection*{Raissi's method}
-To circumvent some of the problems encountered with the deep BSDE method and last variants, Raissi \cite{raissi_forward-backward_2018} proposed a new scheme based on the same stochastic formulation. In this approach, the solution $v(t,x)$ is directly approximated with a neural network $\mathcal{t,x}$ that takes as inputs $x$ and $t$ instead of its gradient as before. 
+\subsection{Raissi's method}
+To circumvent some of the problems encountered with the deep BSDE method and its variants, Raissi \cite{raissi_forward-backward_2018} proposed a new scheme based on the same stochastic formulation. In this approach, the solution $v(t,x)$ is directly approximated with a neural network $\mathcal{N}(x,t)$ that takes as inputs $x$ and $t$ instead of its gradient as before. 
 
-Now, the constraints on problem \eqref{eqn:constrainedDeepBSDE} are relaxed and they are enforced weakly through the loss function given by
+Now, the constraints on problem \eqref{eqn:constrainedDeepBSDE} are relaxed and they are enforced weakly through the neural network loss function given by
 
 \begin{equation}
 	\begin{gathered}
@@ -194,11 +194,177 @@ where
 	\end{split}
 \end{equation}
 and $\widehat{Z}_{t_i}$ is calculated with automatic differentiation in the neural network $\widehat{Z}_{t_i}=\hat{D}\mathcal{N}(t_i,X_{t_i})$. With this approach we can compute the solution at all times $t$ and point in space $x$.
-%\subsection{Deep Splitting/Tensor train?}
 \subsection{An example}
-Let's test these algorithms with a toy problem from control theory using the Hamilton-Jacobi-Bellman equation. For completeness, we briefly review the standard formulation of these problems in \autoref{chp:ApendixStochasticControl}.
+Let's test those algorithms with a toy problem from control theory using the Hamilton-Jacobi-Bellman equation. For completeness, we briefly review the standard formulation of such problems in \autoref{chp:ApendixStochasticControl}.
 
-We will perform a comparison between the preceding algorithms by solving, just for fun, the Hamilton-Jacobi-Bellman equation associated to a linear-quadratic regulator in dimension 100.
+
+We will perform a non-exhaustive comparison between the preceding algorithms by solving, just for fun, the Hamilton-Jacobi-Bellman equation associated to a linear-quadratic regulator in dimension 6.
+
+Suppose that we have three stochastic particles in the plane, whose common state is described by the stochastic process $X_t=(\vec{x}_1,\vec{x}_2,\vec{x}_3)=(x_1,y_1,x_2,y_2,x_3,y_3)\in\bbR^6$, that satisfies the linear dynamics given by 
+\begin{equation}
+	\begin{split}
+		&dX_t=2\sqrt{\lambda}\alpha_t dt+\sqrt{2\nu}dW_t\\
+		&X_0=x_0,
+	\end{split} 
+\end{equation} 
+where $\alpha_t$ is a joint control you can select for all particles individually and $\lambda$, $\nu$ are constants representing the strength of the control we exert and the magnitude of noise the particles feel from its environment.  
+
+We wish to bring the three particles to the origin of the plane at time $T=1.0$, i.e the desired terminal state is $X_t=(0,0,0,0,0,0)$, while trying to avoid that the particles are close to each other during their trajectories. Thus, we will try to choose $\alpha_t$ to minimize the cost
+\begin{equation}
+	J(\alpha_t)=\mathbb{E}\left[\int_{0}^{T}(|\alpha_t|^2+F(t,X_t)) dt +g(X_T)\right],
+\end{equation}   
+where we model the avoiding condition with the $F(t,X_t)$ term given by
+\begin{equation}
+	F(t,X_t)=F(t,(\vec{x}_1,\vec{x}_2,\vec{x}_3))=C\left(e^{-\frac{|\vec{x}_1-\vec{x}_2|^2}{\sigma}}+e^{-\frac{|\vec{x}_1-\vec{x}_3|^2}{\sigma}}+e^{-\frac{|\vec{x}_2-\vec{x}_3|^2}{\sigma}}\right),
+\end{equation}
+with $C,\sigma$ given constants, and we also model the desired terminal condition through the terminal cost $g(X_T)$ given by 
+\begin{equation}
+	g(x)=|x-(0,0,0,0,0,0)|^2=|x|^2.
+\end{equation}
+
+Therefore, as described in \autoref{chp:ApendixStochasticControl}, to solve this problem we may try to solve the Hamilton-Jacobi-Bellman equation for the value function $V(t,x)$
+\begin{equation}
+	\label{eqn:HJB_example}
+	\dpartial{V}{t}+\nu \Delta V -\lambda |\nabla V|^2+F(t,x)=0
+\end{equation}
+subject to the terminal condition 
+\begin{equation}
+	V(T,x)=g(x).
+\end{equation}
+
+Note that we have access to a probabilistic representation of such value function given by \eqref{eqn:probabilisticExact}. We may simulate sample paths to calculate the expected value at a given space-time point using the Monte-Carlo approach. However, this is not very useful for our purposes as we require the optimal controls $\hat{\alpha}(t,x)=-\sqrt{\lambda}D_x V(t,x)$, and with this representation we do not have access to such gradient of the solution.\footnote{Please ignore the fact that we can obtain analytically the expected value with the known density of Brownian motion, i.e. the heat kernel, and then take its derivative to obtain the desired controls, as nobody would want to perform such long and tedious calculation.} Despite this, it will be useful to test the convergence of our numerical methods comparing the obtained solutions in a single point.
+
+Note also that it is not very practical to apply traditional discretization methods as finite differences or finite elements. The first problem we face is that the domain is not bounded, and even if we focus on some small region of interest with artificial boundary condition, the discretization of a 6-dimensional space is not computationally feasible.
+
+Thus, we may interpret this problem in the framework previously developed. To do that, note that \eqref{eqn:HJB_example} is the same as \eqref{eqn:FKNolinealCh2} if we choose
+\begin{equation}
+	\mu(t,x)=0\quad \quad \sigma(t,x)=\sqrt{2\nu} \mathbb{I}_{6\times 6}
+\end{equation}
+and 
+\begin{equation}
+	f(t,x,V(t,x),\sigma(t,x)'D_x V(t,x))=-\lambda |D_x V|^2+F(t,x).
+\end{equation}
+
+Therefore, we can apply the deep BSDE solver and all its variants to solve this PDE. We implemented these in the Python language using the Pytorch framework with its automatic differentiation and neural networks capabilities.
+
+In this example we use $\lambda=1.0$ and $\nu=0.05$. 
+For all methods, we discretized time using a step of $\Delta t=0.05$. The sample paths were simulated using the Euler-Maruyama scheme and they look like \autoref{fig:sample_path_example}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{example-image}
+	\caption{Sample path for the 6-dimensional diffusion}
+	\label{fig:sample_path_example}
+\end{figure}
+
+
+
+We trained all neural networks using the ADAM optimizer with a learning rate of $\eta=0.01$ and using batches of 64 sample paths to calculate the expectations in loss functions. 
+
+In the deep BSDE method, for every subnet approximating $Z_{t_n}$  we used a fully coupled neural network with 2 layers with 16 neurons each, using a batch normalization layer in between to prevent gradients exploding and the ReLu as activation function. We also parametrize the initial solution and its gradient with fully coupled neural networks with the same structure as before.
+
+\begin{figure}[htb!]		
+	\begin{subfigure}{.475\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{Deep BSDE training loss}
+		\label{fig:BSDE_loss}
+	\end{subfigure}\hfill % <-- "\hfill"
+	\begin{subfigure}{.475\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{Deep BSDE training error}
+		\label{fig:BSDE_error}
+	\end{subfigure}
+	\caption{Losses and error in training Deep BSDE method }
+	\label{fig:deep_BSDE_training}
+\end{figure}
+
+In the merged deep BSDE method, we use a 3 layer fully coupled neural network with 20 neurons in each layer, with the ELU activation function to parametrize the mapping $(t,x)\to Z(t,x)$. 
+
+\begin{figure}[htb!]
+	\begin{subfigure}{.475\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{Merged Deep BSDE training loss}
+		\label{fig:Merged_loss}
+	\end{subfigure}\hfill % <-- "\hfill"
+	\begin{subfigure}{.475\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{Merged Deep BSDE training error}
+		\label{fig:Merged_error}
+	\end{subfigure}
+	\caption{Losses and error in training Merged Deep BSDE method }
+	\label{fig:deep_Merged_BSDE_training}
+\end{figure}
+
+In the residual merged deep BSDE method, we use a 3 layer fully coupled neural network with 20 neurons in each layer, with the ELU activation function, and with a shortcut connection as depicted in \autoref{fig:ResidualMergedStructure} to parametrize the mapping $(t,x)\to Z(t,x)$. 
+
+\begin{figure}[htb!]
+	\begin{subfigure}{.475\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{Merged residual Deep BSDE training loss}
+		\label{fig:Merged_residual_loss}
+	\end{subfigure}\hfill % <-- "\hfill"
+	\begin{subfigure}{.475\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{Merged residual Deep BSDE training error}
+		\label{fig:Merged_residual_error}
+	\end{subfigure}
+	\caption{Losses and error in training Merged Residual Deep BSDE method }
+	\label{fig:deep_Merged_Residual_BSDE_training}
+\end{figure}
+
+In \autoref{fig:deep_BSDE_training}, \autoref{fig:deep_Merged_BSDE_training} and \autoref{fig:deep_Merged_Residual_BSDE_training}, we depict the training losses with respect to a fixed sample path and the error at the point $x=(0.5,0,0,0.5,0.5,0.5)$ at $t=0$, compared with the exact solution calculated using \eqref{eqn:probabilisticExact} with 20000 sample paths, for those three methods.
+
+For the Raissi's method we used a 4 layer fully coupled neural network with 15 neurons in each layers to parametrize the approximated solution $\varphi(t,x)$. We note that this method is not well suited for computing gradients and therefore controls, as the automatic differentiation of the parametrized solution is slow and not very precise. In \autoref{fig:Raissi_training} we depict training and error losses with the same criteria as before.
+ \begin{figure}[htb!]		
+ 	\begin{subfigure}{.475\linewidth}
+ 		\includegraphics[width=\linewidth]{example-image}
+ 		\caption{Raissi's training loss}
+ 		\label{fig:Raissi_loss}
+ 	\end{subfigure}\hfill % <-- "\hfill"
+ 	\begin{subfigure}{.475\linewidth}
+ 		\includegraphics[width=\linewidth]{example-image}
+ 		\caption{Raissi's training error}
+ 		\label{fig:Raissi_error}
+ 	\end{subfigure}
+ 	\caption{Losses and error in training Raissi's method }
+ 	\label{fig:Raissi_training}
+ \end{figure}
+ 
+ In \autoref{fig:surface_solution} we depict the surface solution in a region of interest at $t=0$ using the deep BSDE algorithm. In  \autoref{fig:Optimal_trajectory_path} an optimal controlled path is shown.
+  \begin{figure}[htb!]		
+ 	\begin{subfigure}{.475\linewidth}
+ 		\includegraphics[width=\linewidth]{example-image}
+ 		\caption{Surface solution}
+ 		\label{fig:surface_solution}
+ 	\end{subfigure}\hfill % <-- "\hfill"
+ 	\begin{subfigure}{.475\linewidth}
+ 		\includegraphics[width=\linewidth]{example-image}
+ 		\caption{Optimal controlled sampled path}
+ 		\label{fig:Optimal_trajectory_path}
+ 	\end{subfigure}
+ 	\caption{}
+ 	\label{fig:solution_path}
+ \end{figure}
+Finally, in \autoref{tab:ComparisonBSDE} we resume all this information for a vague comparison.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		Method & \# Parameters & reached error & reached loss & time \\
+		\hline
+		Deep BSDE & 0 & 10 & 10 & 33 \\
+		\hline
+		Merged  & 0 & 10 & 10 & 33 \\
+		\hline
+		Merged Residual & 0 & 10 & 10 & 33 \\
+		\hline
+		Raissi & 0 & 10 & 10 & 33 \\
+		\hline
+	\end{tabular}
+\caption{}
+\label{tab:ComparisonBSDE}
+\end{table}
+
+We note that when we optimize the parameters of the neural networks, there is maximum achievable error depending on the network structure and time discretization size. In this toy example we reached an estimated error with order of magnitude $10^{-2}$. Fewer error would require more epochs in the training stage and smaller time step.
 
 \section{Bounded problems}
 In this section, we consider PDE's with boundary conditions of the form 
@@ -346,3 +512,34 @@ With this estimation of the loss, we take gradient descent steps to reduce seque
 
 
 \subsection{An example}
+In our implementation of these methods for boundary problems we saw that they were significantly harder than unbounded problems. The convergence of those algorithms was very dependent on hyperparameters such as learning rate, sample points distribution, weigths in the losses and network structure. Even for simple domains it was difficult to find parameters that worked. What is worse, as these methods parametrize directly the solution and not its gradient, they cannot be used to calculate accurately controls dependent on the space derivative, because it is generally not well approximated.   
+
+Thus, just for illustration of the methods for a very simple case, consider a modification of the preceding example. We wish to find the control function for a single particle that would take them to the exit door of an empty room in the least amount of time. In \autoref{fig:EmptyRoom} is depicted the domain considered, with some sample paths used for the training process.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{example-image}
+	\caption{Domain}
+	\label{fig:EmptyRoom}
+\end{figure}
+
+In this case, we would want to solve the HJB equation
+\begin{equation}
+	\label{eqn:HJB2D}
+	\dpartial{V}{t}+\nu \Delta V -\lambda |\nabla V|^2+1=0
+\end{equation} 
+subject to the Dirichlet and Neumann conditions
+\begin{equation}
+	V(t,x)=0 \quad \text{ for } x\in \partial\Omega_d, 
+\end{equation}
+\begin{equation}
+	\dpartial{V}{\vec{n}}(t,x)=0 \quad \text{ for } x\in \partial\Omega_n, 
+\end{equation}
+and the terminal condition
+\begin{equation}
+	V(1.0,x)=0 \quad \text{ for } x\in \Omega.
+\end{equation}
+
+The constant $1$ in the equation \eqref{eqn:HJB2D} models a steady running cost that will impulse the particle to exit the domain faster. The Dirichlet condition at the door implies that a process that reaches this part of the boundary will stay there without increasing its running cost. The Neumann boundary conditions represent the condition that the process is bounded in the room, which means that it is reflected along those boundary points when touched. Finally, the terminal condition implies that there is no cost in ending at every other part of the room. 
+
+

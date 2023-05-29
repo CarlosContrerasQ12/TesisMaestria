@@ -117,20 +117,20 @@ Solving this equation the Hamilton-Jacobi-Bellman equation for the function $V(t
 \end{thm}
 Note that this framework also works trivially for minimizing cost instead of maximaxing rewards by replacing $\sup$ by $\inf$ in all the preceding calculations.
 \section*{The linear-quadratic regulator (LQR)}
-To exemplify how to use the stochastic dynamic programming approach to solve optimal control problems we will solve the linear-quadratic regulator. This problem models a particle whose dynamics is described by the SDE
+To exemplify how to use the stochastic dynamic programming approach to solve optimal control problems, we will solve the linear-quadratic regulator. This problem models a particle whose dynamics is described by the SDE
 \begin{equation}
 	\begin{split}
 		&dX_t=2\sqrt{\lambda}\alpha_t dt+\sqrt{2\nu}dW_t\\
 		&X_0=x,
 	\end{split}
 \end{equation} 
-where $\alpha_t$ is the control process and $\lambda,\nu$ are constants representing the strength of the control and noise respectively. 
+where $\alpha_t$ is the control process and $\lambda,\nu$ are positive constants representing the strength of the control and noise respectively. 
 
 We want to minimize the cost functional
 \begin{equation}
 	J(\alpha_t)=\mathbb{E}\left[\int_{0}^{T}(|\alpha_t|^2+F) dt +g(X_T)\right],
 \end{equation}
-which models the cost of the particle to reach a desired state, whose distance is modeled by $g(x)$, using the least amount of fuel as possible, which is represented by $\alpha_t$, and also penalizing the required time to reach the desired final state through a function $F(t,x)$. For example, if we want the particle to reach the point $z_0$, we should choose $g(x)=|x-z_0|^2$.
+which models the cost of the particle to reach a desired state, whose distance is modeled by $g(x)$, using the least amount of fuel as possible, which is represented by $\alpha_t$, and also penalizing the required time to reach the desired final state through a positive function $F(t,x)$. For example, if we want the particle to reach the point $z_0$, we should choose $g(x)=|x-z_0|^2$.
 
 To derive the Hamilton-Jacobi-Bellman satisfied by the value function associated with this problems, note that the generator of the $X$ process is given by
 \begin{equation}
@@ -152,7 +152,7 @@ subject to the terminal condition
 \begin{equation}
 	V(T,x)=g(x).
 \end{equation}
-If we solve this equation for $V(t,x)$, then we can use the verification theorem to obtain the optimal control process as $\hat{\alpha}=D_x V(t,x)$. 
+If we solve this equation for $V(t,x)$, then we can use the verification theorem to obtain the optimal control process as $\hat{\alpha}=-\sqrt{\lambda}D_x V(t,x)$. 
 
 Fortunately, we can solve this equation explicitly using the Hopf-Cole transformation, $u(t,x)= e^{-\frac{\lambda}{\nu} V(t,x)}$. For such $u(t,x)$ we have
 \begin{equation}
@@ -177,15 +177,15 @@ We also have
 
 Therefore, adding these derivatives for $u(t,x)$ we obtain 
 \begin{equation}
-	\dpartial{u}{t}+\nu\Delta u=-\frac{\lambda}{\nu}e^{-\frac{\lambda}{\nu} V}\left(\dpartial{V}{t}+\nu \Delta V -\lambda |\nabla V|^2\right)=-\frac{\lambda F}{\nu}u.
+	\dpartial{u}{t}+\nu\Delta u=-\frac{\lambda}{\nu}e^{-\frac{\lambda}{\nu} V}\left(\dpartial{V}{t}+\nu \Delta V -\lambda |\nabla V|^2\right)=\frac{\lambda F}{\nu}u.
 \end{equation}
 Which means that the HJB equation for $u$ is 
 \begin{equation}
-	\dpartial{u}{t}+\nu \Delta u+\frac{\lambda F}{\nu}u=0
+	\dpartial{u}{t}+\nu \Delta u-\frac{\lambda F}{\nu}u=0
 \end{equation}
 subject to the final condition 
 \begin{equation}
-	u(T,x)=e^{-\frac{\lambda}{\nu} g(x)}
+	u(T,x)=e^{-\frac{\lambda}{\nu} g(x)}.
 \end{equation}
 
 Hence, using the linear Feynman-Kac formula \ref{thm:LinearFK}, we can give a probabilistic explicit representation of the solution as
@@ -194,5 +194,6 @@ Hence, using the linear Feynman-Kac formula \ref{thm:LinearFK}, we can give a pr
 \end{equation}
 and solving for $V(t,x)$ we obtain
 \begin{equation}
+	\label{eqn:probabilisticExact}
 	V(t,x)=-\frac{\nu}{\lambda}\ln\left(\expect*{\exp \left(-\frac{\lambda}{\nu} g(x+\sqrt{2\nu}W_{T-t})-\frac{\lambda}{\nu}\int_{t}^{T}F(s,x+\sqrt{2\nu}W_{s-t})ds\right)}\right).
 \end{equation}
