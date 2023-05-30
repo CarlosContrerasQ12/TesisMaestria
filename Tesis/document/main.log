@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  29 MAY 2023 14:41
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  29 MAY 2023 22:51
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1077,7 +1077,7 @@ LaTeX Warning: Citation 'bibid' on page 20 undefined on input line 13.
 LaTeX Warning: Citation 'bibid' on page 20 undefined on input line 15.
 
 [20] [21]
-<images/DeepBSDEMap.png, id=470, 715.67375pt x 246.9225pt>
+<images/DeepBSDEMap.png, id=469, 715.67375pt x 246.9225pt>
 File: images/DeepBSDEMap.png Graphic file (type png)
 <use images/DeepBSDEMap.png>
 Package luatex.def Info: images/DeepBSDEMap.png  used on input line 100.
@@ -1091,23 +1091,23 @@ TU/lmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 $ \TU/lmr/m/it/10.95 and $\OML/cmm
  []
 
 [23]
-<images/FCStructure.png, id=500, 137.51375pt x 243.91125pt>
+<images/FCStructure.png, id=499, 137.51375pt x 243.91125pt>
 File: images/FCStructure.png Graphic file (type png)
 <use images/FCStructure.png>
 Package luatex.def Info: images/FCStructure.png  used on input line 147.
 (luatex.def)             Requested size: 170.72931pt x 142.26508pt.
-<images/MergedBSDE.png, id=505, 709.65125pt x 244.915pt>
+<images/MergedBSDE.png, id=504, 709.65125pt x 244.915pt>
 File: images/MergedBSDE.png Graphic file (type png)
 <use images/MergedBSDE.png>
 Package luatex.def Info: images/MergedBSDE.png  used on input line 158.
 (luatex.def)             Requested size: 426.79134pt x 147.29767pt.
  [24<./images/FCStructure.png>]
-<images/MergedStructure.png, id=520, 143.53625pt x 242.9075pt>
+<images/MergedStructure.png, id=519, 143.53625pt x 242.9075pt>
 File: images/MergedStructure.png Graphic file (type png)
 <use images/MergedStructure.png>
 Package luatex.def Info: images/MergedStructure.png  used on input line 167.
 (luatex.def)             Requested size: 170.71825pt x 142.26154pt.
-<images/ResidualMergedStructure.png, id=524, 187.70125pt x 244.915pt>
+<images/ResidualMergedStructure.png, id=523, 187.70125pt x 244.915pt>
 File: images/ResidualMergedStructure.png Graphic file (type png)
 <use images/ResidualMergedStructure.png>
 Package luatex.def Info: images/ResidualMergedStructure.png  used on input line
@@ -1122,7 +1122,7 @@ on in the neu-ral net-work $[] \OT1/cmr/m/n/10.95 = []\OMS/cmsy/m/n/10.95 N\OT1
  []
 
 [26<./images/ResidualMergedStructure.png>] [27]
-<example-image.pdf, id=566, 321.2pt x 240.9pt>
+<example-image.pdf, id=565, 321.2pt x 240.9pt>
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
 Package luatex.def Info: example-image.pdf  used on input line 255.
@@ -1274,9 +1274,9 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of LuaTeX's memory you used:
  23843 strings out of 477240
  125094,1373583 words of node,token memory allocated
- 3172 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 3 glue, 4 kern, 1 sub_mlist, 97 glyph, 408 attribut
-e, 110 glue_spec, 408 attribute_list, 1 write, 18 pdf_action nodes
+ 3150 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 3 glue, 4 kern, 1 sub_mlist, 95 glyph, 406 attribut
+e, 110 glue_spec, 406 attribute_list, 1 write, 18 pdf_action nodes
    avail lists: 2:1334,3:533,4:459,5:543,6:151,7:8225,8:108,9:1709,10:18,11:759
  43772 multiletter control sequences out of 65536+600000
  83 fonts using 6244127 bytes
@@ -1312,9 +1312,9 @@ y6.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8
 am10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8
 a.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (58 pages, 685527 bytes).
+Output written on main.pdf (58 pages, 685336 bytes).
 
-PDF statistics: 1136 PDF objects out of 1200 (max. 8388607)
+PDF statistics: 1135 PDF objects out of 1200 (max. 8388607)
  332 named destinations out of 1000 (max. 131072)
  209 words of extra memory for PDF output out of 10000 (max. 100000000)
 

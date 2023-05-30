@@ -8,7 +8,7 @@ High dimensional PDE's appear in many contexts, such as asset pricing, image den
 
 Nevertheless, if we try a similar approach using the non-linear Feynman-Kac formula \ref{thm:NonlinealFK} for more general non-linear equations, we would have to deal with solving numerically the associated BSDE. There are numerical methods to approximate the set of solution processes $(X,Y,Z)$, but they are not as simple as an Euler-Maruyama discretization for a forward process. Generally, they require the computation of conditional expectations that almost never are computationally cheap and hence is not a straightforward generalization of the former linear approach. Despite this, some progress has been made under this formulation, see for example \cite{chessari_numerical_nodate}. Other solutions methods are based in fixed point iterations and branching methods \cite{bibid}.
 
-Representing functions in a high dimensional space is a problem encountered in many other areas of applied mathematics. Particularly, in recent times, the analysis and inference on big amounts of data has emerged as the fascinating research area of \textit{machine learning}. Many methods have been proposed for this goal, for example, regression methods, support vector machines and tree methods. Nonetheless, the approach that has encountered more success when trying to approximate high dimensional functions using big amounts of data is deep learning.  In this setting, we parametrize functions using structures that use composition of simpler function for approximate complex ones, these structures are called neural networks. We refer the reader to \autoref{chp:ApendixNN} for a brief introduction and to \cite{higham_deep_2019} for a deeper exposition of the topic.
+Representing functions in a high dimensional space is a problem encountered in many other areas of applied mathematics. Particularly, in recent times, the analysis and inference on big amounts of data has emerged as the fascinating research area of \textit{machine learning}. Many methods have been proposed for this goal, for example, regression methods, support vector machines and tree methods. Nonetheless, the approach that has encountered more success when trying to approximate high dimensional functions using big amounts of data is deep learning.  In this setting, we parametrize functions using structures that use composition of simpler function for approximate complex ones, these structures are called neural networks. We refer the reader to \cite{higham_deep_2019} for a first exposition of the topic.
 
 The idea of using this neural network parametrization of functions to solve PDE's can be tracked to the 80's, when in \cite{} a perceptron layer approximation was proposed to \hlc[Completar]{}. However, due to the high computational cost of training a neural network, a successful attempt was not achieved until recently, with the works of \cite{bibid}\hlc[Blablabla]{}. 
 
@@ -210,7 +210,7 @@ Suppose that we have three stochastic particles in the plane, whose common state
 \end{equation} 
 where $\alpha_t$ is a joint control you can select for all particles individually and $\lambda$, $\nu$ are constants representing the strength of the control we exert and the magnitude of noise the particles feel from its environment.  
 
-We wish to bring the three particles to the origin of the plane at time $T=1.0$, i.e the desired terminal state is $X_t=(0,0,0,0,0,0)$, while trying to avoid that the particles are close to each other during their trajectories. Thus, we will try to choose $\alpha_t$ to minimize the cost
+We wish to bring the three particles to the center of the unit square in the plane at time $T=1.0$, i.e the desired terminal state is $X_t=(0.5,0.5,0.5,0.5,0.5,0.5)$, while trying to avoid that the particles are close to each other during their trajectories. Thus, we will try to choose $\alpha_t$ to minimize the cost
 \begin{equation}
 	J(\alpha_t)=\mathbb{E}\left[\int_{0}^{T}(|\alpha_t|^2+F(t,X_t)) dt +g(X_T)\right],
 \end{equation}   
@@ -218,9 +218,9 @@ where we model the avoiding condition with the $F(t,X_t)$ term given by
 \begin{equation}
 	F(t,X_t)=F(t,(\vec{x}_1,\vec{x}_2,\vec{x}_3))=C\left(e^{-\frac{|\vec{x}_1-\vec{x}_2|^2}{\sigma}}+e^{-\frac{|\vec{x}_1-\vec{x}_3|^2}{\sigma}}+e^{-\frac{|\vec{x}_2-\vec{x}_3|^2}{\sigma}}\right),
 \end{equation}
-with $C,\sigma$ given constants, and we also model the desired terminal condition through the terminal cost $g(X_T)$ given by 
+with $C,\sigma$ fixed constants, and we also model the desired terminal condition through the terminal cost $g(X_T)$ given by 
 \begin{equation}
-	g(x)=|x-(0,0,0,0,0,0)|^2=|x|^2.
+	g(x)=|x-(0.5,0.5,0.5,0.5,0.5,0.5)|^2.
 \end{equation}
 
 Therefore, as described in \autoref{chp:ApendixStochasticControl}, to solve this problem we may try to solve the Hamilton-Jacobi-Bellman equation for the value function $V(t,x)$
@@ -233,7 +233,7 @@ subject to the terminal condition
 	V(T,x)=g(x).
 \end{equation}
 
-Note that we have access to a probabilistic representation of such value function given by \eqref{eqn:probabilisticExact}. We may simulate sample paths to calculate the expected value at a given space-time point using the Monte-Carlo approach. However, this is not very useful for our purposes as we require the optimal controls $\hat{\alpha}(t,x)=-\sqrt{\lambda}D_x V(t,x)$, and with this representation we do not have access to such gradient of the solution.\footnote{Please ignore the fact that we can obtain analytically the expected value with the known density of Brownian motion, i.e. the heat kernel, and then take its derivative to obtain the desired controls, as nobody would want to perform such long and tedious calculation.} Despite this, it will be useful to test the convergence of our numerical methods comparing the obtained solutions in a single point.
+Note that we have access to a probabilistic representation of such value function given by \eqref{eqn:probabilisticExact}. We may simulate sample paths to calculate the expected value at a given space-time point using the Monte-Carlo approach. However, this is not very useful for our purposes, as we require the optimal controls $\hat{\alpha}(t,x)=-\sqrt{\lambda}D_x V(t,x)$, and with this representation we do not have access to gradients of the solution.\footnote{Please ignore the fact that we can obtain analytically the expected value with the known density of Brownian motion, i.e. the heat kernel, and then take its derivative to obtain the desired controls, as nobody would want to perform such long and tedious calculation.} Despite this, it will be useful to test the convergence of our numerical methods comparing the obtained solutions in a single point.
 
 Note also that it is not very practical to apply traditional discretization methods as finite differences or finite elements. The first problem we face is that the domain is not bounded, and even if we focus on some small region of interest with artificial boundary condition, the discretization of a 6-dimensional space is not computationally feasible.
 
@@ -248,8 +248,8 @@ and
 
 Therefore, we can apply the deep BSDE solver and all its variants to solve this PDE. We implemented these in the Python language using the Pytorch framework with its automatic differentiation and neural networks capabilities.
 
-In this example we use $\lambda=1.0$ and $\nu=0.05$. 
-For all methods, we discretized time using a step of $\Delta t=0.05$. The sample paths were simulated using the Euler-Maruyama scheme and they look like \autoref{fig:sample_path_example}.
+In this example we use $\lambda=1.0$ and $\nu=0.01$. 
+For all methods, we discretized time using a step of $\Delta t=\frac{1}{120}$. The sample paths were simulated using the Euler-Maruyama scheme and they look like \autoref{fig:sample_path_example}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{example-image}

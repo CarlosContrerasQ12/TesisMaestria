@@ -27,7 +27,7 @@ def load_sol(config_file):
     eqnType=globals()[dic["eqn_config"]["Equation"]]
     solType=globals()[dic["solver_config"]["Solver"]]
     dom=domType(dic["dom_config"])
-    eqn=eqnType(dic["eqn_config"])
+    eqn=eqnType(dic["dom_config"],dic["eqn_config"])
     sol=solType(eqn,dic["solver_config"])
     sol.training_history=dic["training_history"]
     sol.currEps=dic["currEps"]
@@ -486,6 +486,7 @@ class Deep_BSDE_Solver(Solver):
     """The fully connected neural network model."""
     def __init__(self,eqn, solver_params):
         self.solver_params=solver_params
+        self.solver_params["Solver"]='Deep_BSDE_Solver'
         self.eqn = eqn
         self.Ndis=self.solver_params["Ndis"]
         self.dt=self.eqn.domain.total_time/(self.Ndis-1)
@@ -500,15 +501,16 @@ class Deep_BSDE_Solver(Solver):
             self.model = Global_Model_Merged_Deep_BSDE(self.net_config, eqn).to(device)
         if self.net_config["net_type"]=='Merged_residual':
             self.model = Global_Model_Merged_Residual_Deep_BSDE(self.net_config, eqn).to(device)
+        #self.model=torch.compile(self.model)
         self.initial_lr=solver_params["initial_lr"]
         self.sample_every=solver_params["sample_every"]
         self.Nsamp=solver_params["Nsamp"]
         self.logging_interval=solver_params["logging_interval"]
         self.optimizer=torch.optim.Adam(self.model.parameters(),lr=self.initial_lr,weight_decay=0.00001)
         self.scheduler=torch.optim.lr_scheduler.LambdaLR(self.optimizer,self.lr_schedule)
-        self.test_point=torch.zeros(eqn.dim)
+        self.test_point=torch.ones(eqn.dim)*0.9
         self.dataGenerator=difussionSampleGeneratorBSDE(eqn, self.Nsamp,self.dt,self.Ndis,self.in_region,self.test_point)  
-        self.true_sol=eqn.true_solution(0.0,self.test_point,10000,0.01).numpy()
+        self.true_sol=eqn.true_solution(0.0,self.test_point,10000,0.001).numpy()
         print(self.true_sol)
         self.training_history=[]
         self.currEps=0
@@ -516,6 +518,50 @@ class Deep_BSDE_Solver(Solver):
     def lr_schedule(self,epoch):
         #return 10.0/(epoch+1)
         return 1.0
+    
+    def plot_solution(self):
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')
+        X,Y=self.eqn.domain.surface_plot_domain()
+        ax.set_xlabel('X Label')
+        ax.set_ylabel('Y Label')
+        ax.set_zlabel('Z Label')
+        ax.set_xlim(0,1)
+        ax.set_ylim(0,1)
+        ax.set_zlim(-5,5)
+
+        fig.subplots_adjust(bottom=0.25)
+
+        axfreq = fig.add_axes([0.25, 0.1, 0.5, 0.03])
+        freq_slider = Slider(
+            ax=axfreq,
+            label='t',
+            valmin=0.0,
+            valmax=1.0,
+            valinit=0.0,
+            valstep=0.01
+        )
+
+        def draw(t):  
+            ax.cla()
+            ax.set_xlabel('X Label')
+            ax.set_ylabel('Y Label')
+            ax.set_zlabel('Z Label')
+            ax.set_xlim(0,1)
+            ax.set_ylim(0,1)
+            ax.set_zlim(-2,2)
+            times=t*np.ones(np.ravel(X).shape[0])
+            tes=torch.tensor(np.stack((np.ravel(X), np.ravel(Y)),axis=1),dtype=self.dtype)
+            zs =self.model.y0(tes).detach().numpy()
+            Z = zs.reshape(X.shape)
+            ax.plot_surface(X, Y, Z)
+        draw(0)
+        freq_slider.on_changed(draw)
+        return freq_slider
+    
+    def simulate_trajectory(self,t0,X0):
+        self.model.eval()
+        return self.eqn.simulate_controlled_trajectory(t0,X0,self.Ndis,self.dt,self.model.grad_func,plot=True)
     
     def train(self,steps):
         start_time = time.time()
@@ -568,7 +614,9 @@ class Deep_BSDE_Solver(Solver):
 
 class Raissi_BSDE_Solver(object):
     def __init__(self,eqn, solver_params):
+        
         self.solver_params=solver_params
+        self.solver_params["Solver"]='Raissi_BSDE_Solver'
         self.eqn = eqn
         self.Ndis=self.solver_params["Ndis"]
         self.dt=self.eqn.domain.total_time/(self.Ndis-1)

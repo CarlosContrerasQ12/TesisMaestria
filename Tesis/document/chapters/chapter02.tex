@@ -175,10 +175,10 @@ and note that from this and using \eqref{eqn:Mdem}, $Y_t$ satisfies
 
 
 Thus, consider the function $\Phi:\Sspa\times\Hspa \to \Sspa\times\Hspa$ that maps the pair $(U,V)$ to the pair $(Y,Z)$ constructed as above, $\Phi(U,V)=(Y,Z)$. Note that it is well-defined as the $Z$ process is unique, and by Doob's martingale inequality \ref{thm:Doobs} we have
-\begin{shaded*}
+
 \begin{equation}
 	\mathbb{E}\left[\sup_{0\leq t\leq T}\left|\int_{t}^{T}Z_s\cdot dW_s\right|^2\right]\leq 4\mathbb{E}\left[\int_{0}^{T}|Z_s|^2ds\right]<\infty,
-\end{equation}\end{shaded*}
+\end{equation}
 and therefore, by assumptions $I$, $II a)$ and $II b)$, $Y_t$ lies in $\Sspa$. Also note that a solution to the BSDE \eqref{eqn:BSDE} is a fixed point of $\Phi$. We will show that such fixed point exist by showing it is a contraction if we endow the $\Sspa\times\Hspa$ space with the metric 
 \begin{equation}
 	\lVert(Y,Z)\rVert_\beta=\left(\expect*{\int_{0}^{T}e^{\beta s}(  |Y_s|^2+|Z_s|^2)ds}\right)^{\frac{1}{2}},
@@ -328,7 +328,7 @@ where $\Gamma_t$ satisfies
 		&\Gamma_0=1.
 	\end{split}
 \end{equation}
-\hlc[Why?]{Note that $\Gamma_t$ is strictly positive}. We conclude the stated result using that $\xi_2-\xi_2\geq 0$ by assumption $1)$, and $\bar{f}_t\geq 0$ by assumption $2)$.
+Note that $\Gamma_t$ is strictly positive. We conclude the stated result using that $\xi_2-\xi_2\geq 0$ by assumption $1)$, and $\bar{f}_t\geq 0$ by assumption $2)$.
 
 \end{proof}
 \subsection{Forward-Backward stochastic differential equations}
@@ -395,7 +395,7 @@ Let's establish this assertions in the following theorem.
 		\end{split}
 	\end{equation}
 
-\hlLarge{We have that $(Y_{s-t}',Z_{s-t}')$ with $s\in[t,T]$ is also a solution of the backward equation in \eqref{eqn:Uncoupled} in $[t,T]$. Hence, by the  uniqueness provided before we have that $(Y_{s-t}',Z_{s-t}')=(Y_{s}^{t,x},Z_{s}^{t,x})$ for $s\in[t,T]$, therefore $(Y_{s-t}',Z_{s-t}')$ is $\mathcal{F}_{s}^{t}$-adapted.}
+We have that $(Y_{s-t}',Z_{s-t}')$ with $s\in[t,T]$ is also a solution of the backward equation in \eqref{eqn:Uncoupled} in $[t,T]$. Hence, by the  uniqueness provided before we have that $(Y_{s-t}',Z_{s-t}')=(Y_{s}^{t,x},Z_{s}^{t,x})$ for $s\in[t,T]$, therefore $(Y_{s-t}',Z_{s-t}')$ is $\mathcal{F}_{s}^{t}$-adapted.
 
 \end{proof}
 From now on, we will denote by

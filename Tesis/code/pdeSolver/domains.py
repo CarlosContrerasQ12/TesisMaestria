@@ -222,7 +222,7 @@ class EmptyRoom():
                 return Xi,'Neu',ts[i]
         return X1,'Non',1.0
     
-    def one_agent_brownian(self,sig,dt,Nmax,t0,X0,dirichlet_cut=False,neumann_cut=False):
+    def one_agent_brownian(self,sig,dt,Nmax,X0,dirichlet_cut=False,neumann_cut=False):
         """ 
         Simulates ones2 brownian motion in the domain with the following parameters:
         sig:: volatility of motion
@@ -312,14 +312,14 @@ class EmptyRoom():
             t0-=2*dt
         tsim=int((self.total_time-t0)/dt)
         Nsim=min(N_max,tsim)+2
-        Xc,xic,dtf=self.one_agent_brownian(sig,dt,Nsim,t0,X0[:2],True,False)
+        Xc,xic,dtf=self.one_agent_brownian(sig,dt,Nsim,X0[:2],True,False)
         X=np.zeros2((Xc.shape[0],Nagents*2))
         Xis=np.zeros2((Xc.shape[0]-1,Nagents*2))
         X[:,0:2]=Xc
         Xis[:,0:2]=xic
 
         for i in range(1,Nagents):
-            Xi,xi,dtfi=self.one_agent_brownian(sig,dt,Xc.shape[0],t0,X0[2*i:2*i+2],False,False)
+            Xi,xi,dtfi=self.one_agent_brownian(sig,dt,Xc.shape[0],X0[2*i:2*i+2],False,False)
             X[:,2*i:2*i+2]=Xi
             Xis[:,2*i:2*i+2]=xi
         t=np.linspace(t0,(Xc.shape[0]-1)*dt,Xc.shape[0])
@@ -337,6 +337,23 @@ class EmptyRoom():
             resp[1,:-1,1:]=Xis
             samples.append(resp)
         return samples
+    
+    def simulate_N_diffusions(self,sig,dt,Ndis,Nagents,Ndifussions):
+        dw_samples=[]
+        x_samples=[]
+        for i in range(Ndifussions):
+            dW=np.zeros2((2*Nagents,Ndis))
+            X=np.zeros2((2*Nagents,Ndis))
+            for j in range(Nagents):
+                X0=np.random.uniform2(size=(2))
+                Xi,xi,dtfi=self.one_agent_brownian(sig,dt,Ndis,X0,False,False)
+                X[2*j:2*j+2,:]=Xi.T
+                dW[2*j:2*j+2,:-1]=xi.T
+            dw_samples.append(dW)
+            x_samples.append(X)
+        return torch.tensor(np.stack(dw_samples)).requires_grad_(False),torch.tensor(np.stack(x_samples)).requires_grad_(False)
+            
+
 
 
 
@@ -463,7 +480,7 @@ class FreeSpace():
     def initial_point_diffusion(self,num_sample,dim,X0=None):
         if X0!=None:
             return torch.ones([num_sample, dim],requires_grad=False)*X0 
-        return torch.Tensor(np.random.uniform2(low=-0.1,high=0.1,size=([num_sample,dim]))).requires_grad_(False)
+        return torch.Tensor(np.random.uniform2(low=0.2,high=0.8,size=([num_sample,dim]))).requires_grad_(False)
 
     
     def diffusion_brownian_sample(self, num_sample,dim,dt,Ndis,sigma,X0=None):
@@ -474,6 +491,11 @@ class FreeSpace():
         for i in range(Ndis-1):
             x_sample[:, :, i + 1] = x_sample[:, :, i] + sigma * dw_sample[:, :, i]
         return dw_sample, x_sample
+    
+    def surface_plot_domain(self):
+        x = y = np.arange(-0.05, 1.05, 0.05)
+        X, Y = np.meshgrid(x, y)
+        return X , Y
 
 """
 dom=EmptyRoom({"total_time":1.0,"pInf":0.4,"pSup":0.6})

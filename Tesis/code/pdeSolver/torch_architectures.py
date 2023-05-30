@@ -182,6 +182,15 @@ class Global_Model_Deep_BSDE(nn.Module):
             return self.y_0(x)
         else:
             return self.y_0
+        
+    def grad_func(self,t,X):
+        Xt=torch.tensor(X,dtype=torch.float32)
+        Xt=torch.unsqueeze(Xt,axis=0)
+        #ind=np.argmin(np.abs(t-self.time_stamp))
+        ind=np.argwhere((t-self.time_stamp)<0)[0][0]-1
+        self.subnet[ind].eval()
+        return self.subnet[ind](Xt)/self.eqn.dim
+
 
     def forward(self, inputs):
         dw, x = inputs
@@ -226,6 +235,12 @@ class Global_Model_Merged_Deep_BSDE(nn.Module):
             return self.y_0(x)
         else:
             return self.y_0
+        
+    def grad_func(self,t,X):
+        Xt=torch.tensor(X,dtype=torch.float32)
+        inp=torch.hstack((torch.tensor([t]),Xt))
+        inp=torch.unsqueeze(inp,axis=0)
+        return self.z_net(inp)/self.eqn.dim
 
     def forward(self, inputs):
         dw, x = inputs
@@ -242,6 +257,7 @@ class Global_Model_Merged_Deep_BSDE(nn.Module):
                 self.eqn.f_tf(self.time_stamp[t], x[:, :, t], y, z)
             ) + torch.sum(z * dw[:, :, t], 1, keepdims=True)
         return y
+    
 
 class Global_Model_Merged_Residual_Deep_BSDE(nn.Module):
     def __init__(self, net_config, eqn):
