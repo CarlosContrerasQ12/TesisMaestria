@@ -6,13 +6,13 @@ This is the case for high dimensional PDE's, for which the size of discretizatio
 
 High dimensional PDE's appear in many contexts, such as asset pricing, image denoising, statistical physics, many-body quantum mechanics, optimal control and game theory. Therefore, there is a necessity for numerical methods that are able to overcome this difficulty. Early attempts to solve this kind of problems used the connection between stochastic diffusions and parabolic PDE's, as we seemed in the preceding chapter. In fact, if the PDE is linear, the linear Feynman-Kac \ref{thm:LinearFK} formula can be used to provide an approximate solution by computing the expectation using simulated paths of the process through the  Monte-Carlo approach. The convergence of this formulation is \hlc[Sure?]{independent} of the dimension of the underlying process, and therefore does not suffer from the curse dimensionality.
 
-Nevertheless, if we try a similar approach using the non-linear Feynman-Kac formula \ref{thm:NonlinealFK} for more general non-linear equations, we would have to deal with solving numerically the associated BSDE. There are numerical methods to approximate the set of solution processes $(X,Y,Z)$, but they are not as simple as an Euler-Maruyama discretization for a forward process. Generally, they require the computation of conditional expectations that almost never are computationally cheap and hence is not a straightforward generalization of the former linear approach. Despite this, some progress has been made under this formulation, see for example \cite{chessari_numerical_nodate}. Other solutions methods are based in fixed point iterations and branching methods \cite{bibid}.
+Nevertheless, if we try a similar approach using the non-linear Feynman-Kac formula \ref{thm:NonlinealFK} for more general non-linear equations, we would have to deal with solving numerically the associated BSDE. There are numerical methods to approximate the set of solution processes $(X,Y,Z)$, but they are not as simple as an Euler-Maruyama discretization for a forward process. Generally, they require the computation of conditional expectations that almost never are computationally cheap and hence is not a straightforward generalization of the former linear approach. Despite this, some progress has been made under this formulation, see for example \cite{chessari_numerical_nodate}. Other solutions methods are based in fixed point iterations and branching methods \cite{e_algorithms_2022}.
 
 Representing functions in a high dimensional space is a problem encountered in many other areas of applied mathematics. Particularly, in recent times, the analysis and inference on big amounts of data has emerged as the fascinating research area of \textit{machine learning}. Many methods have been proposed for this goal, for example, regression methods, support vector machines and tree methods. Nonetheless, the approach that has encountered more success when trying to approximate high dimensional functions using big amounts of data is deep learning.  In this setting, we parametrize functions using structures that use composition of simpler function for approximate complex ones, these structures are called neural networks. We refer the reader to \cite{higham_deep_2019} for a first exposition of the topic.
 
-The idea of using this neural network parametrization of functions to solve PDE's can be tracked to the 80's, when in \cite{} a perceptron layer approximation was proposed to \hlc[Completar]{}. However, due to the high computational cost of training a neural network, a successful attempt was not achieved until recently, with the works of \cite{bibid}\hlc[Blablabla]{}. 
+The idea of using this neural network parametrization of functions to solve PDE's can be tracked to the 80's, when a perceptron layer approximation was proposed to approximate solutions to PDEs. However, due to the high computational cost of training a neural network, a successful attempt was not achieved until recently\cite{beck_machine_2019}. 
 
-This is a very new area of research, for which many open questions remain. Particularly, it is not well understood yet if the curse of dimensionality is solved, even if there is work for certain equations that ensures it \cite{bibid}. Also, there is not yet a good understanding of why different classes of neural networks are useful to approximate certain classes of functions and how to tune adequately its parameters to do it efficiently. In consequence, even if it is possible to give a convergence proof for certain cases, most algorithms rely on empirical experimentation and heuristic arguments to provide reasonable approximate solutions.    
+This is a very new area of research, for which many open questions remain. Particularly, it is not well understood yet if the curse of dimensionality is solved, even if there is work for certain equations that ensures it. Also, there is not yet a good understanding of why different classes of neural networks are useful to approximate certain functions and how to tune adequately its parameters to do it efficiently. In consequence, even if it is possible to give a convergence proof for certain cases, most algorithms rely on empirical experimentation and heuristic arguments to provide reasonable approximate solutions.    
 
 In this chapter we review some of these methods, implement them for toy examples and perform a comparison of speed, accuracy and practical usefulness for solving PDE's.   
 
@@ -127,7 +127,7 @@ Under some assumptions, there exists a constant $C$, independent of $\Delta t, d
 \end{theorem}
 
 Neural networks are a promising candidate for such approximation space of functions, as there are results in regard
-to the universal approximation and complexity of neural networks\hlc[Completar referencias]{}.
+to the universal approximation and complexity of neural networks.
 
 Note that, in practice, we cannot minimize exactly the loss function in the space of parametric functions, as the methods we use are generally iterative. Also, it is not known how better is the approximation depending on the width, deep and connections of the neural network, so the capability of approximation is not well understood yet. Therefore, this results only establish the convergence of the method in a general setting and are not useful for estimate the real velocity of convergence, the achievable loss in the training stage, nor the real accuracy of the approximate solution.  
 
@@ -249,13 +249,7 @@ and
 Therefore, we can apply the deep BSDE solver and all its variants to solve this PDE. We implemented these in the Python language using the Pytorch framework with its automatic differentiation and neural networks capabilities.
 
 In this example we use $\lambda=1.0$ and $\nu=0.01$. 
-For all methods, we discretized time using a step of $\Delta t=\frac{1}{120}$. The sample paths were simulated using the Euler-Maruyama scheme and they look like \autoref{fig:sample_path_example}.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\linewidth]{example-image}
-	\caption{Sample path for the 6-dimensional diffusion}
-	\label{fig:sample_path_example}
-\end{figure}
+For all methods, we discretized time using a step of $\Delta t=\frac{1}{120}$. The sample paths were simulated using the Euler-Maruyama scheme.
 
 
 
@@ -263,107 +257,30 @@ We trained all neural networks using the ADAM optimizer with a learning rate of 
 
 In the deep BSDE method, for every subnet approximating $Z_{t_n}$  we used a fully coupled neural network with 2 layers with 16 neurons each, using a batch normalization layer in between to prevent gradients exploding and the ReLu as activation function. We also parametrize the initial solution and its gradient with fully coupled neural networks with the same structure as before.
 
-\begin{figure}[htb!]		
-	\begin{subfigure}{.475\linewidth}
-		\includegraphics[width=\linewidth]{example-image}
-		\caption{Deep BSDE training loss}
-		\label{fig:BSDE_loss}
-	\end{subfigure}\hfill % <-- "\hfill"
-	\begin{subfigure}{.475\linewidth}
-		\includegraphics[width=\linewidth]{example-image}
-		\caption{Deep BSDE training error}
-		\label{fig:BSDE_error}
-	\end{subfigure}
-	\caption{Losses and error in training Deep BSDE method }
-	\label{fig:deep_BSDE_training}
-\end{figure}
 
 In the merged deep BSDE method, we use a 3 layer fully coupled neural network with 20 neurons in each layer, with the ELU activation function to parametrize the mapping $(t,x)\to Z(t,x)$. 
 
-\begin{figure}[htb!]
-	\begin{subfigure}{.475\linewidth}
-		\includegraphics[width=\linewidth]{example-image}
-		\caption{Merged Deep BSDE training loss}
-		\label{fig:Merged_loss}
-	\end{subfigure}\hfill % <-- "\hfill"
-	\begin{subfigure}{.475\linewidth}
-		\includegraphics[width=\linewidth]{example-image}
-		\caption{Merged Deep BSDE training error}
-		\label{fig:Merged_error}
-	\end{subfigure}
-	\caption{Losses and error in training Merged Deep BSDE method }
-	\label{fig:deep_Merged_BSDE_training}
-\end{figure}
 
 In the residual merged deep BSDE method, we use a 3 layer fully coupled neural network with 20 neurons in each layer, with the ELU activation function, and with a shortcut connection as depicted in \autoref{fig:ResidualMergedStructure} to parametrize the mapping $(t,x)\to Z(t,x)$. 
 
-\begin{figure}[htb!]
-	\begin{subfigure}{.475\linewidth}
-		\includegraphics[width=\linewidth]{example-image}
-		\caption{Merged residual Deep BSDE training loss}
-		\label{fig:Merged_residual_loss}
-	\end{subfigure}\hfill % <-- "\hfill"
-	\begin{subfigure}{.475\linewidth}
-		\includegraphics[width=\linewidth]{example-image}
-		\caption{Merged residual Deep BSDE training error}
-		\label{fig:Merged_residual_error}
-	\end{subfigure}
-	\caption{Losses and error in training Merged Residual Deep BSDE method }
-	\label{fig:deep_Merged_Residual_BSDE_training}
-\end{figure}
+For the Raissi's method we used a 4 layer fully coupled neural network with 15 neurons in each layers to parametrize the approximated solution $\varphi(t,x)$. We note that this method is not well suited for computing gradients and therefore controls, as the automatic differentiation of the parametrized solution is slow and not very precise.
 
-In \autoref{fig:deep_BSDE_training}, \autoref{fig:deep_Merged_BSDE_training} and \autoref{fig:deep_Merged_Residual_BSDE_training}, we depict the training losses with respect to a fixed sample path and the error at the point $x=(0.5,0,0,0.5,0.5,0.5)$ at $t=0$, compared with the exact solution calculated using \eqref{eqn:probabilisticExact} with 20000 sample paths, for those three methods.
-
-For the Raissi's method we used a 4 layer fully coupled neural network with 15 neurons in each layers to parametrize the approximated solution $\varphi(t,x)$. We note that this method is not well suited for computing gradients and therefore controls, as the automatic differentiation of the parametrized solution is slow and not very precise. In \autoref{fig:Raissi_training} we depict training and error losses with the same criteria as before.
  \begin{figure}[htb!]		
- 	\begin{subfigure}{.475\linewidth}
- 		\includegraphics[width=\linewidth]{example-image}
- 		\caption{Raissi's training loss}
- 		\label{fig:Raissi_loss}
- 	\end{subfigure}\hfill % <-- "\hfill"
- 	\begin{subfigure}{.475\linewidth}
- 		\includegraphics[width=\linewidth]{example-image}
- 		\caption{Raissi's training error}
- 		\label{fig:Raissi_error}
- 	\end{subfigure}
- 	\caption{Losses and error in training Raissi's method }
- 	\label{fig:Raissi_training}
+ 		\includegraphics[width=\linewidth]{training.png}
+ 	\caption{Accuracy in the training process}
+ 	\label{fig:Accuracy}
  \end{figure}
+
+In \autoref{fig:Accuracy}, we depict the training error with respect to the exact solution at the point $x=(0.5,0.5,0.5,0.5,0.5,0.5)$ at $t=0$, obtained using the formula \eqref{eqn:probabilisticExact} with 20000 sample paths, for those four methods. Note the instability that may occur when changing the network structure in the case of the merged residual method, but also the speed of convergence that can be achieved when it is well chosen, as in the case of merged fully coupled method. Note also that the number of training stages do not reflect efficiently the time needed to compute the solution, as in our case the Raissi's method took much longer to achieve that accuracy, probably due to the need of use automatic differentiation for computing the gradients in the FBSDE discretization. 
  
- In \autoref{fig:surface_solution} we depict the surface solution in a region of interest at $t=0$ using the deep BSDE algorithm. In  \autoref{fig:Optimal_trajectory_path} an optimal controlled path is shown.
+  In  \autoref{fig:solution_path}, an optimal controlled path is shown. Note that the particles try to reach the center of the unit square, but as the get closer, the cost associated running for proximity increments, thus it is not effective to continue advancing to the center. Hence, each particle will try to stay the closest possible to the center at final time, while avoiding being near each other. 
   \begin{figure}[htb!]		
- 	\begin{subfigure}{.475\linewidth}
- 		\includegraphics[width=\linewidth]{example-image}
- 		\caption{Surface solution}
- 		\label{fig:surface_solution}
- 	\end{subfigure}\hfill % <-- "\hfill"
- 	\begin{subfigure}{.475\linewidth}
- 		\includegraphics[width=\linewidth]{example-image}
+ 		\includegraphics[width=\linewidth]{images/OptimalLQRCentrilized.png}
  		\caption{Optimal controlled sampled path}
- 		\label{fig:Optimal_trajectory_path}
- 	\end{subfigure}
- 	\caption{}
  	\label{fig:solution_path}
  \end{figure}
-Finally, in \autoref{tab:ComparisonBSDE} we resume all this information for a vague comparison.
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|c|c|c|c|c|}
-		\hline
-		Method & \# Parameters & reached error & reached loss & time \\
-		\hline
-		Deep BSDE & 0 & 10 & 10 & 33 \\
-		\hline
-		Merged  & 0 & 10 & 10 & 33 \\
-		\hline
-		Merged Residual & 0 & 10 & 10 & 33 \\
-		\hline
-		Raissi & 0 & 10 & 10 & 33 \\
-		\hline
-	\end{tabular}
-\caption{}
-\label{tab:ComparisonBSDE}
-\end{table}
+Finally, it is worth to note that we did not try to perform an exhaustive analysis of advantages for each one because we found that practical performance were very dependent on implementation details, thus do not provide a homogeneous framework to perform fair conclusions.
+
 
 We note that when we optimize the parameters of the neural networks, there is maximum achievable error depending on the network structure and time discretization size. In this toy example we reached an estimated error with order of magnitude $10^{-2}$. Fewer error would require more epochs in the training stage and smaller time step.
 

@@ -12,15 +12,14 @@
 \contentsline {subsection}{\numberline {3.1.1}Deep BSDE method}{21}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}Raissi's method}{26}{subsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.1.3}An example}{26}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Bounded problems}{31}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Deep Galerkin method}{32}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Interpolating BSDEs with PINNs}{33}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}An example}{35}{subsection.3.2.3}%
-\contentsline {chapter}{\numberline {4}Crowd motion modeling}{39}{chapter.4}%
-\contentsline {section}{\numberline {4.1}N-agent games}{39}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Deep Fictitious Play}{41}{section.4.2}%
-\contentsline {section}{\numberline {4.3}An example}{42}{section.4.3}%
+\contentsline {section}{\numberline {3.2}Bounded problems}{29}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Deep Galerkin method}{31}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Interpolating BSDEs with PINNs}{32}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}An example}{34}{subsection.3.2.3}%
+\contentsline {chapter}{\numberline {4}Application to N-player games}{38}{chapter.4}%
+\contentsline {section}{\numberline {4.1}N-agent games}{38}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Deep Fictitious Play}{40}{section.4.2}%
+\contentsline {section}{\numberline {4.3}An example}{41}{section.4.3}%
 \contentsline {chapter}{\numberline {5}Conclusion}{44}{chapter.5}%
-\contentsline {chapter}{Appendices}{45}{section*.19}%
-\contentsline {chapter}{Appendix \numberline {A}Neural Networks}{45}{appendix.1.A}%
-\contentsline {chapter}{Appendix \numberline {B}Stochastic Control}{46}{appendix.1.B}%
+\contentsline {chapter}{Appendices}{46}{section*.15}%
+\contentsline {chapter}{Appendix \numberline {A}Stochastic Control}{46}{appendix.1.A}%

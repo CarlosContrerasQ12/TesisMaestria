@@ -551,11 +551,6 @@ With this new concept of solution, we can establish the reverse relation as foll
 	\label{thm:KFnonReps}
 	\hlc[Poner explicitas las condiciones para la FBSDE]{} Let $(X,Y,Z)$ be the solution to the uncoupled FBSDE \eqref{eqn:Uncoupled} and set $v(t,x)=Y_{t}^{t,x}$. Then, $v$ is a continuous function and is a viscosity solution to \ref{eqn:FKNolineal}.
 \end{theorem}
-\begin{shaded*}
-	\begin{center}
-		{\Huge Terminar prueba}
-	\end{center}
-\end{shaded*}
 \begin{proof}
 	\textit{Step 1: Continuity of $v(t,x)$}: \\
 	Let $(t_1,x_1),(t_2,x_2)\in [0,T]\times \bbR^n$, with $t_1\leq t_2$. For lighten the notation we write $X_{s}^i=X_s^{t_i,x_i}$, $i=1,2$.
@@ -583,7 +578,7 @@ Then,
 	\end{aligned}
 \end{equation}
 
-So,
+So, using the Gronwall's lemma we obtain
 
 \begin{equation}
 	\begin{aligned}
@@ -598,6 +593,7 @@ and, by Gronwall's lemma,
 		& \left.+E\left[\int_t^T\left|f\left(s, X_s^1, Y_s^1, Z_s^1\right)-f\left(s, X_s^2, Y_s^1, Z_s^1\right)\right|^2 d s\right]\right\} .
 	\end{aligned}
 \end{equation}
+This, combined with the continuity of $f$ and $g$ in $x$, and the continuity of $X^{t,x}$ in $(t,x)$, shows the mean-squared continuity of $Y_{s}^{t,x}$, and so the continuity of the map $(t,x)\to v(t,x)$.
 \textit{Step 2: $v(t,x)$ is a viscosity solution.}\\
 Let's prove it is a super-solution. Assume by contradiction that
 \begin{equation}
@@ -606,6 +602,7 @@ Let's prove it is a super-solution. Assume by contradiction that
 By continuity of $f, \varphi$ and its derivatives, there exists $h, \varepsilon>0$ such that for all $t \leq s \leq$ $t+h,|x-y| \leq \varepsilon$,
 $$
 \begin{aligned}
+	\label{eqn:618}
 	& v(s, y) \leq \varphi(s, y) \\
 	&-\frac{\partial \varphi}{\partial t}(s, y)-\mathcal{L} \varphi(s, y)-f\left(s, y, v(s, y),\left(D_x \varphi\right)^{\prime}(s, y) \sigma(y)\right)>0 .
 \end{aligned}
@@ -632,7 +629,7 @@ $$
 	Y_{t+h}^1 & =\varphi\left(\tau, X_\tau^{t, x}\right) .
 \end{aligned}
 $$
-From the inequalities (6.18)-(6.19), and the strict comparison principle in Theorem 6.2.2, we deduce $Y_0^1<Y_0^2$, i.e. $u(t, x)<\varphi(t, x)$, a contradiction.
+From the inequalities \eqref{eqn:618}, and the strict comparison principle, we deduce $Y_0^1<Y_0^2$, i.e. $u(t, x)<\varphi(t, x)$, then we have a contradiction.
 \end{proof}
 Finally, note that this representation can be restated in a more similar form to the linear Feynman-Kac formula as
 \begin{theorem}[]

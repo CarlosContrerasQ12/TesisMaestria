@@ -73,6 +73,119 @@
       \verb https://epubs.siam.org/doi/10.1137/18M1165748
       \endverb
     \endentry
+    \entry{raissi_physics-informed_2019}{article}{}
+      \name{author}{3}{}{%
+        {{hash=a3194cb4f8e3959e569236521aa2fd86}{%
+           family={Raissi},
+           familyi={R\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=c2e8423b7b49343a85abf9af92ee2a82}{%
+           family={Perdikaris},
+           familyi={P\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=1c2f5930e36485e8d38a87746769fdcc}{%
+           family={Karniadakis},
+           familyi={K\bibinitperiod},
+           given={G.\bibnamedelimi E.},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{a17a0649dc8bad70026488d4ea37c508}
+      \strng{fullhash}{a17a0649dc8bad70026488d4ea37c508}
+      \strng{bibnamehash}{a17a0649dc8bad70026488d4ea37c508}
+      \strng{authorbibnamehash}{a17a0649dc8bad70026488d4ea37c508}
+      \strng{authornamehash}{a17a0649dc8bad70026488d4ea37c508}
+      \strng{authorfullhash}{a17a0649dc8bad70026488d4ea37c508}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{We introduce physics-informed neural networks – neural networks that are trained to solve supervised learning tasks while respecting any given laws of physics described by general nonlinear partial differential equations. In this work, we present our developments in the context of solving two main classes of problems: data-driven solution and data-driven discovery of partial differential equations. Depending on the nature and arrangement of the available data, we devise two distinct types of algorithms, namely continuous time and discrete time models. The first type of models forms a new family of data-efficient spatio-temporal function approximators, while the latter type allows the use of arbitrarily accurate implicit Runge–Kutta time stepping schemes with unlimited number of stages. The effectiveness of the proposed framework is demonstrated through a collection of classical problems in fluids, quantum mechanics, reaction–diffusion systems, and the propagation of nonlinear shallow-water waves.}
+      \field{day}{1}
+      \field{issn}{0021-9991}
+      \field{journaltitle}{Journal of Computational Physics}
+      \field{langid}{english}
+      \field{month}{2}
+      \field{shortjournal}{Journal of Computational Physics}
+      \field{shorttitle}{Physics-informed neural networks}
+      \field{title}{Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations}
+      \field{urlday}{30}
+      \field{urlmonth}{5}
+      \field{urlyear}{2023}
+      \field{volume}{378}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{686\bibrangedash 707}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.1016/j.jcp.2018.10.045
+      \endverb
+      \verb{file}
+      \verb ScienceDirect Snapshot:/home/carlos/Zotero/storage/565WBVVH/S0021999118307125.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0021999118307125
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0021999118307125
+      \endverb
+      \keyw{Data-driven scientific computing,Machine learning,Nonlinear dynamics,Predictive modeling,Runge–Kutta methods}
+    \endentry
+    \entry{sirignano_dgm_2018}{article}{}
+      \name{author}{2}{}{%
+        {{hash=63a950b98d85daffb2acb228fc44a30b}{%
+           family={Sirignano},
+           familyi={S\bibinitperiod},
+           given={Justin},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b3f57aca002dd1e7484cf81299998414}{%
+           family={Spiliopoulos},
+           familyi={S\bibinitperiod},
+           given={Konstantinos},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{fb5add8979e6ca053be0b10341d44fe1}
+      \strng{fullhash}{fb5add8979e6ca053be0b10341d44fe1}
+      \strng{bibnamehash}{fb5add8979e6ca053be0b10341d44fe1}
+      \strng{authorbibnamehash}{fb5add8979e6ca053be0b10341d44fe1}
+      \strng{authornamehash}{fb5add8979e6ca053be0b10341d44fe1}
+      \strng{authorfullhash}{fb5add8979e6ca053be0b10341d44fe1}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{High-dimensional {PDEs} have been a longstanding computational challenge. We propose to solve highdimensional {PDEs} by approximating the solution with a deep neural network which is trained to satisfy the diﬀerential operator, initial condition, and boundary conditions. Our algorithm is meshfree, which is key since meshes become infeasible in higher dimensions. Instead of forming a mesh, the neural network is trained on batches of randomly sampled time and space points. The algorithm is tested on a class of high-dimensional free boundary {PDEs}, which we are able to accurately solve in up to 200 dimensions. The algorithm is also tested on a high-dimensional Hamilton-Jacobi-Bellman {PDE} and Burgers’ equation. The deep learning algorithm approximates the general solution to the Burgers’ equation for a continuum of diﬀerent boundary conditions and physical conditions (which can be viewed as a high-dimensional space). We call the algorithm a “Deep Galerkin Method ({DGM})” since it is similar in spirit to Galerkin methods, with the solution approximated by a neural network instead of a linear combination of basis functions. In addition, we prove a theorem regarding the approximation power of neural networks for a class of quasilinear parabolic {PDEs}.}
+      \field{issn}{00219991}
+      \field{journaltitle}{Journal of Computational Physics}
+      \field{langid}{english}
+      \field{month}{12}
+      \field{shortjournal}{Journal of Computational Physics}
+      \field{shorttitle}{{DGM}}
+      \field{title}{{DGM}: A deep learning algorithm for solving partial differential equations}
+      \field{urlday}{10}
+      \field{urlmonth}{10}
+      \field{urlyear}{2022}
+      \field{volume}{375}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1339\bibrangedash 1364}
+      \range{pages}{26}
+      \verb{doi}
+      \verb 10.1016/j.jcp.2018.08.029
+      \endverb
+      \verb{file}
+      \verb Sirignano y Spiliopoulos - 2018 - DGM A deep learning algorithm for solving partial.pdf:/home/carlos/Zotero/storage/HSUX3UV9/Sirignano y Spiliopoulos - 2018 - DGM A deep learning algorithm for solving partial.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S0021999118305527
+      \endverb
+      \verb{url}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S0021999118305527
+      \endverb
+    \endentry
     \entry{li_fourier_2021}{misc}{}
       \name{author}{7}{}{%
         {{hash=009036050bf23abe561429f6eaa0b018}{%
@@ -150,59 +263,6 @@
       \endverb
       \keyw{Computer Science - Machine Learning,Mathematics - Numerical Analysis}
     \endentry
-    \entry{sirignano_dgm_2018}{article}{}
-      \name{author}{2}{}{%
-        {{hash=63a950b98d85daffb2acb228fc44a30b}{%
-           family={Sirignano},
-           familyi={S\bibinitperiod},
-           given={Justin},
-           giveni={J\bibinitperiod}}}%
-        {{hash=b3f57aca002dd1e7484cf81299998414}{%
-           family={Spiliopoulos},
-           familyi={S\bibinitperiod},
-           given={Konstantinos},
-           giveni={K\bibinitperiod}}}%
-      }
-      \strng{namehash}{fb5add8979e6ca053be0b10341d44fe1}
-      \strng{fullhash}{fb5add8979e6ca053be0b10341d44fe1}
-      \strng{bibnamehash}{fb5add8979e6ca053be0b10341d44fe1}
-      \strng{authorbibnamehash}{fb5add8979e6ca053be0b10341d44fe1}
-      \strng{authornamehash}{fb5add8979e6ca053be0b10341d44fe1}
-      \strng{authorfullhash}{fb5add8979e6ca053be0b10341d44fe1}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{shorttitle}
-      \field{abstract}{High-dimensional {PDEs} have been a longstanding computational challenge. We propose to solve highdimensional {PDEs} by approximating the solution with a deep neural network which is trained to satisfy the diﬀerential operator, initial condition, and boundary conditions. Our algorithm is meshfree, which is key since meshes become infeasible in higher dimensions. Instead of forming a mesh, the neural network is trained on batches of randomly sampled time and space points. The algorithm is tested on a class of high-dimensional free boundary {PDEs}, which we are able to accurately solve in up to 200 dimensions. The algorithm is also tested on a high-dimensional Hamilton-Jacobi-Bellman {PDE} and Burgers’ equation. The deep learning algorithm approximates the general solution to the Burgers’ equation for a continuum of diﬀerent boundary conditions and physical conditions (which can be viewed as a high-dimensional space). We call the algorithm a “Deep Galerkin Method ({DGM})” since it is similar in spirit to Galerkin methods, with the solution approximated by a neural network instead of a linear combination of basis functions. In addition, we prove a theorem regarding the approximation power of neural networks for a class of quasilinear parabolic {PDEs}.}
-      \field{issn}{00219991}
-      \field{journaltitle}{Journal of Computational Physics}
-      \field{langid}{english}
-      \field{month}{12}
-      \field{shortjournal}{Journal of Computational Physics}
-      \field{shorttitle}{{DGM}}
-      \field{title}{{DGM}: A deep learning algorithm for solving partial differential equations}
-      \field{urlday}{10}
-      \field{urlmonth}{10}
-      \field{urlyear}{2022}
-      \field{volume}{375}
-      \field{year}{2018}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \field{pages}{1339\bibrangedash 1364}
-      \range{pages}{26}
-      \verb{doi}
-      \verb 10.1016/j.jcp.2018.08.029
-      \endverb
-      \verb{file}
-      \verb Sirignano y Spiliopoulos - 2018 - DGM A deep learning algorithm for solving partial.pdf:/home/carlos/Zotero/storage/HSUX3UV9/Sirignano y Spiliopoulos - 2018 - DGM A deep learning algorithm for solving partial.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://linkinghub.elsevier.com/retrieve/pii/S0021999118305527
-      \endverb
-      \verb{url}
-      \verb https://linkinghub.elsevier.com/retrieve/pii/S0021999118305527
-      \endverb
-    \endentry
     \entry{cuomo_scientific_2022}{misc}{}
       \name{author}{6}{}{%
         {{hash=a149dbc0c7d8c7b44289299d659521f4}{%
@@ -247,8 +307,8 @@
       \strng{authorbibnamehash}{ecacc4512ae1bd881356a9535bcb4121}
       \strng{authornamehash}{ecacc4512ae1bd881356a9535bcb4121}
       \strng{authorfullhash}{27f0bb500f48733ffa04338eaf617bf2}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Physics-Informed Neural Networks ({PINN}) are neural networks ({NNs}) that encode model equations, like Partial Differential Equations ({PDE}), as a component of the neural network itself. {PINNs} are nowadays used to solve {PDEs}, fractional equations, integral-differential equations, and stochastic {PDEs}. This novel methodology has arisen as a multi-task learning framework in which a {NN} must fit observed data while reducing a {PDE} residual. This article provides a comprehensive review of the literature on {PINNs}: while the primary goal of the study was to characterize these networks and their related advantages and disadvantages. The review also attempts to incorporate publications on a broader range of collocation-based physics informed neural networks, which stars form the vanilla {PINN}, as well as many other variants, such as physics-constrained neural networks ({PCNN}), variational hp-{VPINN}, and conservative {PINN} ({CPINN}). The study indicates that most research has focused on customizing the {PINN} through different activation functions, gradient optimization techniques, neural network structures, and loss function structures. Despite the wide range of applications for which {PINNs} have been used, by demonstrating their ability to be more feasible in some contexts than classical numerical techniques like Finite Element Method ({FEM}), advancements are still possible, most notably theoretical issues that remain unresolved.}
@@ -297,8 +357,8 @@
       \strng{authorbibnamehash}{1c18533cebbda08fb288ae5804f700a2}
       \strng{authornamehash}{1c18533cebbda08fb288ae5804f700a2}
       \strng{authorfullhash}{1c18533cebbda08fb288ae5804f700a2}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Neural networks are increasingly used to construct numerical solution methods for partial diﬀerential equations. In this expository review, we introduce and contrast three important recent approaches attractive in their simplicity and their suitability for high-dimensional problems: physics-informed neural networks, methods based on the Feynman-Kac formula and methods based on the solution of backward stochastic diﬀerential equations. The article is accompanied by a suite of expository software in the form of Jupyter notebooks in which each basic methodology is explained step by step, allowing for a quick assimilation and experimentation. An extensive bibliography summarizes the state of the art.}
@@ -327,6 +387,65 @@
       \endverb
       \verb{url}
       \verb https://onlinelibrary.wiley.com/doi/10.1002/gamm.202100006
+      \endverb
+    \endentry
+    \entry{han_solving_2018}{article}{}
+      \name{author}{3}{}{%
+        {{hash=dcbed821c92a82aa9d46cf353c58ec62}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Jiequn},
+           giveni={J\bibinitperiod}}}%
+        {{hash=31ce46557e2d08499e8b06d041f40bf2}{%
+           family={Jentzen},
+           familyi={J\bibinitperiod},
+           given={Arnulf},
+           giveni={A\bibinitperiod}}}%
+        {{hash=268e9715905f2ab3cb20df636d3750c1}{%
+           family={E},
+           familyi={E\bibinitperiod},
+           given={Weinan},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{d917cfee603f491b8bf02638f1d9d19c}
+      \strng{fullhash}{d917cfee603f491b8bf02638f1d9d19c}
+      \strng{bibnamehash}{d917cfee603f491b8bf02638f1d9d19c}
+      \strng{authorbibnamehash}{d917cfee603f491b8bf02638f1d9d19c}
+      \strng{authornamehash}{d917cfee603f491b8bf02638f1d9d19c}
+      \strng{authorfullhash}{d917cfee603f491b8bf02638f1d9d19c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Significance Partial differential equations ({PDEs}) are among the most ubiquitous tools used in modeling problems in nature. However, solving high-dimensional {PDEs} has been notoriously difficult due to the “curse of dimensionality.” This paper introduces a practical algorithm for solving nonlinear {PDEs} in very high (hundreds and potentially thousands of) dimensions. Numerical results suggest that the proposed algorithm is quite effective for a wide variety of problems, in terms of both accuracy and speed. We believe that this opens up a host of possibilities in economics, finance, operational research, and physics, by considering all participating agents, assets, resources, or particles together at the same time, instead of making ad hoc assumptions on their interrelationships. , Developing algorithms for solving high-dimensional partial differential equations ({PDEs}) has been an exceedingly difficult task for a long time, due to the notoriously difficult problem known as the “curse of dimensionality.” This paper introduces a deep learning-based approach that can handle general high-dimensional parabolic {PDEs}. To this end, the {PDEs} are reformulated using backward stochastic differential equations and the gradient of the unknown solution is approximated by neural networks, very much in the spirit of deep reinforcement learning with the gradient acting as the policy function. Numerical results on examples including the nonlinear Black–Scholes equation, the Hamilton–Jacobi–Bellman equation, and the Allen–Cahn equation suggest that the proposed algorithm is quite effective in high dimensions, in terms of both accuracy and cost. This opens up possibilities in economics, finance, operational research, and physics, by considering all participating agents, assets, resources, or particles together at the same time, instead of making ad hoc assumptions on their interrelationships.}
+      \field{day}{21}
+      \field{issn}{0027-8424, 1091-6490}
+      \field{journaltitle}{Proceedings of the National Academy of Sciences}
+      \field{langid}{english}
+      \field{month}{8}
+      \field{number}{34}
+      \field{shortjournal}{Proc. Natl. Acad. Sci. U.S.A.}
+      \field{title}{Solving high-dimensional partial differential equations using deep learning}
+      \field{urlday}{26}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{volume}{115}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{8505\bibrangedash 8510}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1073/pnas.1718942115
+      \endverb
+      \verb{file}
+      \verb pnas.1718942115.pdf:/home/carlos/Descargas/pnas.1718942115.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://pnas.org/doi/full/10.1073/pnas.1718942115
+      \endverb
+      \verb{url}
+      \verb https://pnas.org/doi/full/10.1073/pnas.1718942115
       \endverb
     \endentry
     \entry{bismut_conjugate_1973}{article}{}
@@ -902,8 +1021,13 @@
       \verb Chessari et al. - Numerical methods for backward stochastic differen.pdf:/home/carlos/Zotero/storage/YUYKMCJ8/Chessari et al. - Numerical methods for backward stochastic differen.pdf:application/pdf
       \endverb
     \endentry
-    \entry{han_solving_2018}{article}{}
+    \entry{e_algorithms_2022}{article}{}
       \name{author}{3}{}{%
+        {{hash=268e9715905f2ab3cb20df636d3750c1}{%
+           family={E},
+           familyi={E\bibinitperiod},
+           given={Weinan},
+           giveni={W\bibinitperiod}}}%
         {{hash=dcbed821c92a82aa9d46cf353c58ec62}{%
            family={Han},
            familyi={H\bibinitperiod},
@@ -914,52 +1038,111 @@
            familyi={J\bibinitperiod},
            given={Arnulf},
            giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{5e547ff0c21fdf3d6461d7f7c3449b5e}
+      \strng{fullhash}{5e547ff0c21fdf3d6461d7f7c3449b5e}
+      \strng{bibnamehash}{5e547ff0c21fdf3d6461d7f7c3449b5e}
+      \strng{authorbibnamehash}{5e547ff0c21fdf3d6461d7f7c3449b5e}
+      \strng{authornamehash}{5e547ff0c21fdf3d6461d7f7c3449b5e}
+      \strng{authorfullhash}{5e547ff0c21fdf3d6461d7f7c3449b5e}
+      \field{extraname}{1}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{In recent years, tremendous progress has been made on numerical algorithms for solving partial diﬀerential equations ({PDEs}) in a very high dimension, using ideas from either nonlinear (multilevel) Monte Carlo or deep learning. They are potentially free of the curse of dimensionality for many diﬀerent applications and have been proven to be so in the case of some nonlinear Monte Carlo methods for nonlinear parabolic {PDEs}.}
+      \field{day}{6}
+      \field{issn}{0951-7715, 1361-6544}
+      \field{journaltitle}{Nonlinearity}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{number}{1}
+      \field{shortjournal}{Nonlinearity}
+      \field{shorttitle}{Algorithms for solving high dimensional {PDEs}}
+      \field{title}{Algorithms for solving high dimensional {PDEs}: from nonlinear Monte Carlo to machine learning}
+      \field{urlday}{14}
+      \field{urlmonth}{2}
+      \field{urlyear}{2023}
+      \field{volume}{35}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{278\bibrangedash 310}
+      \range{pages}{33}
+      \verb{doi}
+      \verb 10.1088/1361-6544/ac337f
+      \endverb
+      \verb{file}
+      \verb E et al. - 2022 - Algorithms for solving high dimensional PDEs from.pdf:/home/carlos/Zotero/storage/YBENMVKA/E et al. - 2022 - Algorithms for solving high dimensional PDEs from.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://iopscience.iop.org/article/10.1088/1361-6544/ac337f
+      \endverb
+      \verb{url}
+      \verb https://iopscience.iop.org/article/10.1088/1361-6544/ac337f
+      \endverb
+    \endentry
+    \entry{beck_machine_2019}{article}{}
+      \name{author}{3}{}{%
+        {{hash=53a777055b139b74439193de18ada60c}{%
+           family={Beck},
+           familyi={B\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
         {{hash=268e9715905f2ab3cb20df636d3750c1}{%
            family={E},
            familyi={E\bibinitperiod},
            given={Weinan},
            giveni={W\bibinitperiod}}}%
+        {{hash=31ce46557e2d08499e8b06d041f40bf2}{%
+           family={Jentzen},
+           familyi={J\bibinitperiod},
+           given={Arnulf},
+           giveni={A\bibinitperiod}}}%
       }
-      \strng{namehash}{d917cfee603f491b8bf02638f1d9d19c}
-      \strng{fullhash}{d917cfee603f491b8bf02638f1d9d19c}
-      \strng{bibnamehash}{d917cfee603f491b8bf02638f1d9d19c}
-      \strng{authorbibnamehash}{d917cfee603f491b8bf02638f1d9d19c}
-      \strng{authornamehash}{d917cfee603f491b8bf02638f1d9d19c}
-      \strng{authorfullhash}{d917cfee603f491b8bf02638f1d9d19c}
+      \strng{namehash}{bb592905e95486ef5243870097ddb251}
+      \strng{fullhash}{bb592905e95486ef5243870097ddb251}
+      \strng{bibnamehash}{bb592905e95486ef5243870097ddb251}
+      \strng{authorbibnamehash}{bb592905e95486ef5243870097ddb251}
+      \strng{authornamehash}{bb592905e95486ef5243870097ddb251}
+      \strng{authorfullhash}{bb592905e95486ef5243870097ddb251}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Significance Partial differential equations ({PDEs}) are among the most ubiquitous tools used in modeling problems in nature. However, solving high-dimensional {PDEs} has been notoriously difficult due to the “curse of dimensionality.” This paper introduces a practical algorithm for solving nonlinear {PDEs} in very high (hundreds and potentially thousands of) dimensions. Numerical results suggest that the proposed algorithm is quite effective for a wide variety of problems, in terms of both accuracy and speed. We believe that this opens up a host of possibilities in economics, finance, operational research, and physics, by considering all participating agents, assets, resources, or particles together at the same time, instead of making ad hoc assumptions on their interrelationships. , Developing algorithms for solving high-dimensional partial differential equations ({PDEs}) has been an exceedingly difficult task for a long time, due to the notoriously difficult problem known as the “curse of dimensionality.” This paper introduces a deep learning-based approach that can handle general high-dimensional parabolic {PDEs}. To this end, the {PDEs} are reformulated using backward stochastic differential equations and the gradient of the unknown solution is approximated by neural networks, very much in the spirit of deep reinforcement learning with the gradient acting as the policy function. Numerical results on examples including the nonlinear Black–Scholes equation, the Hamilton–Jacobi–Bellman equation, and the Allen–Cahn equation suggest that the proposed algorithm is quite effective in high dimensions, in terms of both accuracy and cost. This opens up possibilities in economics, finance, operational research, and physics, by considering all participating agents, assets, resources, or particles together at the same time, instead of making ad hoc assumptions on their interrelationships.}
-      \field{day}{21}
-      \field{issn}{0027-8424, 1091-6490}
-      \field{journaltitle}{Proceedings of the National Academy of Sciences}
-      \field{langid}{english}
+      \field{abstract}{High-dimensional partial differential equations ({PDE}) appear in a number of models from the financial industry, such as in derivative pricing models, credit valuation adjustment ({CVA}) models, or portfolio optimization models. The {PDEs} in such applications are high-dimensional as the dimension corresponds to the number of financial assets in a portfolio. Moreover, such {PDEs} are often fully nonlinear due to the need to incorporate certain nonlinear phenomena in the model such as default risks, transaction costs, volatility uncertainty (Knightian uncertainty), or trading constraints in the model. Such high-dimensional fully nonlinear {PDEs} are exceedingly difficult to solve as the computational effort for standard approximation methods grows exponentially with the dimension. In this work we propose a new method for solving high-dimensional fully nonlinear second-order {PDEs}. Our method can in particular be used to sample from high-dimensional nonlinear expectations. The method is based on (i) a connection between fully nonlinear second-order {PDEs} and second-order backward stochastic differential equations (2BSDEs), (ii) a merged formulation of the {PDE} and the 2BSDE problem, (iii) a temporal forward discretization of the 2BSDE and a spatial approximation via deep neural nets, and (iv) a stochastic gradient descent-type optimization procedure. Numerical results obtained using \$\{{\textbackslash}rm T\{{\textbackslash}small {ENSOR}\}F\{{\textbackslash}small {LOW}\}\}\$ in \$\{{\textbackslash}rm P\{{\textbackslash}small {YTHON}\}\}\$ illustrate the efficiency and the accuracy of the method in the cases of a \$100\$-dimensional Black-Scholes-Barenblatt equation, a \$100\$-dimensional Hamilton-Jacobi-Bellman equation, and a nonlinear expectation of a \$ 100 \$-dimensional \$ G \$-Brownian motion.}
+      \field{eprinttype}{arxiv}
+      \field{issn}{0938-8974, 1432-1467}
+      \field{journaltitle}{Journal of Nonlinear Science}
       \field{month}{8}
-      \field{number}{34}
-      \field{shortjournal}{Proc. Natl. Acad. Sci. U.S.A.}
-      \field{title}{Solving high-dimensional partial differential equations using deep learning}
-      \field{urlday}{26}
-      \field{urlmonth}{9}
-      \field{urlyear}{2022}
-      \field{volume}{115}
-      \field{year}{2018}
+      \field{number}{4}
+      \field{shortjournal}{J Nonlinear Sci}
+      \field{title}{Machine learning approximation algorithms for high-dimensional fully nonlinear partial differential equations and second-order backward stochastic differential equations}
+      \field{urlday}{5}
+      \field{urlmonth}{3}
+      \field{urlyear}{2023}
+      \field{volume}{29}
+      \field{year}{2019}
       \field{dateera}{ce}
       \field{urldateera}{ce}
-      \field{pages}{8505\bibrangedash 8510}
-      \range{pages}{6}
+      \field{pages}{1563\bibrangedash 1619}
+      \range{pages}{57}
       \verb{doi}
-      \verb 10.1073/pnas.1718942115
+      \verb 10.1007/s00332-018-9525-3
+      \endverb
+      \verb{eprint}
+      \verb 1709.05963 [cs, math, stat]
       \endverb
       \verb{file}
-      \verb pnas.1718942115.pdf:/home/carlos/Descargas/pnas.1718942115.pdf:application/pdf
+      \verb arXiv Fulltext PDF:/home/carlos/Zotero/storage/33RP8QD8/Beck et al. - 2019 - Machine learning approximation algorithms for high.pdf:application/pdf;arXiv.org Snapshot:/home/carlos/Zotero/storage/93WCBBBX/1709.html:text/html
       \endverb
       \verb{urlraw}
-      \verb https://pnas.org/doi/full/10.1073/pnas.1718942115
+      \verb http://arxiv.org/abs/1709.05963
       \endverb
       \verb{url}
-      \verb https://pnas.org/doi/full/10.1073/pnas.1718942115
+      \verb http://arxiv.org/abs/1709.05963
       \endverb
+      \keyw{Computer Science - Machine Learning,Mathematics - Numerical Analysis,Statistics - Machine Learning,Mathematics - Probability,65C99,65M99,60H30,65-05,Computer Science - Neural and Evolutionary Computing}
     \endentry
     \entry{e_deep_2017}{article}{}
       \name{author}{3}{}{%
@@ -985,6 +1168,7 @@
       \strng{authorbibnamehash}{5e547ff0c21fdf3d6461d7f7c3449b5e}
       \strng{authornamehash}{5e547ff0c21fdf3d6461d7f7c3449b5e}
       \strng{authorfullhash}{5e547ff0c21fdf3d6461d7f7c3449b5e}
+      \field{extraname}{2}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
@@ -1264,6 +1448,7 @@
       \strng{authorbibnamehash}{3fda6a4067919d21da05be927834cf75}
       \strng{authornamehash}{3fda6a4067919d21da05be927834cf75}
       \strng{authorfullhash}{3fda6a4067919d21da05be927834cf75}
+      \field{extraname}{1}
       \field{sortinit}{5}
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
@@ -1416,10 +1601,222 @@
       \verb https://www.rand.org/pubs/research_memoranda/RM125.html
       \endverb
     \endentry
+    \entry{achdou_mean_2020}{inbook}{}
+      \name{author}{2}{}{%
+        {{hash=eb4516e653879aec80029cb07f197092}{%
+           family={Achdou},
+           familyi={A\bibinitperiod},
+           given={Yves},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=b784c21c4869994f46ae1f521c97ae04}{%
+           family={Laurière},
+           familyi={L\bibinitperiod},
+           given={Mathieu},
+           giveni={M\bibinitperiod}}}%
+      }
+      \name{bookauthor}{5}{}{%
+        {{hash=eb4516e653879aec80029cb07f197092}{%
+           family={Achdou},
+           familyi={A\bibinitperiod},
+           given={Yves},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=5fa5d4a72b012ed8ba98f5e624da13a7}{%
+           family={Cardaliaguet},
+           familyi={C\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+        {{hash=799c6f3ae3f94478b9b2d2aadabd8387}{%
+           family={Delarue},
+           familyi={D\bibinitperiod},
+           given={François},
+           giveni={F\bibinitperiod}}}%
+        {{hash=6a1aa7a56daed411aec694ed4130867c}{%
+           family={Porretta},
+           familyi={P\bibinitperiod},
+           given={Alessio},
+           giveni={A\bibinitperiod}}}%
+        {{hash=deb5f5e08d40c7c61a19403771acf3c3}{%
+           family={Santambrogio},
+           familyi={S\bibinitperiod},
+           given={Filippo},
+           giveni={F\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=5fa5d4a72b012ed8ba98f5e624da13a7}{%
+           family={Cardaliaguet},
+           familyi={C\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+        {{hash=6a1aa7a56daed411aec694ed4130867c}{%
+           family={Porretta},
+           familyi={P\bibinitperiod},
+           given={Alessio},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{a6c60fda753b0dde230fcf6f74ee8978}
+      \strng{fullhash}{a6c60fda753b0dde230fcf6f74ee8978}
+      \strng{bibnamehash}{a6c60fda753b0dde230fcf6f74ee8978}
+      \strng{authorbibnamehash}{a6c60fda753b0dde230fcf6f74ee8978}
+      \strng{authornamehash}{a6c60fda753b0dde230fcf6f74ee8978}
+      \strng{authorfullhash}{a6c60fda753b0dde230fcf6f74ee8978}
+      \strng{bookauthorbibnamehash}{7445715211e5ef60e5abac064d45ce87}
+      \strng{bookauthornamehash}{7445715211e5ef60e5abac064d45ce87}
+      \strng{bookauthorfullhash}{6ac653996326b90757c979c79e4b66de}
+      \strng{editorbibnamehash}{f725986ef5f98c13fea36f5308b7c206}
+      \strng{editornamehash}{f725986ef5f98c13fea36f5308b7c206}
+      \strng{editorfullhash}{f725986ef5f98c13fea36f5308b7c206}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The theory of mean ﬁeld games aims at studying deterministic or stochastic diﬀerential games (Nash equilibria) as the number of agents tends to inﬁnity. Since very few mean ﬁeld games have explicit or semi-explicit solutions, numerical simulations play a crucial role in obtaining quantitative information from this class of models. They may lead to systems of evolutive partial diﬀerential equations coupling a backward Bellman equation and a forward Fokker-Planck equation. In the present survey, we focus on such systems. The forward-backward structure is an important feature of this system, which makes it necessary to design unusual strategies for mathematical analysis and numerical approximation. In this survey, several aspects of a ﬁnite diﬀerence method used to approximate the previously mentioned system of {PDEs} are discussed, including convergence, variational aspects and algorithms for solving the resulting systems of nonlinear equations. Finally, we discuss in details two applications of mean ﬁeld games to the study of crowd motion and to macroeconomics, a comparison with mean ﬁeld type control, and present numerical simulations.}
+      \field{booktitle}{Mean Field Games}
+      \field{isbn}{978-3-030-59836-5 978-3-030-59837-2}
+      \field{langid}{english}
+      \field{note}{Series Title: Lecture Notes in Mathematics}
+      \field{shorttitle}{Mean Field Games and Applications}
+      \field{title}{Mean Field Games and Applications: Numerical Aspects}
+      \field{urlday}{17}
+      \field{urlmonth}{2}
+      \field{urlyear}{2023}
+      \field{volume}{2281}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{249\bibrangedash 307}
+      \range{pages}{59}
+      \verb{doi}
+      \verb 10.1007/978-3-030-59837-2_4
+      \endverb
+      \verb{file}
+      \verb Achdou y Laurière - 2020 - Mean Field Games and Applications Numerical Aspec.pdf:/home/carlos/Zotero/storage/HHG2RD4U/Achdou y Laurière - 2020 - Mean Field Games and Applications Numerical Aspec.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://link.springer.com/10.1007/978-3-030-59837-2_4
+      \endverb
+      \verb{url}
+      \verb http://link.springer.com/10.1007/978-3-030-59837-2_4
+      \endverb
+    \endentry
+    \entry{carmona_control_2013}{article}{}
+      \name{author}{3}{}{%
+        {{hash=370488c27988d8e01125afd81ea71055}{%
+           family={Carmona},
+           familyi={C\bibinitperiod},
+           given={René},
+           giveni={R\bibinitperiod}}}%
+        {{hash=799c6f3ae3f94478b9b2d2aadabd8387}{%
+           family={Delarue},
+           familyi={D\bibinitperiod},
+           given={François},
+           giveni={F\bibinitperiod}}}%
+        {{hash=5d456ff8726dbd089fd8e928030848e9}{%
+           family={Lachapelle},
+           familyi={L\bibinitperiod},
+           given={Aimé},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{1a9ae48dcdb0534a8fc804a88b02ee7a}
+      \strng{fullhash}{1a9ae48dcdb0534a8fc804a88b02ee7a}
+      \strng{bibnamehash}{1a9ae48dcdb0534a8fc804a88b02ee7a}
+      \strng{authorbibnamehash}{1a9ae48dcdb0534a8fc804a88b02ee7a}
+      \strng{authornamehash}{1a9ae48dcdb0534a8fc804a88b02ee7a}
+      \strng{authorfullhash}{1a9ae48dcdb0534a8fc804a88b02ee7a}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We discuss and compare two methods of investigations for the asymptotic regime of stochastic diﬀerential games with a ﬁnite number of players as the number of players tends to the inﬁnity. These two methods diﬀer in the order in which optimization and passage to the limit are performed. When optimizing ﬁrst, the asymptotic problem is usually referred to as a mean-ﬁeld game. Otherwise, it reads as an optimization problem over controlled dynamics of {McKean}-Vlasov type. Both problems lead to the analysis of forward-backward stochastic diﬀerential equations, the coeﬃcients of which depend on the marginal distributions of the solutions. We explain the diﬀerence between the nature and solutions to the two approaches by investigating the corresponding forward-backward systems. General results are stated and speciﬁc examples are treated, especially when cost functionals are of linear-quadratic type.}
+      \field{issn}{1862-9679, 1862-9660}
+      \field{journaltitle}{Mathematics and Financial Economics}
+      \field{langid}{english}
+      \field{month}{3}
+      \field{number}{2}
+      \field{shortjournal}{Math Finan Econ}
+      \field{title}{Control of {McKean}–Vlasov dynamics versus mean field games}
+      \field{urlday}{30}
+      \field{urlmonth}{5}
+      \field{urlyear}{2023}
+      \field{volume}{7}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{131\bibrangedash 166}
+      \range{pages}{36}
+      \verb{doi}
+      \verb 10.1007/s11579-012-0089-y
+      \endverb
+      \verb{file}
+      \verb Carmona et al. - 2013 - Control of McKean–Vlasov dynamics versus mean fiel.pdf:/home/carlos/Zotero/storage/PSXLZ4LD/Carmona et al. - 2013 - Control of McKean–Vlasov dynamics versus mean fiel.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://link.springer.com/10.1007/s11579-012-0089-y
+      \endverb
+      \verb{url}
+      \verb http://link.springer.com/10.1007/s11579-012-0089-y
+      \endverb
+    \endentry
+    \entry{nusken_solving_2023}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=1809e073002f6b361a45b910e990e573}{%
+           family={Nüsken},
+           familyi={N\bibinitperiod},
+           given={Nikolas},
+           giveni={N\bibinitperiod}}}%
+        {{hash=320a939ee9de885642a8b23fb9d71407}{%
+           family={Richter},
+           familyi={R\bibinitperiod},
+           given={Lorenz},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{3fda6a4067919d21da05be927834cf75}
+      \strng{fullhash}{3fda6a4067919d21da05be927834cf75}
+      \strng{bibnamehash}{3fda6a4067919d21da05be927834cf75}
+      \strng{authorbibnamehash}{3fda6a4067919d21da05be927834cf75}
+      \strng{authornamehash}{3fda6a4067919d21da05be927834cf75}
+      \strng{authorfullhash}{3fda6a4067919d21da05be927834cf75}
+      \field{extraname}{2}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Optimal control of diffusion processes is intimately connected to the problem of solving certain Hamilton-Jacobi-Bellman equations. Building on recent machine learning inspired approaches towards high-dimensional {PDEs}, we investigate the potential of \${\textbackslash}textit\{iterative diffusion optimisation\}\$ techniques, in particular considering applications in importance sampling and rare event simulation, and focusing on problems without diffusion control, with linearly controlled drift and running costs that depend quadratically on the control. More generally, our methods apply to nonlinear parabolic {PDEs} with a certain shift invariance. The choice of an appropriate loss function being a central element in the algorithmic design, we develop a principled framework based on divergences between path measures, encompassing various existing methods. Motivated by connections to forward-backward {SDEs}, we propose and study the novel \${\textbackslash}textit\{log-variance\}\$ divergence, showing favourable properties of corresponding Monte Carlo estimators. The promise of the developed approach is exemplified by a range of high-dimensional and metastable numerical examples.}
+      \field{day}{29}
+      \field{eprinttype}{arxiv}
+      \field{month}{1}
+      \field{number}{{arXiv}:2005.05409}
+      \field{shorttitle}{Solving high-dimensional Hamilton-Jacobi-Bellman {PDEs} using neural networks}
+      \field{title}{Solving high-dimensional Hamilton-Jacobi-Bellman {PDEs} using neural networks: perspectives from the theory of controlled diffusions and measures on path space}
+      \field{urlday}{27}
+      \field{urlmonth}{3}
+      \field{urlyear}{2023}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{eprint}
+      \verb 2005.05409 [cs, math, stat]
+      \endverb
+      \verb{file}
+      \verb arXiv Fulltext PDF:/home/carlos/Zotero/storage/Z5QRXEMC/Nüsken y Richter - 2023 - Solving high-dimensional Hamilton-Jacobi-Bellman P.pdf:application/pdf;arXiv.org Snapshot:/home/carlos/Zotero/storage/PWJBXAF3/2005.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2005.05409
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2005.05409
+      \endverb
+      \keyw{Computer Science - Machine Learning,Mathematics - Numerical Analysis,Statistics - Machine Learning,Mathematics - Probability,Mathematics - Optimization and Control}
+    \endentry
   \enddatalist
-  \missing{PINNS2}
-  \missing{PINNs}
-  \missing{bibid}
 \endrefsection
 \endinput
 

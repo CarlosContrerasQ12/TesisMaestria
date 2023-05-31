@@ -2351,15 +2351,16 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">ControlOptimizacion.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">BSDEs.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex" glob="false">MFG.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">PINNS.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="6" intorder="1">higham_deep_2019</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">PINNs</bcf:citekey>
-    <bcf:citekey order="7" intorder="2">PINNS2</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">raissi_physics-informed_2019</bcf:citekey>
+    <bcf:citekey order="7" intorder="2">sirignano_dgm_2018</bcf:citekey>
     <bcf:citekey order="8" intorder="1">li_fourier_2021</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">sirignano_dgm_2018</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">cuomo_scientific_2022</bcf:citekey>
-    <bcf:citekey order="10" intorder="2">blechschmidt_three_2021</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">cuomo_scientific_2022</bcf:citekey>
+    <bcf:citekey order="9" intorder="2">blechschmidt_three_2021</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">han_solving_2018</bcf:citekey>
     <bcf:citekey order="11" intorder="1">bismut_conjugate_1973</bcf:citekey>
     <bcf:citekey order="12" intorder="1">pardoux_adapted_1990</bcf:citekey>
     <bcf:citekey order="13" intorder="1">zhang_backward_2017</bcf:citekey>
@@ -2383,19 +2384,19 @@
     <bcf:citekey order="28" intorder="1">pham_continuous-time_2009</bcf:citekey>
     <bcf:citekey order="29" intorder="1">pham_continuous-time_2009</bcf:citekey>
     <bcf:citekey order="30" intorder="1">chessari_numerical_nodate</bcf:citekey>
-    <bcf:citekey order="31" intorder="1">bibid</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">e_algorithms_2022</bcf:citekey>
     <bcf:citekey order="32" intorder="1">higham_deep_2019</bcf:citekey>
-    <bcf:citekey order="33" intorder="1">bibid</bcf:citekey>
-    <bcf:citekey order="34" intorder="1">bibid</bcf:citekey>
-    <bcf:citekey order="35" intorder="1">han_solving_2018</bcf:citekey>
-    <bcf:citekey order="35" intorder="2">e_deep_2017</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">beck_machine_2019</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">han_solving_2018</bcf:citekey>
+    <bcf:citekey order="34" intorder="2">e_deep_2017</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">chan-wai-nam_machine_2018</bcf:citekey>
     <bcf:citekey order="36" intorder="1">chan-wai-nam_machine_2018</bcf:citekey>
-    <bcf:citekey order="37" intorder="1">chan-wai-nam_machine_2018</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">han_convergence_2020</bcf:citekey>
     <bcf:citekey order="38" intorder="1">han_convergence_2020</bcf:citekey>
     <bcf:citekey order="39" intorder="1">han_convergence_2020</bcf:citekey>
-    <bcf:citekey order="40" intorder="1">han_convergence_2020</bcf:citekey>
-    <bcf:citekey order="41" intorder="1">hure_deep_2020</bcf:citekey>
-    <bcf:citekey order="42" intorder="1">han_solving_2018</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">hure_deep_2020</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">han_solving_2018</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">chan-wai-nam_machine_2018</bcf:citekey>
     <bcf:citekey order="43" intorder="1">chan-wai-nam_machine_2018</bcf:citekey>
     <bcf:citekey order="44" intorder="1">chan-wai-nam_machine_2018</bcf:citekey>
     <bcf:citekey order="45" intorder="1">chan-wai-nam_machine_2018</bcf:citekey>
@@ -2404,23 +2405,25 @@
     <bcf:citekey order="48" intorder="1">chan-wai-nam_machine_2018</bcf:citekey>
     <bcf:citekey order="49" intorder="1">chan-wai-nam_machine_2018</bcf:citekey>
     <bcf:citekey order="50" intorder="1">chan-wai-nam_machine_2018</bcf:citekey>
-    <bcf:citekey order="51" intorder="1">chan-wai-nam_machine_2018</bcf:citekey>
-    <bcf:citekey order="52" intorder="1">raissi_forward-backward_2018</bcf:citekey>
+    <bcf:citekey order="51" intorder="1">raissi_forward-backward_2018</bcf:citekey>
+    <bcf:citekey order="52" intorder="1">sirignano_dgm_2018</bcf:citekey>
     <bcf:citekey order="53" intorder="1">sirignano_dgm_2018</bcf:citekey>
-    <bcf:citekey order="54" intorder="1">sirignano_dgm_2018</bcf:citekey>
+    <bcf:citekey order="54" intorder="1">nusken_interpolating_2023</bcf:citekey>
     <bcf:citekey order="55" intorder="1">nusken_interpolating_2023</bcf:citekey>
     <bcf:citekey order="56" intorder="1">nusken_interpolating_2023</bcf:citekey>
-    <bcf:citekey order="57" intorder="1">nusken_interpolating_2023</bcf:citekey>
-    <bcf:citekey order="58" intorder="1">hu_recent_nodate</bcf:citekey>
-    <bcf:citekey order="58" intorder="2">han_deep_2020</bcf:citekey>
-    <bcf:citekey order="59" intorder="1">brown_notes_1949</bcf:citekey>
+    <bcf:citekey order="57" intorder="1">hu_recent_nodate</bcf:citekey>
+    <bcf:citekey order="57" intorder="2">han_deep_2020</bcf:citekey>
+    <bcf:citekey order="58" intorder="1">brown_notes_1949</bcf:citekey>
+    <bcf:citekey order="59" intorder="1">han_deep_2020</bcf:citekey>
     <bcf:citekey order="60" intorder="1">han_deep_2020</bcf:citekey>
-    <bcf:citekey order="61" intorder="1">han_deep_2020</bcf:citekey>
-    <bcf:citekey order="61" intorder="2">hu_recent_nodate</bcf:citekey>
-    <bcf:citekey order="62" intorder="1">pham_continuous-time_2009</bcf:citekey>
-    <bcf:citekey order="63" intorder="1">pham_continuous-time_2009</bcf:citekey>
+    <bcf:citekey order="60" intorder="2">hu_recent_nodate</bcf:citekey>
+    <bcf:citekey order="61" intorder="1">achdou_mean_2020</bcf:citekey>
+    <bcf:citekey order="62" intorder="1">carmona_control_2013</bcf:citekey>
+    <bcf:citekey order="63" intorder="1">nusken_solving_2023</bcf:citekey>
     <bcf:citekey order="64" intorder="1">pham_continuous-time_2009</bcf:citekey>
     <bcf:citekey order="65" intorder="1">pham_continuous-time_2009</bcf:citekey>
+    <bcf:citekey order="66" intorder="1">pham_continuous-time_2009</bcf:citekey>
+    <bcf:citekey order="67" intorder="1">pham_continuous-time_2009</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

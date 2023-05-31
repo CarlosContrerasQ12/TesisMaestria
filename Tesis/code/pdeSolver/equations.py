@@ -92,6 +92,25 @@ class HJB_LQR_Unbounded():
         #self.final_point=torch.Tensor(np.array([0.2,0.5,0.8,0.5]))
         self.final_point=torch.ones(self.dim)*0.5
 
+    """
+    def true_solution(self,t0,X0,Nsim,dt):
+        Nlong=int((self.domain.total_time-t0)/dt)
+        dw_sample=torch.tensor(np.random.normal(size=[Nsim,self.dim,Nlong])*np.sqrt(dt)).requires_grad_(False)
+        x_sample = torch.zeros([Nsim, self.dim,Nlong]).requires_grad_(False)
+        F=0.0
+        x_sample[:, :, 0] = torch.ones([Nsim, self.dim],requires_grad=False) * X0
+        for i in range(Nlong-1):
+            x_sample[:, :, i + 1] = x_sample[:, :, i] + self.sig * dw_sample[:, :, i]
+            F+=self.F(t0+i*dt,x_sample[:,:,i])*dt
+        term1=-(self.lam/self.nu)*self.g_tf(x_sample[:,:,-1])
+        term2=-(self.lam/self.nu)*F
+        print(torch.mean(term1))
+        print(torch.mean(term2))
+        print("Calcula")
+        return -(self.nu/self.lam)*torch.log(torch.mean(torch.exp(term1+term2)))
+    """
+
+    #"""
     def true_solution(self,t0,X0,Nsim,dt):
         Nlong=int((self.domain.total_time-t0)/dt)
         F=0.0
@@ -103,17 +122,22 @@ class HJB_LQR_Unbounded():
             
         term1=-(self.lam/self.nu)*self.g_tf(x_sample)
         term2=-(self.lam/self.nu)*F
-        print("Calcula")
         return -(self.nu/self.lam)*torch.log(torch.mean(torch.exp(term1+term2)))
-    
+    #"""
+
+
     def f_tf(self, t, x, y, z):
-        return -self.lam * torch.sum(torch.square(z), 1, keepdims=True) +self.F(t,x)
+        return -self.lam * torch.sum(torch.square(z), axis=1) +self.F(t,x)
+    
+    def g_tf2(self, x):
+        return torch.sum(torch.square(x-torch.ones((x.shape[0],self.dim))*self.final_point),axis=1)
 
     def g_tf(self, x):
-        return torch.sum(torch.square(x-torch.ones((x.shape[0],self.dim))*self.final_point),axis=1, keepdims=True)
-        #return torch.log((1 + torch.sum(torch.square(x), 1, keepdims=True)) / 2)
+        return torch.sum(torch.square(x-torch.ones((x.shape[0],self.dim))*self.final_point),axis=1)
+        #return torch.log((1 + torch.sum(torch.square(x), 1,keepdims=True)) / 2)
 
     def F(self,t,x):
+        #return torch.zeros(x.shape[0])
         C=1.0
         sigm=0.5
         dist1=torch.square(x[:,0]-x[:,2])+torch.square(x[:,1]-x[:,3])

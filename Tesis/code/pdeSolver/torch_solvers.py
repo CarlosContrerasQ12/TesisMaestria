@@ -590,12 +590,14 @@ class Deep_BSDE_Solver(Solver):
             self.optimizer.step()
             
             if self.currEps % self.logging_interval==0:
-                loss = self.loss_fn(valid_data, self.model(valid_data)).detach().numpy()
+                #loss = self.loss_fn(valid_data, self.model(valid_data)).detach().numpy()
                 y_init = self.model.evaluate_y_0(self.test_point).detach().numpy()[0]
                 elapsed_time = time.time() - start_time
-                err=y_init-self.true_sol
-                self.training_history.append([step, loss, y_init, err, elapsed_time])
-                print("Epoch ",self.currEps, " y_0 ",y_init," time ", elapsed_time," loss ", loss, " error ",err)
+                err=np.abs(y_init-self.true_sol)
+                #self.training_history.append([step, loss, y_init, err, elapsed_time])
+                self.training_history.append([step, y_init, err, elapsed_time])
+                #print("Epoch ",self.currEps, " y_0 ",y_init," time ", elapsed_time," loss ", loss, " error ",err)
+                print("Epoch ",self.currEps, " y_0 ",y_init," time ", elapsed_time, " error ",err)
             self.currEps+=1
 
         return np.array(self.training_history)
@@ -603,7 +605,6 @@ class Deep_BSDE_Solver(Solver):
     def loss_fn(self, inputs,results):
         DELTA_CLIP = 50.0
         dw, x = inputs
-        y_terminal = self.model(inputs)
         delta = results - self.eqn.g_tf(x[:, :, -1])
         # use linear approximation outside the clipped range
         loss = torch.mean(torch.where(torch.abs(delta) < DELTA_CLIP, torch.square(delta),
@@ -629,10 +630,10 @@ class Raissi_BSDE_Solver(object):
         self.logging_interval=solver_params["logging_interval"]
         self.optimizer=torch.optim.Adam(self.model.parameters(),lr=self.initial_lr,weight_decay=0.00001)
         self.scheduler=torch.optim.lr_scheduler.LambdaLR(self.optimizer,self.lr_schedule)
-        self.test_point=torch.zeros(eqn.dim)
+        self.test_point=torch.ones(eqn.dim)*0.9
         self.in_region=False
         self.dataGenerator=difussionSampleGeneratorBSDE(eqn, self.Nsamp,self.dt,self.Ndis,self.in_region,self.test_point)  
-        self.true_sol=eqn.true_solution(0.0,self.test_point,10000,0.01).numpy()
+        self.true_sol=eqn.true_solution(0.0,self.test_point,50000,0.01).numpy()
         print(self.true_sol)
         self.training_history=[]
         self.currEps=0
@@ -661,19 +662,21 @@ class Raissi_BSDE_Solver(object):
                                         shuffle=False,
                                         num_workers=0)
             inputs=self.dataGenerator[0]
-            loss=self.loss_fn(inputs)
+            loss=self.loss_fn2(inputs)
             self.optimizer.zero_grad(set_to_none=True)
             loss.backward()
             self.optimizer.step()
             
             if self.currEps % self.logging_interval==0:
-                loss = self.loss_fn(valid_data).detach().numpy()
+                #loss = self.loss_fn(valid_data).detach().numpy()
                 tx=torch.hstack((torch.zeros(1),self.test_point))
                 y_init = self.model(tx).detach().numpy()[0]
                 elapsed_time = time.time() - start_time
-                err=y_init-self.true_sol
-                self.training_history.append([step, loss, y_init, err, elapsed_time])
-                print("Epoch ",self.currEps, " y_0 ",y_init," time ", elapsed_time," loss ", loss, " error ",err)
+                err=np.abs(y_init-self.true_sol)
+                #self.training_history.append([step, loss, y_init, err, elapsed_time])
+                #print("Epoch ",self.currEps, " y_0 ",y_init," time ", elapsed_time," loss ", loss, " error ",err)
+                self.training_history.append([step, y_init, err, elapsed_time])
+                print("Epoch ",self.currEps, " y_0 ",y_init," time ", elapsed_time, " error ",err)
             self.currEps+=1
 
         return np.array(self.training_history)
@@ -681,6 +684,7 @@ class Raissi_BSDE_Solver(object):
     def Dg_tf(self,X): # M x D
         Gt=self.eqn.g_tf(X)
         return torch.autograd.grad(Gt, X, create_graph=True,grad_outputs=torch.ones_like(Gt),allow_unused=True)[0]
+    
     
     def loss_fn(self, inputs):
         loss=0.0
@@ -691,7 +695,9 @@ class Raissi_BSDE_Solver(object):
         Z0 = torch.autograd.grad(Y0, tx, create_graph=True,grad_outputs=torch.ones_like(Y0),allow_unused=True)[0][:,1:]
         
         for t in range(self.Ndis-1):
-            Y1_tilde = Y0 + self.eqn.f_tf(self.times[t],x[:,:,0],Y0,Z0)*self.dt + torch.sum(Z0 * dw[:, :, t], 1, keepdims=True)
+            print(self.eqn.f_tf(self.times[t],x[:,:,0],Y0,Z0).shape)
+            print((Z0 * dw[:, :, t]).shape)
+            Y1_tilde = Y0 + self.eqn.f_tf(self.times[t],x[:,:,0],Y0,Z0)*self.dt + torch.sum(Z0 * dw[:, :, t], 1)
             tx=torch.hstack((self.times[t+1]*torch.ones((x.shape[0], 1)),x[:,:,t+1]))
             tx.requires_grad_()
             Y1=self.model(tx)
@@ -704,4 +710,19 @@ class Raissi_BSDE_Solver(object):
         x.requires_grad_()
         loss += torch.sum(torch.square(Z1 - self.Dg_tf(x[:,:,-1])))
         return loss
+    
+    def loss_fn2(self,inputs):
+        dw,x=inputs
+        inte=0.0
+        for i in range(self.Ndis-1):
+            tx=torch.hstack((self.times[i]*torch.ones((x.shape[0], 1)),x[:,:,i])).requires_grad_(True)
+            Y=self.model(tx)
+            Z=self.eqn.sig*torch.autograd.grad(Y, tx, create_graph=True,grad_outputs=torch.ones_like(Y),allow_unused=True)[0][:,1:]
+            term1=-Z*dw[:,:,i]
+            term2=self.eqn.f_tf(self.times[i],x[:,:,i],Y,Z).unsqueeze(dim=-1)*self.dt
+            inte+=term1+term2
+
+        return torch.mean(torch.square(inte-self.eqn.g_tf(x[:,:,-1]).unsqueeze(dim=-1)))
+    
+
     

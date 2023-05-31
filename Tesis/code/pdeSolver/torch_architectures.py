@@ -292,12 +292,10 @@ class Global_Model_Merged_Residual_Deep_BSDE(nn.Module):
             y = all_one_vec * self.y_0
 
         for t in range(0, self.Ndis):
-            
-            inp=torch.hstack((self.time_stamp[t]*all_one_vec,y,self.eqn.g_tf(x[:,:,t]),x[:,:,t]))
+            inp=torch.cat((self.time_stamp[t]*all_one_vec,y,torch.unsqueeze(self.eqn.g_tf(x[:,:,t]),dim=-1),x[:,:,t]),dim=1)
             z = self.z_net(inp) / self.eqn.dim
-            kss=self.eqn.f_tf(self.time_stamp[t], x[:, :, t], y, z)
             y = y - self.dt * (
-                self.eqn.f_tf(self.time_stamp[t], x[:, :, t], y, z)
+                self.eqn.f_tf(self.time_stamp[t], x[:, :, t], y, z).unsqueeze(dim=-1)
             ) + torch.sum(z * dw[:, :, t], 1, keepdims=True)
         return y
 
