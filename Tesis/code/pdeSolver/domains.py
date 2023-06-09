@@ -373,7 +373,7 @@ class EmptyRoom():
         ax.axis('equal')
         for _ in range(N):
             X0=np.random.uniform2(low=0,high=1,size=2)
-            Xs,xis,dtf=self.one_agent_brownian(sig,dt,Nmax,t0,X0,dirichlet_cut,neumann_cut)
+            Xs,xis,dtf=self.one_agent_brownian(sig,dt,Nmax,X0,dirichlet_cut,neumann_cut)
             plt.scatter([Xs[-1][0]],[Xs[-1][1]],color='g')
             plt.plot(Xs[:,0],Xs[:,1])
         plt.show()
@@ -512,7 +512,7 @@ print("Elapsed (after compilation) = {}s".format((end - start)))
 """
 
 
-
+"""
 dom=EmptyRoom({"total_time":1.0,"pInf":0.4,"pSup":0.6})
 
 nu=0.01
@@ -520,12 +520,13 @@ lam=1.0
 def control_posible(t,X):
     n=np.array2([1.0-X[0],0.5-X[1]])
     return 2*np.sqrt(lam) *n/np.linalg.norm(n)
-N=1
+N=50
 nu=0.01
 sig=np.sqrt(2*nu)
 X0=np.random.uniform2(low=0,high=1,size=(N*2))
 dom.plot_N_brownian_paths(sig,0.001,1000,0.0,X0,N,dirichlet_cut=False,neumann_cut=False)
 #dom.plot_controlled_diffusion(control_posible,sig,0.001,2000,0.0,[0.1,0.5],1,dirichlet_cut=True,neumann_cut=False)
+"""
 """ 
 
 start = time.perf_counter()

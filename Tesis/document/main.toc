@@ -21,5 +21,5 @@
 \contentsline {section}{\numberline {4.2}Deep Fictitious Play}{40}{section.4.2}%
 \contentsline {section}{\numberline {4.3}An example}{41}{section.4.3}%
 \contentsline {chapter}{\numberline {5}Conclusion}{44}{chapter.5}%
-\contentsline {chapter}{Appendices}{46}{section*.15}%
+\contentsline {chapter}{Appendices}{46}{section*.14}%
 \contentsline {chapter}{Appendix \numberline {A}Stochastic Control}{46}{appendix.1.A}%

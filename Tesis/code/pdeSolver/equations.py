@@ -15,9 +15,10 @@ class HJB_LQR_Equation_Room():
     """
     def __init__(self,dom_config, eqn_config):
         eqn_config["Equation"]='HJB_LQR_Equation_2D'
-        domType=globals()[dom_config["Domain"]]
+        #domType=globals()[dom_config["Domain"]]
         self.eqn_config=eqn_config
-        self.domain=domType(dom_config) #Domain of the equation
+        #self.domain=domType(dom_config) #Domain of the equation
+        self.domain=EmptyRoom(dom_config)
         self.N=eqn_config["N"] #Number of agents
         self.dim=2*self.N
         self.nu=eqn_config["nu"] #Parameter controlling the volatility of the process

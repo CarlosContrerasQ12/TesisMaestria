@@ -62,6 +62,22 @@ class Solver():
         alpha=self.eqn.control(t,V_x)
         return alpha.detach().numpy()
     
+    def plot_sol_static(self,t):
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')
+        X,Y=self.eqn.domain.surface_plot_domain()
+        ax.set_xlabel('X Label')
+        ax.set_ylabel('Y Label')
+        ax.set_zlabel('Z Label')
+        ax.set_xlim(0,1)
+        ax.set_ylim(0,1)
+        ax.set_zlim(-5,5)
+        times=t*np.ones(np.ravel(X).shape[0])
+        tes=torch.tensor(np.stack((times,np.ravel(X), np.ravel(Y)),axis=1),dtype=self.dtype)
+        zs =self.model(tes).detach().numpy()
+        Z = zs.reshape(X.shape)
+        ax.plot_surface(X, Y, Z)
+    
     def plot_solution(self):
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
@@ -272,7 +288,7 @@ class Interp_PINN_BSDE_solver(Solver):
         self.solver_params=solver_params
         self.solver_params["Solver"]='Interp_PINN_BSDE_solver'
         self.initial_lr=solver_params["initial_lr"]
-        self.net_structure=solver_params["net_size"]
+        #self.net_structure=solver_params["net_size"]
         self.net_structure=globals()[solver_params["net_structure"]]
         self.model=self.net_structure(solver_params["net_config"],eqn)
         self.optimizer=torch.optim.Adam(self.model.parameters(),lr=self.initial_lr,weight_decay=0.00001)
@@ -443,7 +459,7 @@ class Interp_PINN_BSDE_solver(Solver):
                                         self.dirichlet_valid,
                                         self.terminal_valid)
                 L=(self.Lweights[0]*Li)+(self.Lweights[1]*Ln)+(self.Lweights[2]*Ld)+(self.Lweights[3]*LT)
-                loss=L.detach().numpy()
+                loss=L.detach().numpy()[0]
                 elapsed_time = time.time() - start_time
                 training_history.append([step, loss, elapsed_time])
                 print("Epoch ",self.currEps,

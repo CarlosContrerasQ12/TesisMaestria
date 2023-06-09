@@ -14,7 +14,7 @@ with a control function $\alpha_t$ taking values in some admissible space $A$. F
 \begin{equation}
 	J(\alpha_t)=\mathbb{E}\left[\int_{0}^{T}f(s,X_s,\alpha_s) ds +g(X_T)\right].
 \end{equation}
-is maximum over all possible control functions. Here, the function $f$ is called running cost and $g$ is called terminal cost. At any time $t$, we can choose the controller using only information observed before $t$, as we are unable to foretell the future due to the system's randomness. Therefore, we require $\alpha_t$ to be $\mathcal{F}_t$-adapted and define the set of feasible controls as $\mathcal{A}([0,T])=\{\alpha:[0,T]\times \Omega\to A\}$.\hlc[Definir tipos de control morkoviano open,...]{arg2}
+is maximum over all possible control functions. Here, the function $f$ is called running cost and $g$ is called terminal cost. At any time $t$, we can choose the controller using only information observed before $t$, as we are unable to foretell the future due to the system's randomness. Therefore, we require $\alpha_t$ to be $\mathcal{F}_t$-adapted and define the set of feasible controls as $\mathcal{A}([0,T])=\{\alpha:[0,T]\times \Omega\to A\}$.\hlc[Definir tipos de control morkoviano open,...]{}
 
 A stochastic control problem consists on finding $\hat{\alpha}\in \mathcal{A}([0,T])$ such that
 \begin{equation}
