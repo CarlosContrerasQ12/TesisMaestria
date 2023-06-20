@@ -1,5 +1,12 @@
 import numpy as np
+import time
 
+dtype=np.float32
+np.random.normal2 = lambda *args,**kwargs: np.random.normal(*args, **kwargs).astype(dtype)
+np.random.uniform2 = lambda *args,**kwargs: np.random.uniform(*args, **kwargs).astype(dtype)
+np.ones2 = lambda *args,**kwargs: np.ones(*args, **kwargs).astype(dtype)
+np.zeros2 = lambda *args,**kwargs: np.zeros(*args, **kwargs).astype(dtype)
+np.array2 = lambda *args,**kwargs: np.array(*args, **kwargs).astype(dtype)
 
 class Domain():
     """
@@ -216,11 +223,6 @@ class EmptyRoom(Domain):
             dw_samples.append(dW)
             x_samples.append(X)
         return torch.tensor(np.stack(dw_samples)).requires_grad_(False),torch.tensor(np.stack(x_samples)).requires_grad_(False)
-            
-
-
-
-
     #@mpltex.web_decorator
     def plot_N_brownian_paths(self,sig,dt,Nmax,t0,X0,N,dirichlet_cut=False,neumann_cut=False):
         """
@@ -334,3 +336,15 @@ class EmptyRoom(Domain):
         x = y = np.arange(-0.05, 1.05, 0.05)
         X, Y = np.meshgrid(x, y)
         return X , Y     
+    
+dom=EmptyRoom({"total_time":1.0,"pInf":0.4,"pSup":0.6})
+N=3
+nu=0.05
+sig=np.sqrt(2*nu)
+start = time.perf_counter()
+X0=np.random.uniform2(low=0,high=1,size=(N*2))
+for _ in range(1000):
+    #(self,sig,dt,N_max,Nagents,t0,X0,Ndifussions)
+    X=dom.simulate_difussion_N_agents_path(sig,0.001,2000,N,0.0,X0)
+end = time.perf_counter()
+print("Elapsed (after compilation) = {}s".format((end - start)))

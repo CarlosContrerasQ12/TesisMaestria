@@ -1,3 +1,5 @@
+using LoopVectorization
+
 struct EmptyRoom
     pInf::Float64
     pSup::Float64
@@ -77,7 +79,39 @@ function one_agent_brownian(dom::EmptyRoom,sig,dt,path_length,X0,dirichlet_cut=f
     return X,xis,dtf
 end
 
-dom=EmptyRoom(0.4,0.6)
-X,xis,dtf=one_agent_brownian(dom,0.01,0.01,10,[0.5,0.5],true,false);
+function simulate_one_path_Nagents(dom::EmptyRoom,sigma,dt,t0,total_time,X0,Nmax,Nagents,dirichlet_cut=true,neumann_cut=false)
+    if t0>total_time-dt
+        t0-=2*dt
+    end
+    tsim=Int(floor((total_time-t0)/dt))
+    Nsim=Int(min(Nmax,tsim))#+2
+    Xc,xic,dtf=one_agent_brownian(dom,sigma,dt,Nsim,X0[1:2],dirichlet_cut,neumann_cut)
+    X=zeros((size(Xc)[1],Nagents*2))
+    Xis=zeros((size(Xc)[1]-1,Nagents*2))
+    X[:,1:2]=Xc
+    Xis[:,1:2]=xic
 
-X
+    for i in 1:(Nagents-1)
+        Xi,xi,dtfi=one_agent_brownian(dom,sigma,dt,size(Xc)[1],X0[2*i+1:2*i+2],false,false)
+        X[:,2*i+1:2*i+2]=Xi
+        Xis[:,2*i+1:2*i+2]=xi
+    end
+    t=collect(LinRange(t0,(size(Xc)[1]-1)*dt,size(Xc)[1]))
+    t[end]=t[end-1]+dt*dtf
+    #return np.hstack((t.reshape((Xc.shape[0],1)),X)),Xis
+    return t,X,Xis
+end
+
+function simulate_N_samples(dom::EmptyRoom,sigma,dt,t0,total_time,X0,Nmax,Nagents,n_samples)
+    samples=[]
+    for _ in 1:n_samples
+        resp=simulate_one_path_Nagents(dom,sigma,dt,t0,total_time,X0,Nmax,Nagents);
+        append!(samples,resp)
+    end
+    return samples
+end
+dom=EmptyRoom(0.4,0.6);
+X,xis,dtf=one_agent_brownian(dom,0.01,0.01,10,[0.5,0.5],true,false);
+t,X,Xis=simulate_one_path_Nagents(dom,0.01,0.01,0.0,1.0,[0.5,0.5,0.2,0.2,0.2,0.8],10000,3);
+
+@time simulate_N_samples(dom,0.01,0.001,0.0,1.0,[0.5,0.5,0.2,0.2,0.2,0.8],Inf,3,1000);
