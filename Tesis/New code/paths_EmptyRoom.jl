@@ -1,4 +1,6 @@
-using LoopVectorization
+module pathsEmptyRoom
+export EmptyRoom, simulate_N_samples,test_f
+using FLoops
 
 struct EmptyRoom
     pInf::Float64
@@ -110,8 +112,14 @@ function simulate_N_samples(dom::EmptyRoom,sigma,dt,t0,total_time,X0,Nmax,Nagent
     end
     return samples
 end
-dom=EmptyRoom(0.4,0.6);
-X,xis,dtf=one_agent_brownian(dom,0.01,0.01,10,[0.5,0.5],true,false);
-t,X,Xis=simulate_one_path_Nagents(dom,0.01,0.01,0.0,1.0,[0.5,0.5,0.2,0.2,0.2,0.8],10000,3);
 
-@time simulate_N_samples(dom,0.01,0.001,0.0,1.0,[0.5,0.5,0.2,0.2,0.2,0.8],Inf,3,1000);
+function test_f(f,a)
+    return f(a)
+end
+
+end
+#dom=EmptyRoom(0.4,0.6);
+#X,xis,dtf=one_agent_brownian(dom,0.01,0.01,10,[0.5,0.5],true,false);
+#t,X,Xis=simulate_one_path_Nagents(dom,0.01,0.01,0.0,1.0,[0.5,0.5,0.2,0.2,0.2,0.8],10000,3);
+
+#@time simulate_N_samples(dom,0.01,0.001,0.0,1.0,[0.5,0.5,0.2,0.2,0.2,0.8],Inf,3,1000);

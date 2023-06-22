@@ -1,5 +1,12 @@
 import numpy as np
 import time
+from juliacall import Main as jl
+
+jl.include("/home/carlos/Documentos/Trabajo de grado/Tesis/New code/paths_EmptyRoom.jl")
+#jl.seval("using .pathsEmptyRoom")
+dom=jl.EmptyRoom(0.4,0.6)
+resp=jl.simulate_N_samples(dom,0.01,0.001,0.0,1.0,[0.5,0.5,0.2,0.2,0.2,0.8],jl.Inf,3,1000)
+
 
 dtype=np.float32
 np.random.normal2 = lambda *args,**kwargs: np.random.normal(*args, **kwargs).astype(dtype)
