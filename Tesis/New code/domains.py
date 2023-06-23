@@ -1,12 +1,12 @@
 import numpy as np
 import time
-from juliacall import Main as jl
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+from julia import Julia
+Julia(compiled_modules=False,runtime='/home/carlos/julia-1.9.1/bin/julia')
+from julia import Main as jl
 
 jl.include("/home/carlos/Documentos/Trabajo de grado/Tesis/New code/paths_EmptyRoom.jl")
-#jl.seval("using .pathsEmptyRoom")
-dom=jl.EmptyRoom(0.4,0.6)
-resp=jl.simulate_N_samples(dom,0.01,0.001,0.0,1.0,[0.5,0.5,0.2,0.2,0.2,0.8],jl.Inf,3,1000)
-
 
 dtype=np.float32
 np.random.normal2 = lambda *args,**kwargs: np.random.normal(*args, **kwargs).astype(dtype)
@@ -64,6 +64,21 @@ class EmptyRoom(Domain):
         self.pInf=dom_config["pInf"] #Lower point of the door in the y axis
         self.pSup=dom_config["pSup"] #Upper point of the door in the y axis
         self.pAnc=self.pSup-self.pInf #Width of thr door 
+        self.dom_jl=jl.EmptyRoom(self.pInf,self.pSup)
+    
+    def simulate_diffusion_path(self, sigma, dt, t0, total_time, X0, Nmax, Nagents, n_samples, dirichlet_cut=False, neumann_cut=False):
+        if Nmax==np.inf:
+            resp=jl.simulate_N_samples_threaded(self.dom_jl,sigma,dt,t0,total_time,X0,jl.Inf,Nagents,n_samples)
+        else:
+            resp=jl.simulate_N_samples_threaded(self.dom_jl,sigma,dt,t0,total_time,X0,Nmax,Nagents,n_samples)
+        return resp
+    
+    def simulate_controlled_diffusion_path(self,drift,sigma,dt,t0,total_time,X0,Nmax,Nagents,n_samples,dirichlet_cut=False,neumann_cut=False):
+        if Nmax==np.inf:
+            resp=jl.simulate_one_controlled_path_Nagents(self.dom_jl,drift,sigma,dt,t0,total_time,X0,jl.Inf,Nagents)
+        else:
+            resp=jl.simulate_one_controlled_path_Nagents(self.dom_jl,drift,sigma,dt,t0,total_time,X0,Nmax,Nagents)
+        return resp 
 
     def exited_domain(self,X0,X1):
         """
@@ -215,71 +230,11 @@ class EmptyRoom(Domain):
             resp[1,:-1,1:]=Xis
             samples.append(resp)
         return samples
-    
-    def simulate_N_diffusions(self,sig,dt,Ndis,Nagents,Ndifussions):
-        dw_samples=[]
-        x_samples=[]
-        for i in range(Ndifussions):
-            dW=np.zeros2((2*Nagents,Ndis))
-            X=np.zeros2((2*Nagents,Ndis))
-            for j in range(Nagents):
-                X0=np.random.uniform2(size=(2))
-                Xi,xi,dtfi=self.one_agent_brownian(sig,dt,Ndis,X0,False,False)
-                X[2*j:2*j+2,:]=Xi.T
-                dW[2*j:2*j+2,:-1]=xi.T
-            dw_samples.append(dW)
-            x_samples.append(X)
-        return torch.tensor(np.stack(dw_samples)).requires_grad_(False),torch.tensor(np.stack(x_samples)).requires_grad_(False)
-    #@mpltex.web_decorator
-    def plot_N_brownian_paths(self,sig,dt,Nmax,t0,X0,N,dirichlet_cut=False,neumann_cut=False):
-        """
-        Plots N brownian independent paths
-        """
-        fig, ax = plt.subplots(1)
-        rect = patches.Rectangle((0, 0), 1, 1, linewidth=2, edgecolor='r', facecolor='none')
-        rect2 = patches.Rectangle((1.0, self.pInf),0 , self.pAnc, linewidth=5, edgecolor='g', facecolor='none')
-        ax.add_patch(rect)
-        ax.add_patch(rect2)
-        ax.set_xlim((-0.2,1.2))
-        ax.set_ylim((-0.2,1.2))
-        #plt.grid()
-        ax.axis('equal')
-        for _ in range(N):
-            X0=np.random.uniform2(low=0,high=1,size=2)
-            Xs,xis,dtf=self.one_agent_brownian(sig,dt,Nmax,X0,dirichlet_cut,neumann_cut)
-            plt.scatter([Xs[-1][0]],[Xs[-1][1]],color='g')
-            plt.plot(Xs[:,0],Xs[:,1])
-        plt.show()
-        #fig.savefig('images/sapo.pdf')
-        return 0
-    
-    def plot_controlled_diffusion(self,control,sig,dt,Nmax,t0,X0,N,dirichlet_cut=False,neumann_cut=False):
-        """
-        Plot the trajectory of a controlled diffusion with the function control
-        """
-        fig, ax = plt.subplots(1)
-        rect = patches.Rectangle((0, 0), 1, 1, linewidth=2, edgecolor='r', facecolor='none')
-        rect2 = patches.Rectangle((1.0, self.pInf),0 , self.pAnc, linewidth=5, edgecolor='g', facecolor='none')
-        ax.add_patch(rect)
-        ax.add_patch(rect2)
-        ax.set_xlim((-0.2,1.2))
-        ax.set_ylim((-0.2,1.2))
-        #plt.grid()
-        ax.axis('equal')
-        for _ in range(N):
-            X0=np.random.uniform2(low=0,high=1,size=2)
-            Xs,xis,dtf=self.simulate_controlled_diffusion(control,sig,dt,Nmax,t0,X0,dirichlet_cut,neumann_cut)
-            plt.scatter([Xs[-1][0]],[Xs[-1][1]],color='g')
-            plt.plot(Xs[:,0],Xs[:,1])
-        plt.show()
-        #fig.savefig('images/sapo.pdf')
-        return 0
-    
+
     def plot_N_agent_sample_path(self,X):
         """
         Plot an interior sample for the interpolation PINN-BSDE algorithm
         """
-        X=X[0,:,1:]
         fig, ax = plt.subplots(1)
         rect = patches.Rectangle((0, 0), 1, 1, linewidth=2, edgecolor='r', facecolor='none')
         rect2 = patches.Rectangle((1.0, self.pInf),0 , self.pAnc, linewidth=5, edgecolor='g', facecolor='none')
@@ -295,63 +250,28 @@ class EmptyRoom(Domain):
         plt.show()
         return 0
 
-    def interior_points_sample(self,num_sample,Nagents):
-        """ Sample points inside the domain with N agents"""
-        t=np.random.uniform2(low=0,high=self.total_time,size=[num_sample,1])
-        x=np.random.uniform2(size=(num_sample,2*Nagents))
-        return np.hstack((t,x))
-    
-    def dirichlet_sample(self,num_sample,Nagents,i):
-        """ Sample points for the dirichlet boundary for the domain with N agents"""
-        t=np.random.uniform2(low=0,high=self.total_time,size=[num_sample,1]) 
-        x=np.stack((np.ones2(num_sample),self.pInf+np.random.uniform2(size=num_sample)*self.pAnc),axis=1)
-        X=np.random.uniform2(size=(num_sample,2*Nagents))
-        X[:,i:i+2]=x
-        return np.hstack((t,X))
-    
-    def outer_boundary_sample(self,num_sample):
-        Ns=int(num_sample/4)
-        iz=np.stack((np.zeros2(Ns),np.random.uniform2(size=Ns)),axis=1)
-        niz=np.repeat([[-1.0,0.0]],Ns,0)
-        up=np.stack((np.random.uniform2(size=Ns),np.ones2(Ns)),axis=1)
-        nup=np.repeat([[0.0,1.0]],Ns,0)
-        down=np.stack((np.random.uniform2(size=Ns),np.zeros2(Ns)),axis=1)
-        ndown=np.repeat([[0.0,-1.0]],Ns,0)
-        der=np.stack((np.ones2(Ns),0.2+np.random.uniform2(size=Ns)*0.8),axis=1)
-        nder=np.repeat([[1.0,0.0]],Ns,0)
-        x=np.concatenate((iz,up,down,der))
-        #t=np.random.uniform2(low=0,high=self.total_time,size=[x.shape[0],1])
-        #return np.hstack((t,x)),np.concatenate((niz,nup,ndown,nder))
-        return x,np.concatenate((niz,nup,ndown,nder))
-
-    def neumann_sample(self,num_sample,Nagents,i):
-        """ Sample points for the neumann boundary for the domain with N agents reflecting in the ith agent"""
-        Ns=int(num_sample/4)
-        X=np.random.uniform2(size=(num_sample,2*Nagents))
-        x,ns=self.outer_boundary_sample(num_sample)
-        X[:,i:i+2]=x
-        t=np.random.uniform2(low=0,high=self.total_time,size=[x.shape[0],1])
-        return np.hstack((t,X)),ns
-
-    def terminal_sample(self,num_sample,Nagents):
-        """ Sample points for the terminal condition for the domain with N agents"""
-        T=np.ones2(shape=[num_sample,1])*self.total_time
-        x=np.random.uniform2(size=(num_sample,2*Nagents))
-        return np.hstack((T,x))
-    
-    def surface_plot_domain(self):
-        x = y = np.arange(-0.05, 1.05, 0.05)
-        X, Y = np.meshgrid(x, y)
-        return X , Y     
-    
 dom=EmptyRoom({"total_time":1.0,"pInf":0.4,"pSup":0.6})
 N=3
-nu=0.05
+nu=0.01
 sig=np.sqrt(2*nu)
-start = time.perf_counter()
-X0=np.random.uniform2(low=0,high=1,size=(N*2))
-for _ in range(1000):
-    #(self,sig,dt,N_max,Nagents,t0,X0,Ndifussions)
-    X=dom.simulate_difussion_N_agents_path(sig,0.001,2000,N,0.0,X0)
-end = time.perf_counter()
+sig=0.4
+dt=0.001
+start = time.time()
+n_samples=1000
+
+X0=np.ones((n_samples,2*N))*0.5
+X0=[0.5,0.5,0.2,0.2,0.9,0.5]
+#dom.simulate_N_difussions_Nagents(sig,0.001,np.inf,N,t0,X0,n_samples)
+#resp=dom.simulate_diffusion_path(sig,dt,0.0,1.0,X0,np.inf,3,n_samples)
+
+def drift(t,X):
+    return np.zeros(shape=X.shape)
+
+t0=np.zeros(n_samples)
+start = time.time()
+resp=dom.simulate_controlled_diffusion_path(drift,sig,dt,0.0,1.0,X0,np.inf,3,1)
+#print(resp[0])
+end = time.time()
 print("Elapsed (after compilation) = {}s".format((end - start)))
+
+dom.plot_N_agent_sample_path(resp[1].T)
