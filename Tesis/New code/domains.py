@@ -11,7 +11,7 @@ class Domain():
     """
     An abstract class containing all functions that should provide a 2D-domain.
     """
-    def simulate_brownian_diffusion_path(self,sigma,dt,t0,total_time,X0,Nmax,Nagents,n_samples,dirichlet_cut=False,neumann_cut=False):
+    def simulate_brownian_diffusion_path(self,sigma,Ntdis,t0,total_time,X0,Nmax,Nagents,n_samples,dirichlet_cut=False,neumann_cut=False):
         """
         This function should simulate a difussion inside the domain without drift.
         sigma: Constant volatility of the process
@@ -26,7 +26,7 @@ class Domain():
         neummann_cut: Determines if the simulation stops if reached the neumann boundary. If false the motion is reflected
         """
         raise("simulate diffusion path not implemented yet")
-    def simulate_controlled_diffusion_path(self,drift,sigma,dt,t0,total_time,X0,Nmax,Nagents,n_samples,dirichlet_cut=False,neumann_cut=False):
+    def simulate_controlled_diffusion_path(self,drift,sigma,Ntdis,t0,total_time,X0,Nmax,Nagents,n_samples,dirichlet_cut=False,neumann_cut=False):
         """
         This function should simulate a difussion inside the domain without drift.
         drift: A function representing the drift of the process
@@ -57,18 +57,18 @@ class FreeSpace(Domain):
         dom_config["Domain"]="FreeSpace"
         self.dom_config=dom_config
     
-    def simulate_brownian_diffusion_path(self, sigma, dt, t0, total_time, X0, Nmax, Nagents, n_samples):
+    def simulate_brownian_diffusion_path(self, sigma, Ntdis, t0, total_time, X0, Nmax, Nagents, n_samples):
         if Nmax==np.inf:
-            resp=jl.simulate_N_brownian_samples(sigma,dt,t0,total_time,X0,jl.Inf,Nagents,n_samples)
+            resp=jl.simulate_N_brownian_samples(sigma,Ntdis,t0,total_time,X0,jl.Inf,Nagents,n_samples)
         else:
-            resp=jl.simulate_N_brownian_samples(sigma,dt,t0,total_time,X0,Nmax,Nagents,n_samples)
+            resp=jl.simulate_N_brownian_samples(sigma,Ntdis,t0,total_time,X0,Nmax,Nagents,n_samples)
         return resp
     
-    def simulate_controlled_diffusion_path(self,drift,sigma,dt,t0,total_time,X0,Nmax,Nagents,n_samples):
+    def simulate_controlled_diffusion_path(self,drift,sigma,Ntdis,t0,total_time,X0,Nmax,Nagents,n_samples):
         if Nmax==np.inf:
-            resp=jl.simulate_N_controlled_samples(drift,sigma,dt,t0,total_time,X0,jl.Inf,Nagents,n_samples)
+            resp=jl.simulate_N_controlled_samples(drift,sigma,Ntdis,t0,total_time,X0,jl.Inf,Nagents,n_samples)
         else:
-            resp=jl.simulate_N_controlled_samples(drift,sigma,dt,t0,total_time,X0,Nmax,Nagents,n_samples)
+            resp=jl.simulate_N_controlled_samples(drift,sigma,Ntdis,t0,total_time,X0,Nmax,Nagents,n_samples)
         return resp 
     
     def plot_sample_path(self,X):
@@ -99,20 +99,22 @@ class EmptyRoom(Domain):
         self.pAnc=self.pSup-self.pInf #Width of thr door 
         self.dom_jl=jl.EmptyRoom(self.pInf,self.pSup)
     
-    def simulate_brownian_diffusion_path(self, sigma, dt, t0, total_time, X0, Nmax, Nagents, n_samples, dirichlet_cut=False):
+    def simulate_brownian_diffusion_path(self, sigma, Ntdis, t0, total_time, X0, Nmax, Nagents,dirichlet_cut, n_samples):
         #jl.GC.enable(False)
         if Nmax==np.inf:
-            resp=jl.simulate_N_brownian_samples_sim(self.dom_jl,sigma,dt,t0,total_time,X0,jl.Inf,Nagents,dirichlet_cut,n_samples)
+            resp=jl.simulate_N_brownian_samples_sim(self.dom_jl,sigma,Ntdis,t0,total_time,X0,jl.Inf,Nagents,dirichlet_cut,n_samples)
         else:
-            resp=jl.simulate_N_brownian_samples_sim(self.dom_jl,sigma,dt,t0,total_time,X0,Nmax,Nagents,dirichlet_cut,n_samples)
+            resp=jl.simulate_N_brownian_samples_sim(self.dom_jl,sigma,Ntdis,t0,total_time,X0,Nmax,Nagents,dirichlet_cut,n_samples)
         #jl.GC.enable(True)
         return resp
     
-    def simulate_controlled_diffusion_path(self,drift,sigma,dt,t0,total_time,X0,Nmax,Nagents,n_samples,dirichlet_cut=False):
+    def simulate_controlled_diffusion_path(self,drift,sigma,Ntdis,t0,total_time,X0,Nmax,Nagents,dirichlet_cut,n_samples):
+        #jl.GC.enable(False)
         if Nmax==np.inf:
-            resp=jl.simulate_N_controlled_samples_sim(self.dom_jl,drift,sigma,dt,t0,total_time,X0,jl.Inf,Nagents,dirichlet_cut,n_samples)
+            resp=jl.simulate_N_controlled_samples_sim(self.dom_jl,drift,sigma,Ntdis,t0,total_time,X0,jl.Inf,Nagents,dirichlet_cut,n_samples)
         else:
-            resp=jl.simulate_N_controlled_samples_sim(self.dom_jl,drift,sigma,dt,t0,total_time,X0,Nmax,Nagents,dirichlet_cut,n_samples)
+            resp=jl.simulate_N_controlled_samples_sim(self.dom_jl,drift,sigma,Ntdis,t0,total_time,X0,Nmax,Nagents,dirichlet_cut,n_samples)
+        #jl.GC.enable(True)
         return resp 
 
     def plot_sample_path(self,X):
@@ -134,34 +136,40 @@ class EmptyRoom(Domain):
             plt.scatter([X[2*i,0]],[X[2*i+1,0]],color='g')
         return 0
 
+print("aca")
 dom=EmptyRoom({"pInf":0.4,"pSup":0.6})
-dom=FreeSpace({"s":0.3})
+#dom=FreeSpace({"s":0.3})
 N=3
 sig=0.1
 Ntdis=1001
 n_samples=1000
-X0=[0.5,0.5,0.2,0.2,0.2,0.8]
+X0=[0.95,0.5,0.2,0.2,0.2,0.8]
 
 def drift(t,X):
     dir=np.array([1.0,0.5,1.0,0.5,1.0,0.5])-X
-    return dir*15
+    return 10*dir/np.sqrt(np.sum(dir*dir))
+    #return np.zeros(shape=X.shape)
 
-print("Comienza a calcular")
+"""print("Comienza a calcular")
 start = time.time()
-#resp=dom.simulate_controlled_diffusion_path(drift,sig,Ntdis,0.0,1.0,X0,np.inf,N,n_samples)
-resp=dom.simulate_brownian_diffusion_path(sig,Ntdis,0.0,1.0,X0,np.inf,N,1)
-end = time.time()
-print("Elapsed (after compilation) = {}s".format((end - start)))
-
-print("Comienza a calcular")
-start = time.time()
-#resp=dom.simulate_controlled_diffusion_path(drift,sig,Ntdis,0.0,1.0,X0,np.inf,N,n_samples)
-resp=dom.simulate_brownian_diffusion_path(sig,Ntdis,0.0,1.0,X0,np.inf,N,n_samples)
+#resp=dom.simulate_controlled_diffusion_path(drift,sig,Ntdis,0.0,1.0,X0,np.inf,N,1)
+resp=dom.simulate_brownian_diffusion_path(sig,Ntdis,0.0,1.0,X0,np.inf,N,False,1)
 end = time.time()
 print("Elapsed (after compilation) = {}s".format((end - start)))
 dom.plot_sample_path(resp[0][1])
-print(resp[0][0])
-#plt.show()
+print(resp[0][3])
+plt.show()
+
+
+print("Comienza a calcular")
+start = time.time()
+#resp=dom.simulate_controlled_diffusion_path(drift,sig,Ntdis,0.0,1.0,X0,np.inf,N,2)
+resp=dom.simulate_brownian_diffusion_path(sig,Ntdis,0.0,1.0,X0,np.inf,N,False,1000)
+end = time.time()
+print("Elapsed (after compilation) = {}s".format((end - start)))
+dom.plot_sample_path(resp[0][1])
+print(len(resp))
+plt.show()"""
 
 
 """ssl=np.random.normal(size=(int(1.0/dt),2))*np.sqrt(dt)*sig

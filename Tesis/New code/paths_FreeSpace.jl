@@ -19,7 +19,7 @@ function simulate_one_brownian_path_Nagents(sigma,Ntdis,t0,total_time,X0,Nmax,Na
     X[:,1]=X0
     xis=randn(type,(2*Nagents,Nsim-1))
     
-    states=repeat([false],Nagents)
+    states=repeat([-1],Nagents)
     t=zeros(type,Nsim)
     t[1]=t0
     for i in 2:Nsim
@@ -44,7 +44,7 @@ function simulate_one_controlled_path_Nagents(drift,sigma,Ntdis,t0,total_time,X0
     X[:,1]=X0
     xis=randn(type,(2*Nagents,Nsim-1))
     
-    states=repeat([false],Nagents)
+    states=repeat([-1],Nagents)
     t=zeros(type,Nsim)
     t[1]=t0
     for i in 2:Nsim
@@ -54,19 +54,19 @@ function simulate_one_controlled_path_Nagents(drift,sigma,Ntdis,t0,total_time,X0
     return t,X,xis,states
 end
 
-function simulate_N_brownian_samples(sigma,dt,t0,total_time,X0,Nmax,Nagents,n_samples)
-    samples=Array{Tuple{Vector{type},Matrix{type},Matrix{type},Vector{Bool}}}(undef,n_samples)
+function simulate_N_brownian_samples(sigma,Ntdis,t0,total_time,X0,Nmax,Nagents,n_samples)
+    samples=Array{Tuple{Vector{type},Matrix{type},Matrix{type},Vector{Int}}}(undef,n_samples)
     Threads.@threads for i in 1:n_samples
-        resp=simulate_one_brownian_path_Nagents(sigma,dt,t0,total_time,X0,Nmax,Nagents)
+        resp=simulate_one_brownian_path_Nagents(sigma,Ntdis,t0,total_time,X0,Nmax,Nagents)
         samples[i]=resp
     end
     return samples
 end
 
-function simulate_N_controlled_samples(drift,sigma,dt,t0,total_time,X0,Nmax,Nagents,n_samples)
-    samples=Array{Tuple{Vector{type},Matrix{type},Matrix{type},Vector{Bool}}}(undef,n_samples)
+function simulate_N_controlled_samples(drift,sigma,Ntdis,t0,total_time,X0,Nmax,Nagents,n_samples)
+    samples=Array{Tuple{Vector{type},Matrix{type},Matrix{type},Vector{Int}}}(undef,n_samples)
     Threads.@threads for i in 1:n_samples
-        resp=simulate_one_controlled_path_Nagents(drift,sigma,dt,t0,total_time,X0,Nmax,Nagents)
+        resp=simulate_one_controlled_path_Nagents(drift,sigma,Ntdis,t0,total_time,X0,Nmax,Nagents)
         samples[i]=resp
     end
     return samples

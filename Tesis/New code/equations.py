@@ -1,6 +1,8 @@
 import numpy as np
 from domains import Domain,FreeSpace
 
+import torch
+
 from julia import Julia
 Julia(sysimage="/home/carlos/Documentos/Trabajo de grado/Tesis/New code/sys.so")
 from julia import Main as jl
@@ -100,17 +102,34 @@ class HJB_LQR_Equation(Equation):
         dist=x[2*i,2*i+1]-np.array([0.5,0.5])
         return np.sum(dist*dist)
         return np.log((1.0+np.sum(x*x))/2)
-    
-    def F(self,x):
-        """Panic function"""
-        return 0.0
 
-    def f(self,x,V,nV_x2):
+    def F(self,x):
         """
-        Non linear part on the equation. It does not appear in the diffusion part. 
-        nV_x2 is the squared norm of the gradient
+        Panic function
+        x is an unbatched numpy array
         """
-        return -self.lam*(nV_x2)+self.F(x)
+        return 0.0
+    
+    def F_torch(self,x):
+        """ 
+        Panic function
+        x is an batched torch tensor
+        """
+        return torch.zeros(x.shape[0])
+
+    def f(self,t,x,y,z):
+        """
+        Non linear part on the equation. It does not appear in the diffusion part.
+        x,y,z are unbatched numpy arrays
+        """
+        return -self.lam*(np.sum(z*z))+self.F(x)
+    
+    def f_torch(self,t,x,y,z):
+        """
+        Non linear part on the equation. It does not appear in the diffusion part.
+        x,y,z are batched torch tensors
+        """
+        return -self.lam*(torch.sum(torch.square(z),dim=1,keepdim=True))+self.F_torch(x)
         
     def Nv(self, x,V, V_t,nV_x2,V_xx):
         """Satisfaction operator, should be zero for a true solution """

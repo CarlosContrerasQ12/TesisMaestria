@@ -54,7 +54,7 @@ class Global_Model_Deep_BSDE(nn.Module):
             self.y_0=nn.Parameter(torch.rand(1))
             self.z_0=nn.Parameter((torch.rand((1,self.eqn.dim))*0.2)-0.1)
 
-        self.subnet = [General_FC_net(net_config,self.eqn.dim,self.eqn.dim) for _ in range(self.Ndis-2)]
+        self.subnet = [General_FC_net(net_config,self.eqn.dim,self.eqn.dim) for _ in range(self.Ndis-1)]
         self.time_stamp = np.arange(0, self.Ndis) * self.dt
     
     def evaluate_y_0(self,x):
@@ -70,10 +70,9 @@ class Global_Model_Deep_BSDE(nn.Module):
         ind=np.argwhere((t-self.time_stamp)<0)[0][0]-1
         self.subnet[ind].eval()
         return self.subnet[ind](Xt)/self.eqn.dim
-
-
-    def forward(self, inputs):
-        dw, x = inputs
+    
+    def forward(self,inputs):
+        t,x,dw,states=inputs
         if self.in_region:
             y = self.y_0(x[:,:,0])
             z = self.z_0(x[:,:,0])
@@ -82,14 +81,11 @@ class Global_Model_Deep_BSDE(nn.Module):
             y = all_one_vec * self.y_0
             z = torch.matmul(all_one_vec, self.z_0)
 
-        for t in range(0, self.Ndis-2):
-            y = y - self.dt * (
-                self.eqn.f_tf(self.time_stamp[t], x[:, :, t], y, z)
-            ) + torch.sum(z * dw[:, :, t], 1, keepdims=True)
-            z = self.subnet[t](x[:, :, t + 1]) / self.eqn.dim
+        for i in range(self.Ndis-1):
+            y = y - self.dt * (self.eqn.f(self.time_stamp[i], x[:, :, i], y, z))+torch.sum(z * dw[:, :, i], dims= 1,keepdims=True)
+            z = self.subnet[i](x[:, :, i + 1]) / self.eqn.dim
         # terminal time
-        y = y - self.dt * self.eqn.f_tf(self.time_stamp[-1], x[:, :, -2], y, z) + \
-            torch.sum(z * dw[:, :, -1], 1, keepdims=True)
+        y = y - self.dt * self.eqn.f(self.time_stamp[-1], x[:, :, -2], y, z)+torch.sum(z * dw[:, :, -1], 1, keepdims=True)
         return y
 
 class Global_Model_Merged_Deep_BSDE(nn.Module):

@@ -1,7 +1,8 @@
 module pathsEmptyRoom
 
 
-export EmptyRoom, simulate_N_brownian_samples_sim,simulate_N_controlled_samples_sim
+export EmptyRoom, simulate_N_brownian_samples_sim,simulate_N_controlled_samples_sim,
+simulate_one_controlled_path_Nagents,simulate_one_brownian_path_Nagents
 
 
 const type=Float32
@@ -158,3 +159,37 @@ end
 end
 
 using .pathsEmptyRoom
+
+"""using PyCall
+import PyPlot; const plt = PyPlot
+pygui(true)
+function plot_samp(X)
+    fig,ax=plt.subplots(1)
+    ax.set_xlim((-0.2,1.2))
+    ax.set_ylim((-0.2,1.2))
+    plt.hlines([0,1],0,1)
+    plt.vlines([0,1],0,1)
+    plt.vlines([1],0.4,0.6,color="r")
+    for i in 1:Int(size(X)[1]/2)    
+        plt.plot(X[2*i-1,:],X[2*i,:])
+    end
+    return 0
+end
+
+function drift(t,X)
+    vec=[1.0,0.5,1.0,0.5,1.0,0.5]-X
+    vec[1:2]=[0.0,0.0]
+    return 10*vec./sqrt(sum(vec.*vec))
+end
+
+dom=EmptyRoom(0.4,0.6);
+N=3
+sig=0.5
+Ntdis=1001
+n_samples=1000
+X0=[0.2,0.5,0.2,0.2,0.2,0.8]
+#@time samp=simulate_one_brownian_path_Nagents(dom,sig,Ntdis,0.0,1.0,X0,Inf,N,false);
+@time samp=simulate_N_controlled_samples_sim(dom,drift,sig,Ntdis,0.0,1.0,X0,Inf,N,true,1000);
+X=samp[2][2]
+plot_samp(X)
+display(samp[2][2])"""
