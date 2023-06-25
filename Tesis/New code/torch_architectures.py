@@ -82,9 +82,8 @@ class Global_Model_Deep_BSDE(nn.Module):
             z = torch.matmul(all_one_vec, self.z_0)
 
         for i in range(self.Ndis-1):
-            y = y - self.dt * (self.eqn.f(self.time_stamp[i], x[:, :, i], y, z))+torch.sum(z * dw[:, :, i], dims= 1,keepdims=True)
+            y = y - self.dt * (self.eqn.f_torch(self.time_stamp[i], x[:, :, i], y, z))+torch.sum(z * dw[:, :, i], dims= 1,keepdims=True)
             z = self.subnet[i](x[:, :, i + 1]) / self.eqn.dim
-        # terminal time
         y = y - self.dt * self.eqn.f(self.time_stamp[-1], x[:, :, -2], y, z)+torch.sum(z * dw[:, :, -1], 1, keepdims=True)
         return y
 

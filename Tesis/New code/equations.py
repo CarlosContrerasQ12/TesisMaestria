@@ -65,7 +65,7 @@ class HJB_LQR_Equation(Equation):
     A class representing an HJB equation with boundary conditions for the value function 
     of a process that is trying to get out of a room in 2D
     """
-    def __init__(self, dom:Domain , eqn_config):
+    def __init__(self, dom:Domain , eqn_config,jl):
         eqn_config["Equation"]='HJB_LQR_Equation'
         self.eqn_config=eqn_config
         self.spatial_domain=dom
@@ -76,15 +76,16 @@ class HJB_LQR_Equation(Equation):
         self.lam=eqn_config["lam"] #Paramenter controlling the control strentgh
         self.sig=np.sqrt(2*self.nu)
         self.desired_final=np.ones(self.dim)*0.5
+        self.jl=jl
+        self.jl.include("/home/carlos/Documentos/Trabajo de grado/Tesis/New code/trueSolutions.jl")
 
     def true_solution(self,t0,X0,Ntdis,Nsim,Nbatch):
-        jl.include("/home/carlos/Documentos/Trabajo de grado/Tesis/New code/trueSolutions.jl")
         Nb=int(Nsim/Nbatch)
         resp=0.0
     
         for _ in range(Nb+1):
             samp=self.simulate_brownian_diffusion_path(Ntdis,t0,X0,np.inf,Nbatch)
-            resp+=jl.true_solution_LQR(samp,self.F,self.h_d,self.g_Tf,self.lam,self.nu)
+            resp+=self.jl.true_solution_LQR(samp,self.F,self.h_d,self.g_Tf,self.lam,self.nu)
         return resp/(Nb+1)
     
     
