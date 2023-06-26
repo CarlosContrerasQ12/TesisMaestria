@@ -120,23 +120,24 @@ class Solver():
         return freq_slider
 
 class difussionSampleGeneratorBSDE(Dataset):
-    def __init__(self, eqn, num_samples,dt,Ndis,in_region,test_point):
+    def __init__(self, eqn, num_samples,Ntdis,in_region,test_point):
         self.eqn=eqn
         self.num_samples=num_samples
-        self.dt=dt
-        self.Ndis=Ndis
+        self.Ntdis=Ntdis
         self.in_region=in_region
         self.test_point=test_point
         if in_region:
-            self.samples=self.eqn.simulate_N_interior_diffusion(dt,Ndis,num_samples)
+            X0=eqn.sample_initial_point()
+            self.samples=self.eqn.simulate_brownian_diffusion_paths(Ntdis,0.0,X0,np.inf,num_samples)
         else:
-            self.samples=self.eqn.simulate_N_interior_diffusion(dt,Ndis,num_samples,X0=self.test_point)
+            self.samples=self.eqn.simulate_brownian_diffusion_paths(Ntdis,0.0,self.test_point,np.inf,num_samples)
     
     def re_sample(self):
         if self.in_region:
-            self.samples=self.eqn.simulate_N_interior_diffusion(self.dt,self.Ndis,self.num_samples)
+            X0=self.eqn.sample_initial_point()
+            self.samples=self.eqn.simulate_brownian_diffusion_paths(self.Ntdis,0.0,X0,np.inf,self.num_samples)
         else:
-            self.samples=self.eqn.simulate_N_interior_diffusion(self.dt,self.Ndis,self.num_samples,X0=self.test_point)
+            self.samples=self.eqn.simulate_brownian_diffusion_paths(self.Ntdis,0.0,self.test_point,np.inf,self.num_samples)
 
     def __len__(self):
         return 1
@@ -150,9 +151,10 @@ class Deep_BSDE_Solver(Solver):
         self.solver_params=solver_params
         self.solver_params["Solver"]='Deep_BSDE_Solver'
         self.eqn = eqn
-        self.Ndis=self.solver_params["Ndis"]
-        self.dt=self.eqn.domain.total_time/(self.Ndis-1)
-        self.solver_params["net_config"]["Ndis"]=self.Ndis
+        self.Ntdis=self.solver_params["Ntdis"]
+        self.t0=0.0
+        self.dt=(self.eqn.terminal_time-self.t0)/(self.Ntdis-1)
+        self.solver_params["net_config"]["Ndis"]=self.Ntdis
         self.solver_params["net_config"]["dt"]=self.dt
         self.net_config = self.solver_params["net_config"]
         self.net_config["in_region"]=self.solver_params["in_region"]
@@ -165,12 +167,14 @@ class Deep_BSDE_Solver(Solver):
         self.initial_lr=solver_params["initial_lr"]
         self.sample_every=solver_params["sample_every"]
         self.Nsamp=solver_params["Nsamp"]
+        self.batch_size=solver_params["batch_size"]
         self.logging_interval=solver_params["logging_interval"]
         self.optimizer=torch.optim.Adam(self.model.parameters(),lr=self.initial_lr,weight_decay=0.00001)
         self.scheduler=torch.optim.lr_scheduler.LambdaLR(self.optimizer,self.lr_schedule)
-        self.test_point=torch.ones(eqn.dim)*0.9
-        self.dataGenerator=difussionSampleGeneratorBSDE(eqn, self.Nsamp,self.dt,self.Ndis,self.in_region,self.test_point)  
-        self.true_sol=eqn.true_solution(0.0,self.test_point,10000,0.001).numpy()
+        self.test_point=np.ones(eqn.dim)*0.0
+        self.dataGenerator=difussionSampleGeneratorBSDE(eqn, self.Nsamp,self.Ntdis,self.in_region,self.test_point)  
+        #self.true_sol=eqn.true_solution(0.0,self.test_point,1001,10000,100)
+        self.true_sol=4.59
         print(self.true_sol)
         self.training_history=[]
         self.currEps=0
@@ -221,33 +225,43 @@ class Deep_BSDE_Solver(Solver):
     
     def simulate_trajectory(self,t0,X0):
         self.model.eval()
-        return self.eqn.simulate_controlled_trajectory(t0,X0,self.Ndis,self.dt,self.model.grad_func,plot=True)
+        return self.eqn.simulate_controlled_diffusion_paths(self.model.grad_func,self.Ntdis,t0,X0,np.inf,1)[0]
     
+    def collate_fn(self,sample):
+        t,X,Xis,states=list(zip(*sample))
+        return torch.Tensor(np.array(t)), torch.Tensor(np.array(X)),torch.Tensor(np.array(Xis)),torch.Tensor(np.array(states)) 
+    
+    def train_step(self,data):
+        result=self.model(data)
+        terminal_cost=self.eqn.terminal_cost_torch(data)
+        loss=self.loss_fn(result,terminal_cost)
+        self.optimizer.zero_grad(set_to_none=True)
+        loss.backward()
+        self.optimizer.step()
+
+
     def train(self,steps):
         start_time = time.time()
         valid_data = self.dataGenerator[0]
 
         data_loader=DataLoader(self.dataGenerator, 
-                                        batch_size=None,
+                                        batch_size=self.batch_size,
+                                        collate_fn=self.collate_fn,
                                         shuffle=False,
                                         num_workers=0)
 
         # begin sgd iteration
         for step in range(steps+1):
-            #print(step)
             
             if (step)%self.sample_every==0:
                 self.dataGenerator.re_sample()
                 data_loader=DataLoader(self.dataGenerator, 
                                         batch_size=None,
                                         shuffle=False,
+                                        collate_fn=self.collate_fn,
                                         num_workers=0)
-            inputs=self.dataGenerator[0]
-            results=self.model(inputs)
-            loss=self.loss_fn(inputs,results)
-            self.optimizer.zero_grad(set_to_none=True)
-            loss.backward()
-            self.optimizer.step()
+            
+            self.train_step(self.collate_fn(self.dataGenerator[0]))
             
             if self.currEps % self.logging_interval==0:
                 #loss = self.loss_fn(valid_data, self.model(valid_data)).detach().numpy()
@@ -262,10 +276,10 @@ class Deep_BSDE_Solver(Solver):
 
         return np.array(self.training_history)
 
-    def loss_fn(self, inputs,results):
+    #@torch.compile
+    def loss_fn(self,results,terminal_cost):
         DELTA_CLIP = 50.0
-        dw, x = inputs
-        delta = results - self.eqn.g_tf(x[:, :, -1])
+        delta = results - terminal_cost
         # use linear approximation outside the clipped range
         loss = torch.mean(torch.where(torch.abs(delta) < DELTA_CLIP, torch.square(delta),
                                        2 * DELTA_CLIP * torch.abs(delta) - DELTA_CLIP ** 2))

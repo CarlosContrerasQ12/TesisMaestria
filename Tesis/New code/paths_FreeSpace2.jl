@@ -52,24 +52,22 @@ end
 
 function modify_one_controlled_path_Nagents!(t,X,xis,states,drift,sigma,Nsim,dt,sqdt,t0,X0)
     t[1]=t0
-    X[:,1].=X0
-    xis.=randn(type)
+    X[:,1]=X0
     for i in 2:Nsim
-        t[i]=t[i-1]+dt
+        t[i].=t[i-1].+dt
         X[:,i].=@views X[:,i-1].+drift(t[i-1],X[:,i-1]).*dt.+sqdt.*sigma.*xis[:,i-1]
     end
-    return nothing
+    return t,X,xis,states
 end
 
 function modify_one_brownian_path_Nagents!(t,X,xis,states,sigma,Nsim,dt,sqdt,t0,X0)
     t[1]=t0
-    X[:,1].=X0
-    xis.=randn(type)
+    X[:,1]=X0
     for i in 2:Nsim
-        t[i]=t[i-1]+dt
+        t[i]=t[i-1].+dt
         X[:,i].=@views X[:,i-1].+sqdt.*sigma.*xis[:,i-1]
     end
-    return nothing
+    return t,X,xis,states
 end
 
 function modify_N_brownian_samples(samples,sigma,Nsim,dt,sqdt,t0,X0,n_samples)
@@ -90,7 +88,7 @@ end
 
 using .pathsFreeSpace
 
-"""t0=0.0
+t0=0.0
 X0=zeros(100)
 sigma=sqrt(2)
 total_time=1.0
@@ -108,4 +106,4 @@ Nsim=Int(min(Nmax,Ntdis))
 
 @time resp=simulate_N_brownian_samples(sigma,Nsim,dt,sqdt,t0,X0,Nagents,n_samples);
 
-@time modify_N_brownian_samples(resp,sigma,Nsim,dt,sqdt,t0,X0,n_samples);"""
+@time modify_N_brownian_samples(resp,sigma,Nsim,dt,sqdt,t0,X0,n_samples);

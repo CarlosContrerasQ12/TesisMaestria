@@ -11,5 +11,11 @@ function generate_samples(N)
     return samples
 end
 
-@time generate_samples(1);
-@time generate_samples(1000);
+function calculate_index(sample)
+    result=zeros(length(sample))
+    n_samp=length(sample)
+    Threads.@threads for i in 1:n_samp
+        result[i]=sum(sample[i][1])
+    end
+    return result
+end
