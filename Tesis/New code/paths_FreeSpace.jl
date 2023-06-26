@@ -53,7 +53,7 @@ end
 function modify_one_controlled_path_Nagents!(t,X,xis,states,drift,sigma,Nsim,dt,sqdt,t0,X0)
     t[1]=t0
     X[:,1].=X0
-    xis.=randn(type)
+    xis.=randn.(type)
     for i in 2:Nsim
         t[i]=t[i-1]+dt
         X[:,i].=@views X[:,i-1].+drift(t[i-1],X[:,i-1]).*dt.+sqdt.*sigma.*xis[:,i-1]
@@ -64,7 +64,7 @@ end
 function modify_one_brownian_path_Nagents!(t,X,xis,states,sigma,Nsim,dt,sqdt,t0,X0)
     t[1]=t0
     X[:,1].=X0
-    xis.=randn(type)
+    xis.=randn.(type)
     for i in 2:Nsim
         t[i]=t[i-1]+dt
         X[:,i].=@views X[:,i-1].+sqdt.*sigma.*xis[:,i-1]

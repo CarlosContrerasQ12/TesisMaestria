@@ -1,6 +1,22 @@
 module trueSolutions
-export true_solution_LQR
+export true_solution_LQR,terminal_cost_log,F
 type=Float32
+using PythonCall
+
+function terminal_cost_log_un(sample)
+    t,X,xis,states=sample
+    #print(t)
+    return log.((1.0.+sum(X[:,end].*X[:,end]))./2)
+end
+
+function terminal_cost_log(samples)
+    Nsamp=length(samples)
+    toto = zeros(type, Nsamp)
+    Threads.@threads for i in 1:Nsamp
+        toto[i]=terminal_cost_log_un(samples[i])
+    end
+    return toto
+end
 
 function terminal_cost(samp,h_d_i,g_tf_i)
     t,X,xis,states=samp
@@ -39,35 +55,27 @@ function terminal_cost_torch(samp,h_d_i,g_tf_i)
     end
 end
 
-function calculate_term(samp,F,terminal_cost_l,lam,nu)
+function F(x,samp)
+    return 0.0
+end
+
+function calculate_running_cost_term(samp,F)
     t,X,xis,states=samp
     termF=0.0
-    """    new_states=zeros(size(states))
-
-    for i in 1:Int(size(X)[1]/2)
-        if states[i]==-1
-            new_states[i]=Inf
-        else
-            new_states[i]=states[i]
-        end
-    end"""
-
     for i in 1:(size(X)[2]-1)
         termF+=F(X[:,i],states)*(t[i+1]-t[i])
     end
-    termgh=type(terminal_cost_l(samp))
-    return exp(-(lam/nu)*(termF+termgh))
-
-    
+    return termF
 end
 
-function true_solution_LQR(gen_samp,Nsamp,F,terminal_cost,lam,nu)
-    #Nsamp=length(samples)
+function true_solution_LQR(samples,F,terminal_cost_values,lam,nu)
+    Nsamp=length(samples)
     toto = zeros(type, Nsamp)
-    for i in 1:Nsamp
-        toto[i]=calculate_term(gen_samp(),F,terminal_cost,lam,nu)
+    Threads.@threads for i in 1:Nsamp
+        toto[i]=calculate_running_cost_term(samples[i],F)
     end
-    mean=sum(toto)/Nsamp
+    new=exp.(-(lam/nu).*(toto.+terminal_cost_values))
+    mean=sum(new)/Nsamp
     return -(nu/lam)*log(mean)
 end
 

@@ -1,11 +1,13 @@
+from juliacall import Main as jl2
 import numpy as np
 import time
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
-from julia import Julia
+#from julia import Julia
 #Julia(compiled_modules=False,runtime='/home/carlos/julia-1.9.1/bin/julia')
-jl2=Julia(sysimage="/home/carlos/Documentos/Trabajo de grado/Tesis/New code/sys2.so")
+#jl2=Julia(sysimage="/home/carlos/Documentos/Trabajo de grado/Tesis/New code/sys2.so")
 #from julia import Main as jl
+
 jl2.include("/home/carlos/Documentos/Trabajo de grado/Tesis/New code/paths_FreeSpace.jl")
 jl2.include("/home/carlos/Documentos/Trabajo de grado/Tesis/New code/paths_EmptyRoom.jl")
 

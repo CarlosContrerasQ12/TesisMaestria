@@ -1,9 +1,11 @@
-from julia import Julia
+from juliacall import Main as jl
+import juliacall
+#from julia import Julia
 #Julia(compiled_modules=False,runtime='/home/carlos/julia-1.9.1/bin/julia')
-jl=Julia(sysimage="/home/carlos/Documentos/Trabajo de grado/Tesis/New code/sys.so")
+#jl=Julia(sysimage="/home/carlos/Documentos/Trabajo de grado/Tesis/New code/sys.so")
 #from julia import Main as jl
 #jl.include("/home/carlos/Documentos/Trabajo de grado/Tesis/New code/allJuliaCode.jl")
-jl.include("/home/carlos/Documentos/Trabajo de grado/Tesis/New code/trueSolutions.jl")
+#jl.include("/home/carlos/Documentos/Trabajo de grado/Tesis/New code/trueSolutions.jl")
 import numpy as np
 import matplotlib.pyplot as plt
 from domains import Domain,FreeSpace
@@ -85,14 +87,31 @@ class HJB_LQR_Equation(Equation):
         self.terminal_cost_torch=torch.vmap(self.terminal_cost)
 
     def true_solution(self,t0,X0,Ntdis,Nsim,Nbatch):
+        jl.include("/home/carlos/Documentos/Trabajo de grado/Tesis/New code/trueSolutions.jl")
         Nb=int(Nsim/Nbatch)
-        resp=0.0
-        def sam_gen():
-            return self.simulate_brownian_diffusion_paths(Ntdis,t0,X0,np.inf,1)[0]
-        for _ in range(Nb+1):
-            resp+=jl.true_solution_LQR(sam_gen,1000,self.F,self.terminal_cost,self.lam,self.nu)
-            jl.GC.gc()
-        return resp/(Nb+1)
+
+        respt=0.0
+        jl.GC.enable(False)
+        sample=self.simulate_brownian_diffusion_paths(Ntdis,t0,X0,np.inf,Nbatch)
+        terminal=self.terminal_cost(sample)
+        resp=jl.true_solution_LQR(sample,jl.F,terminal,self.lam,self.nu)
+        print(resp)
+        respt+=resp
+        for i in range(Nb):
+            self.modify_brownian_diffusion_paths(sample,Ntdis,t0,X0,np.inf,Nbatch)
+            terminal=self.terminal_cost(sample)
+            resp=jl.true_solution_LQR(sample,jl.F,terminal,self.lam,self.nu)
+            print(resp)
+            respt+=resp
+        jl.GC.enable(True)
+        return respt/(Nb+1)
+    
+    """ jl.GC.enable(False)
+        sample=self.simulate_brownian_diffusion_paths(Ntdis,t0,X0,np.inf,Nbatch)
+        terminal=self.terminal_cost(sample)
+        resp=jl.true_solution_LQR(sample,jl.F,terminal,self.lam,self.nu)
+        jl.GC.enable(True)
+        return resp"""
     
     
     def h_n(self,x):
@@ -110,12 +129,19 @@ class HJB_LQR_Equation(Equation):
         #return np.sum(dist*dist)
         #return np.log((1.0+np.sum(x*x))/2)
         return 0
-    
+
     def terminal_cost(self,sample):
-        t,X,xis,states=sample
+        #print(sample)
+        #t,X,xis,states=sample
+        #X=np.array(X)
+        #print(X.shape)
         #X=torch.tensor(X)#.requires_grad_(False)
         #return torch.log((1.0+torch.sum(torch.square(X[:,-1])))/2)
-        return np.log((1.0+np.sum(X[:,-1]*X[:,-1]))/2)
+        #type(print(np.log((1.0+np.sum(X[:,-1]*X[:,-1]))/2)))
+        #return float(np.log((1.0+np.sum(X[:,-1]*X[:,-1]))/2))
+        #print(jl.terminal_cost_log(sample))
+        #print(type(jl.terminal_cost_log(sample)))
+        return jl.terminal_cost_log(sample)
         termgh=0.0
         for i in range(X.shape[0]/2):
             if states[i]!=-1:
@@ -169,10 +195,10 @@ class HJB_LQR_Equation(Equation):
         return self.spatial_domain.simulate_controlled_diffusion_paths(drift,self.sig,Ntdis,t0,self.terminal_time,X0,N_max,self.N,n_samples)
     
     def modify_brownian_diffusion_paths(self,samples,Ntdis,t0,X0,N_max,n_samples):
-        self.spatial_domain.modify_brownian_diffusion_paths(self,samples,self.sigma, Ntdis, t0, self.total_time, X0, N_max, n_samples)
+        self.spatial_domain.modify_brownian_diffusion_paths(samples,self.sig, Ntdis, t0, self.terminal_time, X0, N_max, n_samples)
 
     def modify_controlled_diffusion_paths(self,samples,drift,Ntdis,t0,X0,N_max,n_samples):
-        self.spatial_domain.modify_brownian_diffusion_paths(self,samples,drift,self.sigma, Ntdis, t0, self.total_time, X0, N_max, n_samples)
+        self.spatial_domain.modify_controlled_diffusion_paths(samples,drift,self.sig, Ntdis, t0, self.terminal_time, X0, N_max, n_samples)
 
 
 
@@ -191,8 +217,8 @@ dom.modify_brownian_diffusion_paths(samp,np.sqrt(2),1001,0.0,1.0,np.zeros(100),n
 print(time.time()-begin)
 print("aca")"""
 
-dom=FreeSpace({"nada":0.2})
+"""dom=FreeSpace({"nada":0.2})
 
 eqn_config={"N":50,"terminal_time":1.0,"nu":1.0,"lam":1.0}
 eqn=HJB_LQR_Equation(dom,eqn_config)
-print(eqn.true_solution(0.0,np.zeros(100),1001,10000,100))
+print(eqn.true_solution(0.0,np.zeros(100),1001,10000,100))"""
