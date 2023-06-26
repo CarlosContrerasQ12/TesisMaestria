@@ -496,15 +496,46 @@ To obtain the desired formula, we take expectation to this expression, and obser
 Note that we required that equation \eqref{eqn:FKequation} has a classical smooth solution, for which we need some regularity conditions on $\mu$, $\sigma$ and growth conditions on $f$ and $g$ to ensure the uniform ellipticity of $\mathcal{L}_t$. Also note, that assumptions \ref{ass:FK} are rather restrictive, especially the boundedness of $D_x$, but can be relaxed imposing some quadratic growth condition on $v$ and additional growth condition on $f$ and $g$. However, even if there is no smooth solution to this problem, the Feynman-Kac formula may provide a solution with other meaning, which will be named a viscosity solution and will be defined in what follows.
 
 In addition, this formula is useful for approximating solutions $v(t,x)$ to PDEs of the form \eqref{eqn:FKequation}, even in high dimensions, where classical methods fails because of the \textit{curse of dimensionality}. This expected value can be approximated by Monte-Carlo simulation using sample paths, \hlc[Sure?]{whose rate of convergence is independent on the dimension $n$ of the underlying process}. However, its use is limited to linear equations that may not be useful for certain problems.
+
+By the other hand, if we consider a bounded domain and add boundary conditions to \eqref{eqn:FKequation}, the we have a similar formula for the solution that can be obtained as before. We state it informally in the following theorem omitting long technical definitions and relying on the intuitive definition of reflected process. 
+\begin{theorem}[Linear Feynman-Kac formula with boundary conditions \cite{yong_stochastic_1999},\cite{pardoux_stochastic_2014}]
+	\label{thm:LinearFKBoundary}
+	Consider equation \eqref{eqn:FKequation} in a bounded smooth domain $\Omega$, with boundary conditions
+	\begin{equation}
+		v(t,x)=h_d(t,x)\quad \forall x \in \Gamma_d
+	\end{equation}
+	
+	\begin{equation}
+		\dpartial{v}{\vec{n}}(t,x)=h_n(t,x)\quad \forall x \in \Gamma_n
+	\end{equation}
+	where $\Gamma_d \dot{\cup} \Gamma_n =\partial\Omega$ is a disjoint partition of the boundary with outer normal vector $\vec{n}$. Let
+	\begin{equation}
+		\tau=\inf\{s\in[t,T]|X_s^{t,x}\in \Gamma_d\}
+	\end{equation}
+the stopping time associated with the first exit of the domain, and define
+\begin{equation}
+	\Psi(t,x)=\begin{cases} 
+		g(x) & (t,x)\in\{T\}\times \Omega \\
+		h_d(t,x) & (t,x)\in (t,T)\times \Gamma_d
+	\end{cases}
+\end{equation} 
+	Then, under the assumptions \ref{ass:FK}, the solution $v(t,x)$ to the equation \eqref{eqn:FKequation}	admits the stochastic representation 
+	\begin{equation}
+		v(t,x)=\expect*{\Psi(\tau,X_{\tau}^{t,x})e^{-\int_{t}^{T}k(s,X_{s}^{t,x})ds}+\int_{t}^{T}f(s,X_{s}^{t,x})e^{-\int_{t}^{s}k(u,X_{u}^{t,x})du}ds},
+	\end{equation}
+	for all $t\in[0,T]$ and $x\in\bbR^n$, where $X_{s}^{t,x}$ is the solution of a reflected stochastic differential equation starting at $t,x$ with reflection boundary $\Gamma_n$. In particular, this solution is unique.
+\end{theorem}
+Note that we have not defined precisely what means to be a solution to a reflected stochastic differential equation, see \cite{pardoux_stochastic_2014}.
+
 \subsection{The non-linear Feynman-Kac formula}
 Now we deal with a more general PDE than \eqref{eqn:FKequation}. We consider, for some fixed $T>0$, the problem 
 \begin{equation}
 	\label{eqn:FKNolineal}
-	\begin{split}
-		&\dpartial{v}{t}(t,x)+\mathcal{L}_t v(t,x)+f(t,x,v(t,x),\sigma(t,x)' D_x v(t,x))=0\\
-		&v(T,x)=g(x),
-	\end{split}
-\end{equation}
+		\begin{split}
+			&\dpartial{v}{t}(t,x)+\mathcal{L}_t v(t,x)+f(t,x,v(t,x),\sigma(t,x)' D_x v(t,x))=0\\
+			&v(T,x)=g(x),
+		\end{split}
+	\end{equation}
 for all $t\in[0,T]$ and $x\in\bbR^{n}$, and where $f:\bbR\times \bbR^n\times \bbR \times \bbR^d\to \bbR$ is a non-linear function.
 
 We will associate the solution to this problem with a forward-backward stochastic differential equation of the form \eqref{eqn:Uncoupled}. We have an easy association given by the following theorem
@@ -631,7 +662,7 @@ $$
 $$
 From the inequalities \eqref{eqn:618}, and the strict comparison principle, we deduce $Y_0^1<Y_0^2$, i.e. $u(t, x)<\varphi(t, x)$, then we have a contradiction.
 \end{proof}
-Finally, note that this representation can be restated in a more similar form to the linear Feynman-Kac formula as
+Note that this representation can be restated in a more similar form to the linear Feynman-Kac formula as
 \begin{theorem}[]
 	\label{thm:NonlinealFK}
 	Under assumptions the same assumptions as \ref{thm:KFnonReps}, the function defined by 
@@ -639,5 +670,13 @@ Finally, note that this representation can be restated in a more similar form to
 		v(t, x):=Y_t^{t, x}=\mathbb{E}\left[g\left(X_T^{t, x}\right)+\int_t^T f\left(s, X_s^{t, x}, Y_s^{t, x}, Z_s^{t, x}\right) d s\right],
 	\end{equation}
 where $(X_t,Y_T,Z_T)$ is the solution to the FBSE \ref{eqn:Uncoupled} restricted to $[t,T]$, is a viscosity solution to the parabolic PDE \eqref{eqn:FKNolineal}.
+\end{theorem}
+
+Finally, we can state a similar informal result for nonlinear equations in a bounded domain with boundary conditions in analogy with \autoref{thm:LinearFKBoundary}. 
+
+\begin{theorem}[ \cite{pardoux_stochastic_2014}]
+	\label{thm:FKRelfected}
+Under the same hypothesis of \autoref{thm:verficationThm} and assuming $v$ is a classical solution that also satisfies the Dirichlet and Neumann conditions as in \autoref{thm:LinearFKBoundary} with $h_n(t,x)=0$, then the pair $(Y_t=v(t,X_t))$, $Z_t=\sigma(t,X_t)'D_x v(t,X_t)$ is the solution to a backward stochastic differential equation similar to \eqref{eqn:Uncoupled} with the forward process reflected at the Neumann boundary and stopped at the first time it hits the Dirichlet boundary. And conversely, if $(X,Y,Z)$ is a solution to the BSDE with the forward process reflecting at the Neumann boundary and stopped at the Dirichlet boundary, then $v(t,x):=Y_{t}^{t,x}$ is continuous and is a viscosity solution to the nonlinear PDE that also satisfies boundary conditions. 
+	
 \end{theorem}
 

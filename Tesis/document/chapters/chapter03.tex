@@ -483,7 +483,7 @@ In \autoref{fig:Training_PINNS} we show the losses achieved during the training 
 	\label{fig:Training_PINNS}
 \end{figure}
 
-\begin{figure}[htb!]		
+\begin{figure}[H]		
 	\begin{subfigure}{\linewidth}
 		\includegraphics[width=\linewidth]{Interp_sol2.png}
 		\caption{Computed solution interpolation algorithm}
@@ -498,5 +498,31 @@ In \autoref{fig:Training_PINNS} we show the losses achieved during the training 
 	\caption{}
 	\label{fig:Computed solutions}
 \end{figure}
+
+\section*{What did not work}
+Our original idea to solve problems with boundary conditions was to use reflecting process to emulate Neumann conditions and stopping times to emulate Dirichlet conditions, as suggested by the linear and non linear Feynmann-Kac formulas \autoref{thm:LinearFKBoundary} and \autoref{thm:FKRelfected}. 
+
+For example, we considered the global control problem with three particles as in \eqref{eqn:HJB_example} but now in a room as in \eqref{eqn:HJB2D}. In this case, boundary condition need to be stated in a high dimension space, which led us to confusion when choosing the ones that are adequate. The boundary of the 6-dimensional space is $\partial \Omega=\{(\vec{X_1},\vec{X_2},\vec{X_3})\in \bbR^6 |X_i\in \Gamma_d\cup \Gamma _n\}$, where $\vec{X_i}\in \bbR^2$ represents the 2D coordinates of particle $i$ and $\Gamma_{d,n}$ are the Dirichlet and Neumann parts of the boundary of the 2D room. 
+
+Our first option was to add the following boundary conditions to \eqref{eqn:HJB_example}
+\begin{equation}
+	V(t,x)=0 \quad \text{ for } x\in \Xi_d,
+\end{equation}
+where $\Xi_d=\{(\vec{X_1},\vec{X_2},\vec{X_3})\in \bbR^6 | X_1,X_2,X_3\in \Gamma_d \}$, which tries to model that all particles want reach the Dirichlet boundary, and
+\begin{equation}
+	\dpartial{V}{n}(t,x)=0 \quad \text{ for } x\in \Xi_n,
+\end{equation}
+where $\Xi_n=\{(\vec{X_1},\vec{X_2},\vec{X_3})\in \bbR^6 | X_1 \text{ or } X_2 \text{ or } X_3\in \Gamma_n \}$, which tries to model that particles reflect their paths at the boundary. Also, we modified the terminal condition to 
+\begin{equation}
+	V(T,x)=0 \text{ for } x\in \Omega,
+\end{equation}
+expecting that it is not a problem as the desire of the particles to exit quickly the room is modeled by it wanting to reach the Dirichlet boundary to avoid accumulating running cost. 
+
+
+To solve this equation, we simulated processes that are reflected in the Neumann part of the room and are stopped when all particles hit the Dirichlet boundary. However, we encountered many practical problems that did not allow us to verify that this approach effectively solved the equation. The first difficulty we encountered was that simulating reflected paths is not a vectorizable process, because in every time step the next position for each where is it at the moment and is not equal for all other particles, therefore, Python was not a great tool to calculate such paths, as the become very computationally expensive to simulate. To calculate efficiently the reflected paths we need some compiled of JIT-compiled tool, for which we used the Julia language. However, creating an interface for both languages was a painful process that we did not accomplish.
+
+However, letting this code run long enough, we observed that there is a problem with this approach concerning to the Dirichlet boundary condition. If we sample Brownian paths for each particle starting at random positions in the room, it is a very rare event that all particles reach the Dirichlet boundary, therefore we are not capturing effectively this condition and our solution do reflect that. 
+
+We had two ideas to solve this problem. The first one is to use some modification of the \textit{walking on spheres} algorithm to simulate first exist times from a high dimensional domain, and the second one was to modify the Dirichlet condition to decouple the problems for each particle, and stopped the process when any of the reached the Dirichlet boundary. Neither of them led us to an acceptable solution, and we have not and explanation for it, but probably it is due to implementation issues rather than a lack of theoretical justification.   
 
 

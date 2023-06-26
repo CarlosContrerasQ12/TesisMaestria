@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  23 JUN 2023 14:48
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  26 JUN 2023 08:44
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -996,22 +996,22 @@ Overfull \hbox (3.04167pt too wide) in alignment at lines 485--486
 [] []
  []
 
-[14] [15] [16]
-Overfull \hbox (22.53984pt too wide) detected at line 588
+[14] [15] [16] [17]
+Overfull \hbox (22.53984pt too wide) detected at line 619
 [][][][][]
  []
 
-[17]) [18]
+[18]) [19]
 Chapter 3.
-(./chapters/chapter03.tex [19
+(./chapters/chapter03.tex [20
 
-] [20] [21]
-<images/DeepBSDEMap.png, id=463, 715.67375pt x 246.9225pt>
+] [21] [22]
+<images/DeepBSDEMap.png, id=488, 715.67375pt x 246.9225pt>
 File: images/DeepBSDEMap.png Graphic file (type png)
 <use images/DeepBSDEMap.png>
 Package luatex.def Info: images/DeepBSDEMap.png  used on input line 100.
 (luatex.def)             Requested size: 426.79134pt x 147.25414pt.
- [22<./images/DeepBSDEMap.png>]
+ [23<./images/DeepBSDEMap.png>]
 Overfull \hbox (25.29305pt too wide) in paragraph at lines 125--127
 \TU/lmr/m/it/10.95 where $[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 h[]E []$\
 TU/lmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 $ \TU/lmr/m/it/10.95 and $\OML/cmm
@@ -1019,30 +1019,30 @@ TU/lmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 $ \TU/lmr/m/it/10.95 and $\OML/cmm
 \TU/lmr/m/it/10.95 , the term $\OML/cmm/m/it/10.95 E []$
  []
 
-[23]
-<images/FCStructure.png, id=493, 137.51375pt x 243.91125pt>
+[24]
+<images/FCStructure.png, id=518, 137.51375pt x 243.91125pt>
 File: images/FCStructure.png Graphic file (type png)
 <use images/FCStructure.png>
 Package luatex.def Info: images/FCStructure.png  used on input line 147.
 (luatex.def)             Requested size: 170.72931pt x 142.26508pt.
-<images/MergedBSDE.png, id=498, 709.65125pt x 244.915pt>
+<images/MergedBSDE.png, id=523, 709.65125pt x 244.915pt>
 File: images/MergedBSDE.png Graphic file (type png)
 <use images/MergedBSDE.png>
 Package luatex.def Info: images/MergedBSDE.png  used on input line 158.
 (luatex.def)             Requested size: 426.79134pt x 147.29767pt.
- [24<./images/FCStructure.png>]
-<images/MergedStructure.png, id=513, 143.53625pt x 242.9075pt>
+ [25<./images/FCStructure.png>]
+<images/MergedStructure.png, id=538, 143.53625pt x 242.9075pt>
 File: images/MergedStructure.png Graphic file (type png)
 <use images/MergedStructure.png>
 Package luatex.def Info: images/MergedStructure.png  used on input line 167.
 (luatex.def)             Requested size: 170.71825pt x 142.26154pt.
-<images/ResidualMergedStructure.png, id=517, 187.70125pt x 244.915pt>
+<images/ResidualMergedStructure.png, id=542, 187.70125pt x 244.915pt>
 File: images/ResidualMergedStructure.png Graphic file (type png)
 <use images/ResidualMergedStructure.png>
 Package luatex.def Info: images/ResidualMergedStructure.png  used on input line
  175.
 (luatex.def)             Requested size: 170.72534pt x 142.26753pt.
- [25<./images/MergedBSDE.png><./images/MergedStructure.png>]
+ [26<./images/MergedBSDE.png><./images/MergedStructure.png>]
 Overfull \hbox (4.17139pt too wide) in paragraph at lines 195--197
 \TU/lmr/m/n/10.95 and $[]$ is cal-cu-la-ted with au-to-ma-tic dif-fe-ren-ti-a-ti
 on in the neu-ral net-work $[] \OT1/cmr/m/n/10.95 = []\OMS/cmsy/m/n/10.95 N\OT1
@@ -1050,68 +1050,67 @@ on in the neu-ral net-work $[] \OT1/cmr/m/n/10.95 = []\OMS/cmsy/m/n/10.95 N\OT1
 .95 .
  []
 
-[26<./images/ResidualMergedStructure.png>] [27]
-<images//training.png, id=559, 462.528pt x 346.896pt>
+[27<./images/ResidualMergedStructure.png>] [28]
+<images//training.png, id=584, 462.528pt x 346.896pt>
 File: images//training.png Graphic file (type png)
 <use images//training.png>
 Package luatex.def Info: images//training.png  used on input line 269.
 (luatex.def)             Requested size: 426.79134pt x 320.11154pt.
-<images/OptimalLQRCentrilized.png, id=563, 462.528pt x 346.896pt>
+<images/OptimalLQRCentrilized.png, id=588, 462.528pt x 346.896pt>
 File: images/OptimalLQRCentrilized.png Graphic file (type png)
 <use images/OptimalLQRCentrilized.png>
 Package luatex.def Info: images/OptimalLQRCentrilized.png  used on input line 2
 78.
 (luatex.def)             Requested size: 426.79134pt x 320.11154pt.
- [28] [29<./images//training.png>] [30<./images/OptimalLQRCentrilized.png>] [31
-] [32] [33]
+ [29] [30<./images//training.png>] [31<./images/OptimalLQRCentrilized.png>] [32
+] [33] [34]
 Overfull \hbox (20.96161pt too wide) detected at line 424
 [][][]\OMS/cmsy/m/n/10.95 L[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 '\OT1/cmr/
 m/n/10.95 ) = \U/msb/m/n/10.95 E [] []
  []
 
-[34]
-<images/pathsInterp.png, id=655, 462.528pt x 346.896pt>
+[35]
+<images/pathsInterp.png, id=680, 462.528pt x 346.896pt>
 File: images/pathsInterp.png Graphic file (type png)
 <use images/pathsInterp.png>
 Package luatex.def Info: images/pathsInterp.png  used on input line 439.
 (luatex.def)             Requested size: 384.10959pt x 288.09827pt.
- [35<./images/pathsInterp.png>]
-<images//Interp_training.png, id=669, 462.528pt x 346.896pt>
+ [36<./images/pathsInterp.png>]
+<images//Interp_training.png, id=694, 462.528pt x 346.896pt>
 File: images//Interp_training.png Graphic file (type png)
 <use images//Interp_training.png>
 Package luatex.def Info: images//Interp_training.png  used on input line 473.
 (luatex.def)             Requested size: 202.72849pt x 152.04715pt.
-<images//trainingDGM.png, id=670, 462.528pt x 346.896pt>
+<images//trainingDGM.png, id=695, 462.528pt x 346.896pt>
 File: images//trainingDGM.png Graphic file (type png)
 <use images//trainingDGM.png>
 Package luatex.def Info: images//trainingDGM.png  used on input line 478.
 (luatex.def)             Requested size: 202.72849pt x 152.04715pt.
-<images//Interp_sol2.png, id=671, 462.528pt x 346.896pt>
+<images//Interp_sol2.png, id=696, 462.528pt x 346.896pt>
 File: images//Interp_sol2.png Graphic file (type png)
 <use images//Interp_sol2.png>
 Package luatex.def Info: images//Interp_sol2.png  used on input line 488.
 (luatex.def)             Requested size: 426.79134pt x 320.11154pt.
-<images//Sol_DGM.png, id=672, 462.528pt x 346.896pt>
+<images//Sol_DGM.png, id=697, 462.528pt x 346.896pt>
 File: images//Sol_DGM.png Graphic file (type png)
 <use images//Sol_DGM.png>
 Package luatex.def Info: images//Sol_DGM.png  used on input line 494.
 (luatex.def)             Requested size: 426.79134pt x 320.11154pt.
+ [37<./images//Interp_training.png><./images//trainingDGM.png>]
+Overfull \vbox (82.56961pt too high) has occurred while \output is active []
 
 
-LaTeX Warning: Float too large for page by 82.56961pt on input line 500.
-
-) [36<./images//Interp_training.png><./images//trainingDGM.png>] [37<./images//I
-nterp_sol2.png><./images//Sol_DGM.png>]
+[38<./images//Interp_sol2.png><./images//Sol_DGM.png>] [39]) [40]
 Chapter 4.
-(./chapters/chapter04.tex [38
+(./chapters/chapter04.tex [41
 
-] [39]
+] [42]
 Overfull \hbox (3.1626pt too wide) in paragraph at lines 92--93
 []\TU/lmr/m/n/10.95 Due to the mar-ko-vi-a-nity as-so-ci-a-ted to these pro-blem
 s, each can be trans-la-ted in a Hamilton-
  []
 
-[40] [41]
+[43] [44]
 Overfull \hbox (4.39954pt too wide) in paragraph at lines 142--144
 \TU/lmr/m/n/10.95 The in-fi-mum of this equa-tion can be obtai-ned ana-ly-ti-cal
 ly, being achie-ved at $\OML/cmm/m/it/10.95 [] \OT1/cmr/m/n/10.95 = \OMS/cmsy/
@@ -1124,25 +1123,25 @@ Overfull \hbox (40.19925pt too wide) in paragraph at lines 146--148
 m/it/10.95 V \OT1/cmr/m/n/10.95 = (\OML/cmm/m/it/10.95 @[]V; @[]V; [] ; @[]V; @[]V; @[]V; @[]V; [] ; @[]V; @[]V\OT1/cmr/m/n/10.95 )$\TU/lmr/m/n/10.95 . 
  []
 
-[42]
-<images/OptimalLQRDeepFictitus.png, id=754, 462.528pt x 346.896pt>
+[45]
+<images/OptimalLQRDeepFictitus.png, id=797, 462.528pt x 346.896pt>
 File: images/OptimalLQRDeepFictitus.png Graphic file (type png)
 <use images/OptimalLQRDeepFictitus.png>
 Package luatex.def Info: images/OptimalLQRDeepFictitus.png  used on input line 
 177.
 (luatex.def)             Requested size: 298.75262pt x 224.07703pt.
-) [43<./images/OptimalLQRDeepFictitus.png>]
+) [46<./images/OptimalLQRDeepFictitus.png>]
 Chapter 5.
-(./chapters/conclusion.tex [44
+(./chapters/conclusion.tex [47
 
-]) [45]
+]) [48]
 Appendix A.
 (./chapters/appendixSC.tex
 \c@thm=\count444
- [46
+ [49
 
 
-] [47] [48] [49]) [50]
+] [50] [51] [52]) [53]
 Overfull \hbox (6.05995pt too wide) in paragraph at lines 165--165
 \TU/lmr/m/it/10.95 Net-works: Where we are and What’s next\TU/lmr/m/n/10.95 . June 7, 2022. arXiv: [][]$\TU/lmtt/m/n/10.95 2201 . 05624[physics]$[][]\TU/lmr/m/n/10.95 .
  []
@@ -1153,7 +1152,7 @@ Overfull \hbox (5.19708pt too wide) in paragraph at lines 165--165
 006$[][] \TU/lmr/m/n/10.95 (vi-si-ted on 09/26/2022). 
  []
 
-[51
+[54
 
 ]
 Overfull \hbox (5.19708pt too wide) in paragraph at lines 165--165
@@ -1161,7 +1160,7 @@ Overfull \hbox (5.19708pt too wide) in paragraph at lines 165--165
 - 4939 - 7256 - 2$[][] \TU/lmr/m/n/10.95 (vi-si-ted on 02/15/2023). 
  []
 
-[52
+[55
 Missing character: There is no ӑ (U+04D1) in font [lmroman10-regular]:+tlig;!
 ]
 Overfull \hbox (12.53581pt too wide) in paragraph at lines 165--165
@@ -1169,26 +1168,34 @@ Overfull \hbox (12.53581pt too wide) in paragraph at lines 165--165
 /m/n/10.95 . Apr. 19, 2018. arXiv: [][]$\TU/lmtt/m/n/10.95 1804 . 07010[cs ,
  []
 
-[53]
+[56]
 Overfull \hbox (13.1795pt too wide) in paragraph at lines 165--165
 []\TU/lmr/m/n/10.95 Ni-ko-las Nü-sken and Lo-renz Rich-ter. \TU/lmr/m/it/10.95
  Sol-ving high-dimensional Hamilton-Jacobi-Bellman
  []
 
-[54] (./main.aux)
+[57] (./main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                main
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 23868 strings out of 477240
+ 23892 strings out of 477240
  125094,1373583 words of node,token memory allocated
- 2189 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 3 glue, 4 kern, 1 sub_mlist, 1 glyph, 319 attribute
-, 110 glue_spec, 319 attribute_list, 1 write, 24 pdf_action nodes
-   avail lists: 2:1289,3:579,4:142,5:516,6:166,7:8583,8:108,9:1718,10:16,11:741
- 43826 multiletter control sequences out of 65536+600000
+ 2253 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 3 glue, 4 kern, 1 sub_mlist, 1 glyph, 335 attribute
+, 110 glue_spec, 335 attribute_list, 1 write, 24 pdf_action nodes
+   avail lists: 2:1202,3:559,4:136,5:516,6:167,7:8358,8:114,9:1718,10:16,11:741
+ 43835 multiletter control sequences out of 65536+600000
  83 fonts using 6244127 bytes
  60i,21n,65p,1997b,1516s stack positions out of 10000i,1000n,20000p,200000b,80000s
 </home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmmono10-regular.o
@@ -1222,9 +1229,9 @@ y6.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8
 am10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8
 a.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (58 pages, 963152 bytes).
+Output written on main.pdf (61 pages, 980747 bytes).
 
-PDF statistics: 1162 PDF objects out of 1200 (max. 8388607)
- 335 named destinations out of 1000 (max. 131072)
+PDF statistics: 1206 PDF objects out of 1440 (max. 8388607)
+ 350 named destinations out of 1000 (max. 131072)
  201 words of extra memory for PDF output out of 10000 (max. 100000000)
 

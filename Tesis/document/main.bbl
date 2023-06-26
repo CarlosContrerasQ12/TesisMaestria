@@ -980,6 +980,49 @@
       \verb http://epubs.siam.org/doi/book/10.1137/1.9781611974249
       \endverb
     \endentry
+    \entry{yong_stochastic_1999}{book}{}
+      \name{author}{2}{}{%
+        {{hash=f9d70f3c2c2541b9a22eb8859d1c10bf}{%
+           family={Yong},
+           familyi={Y\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=d617810777fb638be82bead5cc462d00}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Xun\bibnamedelima Yu},
+           giveni={X\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{e2738e7aff8fd009fe2fbaf318cdea4a}
+      \strng{fullhash}{e2738e7aff8fd009fe2fbaf318cdea4a}
+      \strng{bibnamehash}{e2738e7aff8fd009fe2fbaf318cdea4a}
+      \strng{authorbibnamehash}{e2738e7aff8fd009fe2fbaf318cdea4a}
+      \strng{authornamehash}{e2738e7aff8fd009fe2fbaf318cdea4a}
+      \strng{authorfullhash}{e2738e7aff8fd009fe2fbaf318cdea4a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{isbn}{978-0-387-98723-1}
+      \field{langid}{english}
+      \field{number}{43}
+      \field{pagetotal}{438}
+      \field{series}{Applications of mathematics}
+      \field{shorttitle}{Stochastic controls}
+      \field{title}{Stochastic controls: Hamiltonian systems and {HJB} equations}
+      \field{year}{1999}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb Yong y Zhou - 1999 - Stochastic controls Hamiltonian systems and HJB e.pdf:/home/carlos/Zotero/storage/BRVMD8JT/Yong y Zhou - 1999 - Stochastic controls Hamiltonian systems and HJB e.pdf:application/pdf
+      \endverb
+      \keyw{Hamilton-Jacobi equations,Hamiltonian systems,Mathematical optimization,Stochastic control theory}
+    \endentry
     \entry{chessari_numerical_nodate}{article}{}
       \name{author}{4}{}{%
         {{hash=c1d0f307f0c2d7d48bb314367196e0e9}{%
