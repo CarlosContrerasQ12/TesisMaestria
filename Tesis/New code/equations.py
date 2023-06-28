@@ -84,23 +84,24 @@ class HJB_LQR_Equation(Equation):
         self.lam=eqn_config["lam"] #Paramenter controlling the control strentgh
         self.sig=np.sqrt(2*self.nu)
         self.desired_final=np.ones(self.dim)*0.5
-        self.terminal_cost_torch=torch.vmap(self.terminal_cost)
+        jl.include("/home/carlos/Documentos/Trabajo de grado/Tesis/New code/HJB_LQR.jl")
 
     def true_solution(self,t0,X0,Ntdis,Nsim,Nbatch):
-        jl.include("/home/carlos/Documentos/Trabajo de grado/Tesis/New code/trueSolutions.jl")
         Nb=int(Nsim/Nbatch)
-
         respt=0.0
         jl.GC.enable(False)
-        sample=self.simulate_brownian_diffusion_paths(Ntdis,t0,X0,np.inf,Nbatch)
-        terminal=self.terminal_cost(sample)
-        resp=jl.true_solution_LQR(sample,jl.F,terminal,self.lam,self.nu)
+        samples=self.simulate_brownian_diffusion_paths(Ntdis,t0,X0,np.inf,Nbatch)
+        terminal=jl.terminal_cost_samples(samples)
+        F_values=jl.F_samples(samples)
+        print(type(F_values))
+        resp=jl.true_solution_LQR(samples,F_values,terminal,self.lam,self.nu)
         print(resp)
         respt+=resp
         for i in range(Nb):
-            self.modify_brownian_diffusion_paths(sample,Ntdis,t0,X0,np.inf,Nbatch)
-            terminal=self.terminal_cost(sample)
-            resp=jl.true_solution_LQR(sample,jl.F,terminal,self.lam,self.nu)
+            self.modify_brownian_diffusion_paths(samples,Ntdis,t0,X0,np.inf,Nbatch)
+            jl.modify_terminal_cost_samples(terminal,samples)
+            jl.modify_F_samples(F_values,samples)
+            resp=jl.true_solution_LQR(samples,F_values,terminal,self.lam,self.nu)
             print(resp)
             respt+=resp
         jl.GC.enable(True)
@@ -112,57 +113,9 @@ class HJB_LQR_Equation(Equation):
         resp=jl.true_solution_LQR(sample,jl.F,terminal,self.lam,self.nu)
         jl.GC.enable(True)
         return resp"""
-    
-    
-    def h_n(self,x):
-        """Neumann boundary condition"""
-        return 0.0
-    
-    def h_d_i(self,x,i):
-        """Dirichlet boundary condition"""
-        return 0.0
-    
-    def g_Tf_i(self,x,i):
-        """Terminal condition"""
-        #i=i-1
-        #dist=x[2*i,2*i+1]-np.array([0.5,0.5])
-        #return np.sum(dist*dist)
-        #return np.log((1.0+np.sum(x*x))/2)
-        return 0
 
     def terminal_cost(self,sample):
-        #print(sample)
-        #t,X,xis,states=sample
-        #X=np.array(X)
-        #print(X.shape)
-        #X=torch.tensor(X)#.requires_grad_(False)
-        #return torch.log((1.0+torch.sum(torch.square(X[:,-1])))/2)
-        #type(print(np.log((1.0+np.sum(X[:,-1]*X[:,-1]))/2)))
-        #return float(np.log((1.0+np.sum(X[:,-1]*X[:,-1]))/2))
-        #print(jl.terminal_cost_log(sample))
-        #print(type(jl.terminal_cost_log(sample)))
         return jl.terminal_cost_log(sample)
-        termgh=0.0
-        for i in range(X.shape[0]/2):
-            if states[i]!=-1:
-                termgh+=self.h_d_i(X[2*i-1:2*i,-1],i)
-            else:
-                termgh+=self.g_tf_i(X[2*i-1:2*i,-1],i)
-        return termgh
-    
-    def F(self,x,states):
-        """
-        Panic function
-        x is an unbatched numpy array
-        """
-        return 0.0
-    
-    def F_torch(self,x,states):
-        """ 
-        Panic function
-        x is an batched torch tensor
-        """
-        return torch.zeros(x.shape[0])
 
     def f(self,t,x,y,z):
         """
