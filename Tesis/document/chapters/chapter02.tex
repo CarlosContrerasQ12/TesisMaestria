@@ -61,7 +61,7 @@ which can be written as
 		&Y(T)=\xi
 	\end{split}
 \end{equation}
-Therefore, problem \eqref{eqn:exampleBSDE} can be reinterpreted as in problem \eqref{eqn:exampleBSDE2}, that we will denote as a bacward stochastic differential equation (BSDE) , in which we seek a pair of processes $(Y_t,Z_t)$ that will provide an adapted solution to our original problem. Indeed, the process $Z_t$ will "steer" the system so that the process $Y_t$ remains adapted, and is thus called a control process. It is not possible to revert time as $t\to T-t$ as the filtration goes only in one direction \cite{chessari_numerical_2022}.
+Therefore, problem \eqref{eqn:exampleBSDE} can be reinterpreted as in problem \eqref{eqn:exampleBSDE2}, that we will denote as a backward stochastic differential equation (BSDE) , in which we seek a pair of processes $(Y_t,Z_t)$ that will provide an adapted solution to our original problem. Indeed, the process $Z_t$ will "steer" the system so that the process $Y_t$ remains adapted, and is thus called a control process. It is not possible to revert time as $t\to T-t$ as the filtration goes only in one direction \cite{chessari_numerical_2022}.
 
 Finally, we can write this equation in another form. Note that \eqref{eqn:exampleBSDE2} is a forward SDE problem, hence we can solve for $Y(0)$ in the integral form , and so we have
 \begin{equation}

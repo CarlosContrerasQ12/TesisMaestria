@@ -1324,8 +1324,8 @@
       \strng{authorbibnamehash}{e06737126e5207ae99c037f5c4b22882}
       \strng{authornamehash}{e06737126e5207ae99c037f5c4b22882}
       \strng{authorfullhash}{e06737126e5207ae99c037f5c4b22882}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{The recently proposed numerical algorithm, deep {BSDE} method, has shown remarkable performance in solving high-dimensional forward-backward stochastic differential equations ({FBSDEs}) and parabolic partial differential equations ({PDEs}). This article lays a theoretical foundation for the deep {BSDE} method in the general case of coupled {FBSDEs}. In particular, a posteriori error estimation of the solution is provided and it is proved that the error converges to zero given the universal approximation capability of neural networks. Numerical results are presented to demonstrate the accuracy of the analyzed algorithm in solving high-dimensional coupled {FBSDEs}.}
@@ -1542,8 +1542,8 @@
       \strng{authorbibnamehash}{820231d08c0487c8a23bc9fdc78b245d}
       \strng{authornamehash}{820231d08c0487c8a23bc9fdc78b245d}
       \strng{authorfullhash}{820231d08c0487c8a23bc9fdc78b245d}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{In this paper, we give an overview of recently developed machine learning methods for stochastic control problems and games. The main focus is on deep learning methods that have unlocked the possibility to solve such problems even when the structure is very complex or when the dimension is very high, which is not feasible with traditional numerical methods. Many of these new approaches build on recent breakthrough machine learning methods for partial diﬀerential equations or backward stochastic diﬀerential equations, or on model-free reinforcement learning for Markov decision processes. This review summarizes state-of-the-art works at the crossroad of artiﬁcial intelligence and stochastic control and games. It also discusses connections with real applications and identiﬁes unsolved challenges.}
@@ -1575,8 +1575,8 @@
       \strng{authorbibnamehash}{e1992e87e0b3c2d8d658d195b466215a}
       \strng{authornamehash}{e1992e87e0b3c2d8d658d195b466215a}
       \strng{authorfullhash}{e1992e87e0b3c2d8d658d195b466215a}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{We propose a deep neural network-based algorithm to identify the Markovian Nash equilibrium of general large \$N\$-player stochastic differential games. Following the idea of fictitious play, we recast the \$N\$-player game into \$N\$ decoupled decision problems (one for each player) and solve them iteratively. The individual decision problem is characterized by a semilinear Hamilton-Jacobi-Bellman equation, to solve which we employ the recently developed deep {BSDE} method. The resulted algorithm can solve large \$N\$-player games for which conventional numerical methods would suffer from the curse of dimensionality. Multiple numerical examples involving identical or heterogeneous agents, with risk-neutral or risk-sensitive objectives, are tested to validate the accuracy of the proposed algorithm in large group games. Even for a fifty-player game with the presence of common noise, the proposed algorithm still finds the approximate Nash equilibrium accurately, which, to our best knowledge, is difficult to achieve by other numerical algorithms.}
@@ -1622,8 +1622,8 @@
       \strng{authorbibnamehash}{a84f0ecb7dc3c25662e69881f1b264ff}
       \strng{authornamehash}{a84f0ecb7dc3c25662e69881f1b264ff}
       \strng{authorfullhash}{a84f0ecb7dc3c25662e69881f1b264ff}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{A presentation of several dynamical systems whose steady-state solutions yield solutions to a discrete game matrix. Considered in the report are (1) various systems of differential equations for a symmetric game, (2) related systems of difference eq...}
