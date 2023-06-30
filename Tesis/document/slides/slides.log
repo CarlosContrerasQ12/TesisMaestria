@@ -1,0 +1,2066 @@
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  30 JUN 2023 11:45
+ restricted system commands enabled.
+**slides.tex
+(./slides.tex
+LaTeX2e <2022-11-01> patch level 1
+Lua module: luaotfload 2022-10-03 3.23 Lua based OpenType font support
+Lua module: lualibs 2022-10-04 2.75 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2022-10-04 2.75 ConTeXt Lua libraries -- extended c
+ollection.
+luaotfload | conf : Root cache directory is "/home/carlos/.miktex/texmfs/data/lu
+atex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2022-10-03.lua" from kpse-res
+olved path "/home/carlos/.miktex/texmfs/install/tex/luatex/luaotfload/fontloader
+-2022-10-03.lua".
+Lua-only attribute luaotfload@noligature = 1
+luaotfload | init : Context OpenType loader version 3.120
+Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' in `hpack_filter'.
+Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
+Inserting `luaotfload.define_font' in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 2
+luaotfload | conf : Root cache directory is "/home/carlos/.miktex/texmfs/data/lu
+atex-cache/generic/names".
+Inserting `luaotfload.harf.strip_prefix' in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' in `find_truetype_file'.
+Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
+Inserting `luaotfload.harf.glyphstream' in `glyph_stream_provider'.
+Inserting `luaotfload.harf.finalize_vlist' in `post_linebreak_filter'.
+Inserting `luaotfload.harf.finalize_hlist' in `hpack_filter'.
+Inserting `luaotfload.cleanup_files' in `wrapup_run'.
+Inserting `luaotfload.harf.finalize_unicode' in `finish_pdffile'.
+Inserting `luaotfload.glyphinfo' in `glyph_info'.
+Lua-only attribute luaotfload.letterspace_done = 3
+Inserting `luaotfload.aux.set_sscale_dimens' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_font_index' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.patch_cambria_domh' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
+Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'. L3 programm
+ing layer <2022-11-02>
+Inserting `tracingstacklevels' in `input_level_string'.
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamer.cls
+Document Class: beamer 2023/05/15 v3.70 A class for typesetting presentations
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbasemodes.sty
+(/home/carlos/.miktex/texmfs/install/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count183
+)
+\beamer@tempbox=\box51
+\beamer@tempcount=\count184
+\c@beamerpauses=\count185
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbasedecode.sty
+\beamer@slideinframe=\count186
+\beamer@minimum=\count187
+\beamer@decode@box=\box52
+)
+\beamer@commentbox=\box53
+\beamer@modecount=\count188
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+)
+\headdp=\dimen139
+\footheight=\dimen140
+\sidebarheight=\dimen141
+\beamer@tempdim=\dimen142
+\beamer@finalheight=\dimen143
+\beamer@animht=\dimen144
+\beamer@animdp=\dimen145
+\beamer@animwd=\dimen146
+\beamer@leftmargin=\dimen147
+\beamer@rightmargin=\dimen148
+\beamer@leftsidebar=\dimen149
+\beamer@rightsidebar=\dimen150
+\beamer@boxsize=\dimen151
+\beamer@vboxoffset=\dimen152
+\beamer@descdefault=\dimen153
+\beamer@descriptionwidth=\dimen154
+\beamer@lastskip=\skip48
+\beamer@areabox=\box54
+\beamer@animcurrent=\box55
+\beamer@animshowbox=\box56
+\beamer@sectionbox=\box57
+\beamer@logobox=\box58
+\beamer@linebox=\box59
+\beamer@sectioncount=\count189
+\beamer@subsubsectionmax=\count190
+\beamer@subsectionmax=\count191
+\beamer@sectionmax=\count192
+\beamer@totalheads=\count193
+\beamer@headcounter=\count194
+\beamer@partstartpage=\count195
+\beamer@sectionstartpage=\count196
+\beamer@subsectionstartpage=\count197
+\beamer@animationtempa=\count198
+\beamer@animationtempb=\count199
+\beamer@xpos=\count266
+\beamer@ypos=\count267
+\beamer@ypos@offset=\count268
+\beamer@showpartnumber=\count269
+\beamer@currentsubsection=\count270
+\beamer@coveringdepth=\count271
+\beamer@sectionadjust=\count272
+\beamer@toclastsection=\count273
+\beamer@tocsectionnumber=\count274
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbaseoptions.sty
+(/home/carlos/.miktex/texmfs/install/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+))
+\beamer@paperwidth=\skip49
+\beamer@paperheight=\skip50
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count275
+\Gm@cntv=\count276
+\c@Gm@tempcnt=\count277
+\Gm@bindingoffset=\dimen155
+\Gm@wd@mp=\dimen156
+\Gm@odd@mp=\dimen157
+\Gm@even@mp=\dimen158
+\Gm@layoutwidth=\dimen159
+\Gm@layoutheight=\dimen160
+\Gm@layouthoffset=\dimen161
+\Gm@layoutvoffset=\dimen162
+\Gm@dimlist=\toks17
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/geometry/geometry.cfg))
+(/home/carlos/.miktex/texmfs/install/tex/latex/pgf/math/pgfmath.sty
+(/home/carlos/.miktex/texmfs/install/tex/latex/pgf/utilities/pgfrcs.sty
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfutil-common.t
+ex
+\pgfutil@everybye=\toks18
+\pgfutil@tempdima=\dimen163
+\pgfutil@tempdimb=\dimen164
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfutil-common-l
+ists.tex))
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfutil-latex.de
+f
+\pgfutil@abb=\box60
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
+))
+(/home/carlos/.miktex/texmfs/install/tex/latex/pgf/utilities/pgfkeys.sty
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks19
+\pgfkeys@temptoks=\toks20
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfkeysfiltered.
+code.tex
+\pgfkeys@tmptoks=\toks21
+)))
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/math/pgfmath.code.tex
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathutil.code.tex
+\pgf@x=\dimen165
+\pgf@xa=\dimen166
+\pgf@xb=\dimen167
+\pgf@xc=\dimen168
+\pgf@y=\dimen169
+\pgf@ya=\dimen170
+\pgf@yb=\dimen171
+\pgf@yc=\dimen172
+\c@pgf@counta=\count278
+\c@pgf@countb=\count279
+\c@pgf@countc=\count280
+\c@pgf@countd=\count281
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathparser.code.te
+x
+\pgfmath@dimen=\dimen173
+\pgfmath@count=\count282
+\pgfmath@box=\box61
+\pgfmath@toks=\toks22
+\pgfmath@stack@operand=\toks23
+\pgfmath@stack@operation=\toks24
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.code
+.tex
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.basi
+c.code.tex)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.trig
+onometric.code.tex)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.rand
+om.code.tex)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.comp
+arison.code.tex)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.base
+.code.tex)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.roun
+d.code.tex)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.misc
+.code.tex)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.inte
+gerarithmetics.code.tex)))
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count283
+))) (/home/carlos/.miktex/texmfs/install/tex/latex/base/size11.clo
+File: size11.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+luaotfload | db : Font names database loaded from /home/carlos/.miktex/texmfs/da
+ta/luatex-cache/generic/names/luaotfload-names.luc.gz)
+(/home/carlos/.miktex/texmfs/install/tex/latex/pgf/basiclayer/pgfcore.sty
+(/home/carlos/.miktex/texmfs/install/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: luatex.def on input line 107.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/graphics-def/luatex.def
+File: luatex.def 2022/09/22 v1.2d Graphics/color driver for luatex
+))
+\Gin@req@height=\dimen174
+\Gin@req@width=\dimen175
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/pgf/systemlayer/pgfsys.sty
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgfsys.code.te
+x
+Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfkeys.code.tex
+)
+\pgf@x=\dimen176
+\pgf@y=\dimen177
+\pgf@xa=\dimen178
+\pgf@ya=\dimen179
+\pgf@xb=\dimen180
+\pgf@yb=\dimen181
+\pgf@xc=\dimen182
+\pgf@yc=\dimen183
+\pgf@xd=\dimen184
+\pgf@yd=\dimen185
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count284
+\c@pgf@countb=\count285
+\c@pgf@countc=\count286
+\c@pgf@countd=\count287
+\t@pgf@toka=\toks25
+\t@pgf@tokb=\toks26
+\t@pgf@tokc=\toks27
+\pgf@sys@id@count=\count288
+ (/home/carlos/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
+)
+Driver file for pgf: pgfsys-luatex.def
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgfsys-luatex.
+def
+File: pgfsys-luatex.def 2021/05/15 v3.1.9a (3.1.9a)
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgfsys-common-
+pdf.def
+File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgfsyssoftpath
+.code.tex
+File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfsyssoftpath@smallbuffer@items=\count289
+\pgfsyssoftpath@bigbuffer@items=\count290
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgfsysprotocol
+.code.tex
+File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)) (/home/carlos/.miktex/texmfs/install/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: luatex.def on input line 227.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+))
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcore.code.te
+x
+Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
+ (/home/carlos/.miktex/texmfs/install/tex/generic/pgf/math/pgfmath.code.tex)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/math/pgfint.code.tex)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepoints.c
+ode.tex
+File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@picminx=\dimen186
+\pgf@picmaxx=\dimen187
+\pgf@picminy=\dimen188
+\pgf@picmaxy=\dimen189
+\pgf@pathminx=\dimen190
+\pgf@pathmaxx=\dimen191
+\pgf@pathminy=\dimen192
+\pgf@pathmaxy=\dimen193
+\pgf@xx=\dimen194
+\pgf@xy=\dimen195
+\pgf@yx=\dimen196
+\pgf@yy=\dimen197
+\pgf@zx=\dimen198
+\pgf@zy=\dimen199
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepathcons
+truct.code.tex
+File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@path@lastx=\dimen256
+\pgf@path@lasty=\dimen257
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepathusag
+e.code.tex
+File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@shorten@end@additional=\dimen258
+\pgf@shorten@start@additional=\dimen259
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorescopes.c
+ode.tex
+File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfpic=\box62
+\pgf@hbox=\box63
+\pgf@layerbox@main=\box64
+\pgf@picture@serial@count=\count291
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoregraphics
+tate.code.tex
+File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgflinewidth=\dimen260
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoretransfor
+mations.code.tex
+File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@pt@x=\dimen261
+\pgf@pt@y=\dimen262
+\pgf@pt@temp=\dimen263
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorequick.co
+de.tex
+File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoreobjects.
+code.tex
+File: pgfcoreobjects.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepathproc
+essing.code.tex
+File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorearrows.c
+ode.tex
+File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfarrowsep=\dimen264
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoreshade.co
+de.tex
+File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@max=\dimen265
+\pgf@sys@shading@range@num=\count292
+\pgf@shadingcount=\count293
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoreimage.co
+de.tex
+File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoreexternal
+.code.tex
+File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfexternal@startupbox=\box65
+))
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorelayers.c
+ode.tex
+File: pgfcorelayers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoretranspar
+ency.code.tex
+File: pgfcoretransparency.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepatterns
+.code.tex
+File: pgfcorepatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorerdf.code
+.tex
+File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(/home/carlos/.miktex/texmfs/install/tex/latex/pgf/utilities/xxcolor.sty
+Package: xxcolor 2003/10/24 ver 0.1
+\XC@nummixins=\count294
+\XC@countmixins=\count295
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2022-11-13 v7.00u Hypertext links for LaTeX
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+\pdftexcmds@toks=\toks28
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/home/carlos/.miktex/texmfs/install/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/hyperref/nameref.sty
+Package: nameref 2022-05-17 v2.50 Cross-referencing by name of section
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/gettitlestring/gettitlestring.
+sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (/home/carlos/.miktex/texmfs/install/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count296
+)
+\@linkdim=\dimen266
+\Hy@linkcounter=\count297
+\Hy@pagecounter=\count298
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2022-11-13 v7.00u Hyperref: PDFDocEncoding definition (HO)
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count299
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/hyperref/puenc.def
+File: puenc.def 2022-11-13 v7.00u Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Option `bookmarks' set `true' on input line 4045.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 4045.
+Package hyperref Info: Option `implicit' set `false' on input line 4045.
+Package hyperref Info: Hyper figures OFF on input line 4162.
+Package hyperref Info: Link nesting OFF on input line 4167.
+Package hyperref Info: Hyper index ON on input line 4170.
+Package hyperref Info: Plain pages OFF on input line 4177.
+Package hyperref Info: Backreferencing OFF on input line 4182.
+Package hyperref Info: Implicit mode OFF; no redefinition of LaTeX internals.
+Package hyperref Info: Bookmarks ON on input line 4410.
+\c@Hy@tempcnt=\count300
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/url/url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4748.
+\XeTeXLinkMargin=\dimen267
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count301
+\Field@Width=\dimen268
+\Fld@charsize=\dimen269
+Package hyperref Info: Hyper figures OFF on input line 6027.
+Package hyperref Info: Link nesting OFF on input line 6032.
+Package hyperref Info: Hyper index ON on input line 6035.
+Package hyperref Info: backreferencing OFF on input line 6042.
+Package hyperref Info: Link coloring OFF on input line 6047.
+Package hyperref Info: Link coloring with OCG OFF on input line 6052.
+Package hyperref Info: PDF/A mode OFF on input line 6057.
+\Hy@abspage=\count302
+
+
+Package hyperref Message: Stopped early.
+
+)
+Package hyperref Info: Driver (autodetected): hluatex.
+ (/home/carlos/.miktex/texmfs/install/tex/latex/hyperref/hluatex.def
+File: hluatex.def 2022-11-13 v7.00u Hyperref driver for luaTeX
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count303
+\c@bookmark@seq@number=\count304
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/rerunfilecheck/rerunfilecheck.st
+y
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/uniquecounter/uniquecounter.st
+y
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+85.
+))
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbaserequires.sty
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbasecompatibility.s
+ty) (/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbasefont.sty
+(/home/carlos/.miktex/texmfs/install/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks29
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/home/carlos/.miktex/texmfs/install/tex/latex/sansmathaccent/sansmathaccent.st
+y
+Package: sansmathaccent 2020/01/31
+ (/home/carlos/.miktex/texmfs/install/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2022/10/12 v3.38 KOMA-Script package (file load hooks)
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/koma-script/scrlfile-hook.sty
+Package: scrlfile-hook 2022/10/12 v3.38 KOMA-Script package (using LaTeX hooks)
+
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/koma-script/scrlogo.sty
+Package: scrlogo 2022/10/12 v3.38 KOMA-Script package (logo)
+)))))
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbasetranslator.sty
+(/home/carlos/.miktex/texmfs/install/tex/latex/translator/translator.sty
+Package: translator 2021-05-31 v1.12d Easy translation of strings in LaTeX
+))
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbasemisc.sty)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbasetwoscreens.sty) (/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbaseoverlay.sty
+\beamer@argscount=\count305
+\beamer@lastskipcover=\skip51
+\beamer@trivlistdepth=\count306
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbasetitle.sty)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbasesection.sty
+\c@lecture=\count307
+\c@part=\count308
+\c@section=\count309
+\c@subsection=\count310
+\c@subsubsection=\count311
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbaseframe.sty
+\beamer@framebox=\box66
+\beamer@frametitlebox=\box67
+\beamer@zoombox=\box68
+\beamer@zoomcount=\count312
+\beamer@zoomframecount=\count313
+\beamer@frametextheight=\dimen270
+\c@subsectionslide=\count314
+\beamer@frametopskip=\skip52
+\beamer@framebottomskip=\skip53
+\beamer@frametopskipautobreak=\skip54
+\beamer@framebottomskipautobreak=\skip55
+\beamer@envbody=\toks30
+\framewidth=\dimen271
+\c@framenumber=\count315
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbaseverbatim.sty
+\beamer@verbatimfileout=\write4
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbaseframesize.sty
+\beamer@splitbox=\box69
+\beamer@autobreakcount=\count316
+\beamer@autobreaklastheight=\dimen272
+\beamer@frametitletoks=\toks31
+\beamer@framesubtitletoks=\toks32
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbaseframecomponents
+.sty
+\beamer@footins=\box70
+) (/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbasecolor.sty) (/
+home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbasenotes.sty
+\beamer@frameboxcopy=\box71
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbasetoc.sty)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbasetemplates.sty
+\beamer@sbttoks=\toks33
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbaseauxtemplates.st
+y (/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbaseboxes.sty
+\bmb@box=\box72
+\bmb@colorbox=\box73
+\bmb@boxwidth=\dimen273
+\bmb@boxheight=\dimen274
+\bmb@prevheight=\dimen275
+\bmb@temp=\dimen276
+\bmb@dima=\dimen277
+\bmb@dimb=\dimen278
+\bmb@prevheight=\dimen279
+)
+\beamer@blockheadheight=\dimen280
+))
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbaselocalstructure.
+sty (/home/carlos/.miktex/texmfs/install/tex/latex/tools/enumerate.sty
+Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
+\@enLab=\toks34
+)
+\beamer@bibiconwidth=\skip56
+\c@figure=\count317
+\c@table=\count318
+\abovecaptionskip=\skip57
+\belowcaptionskip=\skip58
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbasenavigation.sty
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbasenavigationsymbo
+ls.tex)
+\beamer@section@min@dim=\dimen281
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbasetheorems.sty
+(/home/carlos/.miktex/texmfs/install/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2022/04/08 v2.17n AMS math features
+\@mathmargin=\skip59
+
+For additional information on amsmath, use the `?' option.
+(/home/carlos/.miktex/texmfs/install/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks35
+\ex@=\dimen282
+))
+(/home/carlos/.miktex/texmfs/install/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen283
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count319
+LaTeX Info: Redefining \frac on input line 236.
+\uproot@=\count320
+\leftroot@=\count321
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count322
+\DOTSCASE@=\count323
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box74
+\strutbox@=\box75
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen284
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count324
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count325
+\dotsspace@=\muskip17
+\c@parentequation=\count326
+\dspbrk@lvl=\count327
+\tag@help=\toks36
+\row@=\count328
+\column@=\count329
+\maxfields@=\count330
+\andhelp@=\toks37
+\eqnshift@=\dimen285
+\alignsep@=\dimen286
+\tagshift@=\dimen287
+\tagwidth@=\dimen288
+\totwidth@=\dimen289
+\lineht@=\dimen290
+\@envbody=\toks38
+\multlinegap=\skip60
+\multlinetaggap=\skip61
+\mathdisplay@stack=\toks39
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks40
+\thm@bodyfont=\toks41
+\thm@headfont=\toks42
+\thm@notefont=\toks43
+\thm@headpunct=\toks44
+\thm@preskip=\skip62
+\thm@postskip=\skip63
+\thm@headsep=\skip64
+\dth@everypar=\toks45
+)
+\c@theorem=\count331
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerbasethemes.sty))
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerthemedefault.sty
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerfontthemedefault.st
+y)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamercolorthemedefault.s
+ty)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerinnerthemedefault.s
+ty
+\beamer@dima=\dimen291
+\beamer@dimb=\dimen292
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerouterthemedefault.s
+ty))) (./beamerthemeSimplePlusAIC.sty
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerthemeMadrid.sty
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamercolorthemewhale.sty
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamercolorthemeorchid.st
+y)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerinnerthemerounded.s
+ty)
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerouterthemeinfolines
+.sty))
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamerinnerthemecircles.s
+ty) (./beamerfontthemeSimplePlusAIC.sty) (./beamercolorthemeSimplePlusAIC.sty
+(/home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamercolorthemestructure
+.sty)) (./beamerinnerthemeSimplePlusAIC.sty))
+(/home/carlos/.miktex/texmfs/install/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen293
+\lightrulewidth=\dimen294
+\cmidrulewidth=\dimen295
+\belowrulesep=\dimen296
+\belowbottomsep=\dimen297
+\aboverulesep=\dimen298
+\abovetopsep=\dimen299
+\cmidrulesep=\dimen300
+\cmidrulekern=\dimen301
+\defaultaddspace=\dimen302
+\@cmidla=\count332
+\@cmidlb=\count333
+\@aboverulesep=\dimen303
+\@belowrulesep=\dimen304
+\@thisruleclass=\count334
+\@lastruleclass=\count335
+\@thisrulewidth=\dimen305
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/svg/svg.sty
+Package: svg 2020/11/26 v2.02k (include SVG pictures)
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/koma-script/scrbase.sty
+Package: scrbase 2022/10/12 v3.38 KOMA-Script package (KOMA-Script-independent 
+basics and keyval usage)
+Applying: [2021/05/01] Usage of raw or classic option list on input line 252.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line
+ 368.
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/tools/shellesc.sty
+Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+)
+\c@svg@param@lastpage=\count336
+\svg@box=\box76
+\c@svg@param@currpage=\count337
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/transparent/transparent.sty
+Package: transparent 2019/11/29 v1.4 Transparency via pdfTeX's color stack (HO)
+
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/pgf/frontendlayer/tikz.sty
+(/home/carlos/.miktex/texmfs/install/tex/latex/pgf/basiclayer/pgf.sty
+Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/modules/pgfmoduleshapes.co
+de.tex
+File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfnodeparttextbox=\box77
+)
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/modules/pgfmoduleplot.code
+.tex
+File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/pgf/compatibility/pgfcomp-versio
+n-0-65.sty
+Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@nodesepstart=\dimen306
+\pgf@nodesepend=\dimen307
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/pgf/compatibility/pgfcomp-versio
+n-1-18.sty
+Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
+))
+(/home/carlos/.miktex/texmfs/install/tex/latex/pgf/utilities/pgffor.sty
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen308
+\pgffor@skip=\dimen309
+\pgffor@stack=\toks46
+\pgffor@toks=\toks47
+))
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/tikz.co
+de.tex
+Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/libraries/pgflibraryplotha
+ndlers.code.tex
+File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@plot@mark@count=\count338
+\pgfplotmarksize=\dimen310
+)
+\tikz@lastx=\dimen311
+\tikz@lasty=\dimen312
+\tikz@lastxsaved=\dimen313
+\tikz@lastysaved=\dimen314
+\tikz@lastmovetox=\dimen315
+\tikz@lastmovetoy=\dimen316
+\tikzleveldistance=\dimen317
+\tikzsiblingdistance=\dimen318
+\tikz@figbox=\box78
+\tikz@figbox@bg=\box79
+\tikz@tempbox=\box80
+\tikz@tempbox@bg=\box81
+\tikztreelevel=\count339
+\tikznumberofchildren=\count340
+\tikznumberofcurrentchild=\count341
+\tikz@fig@count=\count342
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/modules/pgfmodulematrix.co
+de.tex
+File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfmatrixcurrentrow=\count343
+\pgfmatrixcurrentcolumn=\count344
+\pgf@matrix@numberofcolumns=\count345
+)
+\tikz@expandcount=\count346
+
+(/home/carlos/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/librari
+es/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(/home/carlos/.miktex/texmfs/install/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/tools/array.sty
+Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen319
+\ar@mcellbox=\box82
+\extrarowheight=\dimen320
+\NC@list=\toks48
+\extratabsurround=\skip65
+\backup@length=\skip66
+\ar@cellbox=\box83
+)
+\rotheadsize=\dimen321
+\c@nlinenum=\count347
+\TeXr@lab=\toks49
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/comment/comment.sty
+\CommentStream=\write5
+
+Excluding comment 'comment')
+\sympureletters=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
+ut line 16.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/tools/bm.sty
+Package: bm 2022/01/05 v1.2f Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup7
+\symboldletters=\mathgroup8
+\symboldsymbols=\mathgroup9
+Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
+Package bm Info: No bold for \U/msa/m/n, using \pmb.
+Package bm Info: No bold for \U/msb/m/n, using \pmb.
+\symboldpureletters=\mathgroup10
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2022/06/29 v1.29 mathematical typesetting tools
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count348
+\calc@Bcount=\count349
+\calc@Adimen=\dimen322
+\calc@Bdimen=\dimen323
+\calc@Askip=\skip67
+\calc@Bskip=\skip68
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count350
+\calc@Cskip=\skip69
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+\g_MT_multlinerow_int=\count351
+\l_MT_multwidth_dim=\dimen324
+\origjot=\skip70
+\l_MT_shortvdotswithinadjustabove_dim=\dimen325
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen326
+\l_MT_above_intertext_sep=\dimen327
+\l_MT_below_intertext_sep=\dimen328
+\l_MT_above_shortintertext_sep=\dimen329
+\l_MT_below_shortintertext_sep=\dimen330
+\xmathstrut@box=\box84
+\xmathstrut@dim=\dimen331
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/fontspec/fontspec.sty
+(/home/carlos/.miktex/texmfs/install/tex/latex/l3packages/xparse/xparse.sty
+(/home/carlos/.miktex/texmfs/install/tex/latex/l3kernel/expl3.sty
+Package: expl3 2022-11-02 L3 programming layer (loader) 
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/l3backend/l3backend-luatex.def
+File: l3backend-luatex.def 2022-10-26 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count352
+\l__pdf_internal_box=\box85
+))
+Package: xparse 2022-06-22 L3 Experimental document command parser
+)
+Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
+Lua module: fontspec 2022/01/15 2.8a Font selection for XeLaTeX and LuaLaTeX (/
+home/carlos/.miktex/texmfs/install/tex/latex/fontspec/fontspec-luatex.sty
+Package: fontspec-luatex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaT
+eX
+\l__fontspec_script_int=\count353
+\l__fontspec_language_int=\count354
+\l__fontspec_strnum_int=\count355
+\l__fontspec_tmp_int=\count356
+\l__fontspec_tmpa_int=\count357
+\l__fontspec_tmpb_int=\count358
+\l__fontspec_tmpc_int=\count359
+\l__fontspec_em_int=\count360
+\l__fontspec_emdef_int=\count361
+\l__fontspec_strong_int=\count362
+\l__fontspec_strongdef_int=\count363
+\l__fontspec_tmpa_dim=\dimen332
+\l__fontspec_tmpb_dim=\dimen333
+\l__fontspec_tmpc_dim=\dimen334
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/fontspec/fontspec.cfg)))
+
+Package fontspec Info: Font family 'Epilogue(0)' created for font 'Epilogue'
+(fontspec)             with options
+(fontspec)             [Ligatures=TeX,Path=./epilogueFont/,Scale=0.8,Extension
+(fontspec)             =
+(fontspec)             .ttf,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-
+Italic,BoldItalicFont=*-BoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.8]"[./epilogueFont/Epilogue-Regular.ttf]:mode=no
+de;script=latn;language=dflt;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->s*[0.8]"[./epilogueFont/Epilogue-Regular.ttf]:mode=no
+de;script=latn;language=dflt;+tlig;+smcp;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.8]"[./epilogueFont/Epilogue-Bold.ttf]:mode=node;
+script=latn;language=dflt;+tlig;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
+(fontspec)             <->s*[0.8]"[./epilogueFont/Epilogue-Bold.ttf]:mode=node;
+script=latn;language=dflt;+tlig;+smcp;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[0.8]"[./epilogueFont/Epilogue-Italic.ttf]:mode=nod
+e;script=latn;language=dflt;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->s*[0.8]"[./epilogueFont/Epilogue-Italic.ttf]:mode=nod
+e;script=latn;language=dflt;+tlig;+smcp;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[0.8]"[./epilogueFont/Epilogue-BoldItalic.ttf]:mode
+=node;script=latn;language=dflt;+tlig;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->s*[0.8]"[./epilogueFont/Epilogue-BoldItalic.ttf]:mode
+=node;script=latn;language=dflt;+tlig;+smcp;"
+
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/m/n' will be
+(Font)              scaled to size 8.76003pt on input line 49.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2022/07/12 v3.18b programmable bibliographies (PK/MW)
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count364
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+(/home/carlos/.miktex/texmfs/install/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+\c@tabx@nest=\count365
+\c@listtotal=\count366
+\c@listcount=\count367
+\c@liststart=\count368
+\c@liststop=\count369
+\c@citecount=\count370
+\c@citetotal=\count371
+\c@multicitecount=\count372
+\c@multicitetotal=\count373
+\c@instcount=\count374
+\c@maxnames=\count375
+\c@minnames=\count376
+\c@maxitems=\count377
+\c@minitems=\count378
+\c@citecounter=\count379
+\c@maxcitecounter=\count380
+\c@savedcitecounter=\count381
+\c@uniquelist=\count382
+\c@uniquename=\count383
+\c@refsection=\count384
+\c@refsegment=\count385
+\c@maxextratitle=\count386
+\c@maxextratitleyear=\count387
+\c@maxextraname=\count388
+\c@maxextradate=\count389
+\c@maxextraalpha=\count390
+\c@abbrvpenalty=\count391
+\c@highnamepenalty=\count392
+\c@lownamepenalty=\count393
+\c@maxparens=\count394
+\c@parenlevel=\count395
+\blx@tempcnta=\count396
+\blx@tempcntb=\count397
+\blx@tempcntc=\count398
+\c@blx@maxsection=\count399
+\blx@maxsegment@0=\count400
+\blx@notetype=\count401
+\blx@parenlevel@text=\count402
+\blx@parenlevel@foot=\count403
+\blx@sectionciteorder@0=\count404
+\blx@sectionciteorderinternal@0=\count405
+\blx@entrysetcounter=\count406
+\blx@biblioinstance=\count407
+\labelnumberwidth=\skip71
+\labelalphawidth=\skip72
+\biblabelsep=\skip73
+\bibitemsep=\skip74
+\bibnamesep=\skip75
+\bibinitsep=\skip76
+\bibparsep=\skip77
+\bibhang=\skip78
+\blx@bcfin=\read3
+\blx@bcfout=\write6
+\blx@langwohyphens=\language2
+\c@mincomprange=\count408
+\c@maxcomprange=\count409
+\c@mincompwidth=\count410
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/blx-dm.def
+File: blx-dm.def 2022/07/12 v3.18b biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'authoryear.dbx' not found.
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count411
+\c@savedafterword=\count412
+\c@annotator=\count413
+\c@savedannotator=\count414
+\c@author=\count415
+\c@savedauthor=\count416
+\c@bookauthor=\count417
+\c@savedbookauthor=\count418
+\c@commentator=\count419
+\c@savedcommentator=\count420
+\c@editor=\count421
+\c@savededitor=\count422
+\c@editora=\count423
+\c@savededitora=\count424
+\c@editorb=\count425
+\c@savededitorb=\count426
+\c@editorc=\count427
+\c@savededitorc=\count428
+\c@foreword=\count429
+\c@savedforeword=\count430
+\c@holder=\count431
+\c@savedholder=\count432
+\c@introduction=\count433
+\c@savedintroduction=\count434
+\c@namea=\count435
+\c@savednamea=\count436
+\c@nameb=\count437
+\c@savednameb=\count438
+\c@namec=\count439
+\c@savednamec=\count440
+\c@translator=\count441
+\c@savedtranslator=\count442
+\c@shortauthor=\count443
+\c@savedshortauthor=\count444
+\c@shorteditor=\count445
+\c@savedshorteditor=\count446
+\c@labelname=\count447
+\c@savedlabelname=\count448
+\c@institution=\count449
+\c@savedinstitution=\count450
+\c@lista=\count451
+\c@savedlista=\count452
+\c@listb=\count453
+\c@savedlistb=\count454
+\c@listc=\count455
+\c@savedlistc=\count456
+\c@listd=\count457
+\c@savedlistd=\count458
+\c@liste=\count459
+\c@savedliste=\count460
+\c@listf=\count461
+\c@savedlistf=\count462
+\c@location=\count463
+\c@savedlocation=\count464
+\c@organization=\count465
+\c@savedorganization=\count466
+\c@origlocation=\count467
+\c@savedoriglocation=\count468
+\c@origpublisher=\count469
+\c@savedorigpublisher=\count470
+\c@publisher=\count471
+\c@savedpublisher=\count472
+\c@language=\count473
+\c@savedlanguage=\count474
+\c@origlanguage=\count475
+\c@savedoriglanguage=\count476
+\c@pageref=\count477
+\c@savedpageref=\count478
+\shorthandwidth=\skip79
+\shortjournalwidth=\skip80
+\shortserieswidth=\skip81
+\shorttitlewidth=\skip82
+\shortauthorwidth=\skip83
+\shorteditorwidth=\skip84
+\locallabelnumberwidth=\skip85
+\locallabelalphawidth=\skip86
+\localshorthandwidth=\skip87
+\localshortjournalwidth=\skip88
+\localshortserieswidth=\skip89
+\localshorttitlewidth=\skip90
+\localshortauthorwidth=\skip91
+\localshorteditorwidth=\skip92
+Package biblatex Info: Trying to load enhanced support for Unicode engines...
+Package biblatex Info: ... file 'blx-unicode.def' found.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/blx-unicode.def)
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2022/07/12 v3.18b biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2022/07/12 v3.18b biblatex compatibility (PK/MW)
+\c@textcitecount=\count479
+\c@textcitetotal=\count480
+\c@textcitemaxnames=\count481
+\c@biburlbigbreakpenalty=\count482
+\c@biburlbreakpenalty=\count483
+\c@biburlnumpenalty=\count484
+\c@biburlucpenalty=\count485
+\c@biburllcpenalty=\count486
+\biburlbigskip=\muskip18
+\biburlnumskip=\muskip19
+\biburlucskip=\muskip20
+\biburllcskip=\muskip21
+\c@smartand=\count487
+)
+Package biblatex Info: Trying to load bibliography style 'authoryear'...
+Package biblatex Info: ... file 'authoryear.bbx' found.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/bbx/authoryear.bbx
+File: authoryear.bbx 2022/07/12 v3.18b biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2022/07/12 v3.18b biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count488
+\c@bbx:relatedtotal=\count489
+))
+Package biblatex Info: Trying to load citation style 'authoryear'...
+Package biblatex Info: ... file 'authoryear.cbx' found.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/cbx/authoryear.cbx
+File: authoryear.cbx 2022/07/12 v3.18b biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: LuaTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Document encoding is UTF8 ....
+Package biblatex Info: ... and expl3
+(biblatex)             2022-11-02 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/blx-case-expl3.sty
+Package: blx-case-expl3 2022/07/12 v3.18b expl3 case changing code for biblatex
+
+))
+\@quotelevel=\count490
+\@quotereset=\count491
+
+(./slides.aux)
+\openout1 = slides.aux
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 84.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 8
+4.
+ (/home/carlos/.miktex/texmfs/install/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: luatex
+*geometry* verbose mode - [ preamble ] result:
+* driver: luatex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: includehead includefoot 
+* h-part:(L,W,R)=(21.9pt, 411.44409pt, 21.9pt)
+* v-part:(T,H,B)=(0.0pt, 256.0748pt, 0.0pt)
+* \paperwidth=455.24408pt
+* \paperheight=256.0748pt
+* \textwidth=411.44409pt
+* \textheight=227.62207pt
+* \oddsidemargin=-50.37pt
+* \evensidemargin=-50.37pt
+* \topmargin=-72.26999pt
+* \headheight=14.22636pt
+* \headsep=0.0pt
+* \topskip=11.0pt
+* \footskip=14.22636pt
+* \marginparwidth=4.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/home/carlos/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count492
+\scratchdimen=\dimen335
+\scratchbox=\box86
+\nofMPsegments=\count493
+\nofMParguments=\count494
+\everyMPshowfont=\toks50
+\MPscratchCnt=\count495
+\MPscratchDim=\dimen336
+\MPnumerator=\count496
+\makeMPintoPDFobject=\count497
+\everyMPtoPDFconversion=\toks51
+) (/home/carlos/.miktex/texmfs/install/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+(/home/carlos/.miktex/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package hyperref Info: Link coloring OFF on input line 84.
+
+(./slides.out) (./slides.out)
+\@outlinefile=\write7
+
+\openout7 = slides.out
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 84.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 84.
+\symnumbers=\mathgroup11
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 84.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `pureletters' in the math version `normal' on input line 84
+.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
+(Font)                  OT1/mathkerncmss/m/sl --> TU/Epilogue(0)/m/it on input 
+line 84.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `pureletters' in the math version `bold' on input line 84.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/mathkerncmss/bx/sl --> TU/Epilogue(0)/m/it on input
+ line 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/lmr/m/n on input line 84.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 84.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/Epilogue(0)/m/n on input line 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> TU/Epilogue(0)/m/n on input line 84.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> TU/Epilogue(0)/m/it on input line 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> TU/Epilogue(0)/m/it on input line 84.
+
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 84.
+LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
+(Font)                  TU/Epilogue(0)/m/n --> TU/Epilogue(0)/b/n on input line
+ 84.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  TU/Epilogue(0)/m/it --> TU/Epilogue(0)/b/it on input li
+ne 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
+(Font)                  OT1/cmss/b/n --> TU/lmr/b/n on input line 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  TU/Epilogue(0)/b/n --> TU/Epilogue(0)/b/n on input line
+ 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  TU/Epilogue(0)/m/n --> TU/Epilogue(0)/b/n on input line
+ 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  TU/Epilogue(0)/m/it --> TU/Epilogue(0)/b/it on input li
+ne 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  TU/lmtt/m/n --> TU/lmtt/b/n on input line 84.
+LaTeX Font Info:    Redeclaring symbol font `boldpureletters' on input line 84.
+
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `boldpureletters' in the math version `normal' on input lin
+e 84.
+LaTeX Font Info:    Overwriting symbol font `boldpureletters' in version `norma
+l'
+(Font)                  OT1/mathkerncmss/bx/sl --> TU/Epilogue(0)/bx/it on inpu
+t line 84.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `boldpureletters' in the math version `bold' on input line 
+84.
+LaTeX Font Info:    Overwriting symbol font `boldpureletters' in version `bold'
+
+(Font)                  OT1/mathkerncmss/bx/sl --> TU/Epilogue(0)/bx/it on inpu
+t line 84.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/translator/translator-basic-dict
+ionary-English.dict
+Dictionary: translator-basic-dictionary, Language: English 
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/translator/translator-bibliograp
+hy-dictionary-English.dict
+Dictionary: translator-bibliography-dictionary, Language: English 
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/translator/translator-environmen
+t-dictionary-English.dict
+Dictionary: translator-environment-dictionary, Language: English 
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/translator/translator-months-dic
+tionary-English.dict
+Dictionary: translator-months-dictionary, Language: English 
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/translator/translator-numbers-di
+ctionary-English.dict
+Dictionary: translator-numbers-dictionary, Language: English 
+)
+(/home/carlos/.miktex/texmfs/install/tex/latex/translator/translator-theorem-di
+ctionary-English.dict
+Dictionary: translator-theorem-dictionary, Language: English 
+)
+
+Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
+(fontspec)             this).
+
+\symlegacymaths=\mathgroup12
+LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 84.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 84.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 84.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 84.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 84.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 84.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 84.
+LaTeX Font Info:    Redeclaring math accent \check on input line 84.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 84.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 84.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 84.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 84.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 84.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 84.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 84.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 84.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 84.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 84.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 84.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 84.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 84.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 84.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 84.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 84.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 84.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/lmr/m/n on input line 84.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 84.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmss/b/n --> TU/lmr/m/n on input line 84.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 84.
+LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  TU/Epilogue(0)/m/it --> TU/lmr/m/it on input line 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  TU/Epilogue(0)/b/n --> TU/lmr/b/n on input line 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  TU/Epilogue(0)/m/n --> TU/Epilogue(0)/m/n on input line
+ 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  TU/lmtt/m/n --> TU/lmtt/m/n on input line 84.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  TU/Epilogue(0)/b/it --> TU/lmr/b/it on input line 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  TU/Epilogue(0)/b/n --> TU/Epilogue(0)/b/n on input line
+ 84.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  TU/lmtt/b/n --> TU/lmtt/b/n on input line 84.
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2022/07/12 v3.18b biblatex localization (PK/MW)
+)
+Package biblatex Info: LuaTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+
+\openout6 = slides.bcf
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'slides.bbl' found.
+
+(./slides.bbl)
+Package biblatex Info: Reference section=0 on input line 84.
+Package biblatex Info: Reference segment=0 on input line 84.
+ (./slides.nav)
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/m/n' will be
+(Font)              scaled to size 4.80002pt on input line 84.
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/m/n' will be
+(Font)              scaled to size 6.40002pt on input line 84.
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/m/n' will be
+(Font)              scaled to size 16.59206pt on input line 89.
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/b/n' will be
+(Font)              scaled to size 16.59206pt on input line 89.
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/b/n' will be
+(Font)              scaled to size 8.76003pt on input line 89.
+<logos/Uniandes.png, id=20, 612.03656pt x 235.37938pt>
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 89.
+(luatex.def)             Requested size: 85.35826pt x 32.82718pt.
+ [1
+
+{/home/carlos/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}<./logos/Uniandes.
+png>] Excluding 'comment' comment.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 120
+.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 120
+.
+
+(/home/carlos/.miktex/texmfs/install/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/m/it' will be
+(Font)              scaled to size 8.76003pt on input line 120.
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/m/it' will be
+(Font)              scaled to size 6.40002pt on input line 120.
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/m/it' will be
+(Font)              scaled to size 4.80002pt on input line 120.
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/bx/it' in size <10.95> not avail
+able
+(Font)              Font shape `TU/Epilogue(0)/b/it' tried instead on input lin
+e 120.
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/b/it' will be
+(Font)              scaled to size 8.76003pt on input line 120.
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/bx/it' in size <8> not available
+
+(Font)              Font shape `TU/Epilogue(0)/b/it' tried instead on input lin
+e 120.
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/b/it' will be
+(Font)              scaled to size 6.40002pt on input line 120.
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/bx/it' in size <6> not available
+
+(Font)              Font shape `TU/Epilogue(0)/b/it' tried instead on input lin
+e 120.
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/b/it' will be
+(Font)              scaled to size 4.80002pt on input line 120.
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/m/n' will be
+(Font)              scaled to size 13.82405pt on input line 120.
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/b/n' will be
+(Font)              scaled to size 13.82405pt on input line 120.
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 120.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/m/n' will be
+(Font)              scaled to size 3.20001pt on input line 120.
+ [2
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 130.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [3
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 140.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+
+[4
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 146.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [5
+
+]
+<images/neural_net.png, id=57, 433.62pt x 289.08pt>
+File: images/neural_net.png Graphic file (type png)
+<use images/neural_net.png>
+Package luatex.def Info: images/neural_net.png  used on input line 163.
+(luatex.def)             Requested size: 246.86896pt x 164.57881pt.
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 163.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [6
+
+<./images/neural_net.png>]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 171.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [7
+
+] Excluding 'comment' comment.
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 205.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [8
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 220.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+
+[9
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 233.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [10
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 251.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [11
+
+]
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/m/n' will be
+(Font)              scaled to size 9.60004pt on input line 260.
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 260.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [12
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 289.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [13
+
+]
+<images/DeepBSDEMap.png, id=122, 715.67375pt x 246.9225pt>
+File: images/DeepBSDEMap.png Graphic file (type png)
+<use images/DeepBSDEMap.png>
+Package luatex.def Info: images/DeepBSDEMap.png  used on input line 297.
+(luatex.def)             Requested size: 411.44409pt x 141.95671pt.
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 297.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [14
+
+<./images/DeepBSDEMap.png>]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 308.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [15
+
+]
+<images/MergedBSDE.png, id=135, 709.65125pt x 244.915pt>
+File: images/MergedBSDE.png Graphic file (type png)
+<use images/MergedBSDE.png>
+Package luatex.def Info: images/MergedBSDE.png  used on input line 320.
+(luatex.def)             Requested size: 389.5441pt x 134.44205pt.
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 320.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [16
+
+<./images/MergedBSDE.png>]
+<images/Residual.png, id=145, 244.915pt x 187.70125pt>
+File: images/Residual.png Graphic file (type png)
+<use images/Residual.png>
+Package luatex.def Info: images/Residual.png  used on input line 331.
+(luatex.def)             Requested size: 233.73299pt x 142.2735pt.
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 331.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [17
+
+<./images/Residual.png>]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 349.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [18
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 360.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [19
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 376.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [20
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 394.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [21
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 414.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [22
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 425.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [23
+
+]
+<images/training.png, id=191, 462.528pt x 346.896pt>
+File: images/training.png Graphic file (type png)
+<use images/training.png>
+Package luatex.def Info: images/training.png  used on input line 446.
+(luatex.def)             Requested size: 203.66455pt x 152.75114pt.
+
+Overfull \hbox (18.51598pt too wide) in paragraph at lines 446--446
+ [] 
+ []
+
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/m/n' will be
+(Font)              scaled to size 7.20003pt on input line 446.
+<images/OptimalLQRCentrilized.png, id=192, 462.528pt x 346.896pt>
+File: images/OptimalLQRCentrilized.png Graphic file (type png)
+<use images/OptimalLQRCentrilized.png>
+Package luatex.def Info: images/OptimalLQRCentrilized.png  used on input line 4
+46.
+(luatex.def)             Requested size: 205.72205pt x 154.29147pt.
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 446.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+
+Overfull \vbox (8.9659pt too high) detected at line 446
+ []
+
+[24
+
+<./images/training.png><./images/OptimalLQRCentrilized.png>]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 462.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [25
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 477.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [26
+
+]
+Overfull \hbox (0.67981pt too wide) detected at line 495
+[][][]
+ []
+
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 495.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+
+Overfull \vbox (2.16364pt too high) detected at line 495
+ []
+
+[27
+
+]
+<images/pathsInterp.png, id=228, 462.528pt x 346.896pt>
+File: images/pathsInterp.png Graphic file (type png)
+<use images/pathsInterp.png>
+Package luatex.def Info: images/pathsInterp.png  used on input line 504.
+(luatex.def)             Requested size: 227.6217pt x 170.71652pt.
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 504.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [28
+
+<./images/pathsInterp.png>]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 523.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [29
+
+]
+<images/Interp_training.png, id=242, 462.528pt x 346.896pt>
+File: images/Interp_training.png Graphic file (type png)
+<use images/Interp_training.png>
+Package luatex.def Info: images/Interp_training.png  used on input line 545.
+(luatex.def)             Requested size: 185.14857pt x 138.8618pt.
+<images/trainingDGM.png, id=243, 462.528pt x 346.896pt>
+File: images/trainingDGM.png Graphic file (type png)
+<use images/trainingDGM.png>
+Package luatex.def Info: images/trainingDGM.png  used on input line 545.
+(luatex.def)             Requested size: 205.72205pt x 154.29147pt.
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 545.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+
+Overfull \vbox (8.28731pt too high) detected at line 545
+ []
+
+[30
+
+<./images/Interp_training.png><./images/trainingDGM.png>]
+<images/Sol_DGM.png, id=251, 462.528pt x 346.896pt>
+File: images/Sol_DGM.png Graphic file (type png)
+<use images/Sol_DGM.png>
+Package luatex.def Info: images/Sol_DGM.png  used on input line 563.
+(luatex.def)             Requested size: 185.14857pt x 138.8618pt.
+<images/Interp_sol2.png, id=252, 462.528pt x 346.896pt>
+File: images/Interp_sol2.png Graphic file (type png)
+<use images/Interp_sol2.png>
+Package luatex.def Info: images/Interp_sol2.png  used on input line 563.
+(luatex.def)             Requested size: 205.72205pt x 154.29147pt.
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 563.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [31
+
+<./images/Sol_DGM.png><./images/Interp_sol2.png>]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 575.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [32
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 590.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [33
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 596.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [34
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 621.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+
+Overfull \vbox (32.4299pt too high) detected at line 621
+ []
+
+[35
+
+]
+<images/OptimalLQRDeepFictitus.png, id=287, 462.528pt x 346.896pt>
+File: images/OptimalLQRDeepFictitus.png Graphic file (type png)
+<use images/OptimalLQRDeepFictitus.png>
+Package luatex.def Info: images/OptimalLQRDeepFictitus.png  used on input line 
+631.
+(luatex.def)             Requested size: 227.6217pt x 170.71652pt.
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 631.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [36
+
+<./images/OptimalLQRDeepFictitus.png>]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 638.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [37
+
+]
+<images/achdou.png, id=301, 740.7675pt x 410.53375pt>
+File: images/achdou.png Graphic file (type png)
+<use images/achdou.png>
+Package luatex.def Info: images/achdou.png  used on input line 648.
+(luatex.def)             Requested size: 288.0096pt x 159.61264pt.
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 648.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+
+Overfull \vbox (13.84206pt too high) detected at line 648
+ []
+
+[38
+
+<./images/achdou.png>]
+<images/cuadro.png, id=310, 929.4725pt x 674.52pt>
+File: images/cuadro.png Graphic file (type png)
+<use images/cuadro.png>
+Package luatex.def Info: images/cuadro.png  used on input line 656.
+(luatex.def)             Requested size: 288.0096pt x 209.00641pt.
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 656.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+
+Overfull \vbox (34.08232pt too high) detected at line 656
+ []
+
+[39
+
+<./images/cuadro.png>]
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/m/sc' will be
+(Font)              scaled to size 8.76003pt on input line 668.
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 668.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [40
+
+</home/carlos/.miktex/texmfs/install/tex/latex/beamer/beamericonarticle.pdf>]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 668.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [41
+
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 668.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [42
+
+
+]
+File: logos/Uniandes.png Graphic file (type png)
+<use logos/Uniandes.png>
+Package luatex.def Info: logos/Uniandes.png  used on input line 668.
+(luatex.def)             Requested size: 71.13188pt x 27.35358pt.
+ [43
+
+
+]
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/m/n' will be
+(Font)              scaled to size 19.90407pt on input line 674.
+LaTeX Font Info:    Font shape `TU/Epilogue(0)/b/n' will be
+(Font)              scaled to size 19.90407pt on input line 674.
+ [44
+
+]
+\tf@nav=\write8
+
+\openout8 = slides.nav
+\tf@toc=\write9
+
+\openout9 = slides.toc
+\tf@snm=\write10
+
+\openout10 = slides.snm
+ (./slides.aux)
+Package rerunfilecheck Info: File `slides.out' has not changed.
+(rerunfilecheck)             Checksum: D07C973EE93E17D8B9060080BFA546E1;189.
+Package logreq Info: Writing requests to 'slides.run.xml'.
+
+\openout1 = slides.run.xml
+)
+
+Here is how much of LuaTeX's memory you used:
+ 38619 strings out of 477240
+ 100000,1648299 words of node,token memory allocated
+ 1266 words of node memory still in use:
+   13 hlist, 6 vlist, 2 rule, 13 glue, 5 kern, 7 penalty, 7 glyph, 103 attribute
+, 77 glue_spec, 103 attribute_list, 4 write, 4 pdf_colorstack nodes
+   avail lists: 2:1210,3:474,4:245,5:414,6:53,7:5393,8:87,9:824,10:21,11:380
+ 57737 multiletter control sequences out of 65536+600000
+ 76 fonts using 8214495 bytes
+ 128i,20n,115p,1999b,1595s stack positions out of 10000i,1000n,20000p,200000b,80000s
+</home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmmono10-regular.o
+tf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmromandemi10-r
+egular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmroman
+8-regular.otf></home/carlos/.miktex/texmfs/install/fonts/opentype/public/lm/lmro
+man10-regular.otf><./epilogueFont/Epilogue-Italic.ttf><./epilogueFont/Epilogue-R
+egular.ttf><./epilogueFont/Epilogue-Bold.ttf></home/carlos/.miktex/texmfs/instal
+l/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/carlos/.miktex/texmfs/install
+/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/carlos/.miktex/texmfs/install/
+fonts/type1/public/amsfonts/cm/cmmi6.pfb></home/carlos/.miktex/texmfs/install/fo
+nts/type1/public/amsfonts/cm/cmmi8.pfb></home/carlos/.miktex/texmfs/install/font
+s/type1/public/amsfonts/cm/cmmib10.pfb></home/carlos/.miktex/texmfs/install/font
+s/type1/public/amsfonts/cm/cmr10.pfb></home/carlos/.miktex/texmfs/install/fonts/
+type1/public/amsfonts/cm/cmr6.pfb></home/carlos/.miktex/texmfs/install/fonts/typ
+e1/public/amsfonts/cm/cmr8.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/p
+ublic/amsfonts/cm/cmsy6.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/pub
+lic/amsfonts/cm/cmsy8.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/publi
+c/amsfonts/symbols/msbm10.pfb>
+Output written on slides.pdf (44 pages, 869229 bytes).
+
+PDF statistics: 456 PDF objects out of 1000 (max. 8388607)
+ 124 named destinations out of 1000 (max. 131072)
+ 32 words of extra memory for PDF output out of 10000 (max. 100000000)
+

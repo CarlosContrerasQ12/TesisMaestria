@@ -1,0 +1,18 @@
+[0] Config.pm:306> INFO - This is Biber 2.18
+[0] Config.pm:309> INFO - Logfile is 'slides.blg'
+[42] biber:340> INFO - === vie jun 30, 2023, 11:41:40
+[51] Biber.pm:418> INFO - Reading 'slides.bcf'
+[95] Biber.pm:978> INFO - Found 8 citekeys in bib section 0
+[104] Biber.pm:4401> INFO - Processing section 0
+[111] Biber.pm:4592> INFO - Looking for bibtex file 'references.bib' for section 0
+[112] bibtex.pm:1713> INFO - LaTeX decoding ...
+[127] bibtex.pm:1518> INFO - Found BibTeX data source 'references.bib'
+[200] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[200] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[200] Biber.pm:4221> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[200] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
+[208] bbl.pm:654> INFO - Writing 'slides.bbl' with encoding 'UTF-8'
+[214] bbl.pm:757> INFO - Output to slides.bbl
+[214] Biber.pm:130> WARN - ISBN '978-3-540-89499-5 978-3-540-89500-8' in entry 'pham_continuous-time_2009' is invalid - run biber with '--validate_datamodel' for details.
+[214] Biber.pm:130> WARN - ISBN '978-3-030-59836-5 978-3-030-59837-2' in entry 'achdou_mean_2020' is invalid - run biber with '--validate_datamodel' for details.
+[214] Biber.pm:132> INFO - WARNINGS: 2
