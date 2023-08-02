@@ -18,7 +18,7 @@ Given a set of strategies $(\bfAlp_t)_{t\in [0,T]}$, we associate a cost/value f
 \end{equation}
 where the running cost $f^i:[0,T]\times \bbR^{dN}\times \mathcal{A}^N\to \bbR$ and the terminal cost $g^i:\bbR^{dN}\to \bbR$ are deterministic measurable functions.
 
-Each player will try to minimize its repective total cost
+Each player will try to minimize its respective total cost
 \begin{equation}
 	\label{eqn:total_cost}
 	J^i_0(\bfAlp_t):=v(0,x^i_0,\bfAlp_t),
@@ -77,7 +77,7 @@ The minimization over $\alpha^i$ should be carried while taking $(\alpha^1,\ldot
 \section{Deep Fictitious Play}
 If we were able to solve the latter coupled system of partial differential equations, we would be able to find the strategy that each player must follow to minimize its cost if every other player behaves as expected.  However, this is not an achievable due to the complexity of the system.
 
-Hence, the idea of \textit{fictitius play} was introduced by Brown \cite{brown_notes_1949} to decouple this N-player game into N individual decision problems where opponents' strategies are fixed and assumed to follow their past play. If we solve these problems iteratively using the opponents' strategy  at $(m-1)'s$ stage to compute the optimal strategy at stage $m$, we may find the Nash equilibrium of the system, if it exists. In \cite{han_deep_2020}, each of the individual decision problems is solved using the HJB equation and the deep learning methods we have studied.  
+Hence, the idea of \textit{fictitious play} was introduced by Brown \cite{brown_notes_1949} to decouple this N-player game into N individual decision problems where opponents' strategies are fixed and assumed to follow their past play. If we solve these problems iteratively using the opponents' strategy  at $(m-1)'s$ stage to compute the optimal strategy at stage $m$, we may find the Nash equilibrium of the system, if it exists. In \cite{han_deep_2020}, each of the individual decision problems is solved using the HJB equation and the deep learning methods we have studied.  
 
 To describe this process mathematically, let's denote by $\mathcal{A}^i\subset \bbR^k $ the range player $i$'s strategy $\alpha^i$, and $\mathcal{A}:=\bigotimes_{i=1}^{N}\mathcal{A}^i$ the control space for all agents. Also, denote $\mathcal{A}^{-i}:=\bigotimes_{j\neq i}\mathcal{A}^j$ the control space for all agents by $i$. A similar notation applies for $\mathbb{A}^i$,$\mathbb{A},\mathbb{A}^{-1}$, the sets of measurable functions in which we search for controls.
 
