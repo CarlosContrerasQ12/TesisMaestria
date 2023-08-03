@@ -293,7 +293,7 @@ Finally, we state the next comparison principle for solution of BSDEs
 	Let $(\xi_1,f_1)$ and $(\xi_2,f_2)$ two pairs of terminal conditions and generators satisfying assumptions \ref{ass:BSDEexistence},and let $(Y_{1,t},Z_{1,t})$ and $(Y_{2,t},Z_{2,t})$ the solutions to their corresponding BSDE. Suppose that
 	\begin{enumerate}
 		\item $\xi_1 \leq \xi_2$ a.s
-		\item $f_1(t,Y_{1,t},Z_{1,t})\leq f_2(t,Y_{1,t},Z_{1,t}) $ $dt\times d\mathbb{P}$-a.e 
+		\item $f_1(t,Y_{1,t},Z_{1,t})\leq f_2(t,Y_{1,t},Z_{1,t}) $ $dt\otimes d\mathbb{P}$-a.e 
 		\item $f_2(t,Y_{1,t},Z_{1,t}) \in \mathbb{H}^2(0,T) $
 	\end{enumerate} 
 Then $Y_{1,t}\leq Y_{2,t}$ for all $0\leq t \leq T$, a.s.
@@ -331,8 +331,8 @@ where $\Gamma_t$ satisfies
 Note that $\Gamma_t$ is strictly positive. We conclude the stated result using that $\xi_2-\xi_2\geq 0$ by assumption $1)$, and $\bar{f}_t\geq 0$ by assumption $2)$.
 
 \end{proof}
-\subsection{Forward-Backward stochastic differential equations}
-Now we consider a special case of backward stochastic differential equations in which the randomness of the drift enters through a process satisfying a forward stochastic differential equation. In its more general form, the problem is stated as find three processes  $(X_t,Y_t,Z_t)\in\bbR^n\times\bbR^m\times\bbR^{m\times d}$ such that
+\subsection{Markovian Forward-Backward stochastic differential equations}
+Now we consider a special case of backward stochastic differential equations in which the randomness of the drift enters through a process satisfying a forward stochastic differential equation. In its more general form, the problem is stated as find three processes $(X_t)_{t}\in\bbR^n$,$(Y_t)_t\in \bbR^m$ and $(Z_t)_t\in \bbR^{m\times d}$ such that
 \begin{equation}
 	\begin{split}
 		&dX_s=\mu(t,X_s,Y_s,Z_s)ds+\sigma(s,X_s,Y_s,Z_s)dW_s\\
@@ -341,9 +341,9 @@ Now we consider a special case of backward stochastic differential equations in 
 		&Y_T=g(X_T),
 	\end{split}
 \end{equation}  
-for all $t\leq s \leq T$, where $\mu,\sigma$ and $g$ are known functions, and $x$ is the initial condition at starting time $s$. This coupled system is called a forward-backward stochastic differential equation (FBSDE).
+for all $t\leq s \leq T$, where $\mu,\sigma,f$ and $g$ are known functions, and $x$ is the initial condition at starting time $s$. This coupled system is called a forward-backward stochastic differential equation (FBSDE).
 
-This problem is rather difficult, as the coupling between the processes may forbid a solution to exist. There are conditions on $\mu, \sigma,g$ where we can establish the existence and uniqueness of solutions to the former system, but their detailed proof is very technical and thus is not presented here, see \cite{zhang_backward_2017}.
+This problem is rather difficult, as the coupling between the processes may forbid a solution to exist. There are conditions on $\mu, \sigma,g,f$ where we can establish the existence and uniqueness of solutions to the former system, but their detailed proof is very technical and thus is not presented here, see \cite{zhang_backward_2017}.
 
 However, we can say something simpler about the decoupled case   
 \begin{equation}
@@ -357,19 +357,19 @@ However, we can say something simpler about the decoupled case
 \end{equation}
 for all $t\leq s\leq T$.  
 
-In this case, if $\mu$ and $\sigma$ satisfy enough regularity conditions to ensure that a solution to the forward SDE in \eqref{eqn:Uncoupled} exists, for example, if they are Lipschitz and bounded, then we can solve it for the process $X_t$ and insert the solution into the backward equation in \ref{eqn:Uncoupled} and solve for the backward process. However, the main property of FBSDEs is that the solution process $(Y,Z)$ of the BSDE can be written as a deterministic function of time and the state process, in this case the solution is said to be \textit{markovian}. 
+In this case, if $\mu$ and $\sigma$ satisfy enough regularity conditions to ensure that a solution to the forward SDE in \eqref{eqn:Uncoupled} exists, for example, if they are Lipschitz and bounded, then we can solve it for the process $X$ and insert the solution into the backward equation in \ref{eqn:Uncoupled} and solve for the backward process. However, the main property of FBSDEs is that the solution process $(Y,Z)$ of the BSDE can be written as a deterministic function of time and the state process, in this case the solution is said to be \textit{markovian}. 
 
 Let's establish this assertions in the following theorem. 
 
 
 \begin{assumptions}
 	\label{ass:FBSDEexistence}
-	Let $(\mu,\sigma,f,g)$. There exist a constant $C>0$ such that for all $x,y,t$
+	Let $(\mu,\sigma,f,g)$. There exist a constant $C>0$ such that for all $x\in \bbR^n$,$y\in \bbR^m$,$t\in\bbR^{+}$
 	\begin{enumerate}[I.]
 		\item $|\mu(t,x)-\mu(t,y)|+|\sigma(t,x)-\sigma(t,y)|\leq C(1+|x-y|)$
 		\item $|f(t,x,y_1,z_1)-f(t,x,y_2,z_2)|\leq C(|y_1-y_2|+|z_1-z_2|)$
 		\item $|\sigma(t,x)|+|\mu(t,x)|\leq C(1+|x|)$
-		\item $|f(t,x,y,z)|+|g(x)|\leq C(1+|x|^p)$ para $p\geq\frac{1}{2}$
+		\item $|f(t,x,y,z)|+|g(x)|\leq C(1+|x|^p)$ for $p\geq\frac{1}{2}$
 	\end{enumerate}
 \end{assumptions}
 \begin{theorem}[Existence and markovianity of solutions of FBSDEs \cite{el_karoui_backward_1997}]
@@ -427,7 +427,7 @@ Now, for a fixed $T>0$, consider the following parabolic PDE with terminal condi
 \begin{equation}
 	\label{eqn:FKequation}
 	\begin{split}
-		&\dpartial{v}{t}+\mathcal{L}_t v-k(t,x) v+f(t,x)=0\\
+		&\dpartial{v}{t}(t,x)+(\mathcal{L} v)(t,x)-k(t,x) v(t,x)+f(t,x)=0\\
 		&v(T,x)=g(x),
 	\end{split}
 \end{equation}
@@ -435,7 +435,7 @@ where $f(x,t)$ and $g(x)$ are some $\bbR$-valued continuous functions, $k(x,t)$ 
 \begin{equation}
 	\label{eqn:ininitesimalGen}
 	\begin{split}
-		\mathcal{L}_tv&=\mu(t,x)\cdot D_x v(t,x)+\frac{1}{2}\Tr(\sigma(t,x)\sigma^{T}(t,x)D_{xx}^2v(t,x))\\
+		(\mathcal{L} v)(t,x)&=\mu(t,x)\cdot D_x v(t,x)+\frac{1}{2}\Tr(\sigma(t,x)\sigma^{T}(t,x)D_{xx}^2v(t,x))\\
 		&=\sum_{i=1}^{n}\mu_i(t,x)\dpartial{v}{x_i}(t,x)+\sum_{i,k=1}^{n}a_{i,k}(t,x)\frac{\partial^2 v}{\partial x_i\partial x_k}(t,x),
 	\end{split}
 \end{equation} 
@@ -478,7 +478,7 @@ The linear Feynman-Kac formula establishes a connection between the process sati
 	\begin{equation}
 		\begin{split}
 		e^{-\int_{t}^{T}k(u,X_{u})du}v(T,X_T)&=e^{-\int_{t}^{t}k(u,X_{u})du}v(t,X_t)\\
-		&+\int_{t}^{T}e^{-\int_{t}^{s}k(u,X_{u})du}\left(\dpartial{v}{t}(s,X_s)-k(s,X_s)v(s,K_s)+\mathcal{L}_s v(s,X_s)\right)ds\\
+		&+\int_{t}^{T}e^{-\int_{t}^{s}k(u,X_{u})du}\left(\dpartial{v}{t}(s,X_s)-k(s,X_s)v(s,X_s)+\mathcal{L}_s v(s,X_s)\right)ds\\
 		&+\int_{t}^{T}e^{-\int_{t}^{s}k(u,X_{u})du}D_x v(s,X_s)\cdot \sigma(s,X_s)dW_s\\
 		&=v(t,X_t)-\int_{t}^{T}e^{-\int_{t}^{s}k(u,X_{u})du}f(s,X_s)ds\\
 		&+\int_{t}^{T}e^{-\int_{t}^{s}k(u,X_{u})du}D_x v(s,X_s)\cdot \sigma(s,X_s)dW_s,
@@ -493,7 +493,7 @@ and therefore, using that $X_t=x$, $v(T,X_t)=g(X_T)$ and solving for $v(x,t)$, w
 \end{equation}
 To obtain the desired formula, we take expectation to this expression, and observe that the stochastic integral is a square integrable martingale by assumption \ref{ass:FK} $III$ on $D_x v$, the non-negativity of $k$, the linear growth condition on $\sigma$ and the estimation \ref{thm:estimationSDE}, therefore it's expected value is constant $0$.
 \end{proof}
-Note that we required that equation \eqref{eqn:FKequation} has a classical smooth solution, for which we need some regularity conditions on $\mu$, $\sigma$ and growth conditions on $f$ and $g$ to ensure the uniform ellipticity of $\mathcal{L}_t$. Also note, that assumptions \ref{ass:FK} are rather restrictive, especially the boundedness of $D_x$, but can be relaxed imposing some quadratic growth condition on $v$ and additional growth condition on $f$ and $g$. However, even if there is no smooth solution to this problem, the Feynman-Kac formula may provide a solution with other meaning, which will be named a viscosity solution and will be defined in what follows.
+Note that we required that equation \eqref{eqn:FKequation} has a classical smooth solution, for which we need some regularity conditions on $\mu$, $\sigma$ and growth conditions on $f$ and $g$ to ensure the uniform ellipticity of $\mathcal{L}_t$. Also note, that assumptions \ref{ass:FK} are rather restrictive, especially the boundedness of $D_x$, but can be relaxed imposing some quadratic growth condition on $v$ and additional growth condition on $f$ and $g$. However, even if there is no smooth solution to this problem, the Feynman-Kac formula may provide a solution with other meaning, which will be named a viscosity solution and will be defined in section 2.2.2.
 
 In addition, this formula is useful for approximating solutions $v(t,x)$ to PDEs of the form \eqref{eqn:FKequation}, even in high dimensions, where classical methods fails because of the \textit{curse of dimensionality}. This expected value can be approximated by Monte-Carlo simulation using sample paths, \hlc[Sure?]{whose rate of convergence is independent on the dimension $n$ of the underlying process}. However, its use is limited to linear equations that may not be useful for certain problems.
 
@@ -532,11 +532,11 @@ Now we deal with a more general PDE than \eqref{eqn:FKequation}. We consider, fo
 \begin{equation}
 	\label{eqn:FKNolineal}
 		\begin{split}
-			&\dpartial{v}{t}(t,x)+\mathcal{L}_t v(t,x)+f(t,x,v(t,x),\sigma(t,x)' D_x v(t,x))=0\\
+			&\dpartial{v}{t}(t,x)+\mathcal{L} v(t,x)+f(t,x,v(t,x),\sigma(t,x)' D_x v(t,x))=0\\
 			&v(T,x)=g(x),
 		\end{split}
 	\end{equation}
-for all $t\in[0,T]$ and $x\in\bbR^{n}$, and where $f:\bbR\times \bbR^n\times \bbR \times \bbR^d\to \bbR$ is a non-linear function.
+for all $t\in[0,T]$ and $x\in\bbR^{n}$, and where $f:[0,T]\times \bbR^n\times \bbR \times \bbR^d\to \bbR$ is a non-linear function.
 
 We will associate the solution to this problem with a forward-backward stochastic differential equation of the form \eqref{eqn:Uncoupled}. We have an easy association given by the following theorem
 
@@ -560,7 +560,7 @@ is the solution to the backward stochastic differential equation in \ref{eqn:Unc
 and observing that $Y_T=v(T,X_T)=g(X_T)$, we have the first part, as this process is in $\Sspa\times \Hspa$ due to the growth condition of $v$ and $D_x v$.
 \end{proof}
 
-Nevertheless, the reciprocal affirmation y somewhat more complicated. If we have a solution $(Y_t,Z_t)$ to the FBSDE \eqref{eqn:Uncoupled}, not necessarily $v(t,x)=Y_{t}^{t,x}$ will be a classical smooth solution to \eqref{eqn:FKNolineal} as it may not exist due to the non-linearity. Nevertheless, we can define a new weaker notion of solution as follows 
+Nevertheless, the reciprocal affirmation is somewhat more complicated. If we have a solution $(Y,Z)$ to the FBSDE \eqref{eqn:Uncoupled}, not necessarily $v(t,x)=Y_{t}^{t,x}$ will be a classical smooth solution to \eqref{eqn:FKNolineal} as it may not exist due to the non-linearity. Nevertheless, we can define a new weaker notion of solution as follows 
 \begin{definition}
 	Let $v(t,x):\bbR\times \bbR^n\to \bbR$ be a locally bounded continuous function. Then 
 	\begin{itemize}
@@ -580,12 +580,11 @@ In particular, note that this definition does not require the smoothness of $v(t
 With this new concept of solution, we can establish the reverse relation as follows
 \begin{theorem}[Representation theorem \cite{pham_continuous-time_2009}]
 	\label{thm:KFnonReps}
-	\hlc[Poner explicitas las condiciones para la FBSDE]{} Let $(X,Y,Z)$ be the solution to the uncoupled FBSDE \eqref{eqn:Uncoupled} and set $v(t,x)=Y_{t}^{t,x}$. Then, $v$ is a continuous function and is a viscosity solution to \ref{eqn:FKNolineal}.
+	\hlc[Poner explicitas las condiciones para la FBSDE]{} Let $(X,Y,Z)$ be the solution to the uncoupled FBSDE \eqref{eqn:Uncoupled} and set $v(t,x)=Y_{t}^{t,x}$. Then, $v$ is a continuous function and is a viscosity solution to \eqref{eqn:FKNolineal}.
 \end{theorem}
 \begin{proof}
 	\textit{Step 1: Continuity of $v(t,x)$}: \\
 	Let $(t_1,x_1),(t_2,x_2)\in [0,T]\times \bbR^n$, with $t_1\leq t_2$. For lighten the notation we write $X_{s}^i=X_s^{t_i,x_i}$, $i=1,2$.
-	
 	\begin{equation}
 		\begin{aligned}
 			\left|Y_t^1-Y_t^2\right|^2= & \left|g\left(X_T^1\right)-g\left(X_T^2\right)\right|^2-\int_t^T\left|Z_s^1-Z_s^2\right|^2 d s \\
@@ -594,18 +593,17 @@ With this new concept of solution, we can establish the reverse relation as foll
 		\end{aligned}
 	\end{equation}
 Then,
-
 \begin{equation}
 	\begin{aligned}
-		& E\left[\left|Y_t^1-Y_t^2\right|^2\right]+E\left[\int_t^T\left|Z_s^1-Z_s^2\right|^2 d s\right] \\
-		= & E\left[\left|g\left(X_T^1\right)-g\left(X_T^2\right)\right|^2\right] \\
-		& +2 E\left[\int_t^T\left(Y_s^1-Y_s^2\right) \cdot\left(f\left(s, X_s^1, Y_s^1, Z_s^1\right)-f\left(s, X_s^2, Y_s^2, Z_s^2\right)\right) d s\right] \\
-		\leq & E\left[\left|g\left(X_T^1\right)-g\left(X_T^2\right)\right|^2\right] \\
+		& \mathbb{E}\left[\left|Y_t^1-Y_t^2\right|^2\right]+\mathbb{E}\left[\int_t^T\left|Z_s^1-Z_s^2\right|^2 d s\right] \\
+		= & \mathbb{E}\left[\left|g\left(X_T^1\right)-g\left(X_T^2\right)\right|^2\right] \\
+		& +2 \mathbb{E}\left[\int_t^T\left(Y_s^1-Y_s^2\right) \cdot\left(f\left(s, X_s^1, Y_s^1, Z_s^1\right)-f\left(s, X_s^2, Y_s^2, Z_s^2\right)\right) d s\right] \\
+		\leq & \mathbb{E}\left[\left|g\left(X_T^1\right)-g\left(X_T^2\right)\right|^2\right] \\
 		& +2 E\left[\int_t^T\left|Y_s^1-Y_s^2\right|\left|f\left(s, X_s^1, Y_s^1, Z_s^1\right)-f\left(s, X_s^2, Y_s^1, Z_s^1\right)\right| d s\right] \\
-		& +2 C_f E\left[\int_t^T\left|Y_s^1-Y_s^2\right|\left(\left|Y_s^1-Y_s^2\right|+\left|Z_s^1-Z_s^2\right|\right) d s\right] \\
-		\leq & E\left[\left|g\left(X_T^1\right)-g\left(X_T^2\right)\right|^2\right] \\
-		& +E\left[\int_t^T\left|f\left(s, X_s^1, Y_s^1, Z_s^1\right)-f\left(s, X_s^2, Y_s^1, Z_s^1\right)\right|^2 d s\right] \\
-		& +\left(1+4 C_f^2\right) E\left[\int_t^T\left|Y_s^1-Y_s^2\right|^2 d s+\frac{1}{2} E \int_t^T\left|Z_s^1-Z_s^2\right|^2 d s\right],
+		& +2 C_f \mathbb{E}\left[\int_t^T\left|Y_s^1-Y_s^2\right|\left(\left|Y_s^1-Y_s^2\right|+\left|Z_s^1-Z_s^2\right|\right) d s\right] \\
+		\leq & \mathbb{E}\left[\left|g\left(X_T^1\right)-g\left(X_T^2\right)\right|^2\right] \\
+		& +\mathbb{E}\left[\int_t^T\left|f\left(s, X_s^1, Y_s^1, Z_s^1\right)-f\left(s, X_s^2, Y_s^1, Z_s^1\right)\right|^2 d s\right] \\
+		& +\left(1+4 C_f^2\right) \mathbb{E}\left[\int_t^T\left|Y_s^1-Y_s^2\right|^2 d s+\frac{1}{2} \mathbb{E} \int_t^T\left|Z_s^1-Z_s^2\right|^2 d s\right],
 	\end{aligned}
 \end{equation}
 
@@ -613,8 +611,8 @@ So, using the Gronwall's lemma we obtain
 
 \begin{equation}
 	\begin{aligned}
-		E\left[\left|Y_t^1-Y_t^2\right|^2\right] \leq & E\left[\left|g\left(X_T^1\right)-g\left(X_T^2\right)\right|^2\right]+E\left[\int_t^T\left|f\left(s, X_s^1, Y_s^1, Z_s^1\right)-f\left(s, X_s^2, Y_s^1, Z_s^1\right)\right|^2 d s\right] \\
-		& +\left(1+4 C_f^2\right) E\left[\int_t^T\left|Y_s^1-Y_s^2\right|^2 d s\right]
+		\mathbb{E}\left[\left|Y_t^1-Y_t^2\right|^2\right] \leq & \mathbb{E}\left[\left|g\left(X_T^1\right)-g\left(X_T^2\right)\right|^2\right]+\mathbb{E}\left[\int_t^T\left|f\left(s, X_s^1, Y_s^1, Z_s^1\right)-f\left(s, X_s^2, Y_s^1, Z_s^1\right)\right|^2 d s\right] \\
+		& +\left(1+4 C_f^2\right) \mathbb{E}\left[\int_t^T\left|Y_s^1-Y_s^2\right|^2 d s\right]
 	\end{aligned}
 \end{equation}
 and, by Gronwall's lemma,

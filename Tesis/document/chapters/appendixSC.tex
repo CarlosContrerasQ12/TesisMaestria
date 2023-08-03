@@ -3,7 +3,7 @@
 %\renewcommand{\thethm}{\arabic{thm}}
 In this appendix we review, without proofs, the basics of stochastic optimal control leading to the Hamilton-Jacobi-Bellman equation used in this work, and give the linear-quadratic regulator as an example of this theory. We follow \cite{pham_continuous-time_2009}.
 \section*{The Hamilton-Jacobi-Bellman Equation}
-Suppose that we want to control a process $X_t\in \bbR^n$ that satisfies a stochastic differential equation driven by $d$-dimensional Brownian motion of the form 
+Suppose that we want to control a process $X\in \bbR^n$ that satisfies a stochastic differential equation driven by $d$-dimensional Brownian motion of the form 
 \begin{equation}
 	\begin{split}
 		&dX_t=\mu(X_t,\alpha_t)dt+\sigma(X_t,\alpha_t)dW_t\\
@@ -14,7 +14,7 @@ with a control function $\alpha_t$ taking values in some admissible space $A$. F
 \begin{equation}
 	J(\alpha_t)=\mathbb{E}\left[\int_{0}^{T}f(s,X_s,\alpha_s) ds +g(X_T)\right].
 \end{equation}
-is maximum over all possible control functions. Here, the function $f$ is called running cost and $g$ is called terminal cost. At any time $t$, we can choose the controller using only information observed before $t$, as we are unable to foretell the future due to the system's randomness. Therefore, we require $\alpha_t$ to be $\mathcal{F}_t$-adapted and define the set of feasible controls as $\mathcal{A}([0,T])=\{\alpha:[0,T]\times \Omega\to A\}$.\hlc[Definir tipos de control morkoviano open,...]{}
+is maximum over all possible control functions. Here, the function $f$ is called running cost and $g$ is called terminal cost. At any time $t$, we can choose the controller using only information observed before $t$, as we are unable to foretell the future due to the system's randomness. Therefore, we require $\alpha_t$ to be $\mathbb{F}$-adapted and define the set of feasible controls as $\mathcal{A}([0,T])=\{\alpha:[0,T]\times \Omega\to A\}$.\hlc[Definir tipos de control morkoviano open,...]{}
 
 A stochastic control problem consists on finding $\hat{\alpha}\in \mathcal{A}([0,T])$ such that
 \begin{equation}
@@ -53,7 +53,7 @@ and can be translated in the following theorem
 \begin{thm}[Stochastic dynamic programming \cite{pham_continuous-time_2009}]
 	For all $0\leq t\leq s\leq T$ and $x\in\bbR^n$ we have that the value function $V(t,x)$ satisfies \hlc[Revisar esto, la s no tiene sentido]{}
 	\begin{equation}
-		V(t,x)=\sup_{\alpha\in \mathcal{A}[t,s]}\expect*{\int_{t}^{s}f(r,X_r^{t,x,\alpha},\alpha_r)dr+V(s,V_s^{t,x,\alpha})},
+		V(t,x)=\sup_{\alpha\in \mathcal{A}[t,s]}\expect*{\int_{t}^{s}f(r,X_r^{t,x,\alpha},\alpha_r)dr+V(s,X_s^{t,x,\alpha})},
 	\end{equation}
 from which a infinitesimal version can be derived, named the Hamilton-Jacobi-Bellman equation 
 \begin{equation}
@@ -102,14 +102,14 @@ Solving this equation the Hamilton-Jacobi-Bellman equation for the function $V(t
 	$$
 	\begin{aligned}
 		-\frac{\partial w}{\partial t}(t, x)-\sup _{a \in A}\left[\mathcal{L}^a w(t, x)+f(t, x, a)\right] & =-\frac{\partial w}{\partial t}(t, x)-\mathcal{L}^{\hat{\alpha}(t, x)} w(t, x)-f(t, x, \hat{\alpha}(t, x)) \\
-		& =0
+		& =0,
 	\end{aligned}
 	$$
 	the $S D E$
 	$$
 	d X_s=\mu\left(X_s, \hat{\alpha}\left(s, X_s\right)\right) d s+\sigma\left(X_s, \hat{\alpha}\left(s, X_s\right)\right) d W_s
 	$$
-	admits a unique solution, denoted by $\hat{X}_s^{t, x}$, given an initial condition $X_t=x$, and the process $\left\{\hat{\alpha}\left(s, \hat{X}_s^{t, x}\right) t \leq s \leq T\right\}$ lies in $\mathcal{A}(t, x)$. Then
+	admits a unique solution, denoted by $\hat{X}_s^{t, x}$, given an initial condition $X_t=x$, and the process $\left(\hat{\alpha} \right)_{t \leq s \leq T}$ lies in $\mathcal{A}(t, x)$. Then
 	$$
 	w=v \quad \text { on }[0, T] \times \mathbb{R}^n,
 	$$
@@ -188,7 +188,7 @@ subject to the final condition
 	u(T,x)=e^{-\frac{\lambda}{\nu} g(x)}.
 \end{equation}
 
-Hence, using the linear Feynman-Kac formula \ref{thm:LinearFK}, we can give a probabilistic explicit representation of the solution as
+Hence, using the linear Feynman-Kac formula \autoref{thm:LinearFK}, we can give a probabilistic explicit representation of the solution as
 \begin{equation}
 	u(t,x)=\expect*{\exp\left(-\frac{\lambda}{\nu} g(x+\sqrt{2\nu}W_{T-t})-\frac{\lambda}{\nu}\int_{t}^{T}F(s,x+\sqrt{2\nu}W_{s-t})ds\right)}
 \end{equation}

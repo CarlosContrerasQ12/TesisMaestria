@@ -4,15 +4,15 @@ Now, when we attempt to solve numerically some particular problem, we need to pl
 
 This is the case for high dimensional PDE's, for which the size of discretization usually scales exponentially with the number of points used for each dimension. For example, if we try to use a finite difference scheme in a $100$-dimensional unit square $[0,1]^{100}$ with $N$ points in each dimension, we would need $N^{100}$ points in total, making it impossible to even store them in a computer. In practice, high dimension can be considered as low as $d>4$, for which traditional methods cannot be used as regularly. This problem is known as the \textit{curse of dimensionality}, a term established by Bellman when considering problems in dynamic programming.
 
-High dimensional PDE's appear in many contexts, such as asset pricing, image denoising, statistical physics, many-body quantum mechanics, optimal control and game theory. Therefore, there is a necessity for numerical methods that are able to overcome this difficulty. Early attempts to solve this kind of problems used the connection between stochastic diffusions and parabolic PDE's, as we seemed in the preceding chapter. In fact, if the PDE is linear, the linear Feynman-Kac \ref{thm:LinearFK} formula can be used to provide an approximate solution by computing the expectation using simulated paths of the process through the  Monte-Carlo approach. The convergence of this formulation is \hlc[Sure?]{independent} of the dimension of the underlying process, and therefore does not suffer from the curse dimensionality.
+High dimensional PDE's appear in many contexts, such as asset pricing, image denoising, statistical physics, many-body quantum mechanics, optimal control and game theory. Therefore, there is a necessity for numerical methods that are able to overcome this difficulty. Early attempts to solve this kind of problems used the connection between stochastic diffusions and parabolic PDE's, as we saw in the preceding chapter. In fact, if the PDE is linear, the linear Feynman-Kac \ref{thm:LinearFK} formula can be used to provide an approximate solution by computing the expectation using simulated paths of the process through the  Monte-Carlo approach. The convergence of this formulation is \hlc[Sure?]{independent} of the dimension of the underlying process, and therefore does not suffer from the curse dimensionality.
 
 Nevertheless, if we try a similar approach using the non-linear Feynman-Kac formula \ref{thm:NonlinealFK} for more general non-linear equations, we would have to deal with solving numerically the associated BSDE. There are numerical methods to approximate the set of solution processes $(X,Y,Z)$, but they are not as simple as an Euler-Maruyama discretization for a forward process. Generally, they require the computation of conditional expectations that almost never are computationally cheap and hence is not a straightforward generalization of the former linear approach. Despite this, some progress has been made under this formulation, see for example \cite{chessari_numerical_nodate}. Other solutions methods are based in fixed point iterations and branching methods \cite{e_algorithms_2022}.
 
 Representing functions in a high dimensional space is a problem encountered in many other areas of applied mathematics. Particularly, in recent times, the analysis and inference on big amounts of data has emerged as the fascinating research area of \textit{machine learning}. Many methods have been proposed for this goal, for example, regression methods, support vector machines and tree methods. Nonetheless, the approach that has encountered more success when trying to approximate high dimensional functions using big amounts of data is deep learning.  In this setting, we parametrize functions using structures that use composition of simpler function for approximate complex ones, these structures are called neural networks. We refer the reader to \cite{higham_deep_2019} for a first exposition of the topic.
 
-The idea of using this neural network parametrization of functions to solve PDE's can be tracked to the 80's, when a perceptron layer approximation was proposed to approximate solutions to PDEs. However, due to the high computational cost of training a neural network, a successful attempt was not achieved until recently\cite{beck_machine_2019}. 
+The idea of using this neural network parametrization of functions to solve PDE's can be tracked to the 80's, when a perceptron layer approximation was proposed to approximate solutions to PDEs. However, due to the high computational cost of training a neural network, a successful attempt was not achieved until recently \cite{beck_machine_2019}. 
 
-This is a very new area of research, for which many open questions remain. Particularly, it is not well understood yet if the curse of dimensionality is solved, even if there is work for certain equations that ensures it. Also, there is not yet a good understanding of why different classes of neural networks are useful to approximate certain functions and how to tune adequately its parameters to do it efficiently. In consequence, even if it is possible to give a convergence proof for certain cases, most algorithms rely on empirical experimentation and heuristic arguments to provide reasonable approximate solutions.    
+This is a very new area of research, for which many open questions remain. Particularly, it is not well understood yet if the curse of dimensionality is solved, even if it is proven for certain equations. Also, there is not yet a good understanding of why different classes of neural networks are useful to approximate certain functions and how to tune adequately its parameters to do it efficiently. In consequence, even if it is possible to give a convergence proof for certain cases, most algorithms rely on empirical experimentation and heuristic arguments to provide reasonable approximate solutions.    
 
 In this chapter we review some of these methods, implement them for toy examples and perform a comparison of speed, accuracy and practical usefulness for solving PDE's.   
 
@@ -30,11 +30,11 @@ that can also be written as
 \begin{equation}
 	\label{eqn:FKNolinealLCh2}
 	\begin{split}
-	&\dpartial{v}{t}(t,x)+\mathcal{L}_t v(t,x)+f(t,x,v(t,x),\sigma(t,x)' D_x v(t,x))=0\\
+	&\dpartial{v}{t}(t,x)+\mathcal{L} v(t,x)+f(t,x,v(t,x),\sigma(t,x)' D_x v(t,x))=0\\
 	&v(T,x)=g(x),
    \end{split}
 \end{equation}
-using the infinitesimal generator $\mathcal{L}_t$ of the forward process $X$ as in \eqref{eqn:ininitesimalGen}.
+using the infinitesimal generator $\mathcal{L}$ of the forward process $X$ as in \eqref{eqn:ininitesimalGen}.
 
 We have proven that we can construct a viscosity solution to this equation by setting $v(t,x)=Y_{t}^{t,x}$, where $Y$ is the solution process to the FBSDE
 \begin{equation}
@@ -66,11 +66,11 @@ and
 \end{equation}
 where $\Delta t_n=t_{n+1}-t_{n}$ and $\Delta W_n\sim \mathcal{N}(0,\Delta t_n)$.
 
-The main idea of this algorithm is to transform the problem in a learning one approximating the unknown product $\sigma\left(t_n, X_{t_n}\right)'D_x u\left(t_n, X_{t_n}\right)$ with a fully coupled neural network for each time step, i.e
+The main idea of this algorithm is to transform the problem in a learning one by approximating the unknown product $\sigma\left(t_n, X_{t_n}\right)'D_x u\left(t_n, X_{t_n}\right)$ with a fully coupled neural network for each time step, i.e
 \begin{equation}
 	\sigma\left(t_n, X_{t_n}\right)'D_x u\left(t_n, X_{t_n}\right) \approx \mathcal{Z}_n(X_{t_n}|\theta_n),
 \end{equation}
-where $\theta_n$ denotes the parameters of the neural network at time $t_n$. Each one of these networks receives as inputs the simulated paths \eqref{eqn:EMForward} and therefore its input layers have $d$ neurons.   Furthermore, the desired solution $v(0,x)$ and its derivative $D_x v(0,x)$ also will be parameters to be learned in the model, it means $v(0,x)\approx \theta_{v_0}$ and $D_x v(0,x)\approx \theta_{D_x v_0}$. Thus, the total set of parameters to be optimized is 
+where $\theta_n$ denotes the parameters of the neural network at time $t_n$. Each one of these networks receives as inputs the simulated paths \eqref{eqn:EMForward} and therefore its input layers have $d$ neurons.   Furthermore, the desired solution $v(0,x)$ and its derivative $D_x v(0,x)$  will be parameters to be learned in the model, it means $v(0,x)\approx \theta_{v_0}$ and $D_x v(0,x)\approx \theta_{D_x v_0}$. Thus, the total set of parameters to be optimized is 
 \begin{equation}
 	\theta=\{\theta_{v_0}, \theta_{D_x v_0},\theta_1,\theta_2,\cdots,\theta_n \}.
 \end{equation}
@@ -102,45 +102,45 @@ where $\xi$ is random variable uniformly distributed on $\Omega$. And it can be 
 	\label{fig:deepbsdemap}
 \end{figure}
 
-The convergence of this algorithm has been proved in \cite{han_convergence_2020} for fully coupled FBSDEs. The assumptions needed are very general, and the proof is rather technical, so for the sake of brevity, we only state some imprecise results.
+The convergence of this algorithm has been proved in \cite{han_convergence_2020} for fully coupled FBSDEs. The assumptions needed are very general, and the proof is rather technical, so for the sake of brevity, we only state some results without proof.
 
-Denote by $X_t,Y_t,Z_t$ the exact solution to the FBSDE \eqref{eqn:UncoupledCh2}, and by $X_{t_i}^\pi,Y_{t_i}^\pi,Y_{t_i}^\pi$ the discrete solution to the constrained optimization problem \eqref{eqn:constrainedDeepBSDE}. Also, let's denote $h=\max_{i}\Delta t_i$. The first result states that the simulation error can be bounded through the value of the loss function \eqref{eqn:lossDeepBSDE}.
+Denote by $X,Y,Z$ the exact solution to the FBSDE \eqref{eqn:UncoupledCh2}, and by $X^\pi,Y^\pi,Y^\pi$ the discrete solution to the constrained optimization problem \eqref{eqn:constrainedDeepBSDE}. Also, let's denote $h:=\max_{i}\Delta t_i$. The first result states that the simulation error can be bounded through the value of the loss function \eqref{eqn:lossDeepBSDE}.
 \begin{theorem}[Error of discretization is bounded by loss function \cite{han_convergence_2020}]
 	Under some assumptions, there exist a constant $C$, independent of $h$, $d$ and $n$, such that for sufficiently small $h$
 	$$
-	\sup _{t \in[0, T]}\left(E\left|X_t-\hat{X}_t^\pi\right|^2+E\left|Y_t-\hat{Y}_t^\pi\right|^2\right)+\int_0^T E\left|Z_t-\hat{Z}_t^\pi\right|^2 \mathrm{~d} t \leq C\left[h+E\left|g\left(X_T^\pi\right)-Y_T^\pi\right|^2\right]
+	\sup _{t \in[0, T]}\left(\mathbb{E}\left|X_t-\hat{X}_t^\pi\right|^2+\mathbb{E}\left|Y_t-\hat{Y}_t^\pi\right|^2\right)+\int_0^T E\left|Z_t-\hat{Z}_t^\pi\right|^2 \mathrm{~d} t \leq C\left[h+\mathbb{E}\left|g\left(X_T^\pi\right)-Y_T^\pi\right|^2\right]
 	$$
 	where $\hat{X}_t^\pi=X_{t_i}^\pi, \hat{Y}_t^\pi=Y_{t_i}^\pi, \hat{Z}_t^\pi=Z_{t_i}^\pi$ for $t \in\left[t_i, t_{i+1}\right)$
 \end{theorem}   
 
-The second result establishes that the optimal value of the loss function can be small if the approximation capability of the family of parametric functions (neural networks) is good enough. Denote by $\mathcal{N}_0'$ and $\{\mathcal{N}_i\}_{0}^{N-1}$ the parametric function spaces generated by neural networks, then we have
+The second result establishes that the optimal value of the loss function can be small if the approximation power of the family of parametric functions (neural networks) is good enough. Denote by $\mathcal{N}_0'$ and $\{\mathcal{N}_i\}_{0}^{N-1}$ the spaces of functions generated by neural networks, then we have the following result
 \begin{theorem}[Optimal loss function is bounded by approximation error \cite{han_convergence_2020}]
 Under some assumptions, there exists a constant $C$, independent of $\Delta t, d$ and $n$, such that for sufficiently small $\Delta t$,
 	$$
 	\begin{aligned}
-		& \inf _{\mu_0^\pi \in \mathcal{N}_0^{\prime}, \phi_i^\pi \in \mathcal{N}_i} E\left|g\left(X_T^\pi\right)-Y_T^\pi\right|^2 \\
-		& \leq C\left\{h+\inf _{\mu_0^\pi \in \mathcal{N}_0^{\prime}, \phi_i^\pi \in \mathcal{N}_i}\left[E\left|Y_0-\mu_0^\pi(\xi)\right|^2\right.\right. \\
-		&\left.\left.+\sum_{i=0}^{N-1} E\left|E\left[\tilde{Z}_{t_i} \mid X_{t_i}^\pi, Y_{t_i}^\pi\right]-\phi_i^\pi\left(X_{t_i}^\pi, Y_{t_i}^\pi\right)\right|^2 h\right]\right\},
+		& \inf _{\mu_0^\pi \in \mathcal{N}_0^{\prime}, \phi_i^\pi \in \mathcal{N}_i} \mathbb{E}\left|g\left(X_T^\pi\right)-Y_T^\pi\right|^2 \\
+		& \leq C\left\{h+\inf _{\mu_0^\pi \in \mathcal{N}_0^{\prime}, \phi_i^\pi \in \mathcal{N}_i}\left[\mathbb{E}\left|Y_0-\mu_0^\pi(\xi)\right|^2\right.\right. \\
+		&\left.\left.+\sum_{i=0}^{N-1} \mathbb{E}\left|\mathbb{E}\left[\tilde{Z}_{t_i} \mid X_{t_i}^\pi, Y_{t_i}^\pi\right]-\phi_i^\pi\left(X_{t_i}^\pi, Y_{t_i}^\pi\right)\right|^2 h\right]\right\},
 	\end{aligned}
 	$$
-	where $\tilde{Z}_{t_i}=h^{-1} E\left[\int_{t_i}^{t_{i+1}} Z_t \mathrm{~d} t \mid \mathcal{F}_{t_i}\right]$. If $\mu$ and $\sigma$ are independent of $Y$, the term $E\left[\tilde{Z}_{t_i} \mid X_{t_i}^\pi, Y_{t_i}^\pi\right]$ can be replaced with $E\left[\tilde{Z}_{t_i} \mid X_{t_i}^\pi\right]$.
+	where $\tilde{Z}_{t_i}:=h^{-1} \mathbb{E}\left[\int_{t_i}^{t_{i+1}} Z_t \mathrm{~d} t \mid \mathcal{F}_{t_i}\right]$. If $\mu$ and $\sigma$ are independent of $Y$, the term $\mathbb{E}\left[\tilde{Z}_{t_i} \mid X_{t_i}^\pi, Y_{t_i}^\pi\right]$ can be replaced with $\mathbb{E}\left[\tilde{Z}_{t_i} \mid X_{t_i}^\pi\right]$.
 \end{theorem}
 
 Neural networks are a promising candidate for such approximation space of functions, as there are results in regard
 to the universal approximation and complexity of neural networks.
 
-Note that, in practice, we cannot minimize exactly the loss function in the space of parametric functions, as the methods we use are generally iterative. Also, it is not known how better is the approximation depending on the width, deep and connections of the neural network, so the capability of approximation is not well understood yet. Therefore, this results only establish the convergence of the method in a general setting and are not useful for estimate the real velocity of convergence, the achievable loss in the training stage, nor the real accuracy of the approximate solution.  
+Note that, in practice, we cannot minimize exactly the loss function in the space of parametric functions, as the methods we use are generally iterative. Also, it is not known how better is the approximation depending on the width, deep and connections of the neural network, so the power of approximation is not well understood yet. Therefore, this results only establish the convergence of the method in a general setting and are not useful for estimate the real velocity of convergence, the achievable loss in the training stage, nor the real accuracy of the approximate solution.  
 
 Now, we highlight the major drawbacks of this method 
 \begin{enumerate}
-	\item The number of neural networks to train grows linearly with the number of time steps in the discretization, making it very computationally costly to use small time steps.
-	\item We only have a full solution at time $t=0$. At intermediate times we only have approximate solutions evaluated on sample paths $v(t,X_t)$. Therefore, we would need many of them to represent accurately the solution in the desired region.
+	\item The number of neural networks to train grows linearly with the number of time steps in the discretization, making it computationally costly to use small time steps.
+	\item We only have a full solution at time $t=0$. At intermediate times we only have approximate solutions evaluated on sample paths $v(t,X_t)$. Therefore, we would need many of them to represent accurately the solution in the complete region.
 	\item Moreover, nothing guarantees that this intermediate steps resembles accurately the real solutions in between steps. This requirement is not well encoded in the loss function.
 	\item The time structure of the problem is not reflected in the separate approximations for each step, at least not directly.
 	\item It may be unstable or converge to saddle points, see \cite{hure_deep_2020}.
 \end{enumerate}     
 
-Moreover, the structure of the neural networks is crucial for the practical convergence of the algorithm. The original work by \cite{han_solving_2018} used fully coupled neural networks with 3 layers, the $relu$ activation function and batch normalization, this structure is represented in figure \ref{fig:FCStructure}. However, many changes can be made to accelerate the process of training or to achieve lower optimal losses. All of them are inspired by practical evidence and currently there is not enough understanding of how to choose theoretically the hyperparameters to reach the best convergence we can. Some of these modifications are explained below.
+Moreover, the structure of the neural networks is crucial for the practical convergence of the algorithm. The original work by \cite{han_solving_2018} used fully coupled neural networks with 3 layers, the $ReLu$ activation function and batch normalization (BN), this structure is represented in figure \ref{fig:FCStructure}. However, many changes can be made to accelerate the process of training or to achieve lower optimal losses. All of them are inspired by practical evidence and currently there is not enough understanding of how to choose theoretically the hyperparameters to reach the best convergence we can. Some of these modifications are explained below.
 
 \begin{figure}[H]
 	\centering
@@ -160,7 +160,7 @@ Moreover, it was noted that using all information available at time $t$, like $Y
 	\label{fig:mergeddeepbsdemap}
 \end{figure}
 
-The structure of the neural network needs to be adapted to this new setup. In this case, the activation functions may be changed for the ELU function and batch normalization was not performed after each layer as the process in no longer stationary. This structure is represented in figure \ref{fig:MergedStructure}.
+The structure of the neural network needs to be adapted to this new setup. In this case, the activation functions may be changed for the ELU function and batch normalization is not performed after each layer as the process in no longer stationary. This structure is represented in figure \ref{fig:MergedStructure}.
 
 \begin{figure}[H]
 	\centering
@@ -208,7 +208,7 @@ Suppose that we have three stochastic particles in the plane, whose common state
 		&X_0=x_0,
 	\end{split} 
 \end{equation} 
-where $\alpha_t$ is a joint control you can select for all particles individually and $\lambda$, $\nu$ are constants representing the strength of the control we exert and the magnitude of noise the particles feel from its environment.  
+where $\alpha$ is a joint control you can select for all particles individually and $\lambda$, $\nu$ are constants representing the strength of the control we exert and the magnitude of noise the particles feel from its environment.  
 
 We wish to bring the three particles to the center of the unit square in the plane at time $T=1.0$, i.e the desired terminal state is $X_t=(0.5,0.5,0.5,0.5,0.5,0.5)$, while trying to avoid that the particles are close to each other during their trajectories. Thus, we will try to choose $\alpha_t$ to minimize the cost
 \begin{equation}
@@ -226,7 +226,7 @@ with $C,\sigma$ fixed constants, and we also model the desired terminal conditio
 Therefore, as described in \autoref{chp:ApendixStochasticControl}, to solve this problem we may try to solve the Hamilton-Jacobi-Bellman equation for the value function $V(t,x)$
 \begin{equation}
 	\label{eqn:HJB_example}
-	\dpartial{V}{t}+\nu \Delta V -\lambda |\nabla V|^2+F(t,x)=0
+	\dpartial{V}{t}+\nu D_{xx} V -\lambda | D_x V|^2+F(t,x)=0
 \end{equation}
 subject to the terminal condition 
 \begin{equation}
@@ -273,7 +273,7 @@ For the Raissi's method we used a 4 layer fully coupled neural network with 15 n
 
 In \autoref{fig:Accuracy}, we depict the training error with respect to the exact solution at the point $x=(0.5,0.5,0.5,0.5,0.5,0.5)$ at $t=0$, obtained using the formula \eqref{eqn:probabilisticExact} with 20000 sample paths, for those four methods. Note the instability that may occur when changing the network structure in the case of the merged residual method, but also the speed of convergence that can be achieved when it is well chosen, as in the case of merged fully coupled method. Note also that the number of training stages do not reflect efficiently the time needed to compute the solution, as in our case the Raissi's method took much longer to achieve that accuracy, probably due to the need of use automatic differentiation for computing the gradients in the FBSDE discretization. 
  
-  In  \autoref{fig:solution_path}, an optimal controlled path is shown. Note that the particles try to reach the center of the unit square, but as the get closer, the cost associated running for proximity increments, thus it is not effective to continue advancing to the center. Hence, each particle will try to stay the closest possible to the center at final time, while avoiding being near each other. 
+  In  \autoref{fig:solution_path}, an optimal controlled path is shown using the deep merged solution. Note that the particles try to reach the center of the unit square, but as the get closer, the cost associated running for proximity increments, thus it is not effective to continue advancing to the center. Hence, each particle will try to stay the closest possible to the center at final time, while avoiding being near each other. 
   \begin{figure}[htb!]		
  		\includegraphics[width=\linewidth]{images/OptimalLQRCentrilized.png}
  		\caption{Optimal controlled sampled path}
@@ -302,10 +302,10 @@ with terminal condition
 and Dirichlet and Neumman conditions
 \begin{align}
 	&v(t,x)=h_d(x) \quad \forall x\in \Gamma_D \text{ and } \forall t\in[0,T] \label{eqn:DirichletBoundary}\\
-	&\dpartial{v}{n}(t,x)=h_n(x) \quad \forall x\in \Gamma_N \text{ and } \forall t\in[0,T] \label{eqn:NeumanBoundary},
+	&\dpartial{v}{\vec{n}}(t,x)=h_n(x) \quad \forall x\in \Gamma_N \text{ and } \forall t\in[0,T] \label{eqn:NeumanBoundary},
 \end{align}
 \end{subequations}
-where $\Omega$ is a bounded domain, regular enough for a solution to exist, and $\Gamma_D \dot{\cup} \Gamma_N=\partial \Omega$. Here again $\mathcal{L}$ represents the infinitesimal generator of the process $X$ that is solution to \eqref{eqn:UncoupledCh2}. 
+where $\Omega$ is a bounded domain, regular enough for a solution to exist, with exterior normal vector $\vec{n}$ and $\Gamma_D \dot{\cup} \Gamma_N=\partial \Omega$. Here again $\mathcal{L}$ represents the infinitesimal generator of the process $X$ that is solution to \eqref{eqn:UncoupledCh2}. 
 
 We will assume the following
 \begin{assumptions}
@@ -357,12 +357,12 @@ and, inspired in this relation for the interior process and the forcing of bound
 where
 \begin{equation}
 	\begin{aligned}
-		& \mathcal{L}_{\text {diff,int }}^{\mathrm{t}}(\varphi)=\mathbb{E}\left[\left(\varphi\left(\mathcal{T},X_{\mathcal{T}} \right)-\varphi\left(t_0,X_{t_0}\right)-\int_{t_0}^{\mathcal{T}} \sigma^{\top} \nabla \varphi\left(s,X_s\right) \cdot \mathrm{d} W_s\right.\right. \\
+		& \mathcal{L}_{\text {diff,int }}^{\mathrm{t}}(\varphi):=\mathbb{E}\left[\left(\varphi\left(\mathcal{T},X_{\mathcal{T}} \right)-\varphi\left(t_0,X_{t_0}\right)-\int_{t_0}^{\mathcal{T}} \sigma^{\top} \nabla \varphi\left(s,X_s\right) \cdot \mathrm{d} W_s\right.\right. \\
 		& \left.\left.+\int_{t_0}^{\mathcal{T}} f\left(s,X_s, \varphi\left(s,X_s\right), \sigma^{\top} \nabla \varphi\left(s,X_s\right)\right) \mathrm{d} s\right)^2\right] \text {, } \\
-		& \mathcal{L}_{\text {diff,T }}^{\mathrm{t}}(\varphi)=\mathbb{E}\left[\left(\varphi\left(T,X^{(T)}\right)-g\left(X^{(T)}\right)\right)^2\right] \\
-		& \mathcal{L}_{\text {diff, } \mathrm{d}}^{\mathrm{t}}(\varphi)=\mathbb{E}\left[\left(\varphi\left(t^{\mathrm{d}},X^{\mathrm{d}}\right)-h_d\left(t^{\mathrm{d}},X^{\mathrm{d}}\right)\right)^2\right], \\
+		& \mathcal{L}_{\text {diff,T }}^{\mathrm{t}}(\varphi):=\mathbb{E}\left[\left(\varphi\left(T,X^{(T)}\right)-g\left(X^{(T)}\right)\right)^2\right] \\
+		& \mathcal{L}_{\text {diff, } \mathrm{d}}^{\mathrm{t}}(\varphi):=\mathbb{E}\left[\left(\varphi\left(t^{\mathrm{d}},X^{\mathrm{d}}\right)-h_d\left(t^{\mathrm{d}},X^{\mathrm{d}}\right)\right)^2\right], \\
 		&
-		\mathcal{L}_{\text {diff, } \mathrm{n}}^{\mathrm{t}}(\varphi)=\mathbb{E}\left[\left(D_x\varphi\left(t^{\mathrm{n}},X^{\mathrm{n}} \right)-h_n\left(t^{\mathrm{n}},X^{\mathrm{n}}\right)\right)^2\right]. \\
+		\mathcal{L}_{\text {diff, } \mathrm{n}}^{\mathrm{t}}(\varphi):=\mathbb{E}\left[\left(D_x\varphi\left(t^{\mathrm{n}},X^{\mathrm{n}} \right)-h_n\left(t^{\mathrm{n}},X^{\mathrm{n}}\right)\right)^2\right]. \\
 	\end{aligned}
 \end{equation}
 
@@ -372,14 +372,13 @@ In this case, the data inside the domain is not sampled as points with distribut
 
 Now, let's prove that this loss function is indeed suitable for the problem \eqref{eqn:PDEBoundaryCh2}.
 \begin{theorem}[\cite{nusken_interpolating_2023}]
-	Let $\mathcal{F}\subset C^{1,2}([0,t]\times \Omega) \cap C(\bar{\Omega} \times [0,T])$ be the function space of neural networks. Then, under assumptions \ref{ass:FBSDEexistence} and \ref{ass:BoundaryExistence}, for $\varphi\in \mathcal{F}$, the following are equivalent
+	Let $\mathcal{F}\subset C^{1,2}([0,T]\times \Omega) \cap C([0,T]\times \bar{\Omega})$ be the function space of neural networks. Then, under assumptions \ref{ass:FBSDEexistence} and \ref{ass:BoundaryExistence}, for $\varphi\in \mathcal{F}$, the following are equivalent
 	\begin{enumerate}[I.]
 		\item $\varphi$ fulfills the boundary value problem
 		\item The difussion loss vanishes on $\varphi$ 
 		\begin{equation}
 			\mathcal{L}_{\text{diff}}^{\mathrm{t}}(\varphi)=0
 		\end{equation}
-	 \eqref{eqn:PDEBoundaryCh2}.
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -395,10 +394,10 @@ $II \implies I)$ Observe that $\mathcal{L}_{\text{diff,int}}^{\mathrm{t}}(\varph
 	\label{eqn:itoPhi}
 	\varphi(\mathcal{T},X_\mathcal{T})=\varphi(0,X_0)+\int_{t_0}^{\mathcal{T}}\sigma'D_x\varphi(s,X_s)\cdot dW_s-\int_{t_0}^{\mathcal{T}}f(s,X_s \varphi(s,X_s),\sigma' D_x \varphi(s,X_s))ds,
 \end{equation}
-almost surely, and note that the same holds for $\phi$ replaced by $v$ \eqref{eqn:itoV}. Now, define the processes $\tilde{Y}_s=\phi(s,X_s)$,$\tilde{Z}_s=\sigma'D_x \phi(s,X_s)$ and $Y_s=v(s,X_s)$,$Z_s=\sigma'D_x v(s,X_s)$. Observe that those are $W_{t}-$progressively measurable and square integrable. Moreover, \eqref{eqn:itoPhi} and \eqref{eqn:itoV} means that they satisfy a BSDE with terminal condition $\xi=\varphi(\mathcal{T},X_\mathcal{T})$ on $[t_0,\mathcal{T}]$. Thus, by the uniqueness of solution in \autoref{thm:linearBSDE}, we have that $Y=\tilde{Y}$ and $Z=\tilde{Z}$. Observe also that $v(t_{0},X_{t_0})=Y^{t_0,X_{t_0}}=\tilde{Y}^{t_0,X_{t_0}}=\varphi(t_0,X_{t_0})$. Hence, we conclude that $v=\varphi$ $\nu_{\Omega}\times [0,T]-$ almost surely, and thus $\varphi$ is the solution to \eqref{eqn:PDEBoundaryCh2} using that $\nu_{\Omega\times[0,T]}$ has full support.
+almost surely, and note that the same holds for $\phi$ replaced by $v$ \eqref{eqn:itoV}. Now, define the processes $\tilde{Y}_s=\phi(s,X_s)$,$\tilde{Z}_s=\sigma'D_x \phi(s,X_s)$ and $Y_s=v(s,X_s)$,$Z_s=\sigma'D_x v(s,X_s)$. Observe that those are $\mathcal{F}_{t}-$progressively measurable and square integrable. Moreover, \eqref{eqn:itoPhi} and \eqref{eqn:itoV} means that they satisfy a BSDE with terminal condition $\xi=\varphi(\mathcal{T},X_\mathcal{T})$ on $[t_0,\mathcal{T}]$. Thus, by the uniqueness of solution in \autoref{thm:linearBSDE}, we have that $Y=\tilde{Y}$ and $Z=\tilde{Z}$. Observe also that $v(t_{0},X_{t_0})=Y^{t_0,X_{t_0}}=\tilde{Y}^{t_0,X_{t_0}}=\varphi(t_0,X_{t_0})$. Hence, we conclude that $v=\varphi$ $\nu_{\Omega}\times [0,T]-$ almost surely, and thus $\varphi$ is the solution to \eqref{eqn:PDEBoundaryCh2} using that $\nu_{\Omega\times[0,T]}$ has full support.
 \end{proof}
 
-By the other hand, observe that this diffusion loss, in the case of an unbounded problem, where $\alpha_d=\alpha_n=0$, is an interpolation between the weak BSDE loss defined as
+On the other hand, observe that this diffusion loss, in the case of an unbounded problem, where $\alpha_d=\alpha_n=0$, is an interpolation between the weak BSDE loss defined as
 \begin{equation}
 	\begin{aligned}
 			\mathcal{L}_{BSDE}=\mathbb{E}\Big[\Big(g(X_T)&-\varphi(t_0,X_{t_0})-\int_{t_0}^{T}\sigma'D_x \varphi (s,X_s)\cdot dW_s\\ &+\int_{t_0}^{T}f(s,X_s,\varphi(s,X_s),\sigma'D_x \varphi(s,X_s)ds)\Big)^2\Big]
@@ -406,7 +405,7 @@ By the other hand, observe that this diffusion loss, in the case of an unbounded
 \end{equation}
 and the DGM loss as the following theorem shows.
 \begin{theorem}[\cite{nusken_interpolating_2023}]
-	Let $\phi\in \mathcal{F}$. Assuming that the sampling distributions $\nu_1$ for interior points in the DGM loss and $\nu_{\Omega\times [0,t]}$ for starting points in the BSDE and diffusion losses coincide, then we have 
+	Let $\phi\in \mathcal{F}$, where $\mathcal{F}$ is the space of functions parametrized by neural networks. Assuming that the sampling distributions $\nu_1$ for interior points in the DGM loss and $\nu_{\Omega\times [0,t]}$ for starting points in the BSDE and diffusion losses coincide, then we have 
 	\begin{enumerate}[I.]
 		\item \begin{equation}
 			\frac{\mathcal{L}_{\text{diff, int}}(\varphi)}{\mathrm{t}^2}\to \mathcal{L}_{DGM,int}(\varphi)

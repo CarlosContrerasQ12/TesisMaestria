@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  2 AUG 2023 16:27
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2023.2.18)  2 AUG 2023 22:22
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -836,31 +836,31 @@ Package: blx-case-expl3 2022/07/12 v3.18b expl3 case changing code for biblatex
 (./main.aux)
 \openout1 = main.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 114.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 116.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-14.
+16.
  (/home/carlos/.miktex/texmfs/install/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
 
 (/home/carlos/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -886,7 +886,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 114.
+Package hyperref Info: Link coloring ON on input line 116.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -938,8 +938,8 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
 
 (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 114.
-Package biblatex Info: Reference segment=0 on input line 114.
+Package biblatex Info: Reference section=0 on input line 116.
+Package biblatex Info: Reference segment=0 on input line 116.
  (./titlepage.tex [1
 
 {/home/carlos/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}])
@@ -965,12 +965,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [3]
 Chapter 1.
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 1
-40.
+42.
 (/home/carlos/.miktex/texmfs/install/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 1
-40.
+42.
 
 (/home/carlos/.miktex/texmfs/install/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -987,7 +987,7 @@ Overfull \hbox (13.83426pt too wide) detected at line 275
  []
 
 [9] [10] [11] [12] Excluding 'comment' comment. [13]
-Overfull \hbox (8.48651pt too wide) detected at line 486
+Overfull \hbox (8.25839pt too wide) detected at line 486
 []
  []
 
@@ -997,7 +997,7 @@ Overfull \hbox (3.04167pt too wide) in alignment at lines 485--486
  []
 
 [14] [15] [16] [17]
-Overfull \hbox (22.53984pt too wide) detected at line 619
+Overfull \hbox (18.29678pt too wide) detected at line 617
 [][][][][]
  []
 
@@ -1006,37 +1006,37 @@ Chapter 3.
 (./chapters/chapter03.tex [20
 
 ] [21] [22]
-<images/DeepBSDEMap.png, id=489, 715.67375pt x 246.9225pt>
+<images/DeepBSDEMap.png, id=490, 715.67375pt x 246.9225pt>
 File: images/DeepBSDEMap.png Graphic file (type png)
 <use images/DeepBSDEMap.png>
 Package luatex.def Info: images/DeepBSDEMap.png  used on input line 100.
 (luatex.def)             Requested size: 426.79134pt x 147.25414pt.
  [23<./images/DeepBSDEMap.png>]
-Overfull \hbox (25.29305pt too wide) in paragraph at lines 125--127
-\TU/lmr/m/it/10.95 where $[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 h[]E []$\
-TU/lmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 $ \TU/lmr/m/it/10.95 and $\OML/cmm
-/m/it/10.95 $ \TU/lmr/m/it/10.95 are in-de-pen-dent of $\OML/cmm/m/it/10.95 Y$
-\TU/lmr/m/it/10.95 , the term $\OML/cmm/m/it/10.95 E []$
+Overfull \hbox (25.50601pt too wide) in paragraph at lines 125--127
+\TU/lmr/m/it/10.95 where $[] \OT1/cmr/m/n/10.95 := \OML/cmm/m/it/10.95 h[]\U/ms
+b/m/n/10.95 E []$\TU/lmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 $ \TU/lmr/m/it/1
+0.95 and $\OML/cmm/m/it/10.95 $ \TU/lmr/m/it/10.95 are in-de-pen-dent of $\OML
+/cmm/m/it/10.95 Y$\TU/lmr/m/it/10.95 , the term $\U/msb/m/n/10.95 E []$
  []
 
 [24]
-<images/FCStructure.png, id=519, 137.51375pt x 243.91125pt>
+<images/FCStructure.png, id=520, 137.51375pt x 243.91125pt>
 File: images/FCStructure.png Graphic file (type png)
 <use images/FCStructure.png>
 Package luatex.def Info: images/FCStructure.png  used on input line 147.
 (luatex.def)             Requested size: 170.72931pt x 142.26508pt.
-<images/MergedBSDE.png, id=524, 709.65125pt x 244.915pt>
+<images/MergedBSDE.png, id=525, 709.65125pt x 244.915pt>
 File: images/MergedBSDE.png Graphic file (type png)
 <use images/MergedBSDE.png>
 Package luatex.def Info: images/MergedBSDE.png  used on input line 158.
 (luatex.def)             Requested size: 426.79134pt x 147.29767pt.
  [25<./images/FCStructure.png>]
-<images/MergedStructure.png, id=539, 143.53625pt x 242.9075pt>
+<images/MergedStructure.png, id=540, 143.53625pt x 242.9075pt>
 File: images/MergedStructure.png Graphic file (type png)
 <use images/MergedStructure.png>
 Package luatex.def Info: images/MergedStructure.png  used on input line 167.
 (luatex.def)             Requested size: 170.71825pt x 142.26154pt.
-<images/ResidualMergedStructure.png, id=543, 187.70125pt x 244.915pt>
+<images/ResidualMergedStructure.png, id=544, 187.70125pt x 244.915pt>
 File: images/ResidualMergedStructure.png Graphic file (type png)
 <use images/ResidualMergedStructure.png>
 Package luatex.def Info: images/ResidualMergedStructure.png  used on input line
@@ -1051,12 +1051,12 @@ on in the neu-ral net-work $[] \OT1/cmr/m/n/10.95 = []\OMS/cmsy/m/n/10.95 N\OT1
  []
 
 [27<./images/ResidualMergedStructure.png>] [28]
-<images//training.png, id=585, 462.528pt x 346.896pt>
+<images//training.png, id=586, 462.528pt x 346.896pt>
 File: images//training.png Graphic file (type png)
 <use images//training.png>
 Package luatex.def Info: images//training.png  used on input line 269.
 (luatex.def)             Requested size: 426.79134pt x 320.11154pt.
-<images/OptimalLQRCentrilized.png, id=589, 462.528pt x 346.896pt>
+<images/OptimalLQRCentrilized.png, id=590, 462.528pt x 346.896pt>
 File: images/OptimalLQRCentrilized.png Graphic file (type png)
 <use images/OptimalLQRCentrilized.png>
 Package luatex.def Info: images/OptimalLQRCentrilized.png  used on input line 2
@@ -1064,7 +1064,7 @@ Package luatex.def Info: images/OptimalLQRCentrilized.png  used on input line 2
 (luatex.def)             Requested size: 426.79134pt x 320.11154pt.
  [29] [30<./images//training.png>] [31<./images/OptimalLQRCentrilized.png>] [32
 ] [33] [34]
-Overfull \hbox (20.96161pt too wide) detected at line 424
+Overfull \hbox (20.96161pt too wide) detected at line 423
 [][][]\OMS/cmsy/m/n/10.95 L[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 '\OT1/cmr/
 m/n/10.95 ) = \U/msb/m/n/10.95 E [] []
  []
@@ -1073,28 +1073,28 @@ m/n/10.95 ) = \U/msb/m/n/10.95 E [] []
 <images/pathsInterp.png, id=681, 462.528pt x 346.896pt>
 File: images/pathsInterp.png Graphic file (type png)
 <use images/pathsInterp.png>
-Package luatex.def Info: images/pathsInterp.png  used on input line 439.
+Package luatex.def Info: images/pathsInterp.png  used on input line 438.
 (luatex.def)             Requested size: 384.10959pt x 288.09827pt.
  [36<./images/pathsInterp.png>]
 <images//Interp_training.png, id=695, 462.528pt x 346.896pt>
 File: images//Interp_training.png Graphic file (type png)
 <use images//Interp_training.png>
-Package luatex.def Info: images//Interp_training.png  used on input line 473.
+Package luatex.def Info: images//Interp_training.png  used on input line 472.
 (luatex.def)             Requested size: 202.72849pt x 152.04715pt.
 <images//trainingDGM.png, id=696, 462.528pt x 346.896pt>
 File: images//trainingDGM.png Graphic file (type png)
 <use images//trainingDGM.png>
-Package luatex.def Info: images//trainingDGM.png  used on input line 478.
+Package luatex.def Info: images//trainingDGM.png  used on input line 477.
 (luatex.def)             Requested size: 202.72849pt x 152.04715pt.
 <images//Interp_sol2.png, id=697, 462.528pt x 346.896pt>
 File: images//Interp_sol2.png Graphic file (type png)
 <use images//Interp_sol2.png>
-Package luatex.def Info: images//Interp_sol2.png  used on input line 488.
+Package luatex.def Info: images//Interp_sol2.png  used on input line 487.
 (luatex.def)             Requested size: 426.79134pt x 320.11154pt.
 <images//Sol_DGM.png, id=698, 462.528pt x 346.896pt>
 File: images//Sol_DGM.png Graphic file (type png)
 <use images//Sol_DGM.png>
-Package luatex.def Info: images//Sol_DGM.png  used on input line 494.
+Package luatex.def Info: images//Sol_DGM.png  used on input line 493.
 (luatex.def)             Requested size: 426.79134pt x 320.11154pt.
  [37<./images//Interp_training.png><./images//trainingDGM.png>]
 Overfull \vbox (82.56961pt too high) has occurred while \output is active []
@@ -1142,12 +1142,12 @@ Appendix A.
 
 
 ] [50] [51] [52]) [53]
-Overfull \hbox (6.05995pt too wide) in paragraph at lines 165--165
+Overfull \hbox (6.05995pt too wide) in paragraph at lines 167--167
 \TU/lmr/m/it/10.95 Net-works: Where we are and What’s next\TU/lmr/m/n/10.95 . June 7, 2022. arXiv: [][]$\TU/lmtt/m/n/10.95 2201 . 05624[physics]$[][]\TU/lmr/m/n/10.95 .
  []
 
 
-Overfull \hbox (5.19708pt too wide) in paragraph at lines 165--165
+Overfull \hbox (5.19708pt too wide) in paragraph at lines 167--167
 \TU/lmtt/m/n/10.95 onlinelibrary . wiley . com / doi / 10 . 1002 / gamm . 202100
 006$[][] \TU/lmr/m/n/10.95 (vi-si-ted on 09/26/2022). 
  []
@@ -1155,7 +1155,7 @@ Overfull \hbox (5.19708pt too wide) in paragraph at lines 165--165
 [54
 
 ]
-Overfull \hbox (5.19708pt too wide) in paragraph at lines 165--165
+Overfull \hbox (5.19708pt too wide) in paragraph at lines 167--167
 [][]$\TU/lmtt/m/n/10.95 http : / / link . springer . com / 10 . 1007 / 978 - 1 
 - 4939 - 7256 - 2$[][] \TU/lmr/m/n/10.95 (vi-si-ted on 02/15/2023). 
  []
@@ -1163,13 +1163,13 @@ Overfull \hbox (5.19708pt too wide) in paragraph at lines 165--165
 [55
 Missing character: There is no ӑ (U+04D1) in font [lmroman10-regular]:+tlig;!
 ]
-Overfull \hbox (12.53581pt too wide) in paragraph at lines 165--165
+Overfull \hbox (12.53581pt too wide) in paragraph at lines 167--167
 \TU/lmr/m/it/10.95 High-dimensional Par-tial Dif-fe-ren-tial Equa-ti-ons\TU/lmr
 /m/n/10.95 . Apr. 19, 2018. arXiv: [][]$\TU/lmtt/m/n/10.95 1804 . 07010[cs ,
  []
 
 [56]
-Overfull \hbox (13.1795pt too wide) in paragraph at lines 165--165
+Overfull \hbox (13.1795pt too wide) in paragraph at lines 167--167
 []\TU/lmr/m/n/10.95 Ni-ko-las Nü-sken and Lo-renz Rich-ter. \TU/lmr/m/it/10.95
  Sol-ving high-dimensional Hamilton-Jacobi-Bellman
  []
@@ -1186,7 +1186,7 @@ Here is how much of LuaTeX's memory you used:
  2253 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 3 glue, 4 kern, 1 sub_mlist, 1 glyph, 335 attribute
 , 110 glue_spec, 335 attribute_list, 1 write, 24 pdf_action nodes
-   avail lists: 2:1202,3:559,4:136,5:516,6:168,7:8358,8:114,9:1718,10:16,11:741
+   avail lists: 2:1202,3:559,4:136,5:516,6:168,7:8358,8:114,9:1508,10:17,11:739
  43835 multiletter control sequences out of 65536+600000
  83 fonts using 6244127 bytes
  60i,21n,65p,1997b,1516s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -1221,7 +1221,7 @@ y6.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8
 am10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8
 a.pfb></home/carlos/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (61 pages, 982019 bytes).
+Output written on main.pdf (61 pages, 981717 bytes).
 
 PDF statistics: 1207 PDF objects out of 1440 (max. 8388607)
  350 named destinations out of 1000 (max. 131072)
